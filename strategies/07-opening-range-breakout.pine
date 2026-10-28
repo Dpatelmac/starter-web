@@ -1,0 +1,52 @@
+//@version=6
+// Opening Range Breakout (ORB): mark the high/low of the first 30 minutes of the regular session,
+// trade the first close outside that range, stop at the other side, target = risk x R:R,
+// and flatten before the close. One trade per day.
+// Chart: SPY, 1m-30m (5m is a good start). Times are New York.
+strategy("SPY Opening Range Breakout", overlay = true,
+     initial_capital = 10000, default_qty_type = strategy.percent_of_equity, default_qty_value = 100,
+     commission_type = strategy.commission.percent, commission_value = 0, slippage = 1,
+     process_orders_on_close = true)
+
+orSess     = input.session("0930-1000", "Opening range (NY time)")
+tradeSess  = input.session("1000-1550", "Trading window (NY time)")
+rr         = input.float(2.0, "Reward / risk", minval = 0.5, step = 0.5)
+allowShort = input.bool(true, "Allow shorts")
+
+if not timeframe.isintraday or timeframe.in_seconds() > 1800
+    runtime.error("Opening Range Breakout needs an intraday chart of 30 minutes or less.")
+
+inOR    = not na(time(timeframe.period, orSess, "America/New_York"))
+inTrade = not na(time(timeframe.period, tradeSess, "America/New_York"))
+
+var float orHigh      = na
+var float orLow       = na
+var bool  tradedToday = false
+
+if inOR and not inOR[1]
+    orHigh      := high
+    orLow       := low
+    tradedToday := false
+else if inOR
+    orHigh := math.max(orHigh, high)
+    orLow  := math.min(orLow, low)
+
+canTrade = inTrade and not tradedToday and strategy.position_size == 0 and not na(orHigh)
+
+if canTrade and close > orHigh
+    strategy.entry("ORB Long", strategy.long)
+    strategy.exit("Long exit", "ORB Long", stop = orLow, limit = close + (close - orLow) * rr)
+    tradedToday := true
+else if canTrade and allowShort and close < orLow
+    strategy.entry("ORB Short", strategy.short)
+    strategy.exit("Short exit", "ORB Short", stop = orHigh, limit = close - (orHigh - close) * rr)
+    tradedToday := true
+
+// Flatten on the first bar after the trading window ends.
+if inTrade[1] and not inTrade and strategy.position_size != 0
+    strategy.close_all(comment = "End of day")
+
+showLines = inOR or inTrade
+plot(showLines ? orHigh : na, "OR high", color = color.green, style = plot.style_linebr)
+plot(showLines ? orLow : na, "OR low", color = color.red, style = plot.style_linebr)
+bgcolor(inOR ? color.new(color.blue, 88) : na, title = "Opening range")

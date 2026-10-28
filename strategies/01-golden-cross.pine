@@ -1,0 +1,24 @@
+//@version=6
+// Golden Cross: long when the fast SMA crosses above the slow SMA, flat when it crosses back below.
+// Chart: SPY, 1D. Long only.
+strategy("SPY Golden Cross (50/200 SMA)", overlay = true,
+     initial_capital = 10000, default_qty_type = strategy.percent_of_equity, default_qty_value = 100,
+     commission_type = strategy.commission.percent, commission_value = 0, slippage = 1)
+
+fastLen   = input.int(50, "Fast SMA", minval = 1)
+slowLen   = input.int(200, "Slow SMA", minval = 2)
+startDate = input.time(timestamp("2000-01-01T00:00:00"), "Start date")
+
+inRange = time >= startDate
+fast    = ta.sma(close, fastLen)
+slow    = ta.sma(close, slowLen)
+goldenX = ta.crossover(fast, slow)
+deathX  = ta.crossunder(fast, slow)
+
+if inRange and goldenX
+    strategy.entry("Long", strategy.long)
+if deathX
+    strategy.close("Long", comment = "Death cross")
+
+plot(fast, "Fast SMA", color = color.orange)
+plot(slow, "Slow SMA", color = color.blue, linewidth = 2)

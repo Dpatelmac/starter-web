@@ -1,0 +1,32 @@
+//@version=6
+// RSI(2) mean reversion (Larry Connors style): buy short, sharp dips inside a long-term uptrend.
+// Chart: SPY, 1D. Long only.
+strategy("SPY RSI(2) Mean Reversion", overlay = true,
+     initial_capital = 10000, default_qty_type = strategy.percent_of_equity, default_qty_value = 100,
+     commission_type = strategy.commission.percent, commission_value = 0, slippage = 1)
+
+rsiLen    = input.int(2, "RSI length", minval = 1)
+entryLvl  = input.float(10, "Buy when RSI below", minval = 1, maxval = 50)
+trendLen  = input.int(200, "Trend filter SMA", minval = 2)
+exitLen   = input.int(5, "Exit when close above SMA", minval = 1)
+maxBars   = input.int(10, "Max bars in trade (0 = off)", minval = 0)
+startDate = input.time(timestamp("2000-01-01T00:00:00"), "Start date")
+
+inRange = time >= startDate
+r       = ta.rsi(close, rsiLen)
+trend   = ta.sma(close, trendLen)
+exitMA  = ta.sma(close, exitLen)
+flat    = strategy.position_size == 0
+
+if inRange and flat and close > trend and r < entryLvl
+    strategy.entry("Long", strategy.long)
+
+if strategy.position_size > 0
+    barsIn = bar_index - strategy.opentrades.entry_bar_index(0)
+    if close > exitMA
+        strategy.close("Long", comment = "Close > SMA" + str.tostring(exitLen))
+    else if maxBars > 0 and barsIn >= maxBars
+        strategy.close("Long", comment = "Time stop")
+
+plot(trend, "Trend SMA", color = color.blue, linewidth = 2)
+plot(exitMA, "Exit SMA", color = color.gray)

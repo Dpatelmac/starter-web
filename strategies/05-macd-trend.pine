@@ -1,0 +1,27 @@
+//@version=6
+// MACD trend follower: enter when MACD crosses above its signal line while price is above
+// the 200 EMA; exit on the opposite cross or a close below the EMA.
+// Chart: SPY, 1D or 4H. Long only.
+strategy("SPY MACD + 200 EMA Trend", overlay = true,
+     initial_capital = 10000, default_qty_type = strategy.percent_of_equity, default_qty_value = 100,
+     commission_type = strategy.commission.percent, commission_value = 0, slippage = 1)
+
+fastLen   = input.int(12, "MACD fast", minval = 1)
+slowLen   = input.int(26, "MACD slow", minval = 2)
+sigLen    = input.int(9, "MACD signal", minval = 1)
+emaLen    = input.int(200, "Trend EMA", minval = 2)
+startDate = input.time(timestamp("2000-01-01T00:00:00"), "Start date")
+
+inRange = time >= startDate
+[macdLine, sigLine, hist] = ta.macd(close, fastLen, slowLen, sigLen)
+ema     = ta.ema(close, emaLen)
+crossUp = ta.crossover(macdLine, sigLine)
+crossDn = ta.crossunder(macdLine, sigLine)
+
+if inRange and crossUp and close > ema
+    strategy.entry("Long", strategy.long)
+if strategy.position_size > 0 and (crossDn or close < ema)
+    strategy.close("Long", comment = crossDn ? "MACD cross down" : "Below EMA")
+
+plot(ema, "Trend EMA", color = color.blue, linewidth = 2)
+plotshape(crossUp and close > ema, "MACD up", shape.triangleup, location.belowbar, color.green, size = size.tiny)
