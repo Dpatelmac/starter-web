@@ -65,6 +65,7 @@ wspy = rcsv(DIP / "dashboard" / "weekly_spy.csv")
 mom = json.loads((MOM / "momentum.json").read_text())
 snap = json.loads((MOM / "snapshot.json").read_text())
 pw = json.loads((PW / "putwrite.json").read_text())
+cmp_ = json.loads((Path(__file__).resolve().parent / "results" / "compare.json").read_text())
 
 curves1 = {}
 for r in rcsv(DIP / "dashboard" / "curves.csv"):
@@ -112,14 +113,25 @@ data = {
     "wspy": {r["key"]: {"cagr": num(r["cagr"]), "sharpe": num(r["sharpe"])} for r in wspy},
     "c5": c5,
     "pwyears": pw["stress_years"],
+    "rank": [{"name": k, "short": {
+        "Lead: SPY with 200-day switch (not yet pre-registered)": "SPY + 200-day switch",
+        "4. Weekly pullback portfolio (top 20, buffer)": "Weekly pullback portfolio",
+        "Benchmark: 50/50 SPY / T-bills": "50/50 SPY/T-bills", "Benchmark: SPY buy & hold": "SPY",
+        "5a. Plain top-20 momentum (no risk controls)": "Plain momentum",
+        "3. Weekly pullback, daily entries (5-day hold)": "Pullback, daily",
+        "5. Regime-gated momentum (full strategy D)": "Regime momentum",
+        "6. Put-write layer (CBOE PutWrite index)": "Put-write",
+        "2. Oversold in a selloff (holdout rule, 3-day)": "Oversold rule",
+        "1. Buy every 2% drop (3-day hold)": "Every 2% drop"}.get(k, k), "cagr": v["cagr"], "dd": v["max_dd"], "sharpe": v["sharpe"], "win": v["month_win"],
+              "bench": k.startswith("Benchmark"), "lead": k.startswith("Lead")} for k, v in cmp_.items()],
 }
 
 # ---------------------------------------------------------------- tables
-def table(cols: list[str], rows: list[list], cls: str = "") -> str:
-    th = "".join(f"<th{' class=\"t\"' if i == 0 else ''}>{escape(c)}</th>" for i, c in enumerate(cols))
+def table(cols: list[str], rows: list[list], cls: str = "", text_cols: tuple = (0,)) -> str:
+    th = "".join(f"<th{' class=\"t\"' if i in text_cols else ''}>{escape(c)}</th>" for i, c in enumerate(cols))
     body = ""
     for r in rows:
-        body += "<tr>" + "".join(f"<td{' class=\"t\"' if i == 0 else ''}>{c}</td>" for i, c in enumerate(r)) + "</tr>"
+        body += "<tr>" + "".join(f"<td{' class=\"t\"' if i in text_cols else ''}>{c}</td>" for i, c in enumerate(r)) + "</tr>"
     return f'<div class="tw"><table class="{cls}"><thead><tr>{th}</tr></thead><tbody>{body}</tbody></table></div>'
 
 
@@ -160,6 +172,35 @@ xy = pw["xyld_check"]
 
 h3 = head[3]
 mt = mom["target"]
+
+SHORT = {
+    "Lead: SPY with 200-day switch (not yet pre-registered)": "SPY + 200-day switch <span class='muted'>(lead, not yet pre-registered)</span>",
+    "4. Weekly pullback portfolio (top 20, buffer)": "Weekly pullback portfolio (test 4)",
+    "Benchmark: 50/50 SPY / T-bills": "<i>50/50 SPY / T-bills (benchmark)</i>",
+    "Benchmark: SPY buy & hold": "<i>SPY buy &amp; hold (benchmark)</i>",
+    "5a. Plain top-20 momentum (no risk controls)": "Plain top-20 momentum",
+    "3. Weekly pullback, daily entries (5-day hold)": "Pullback, daily entries (test 3)",
+    "5. Regime-gated momentum (full strategy D)": "Regime-gated momentum (test 5)",
+    "6. Put-write layer (CBOE PutWrite index)": "Put-write layer (test 6)",
+    "2. Oversold in a selloff (holdout rule, 3-day)": "Oversold-in-a-selloff rule (test 2)",
+    "1. Buy every 2% drop (3-day hold)": "Buy every 2% drop (test 1)",
+}
+ranked = sorted(cmp_.items(), key=lambda kv: -kv[1]["sharpe"])
+strats = {k: v for k, v in cmp_.items() if not k.startswith("Benchmark")}
+best_cagr = max(strats.items(), key=lambda kv: kv[1]["cagr"])
+best_win = max(strats.items(), key=lambda kv: kv[1]["month_win"])
+best_dd = max(strats.items(), key=lambda kv: kv[1]["max_dd"])
+best_trade = max(((k, v) for k, v in strats.items() if v.get("trade_win") is not None), key=lambda kv: kv[1]["trade_win"])
+best_sh = max(strats.items(), key=lambda kv: kv[1]["sharpe"])
+rank_rows, n = [], 0
+for k, v in ranked:
+    isb = k.startswith("Benchmark")
+    if not isb:
+        n += 1
+    rank_rows.append(["–" if isb else str(n), SHORT.get(k, escape(k)), pct(v["cagr"]), f2(v["sharpe"]), pct(v["max_dd"], 0),
+                      pct(v["month_win"], 0), pct(v["trade_win"]) if v.get("trade_win") is not None else "–", f"${v['growth_of_1']:.2f}"])
+t_rank = table(["Rank", "Strategy", "Yearly return", "Sharpe", "Worst fall", "Months positive", "Winning trades", "$1 grew to"], rank_rows, "pick1", text_cols=(1,))
+nm = lambda k: SHORT.get(k, k).split(" <span")[0].replace("<i>", "").replace("</i>", "")
 
 # ---------------------------------------------------------------- page
 CSS = r"""
@@ -263,6 +304,21 @@ function hbars(id,rows,keys,fmt){const per=14*keys.length+22,H=rows.length*per+2
   r.bars.forEach((b,j)=>{const rr=el('rect',{x:Math.min(x(0),x(b.v)),width:Math.max(1,Math.abs(x(b.v)-x(0))),y:top+j*14,height:11,rx:2,class:b.cls},s);tip(rr,`${r.label} · ${b.name}: ${fmt(b.v)} (t ${F2(b.t)})`)})})}
 function seg(attr,cb){const bs=document.querySelectorAll(`[${attr}]`);bs.forEach(b=>b.addEventListener('click',()=>{bs.forEach(o=>o.setAttribute('aria-pressed',String(o===b)));cb(b.getAttribute(attr))}))}
 
+// Ranking: return vs worst fall
+(function(){const H=340,sv=svg('c-rank',H),L=50,R=W-12,T=26,B=H-34;const pts=D.rank;
+ const xs=pts.map(p=>p.dd),ys=pts.map(p=>p.cagr);const xt=ticks(Math.min(...xs)*1.12,0,6),yt=ticks(Math.min(0,...ys),Math.max(...ys)*1.1,5);
+ const x0=Math.min(xt[0],Math.min(...xs)*1.1);const x=lin(x0,0,L+8,R),y=lin(yt[0],yt[yt.length-1],B,T);
+ yaxis(sv,y,yt,P(0,false),L,R);xt.forEach(t=>tx(sv,x(t),B+16,P(0,false)(t),{'text-anchor':'middle'}));
+ tx(sv,R,H-2,'Worst fall (closer to 0% is better) →',{'text-anchor':'end'});tx(sv,L,12,'↑ Yearly return');
+ const labs=pts.map(p=>({p,x:x(p.dd)+9,y:y(p.cagr)+4,w:p.short.length*6.4}));
+ labs.sort((a,b)=>a.y-b.y);
+ for(let i=0;i<labs.length;i++)for(let j=0;j<i;j++){const a=labs[j],b=labs[i];
+   if(b.x<a.x+a.w+4&&a.x<b.x+b.w+4&&b.y-a.y<13)b.y=a.y+13}
+ labs.forEach(l=>{const p=l.p,cx=x(p.dd),cy=y(p.cagr);
+  if(Math.abs(l.y-4-cy)>2)el('line',{x1:cx+6,y1:cy,x2:l.x-2,y2:l.y-4,class:'grid'},sv);
+  const c=el('circle',{cx,cy,r:6,class:p.bench?'fm':(p.lead?'f2':'f0')},sv);
+  tip(c,`${p.name}: ${P(1)(p.cagr)} a year, worst fall ${P(0)(p.dd)}, Sharpe ${F2(p.sharpe)}, months positive ${P(0)(p.win)}`);
+  tx(sv,l.x,l.y,p.short,{class:'st'})});})();
 // Test 1
 bars('c-head',D.head.map(r=>`Hold ${r.hold} day${r.hold>1?'s':''}`),[{name:'After a drop',cls:'f0',values:D.head.map(r=>r.dip)},{name:'Same stocks, any day',cls:'fm',values:D.head.map(r=>r.any)},{name:'Edge',cls:'f1',values:D.head.map(r=>r.edge)}],P(1,false));
 lines('c-curve1',D.c1.map((c,i)=>Object.assign({cls:c.name==='SPY'?'km':'k'+(i%4)},c)),{endfmt:v=>'$'+v.toFixed(2)});
@@ -319,7 +375,7 @@ body = f"""
 <header id="top">
   <h1>Trading research notebook</h1>
   <p class="lede">Six strategy ideas tested on 22+ years of US market data, each with trading costs and a fair out-of-sample check, plus a review of your paper portfolio. Every number below comes from the saved results of the scripts in <code>research/</code>; assumptions are labelled. Data through {snap['as_of']}.</p>
-  <nav class="toc"><a href="#portfolio">Portfolio and market</a><a href="#words">Words used</a><a href="#t1">1 · 2% drops</a><a href="#t2">2 · Holdout</a><a href="#t3">3 · Drop sizes</a><a href="#t4">4 · Weekly pullbacks</a><a href="#t5">5 · Momentum</a><a href="#t6">6 · Put-writing</a><a href="#now">Recommendation</a></nav>
+  <nav class="toc"><a href="#ranking">Ranking</a><a href="#portfolio">Portfolio and market</a><a href="#words">Words used</a><a href="#t1">1 · 2% drops</a><a href="#t2">2 · Holdout</a><a href="#t3">3 · Drop sizes</a><a href="#t4">4 · Weekly pullbacks</a><a href="#t5">5 · Momentum</a><a href="#t6">6 · Put-writing</a><a href="#now">Recommendation</a></nav>
 </header>
 
 <div class="steps">
@@ -330,6 +386,23 @@ body = f"""
   <a class="step" href="#t5"><span class="n">Test 5</span><span class="q">Regime-gated momentum portfolio</span><span class="pill bad">Failed</span><span class="small muted">Sharpe {f2(d_now['S&P 2016-26']['5bps']['sharpe'])} vs SPY {f2(mom['spy']['S&P 2016-26']['sharpe'])} in 2016–26.</span></a>
   <a class="step" href="#t6"><span class="n">Test 6</span><span class="q">Put-write income layer on idle cash</span><span class="pill bad">Failed</span><span class="small muted">Lost to SPY and a 50/50 mix on Sharpe after 2007, after tax.</span></a>
 </div>
+
+<section class="ch" id="ranking">
+  <span class="kick">High-level summary</span><h2>Which strategy is best? All of them side by side</h2>
+  <p>No strategy wins on profit, win rate and drawdown at once; each wins at most one. Measured the same way for all: Jan 2005 to Oct 2026, 5 bps per side, before tax, ranked by Sharpe (return per unit of risk).</p>
+  <div class="tiles">
+    <div class="tile"><span class="l">Most profit</span><span class="v">{pct(best_cagr[1]['cagr'])}</span><span class="s">{nm(best_cagr[0])}; worst fall {pct(best_cagr[1]['max_dd'], 0)}, and it failed on new stocks</span></div>
+    <div class="tile"><span class="l">Most months positive</span><span class="v">{pct(best_win[1]['month_win'], 0)}</span><span class="s">{nm(best_win[0])}; {pct(best_win[1]['cagr'])} a year</span></div>
+    <div class="tile"><span class="l">Most winning trades</span><span class="v">{pct(best_trade[1]['trade_win'])}</span><span class="s">{nm(best_trade[0])}; only {pct(best_trade[1]['cagr'])} a year</span></div>
+    <div class="tile"><span class="l">Smallest worst fall</span><span class="v">{pct(best_dd[1]['max_dd'], 0)}</span><span class="s">{nm(best_dd[0])}; SPY fell {pct(cmp_['Benchmark: SPY buy & hold']['max_dd'], 0)}</span></div>
+    <div class="tile"><span class="l">Best balance (Sharpe)</span><span class="v">{f2(best_sh[1]['sharpe'])}</span><span class="s">{nm(best_sh[0])}; SPY {f2(cmp_['Benchmark: SPY buy & hold']['sharpe'])}</span></div>
+  </div>
+  <div class="card"><h3>Ranking</h3>{t_rank}
+    <p class="small muted">Worst fall is measured on daily values. Winning trades only applies to strategies with discrete trades, after a 0.10% round-trip cost. Missing bankrupt and acquired stocks flatter the stock-picking strategies, test 4 most of all.</p></div>
+  <div class="card"><h3>Return vs worst fall</h3><p class="small muted">Up and to the right is better: more return for a smaller worst fall. Hover a dot for its numbers.</p>
+    {legend([('Tested strategy','b0'),('Lead, not yet pre-registered','b2'),('Benchmark','bm')])}<div class="chart" id="c-rank"></div></div>
+  <div class="verdict warn"><b>Best balance: SPY with a 200-day switch</b>, holding T-bills whenever SPY is below its 200-day average. It has the highest Sharpe and the smallest worst fall, but it gave up some profit ({pct(best_sh[1]['cagr'])} vs SPY's {pct(cmp_['Benchmark: SPY buy & hold']['cagr'])} a year) and hasn't passed its own pre-registered test yet. Current recommendation stays: hold, no new trades.</div>
+</section>
 
 <section class="ch" id="portfolio">
   <span class="kick">Starting point</span><h2>Your paper portfolio and the market</h2>
@@ -474,7 +547,8 @@ body = f"""
     <li>Daily prices from Yahoo Finance (adjusted for splits and dividends); index membership from Wikipedia; T-bill yield ^IRX.</li>
     <li>Trades buy at the next open after a signal; costs charged on traded value; cash earns T-bills where stated.</li>
     <li>Tests 2, 4, 5 and 6 were committed to git before running. Stocks that went bankrupt or were acquired are missing from the data, which flatters stock-picking results.</li>
-    <li>Code: <code>research/dip_rebound</code>, <code>research/momentum_regime</code>, <code>research/putwrite</code>; this page: <code>research/report/build_report.py</code>.</li></ul></div>
+    <li>Code: <code>research/dip_rebound</code>, <code>research/momentum_regime</code>, <code>research/putwrite</code>; this page: <code>research/report/build_report.py</code>.</li>
+    <li>Local research home: <code>/Users/claud/Documents/1Projects/tradingbot2/research</code> (this page: <code>research/report/trading-research.html</code>).</li></ul></div>
   <p class="small muted">Research only, not financial advice. Past results do not guarantee future returns.</p>
 </section>
 </div>
