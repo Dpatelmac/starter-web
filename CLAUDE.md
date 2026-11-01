@@ -1,0 +1,31 @@
+# Notes for Claude
+
+## Research home
+
+The user's local home directory for the trading research and report is:
+
+    /Users/claud/Documents/1Projects/tradingbot2/research
+
+Keep `research/` in this repository mirroring that folder (same layout), and
+treat the local path as the default location for research files and the
+offline report (`research/report/trading-research.html`). A cloud session
+can't write to it directly: either connect the folder through Remote Control
+or push to git and let the user copy it.
+
+## Layout
+
+- `research/dip_rebound/`: dip-buying studies (tests 1-4), price data fetcher
+- `research/momentum_regime/`: portfolio snapshot, momentum test (test 5)
+- `research/putwrite/`: put-write layer test (test 6)
+- `research/report/`: `build_report.py` -> offline `trading-research.html`
+
+Price data (`research/dip_rebound/data/`) is not committed; rebuild with
+`python3 research/dip_rebound/fetch_data.py`, then `holdout.py` and
+`momentum_regime/snapshot.py`.
+
+## Research rules used so far
+
+- Pre-register rules and pass criteria (commit before running a test).
+- Judge signals against same-day stocks, include costs (5 bps per side base),
+  test out of sample, label assumptions, never invent data.
+- Present proposals for review; never send trades without explicit approval.
