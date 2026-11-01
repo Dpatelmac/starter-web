@@ -63,3 +63,50 @@ If H1 fails any of these, the lead is treated as not real and is not built on.
   every rule, including the baseline. The edge metric compares against the
   same survivor universe, which offsets part of this but not all.
 - Many holdout names listed after 2005, so the early years have fewer stocks.
+
+---
+
+# Pre-registered test 2: a lower-turnover weekly pullback portfolio
+
+Written and committed **before** running `weekly.py` (2026-11-01).
+
+## Why
+
+`sweep.py` found one pattern in all three samples: stocks down 2-5% over 5
+days beat same-morning stocks over the next 3-10 days, by about 0.09% per
+trade. Traded daily it loses that to costs. The user trades commission-free
+with market orders, so the base cost is **5 bps per side**, also shown at 10.
+
+## Strategy (fixed)
+
+- Once a week: signal at the last close of the week, trade at the next open,
+  hold until the following week's open.
+- Candidates: same filters as before (volume >= 1M, close >= $20, in the
+  universe) and 5-day return <= -2%.
+- Hold the top N candidates, equal weight; empty slots stay in cash (0%).
+- Costs charged on the actual turnover each week, including re-weighting.
+
+## Variants (36, all reported)
+
+- N: 10, 20, 50 names.
+- Ranking: (a) deepest 5-day drop; (b) deepest 5-day drop between -2% and
+  -10%, which leaves out crash-size moves that the sweep found don't bounce.
+- Filter: none; SPY above its 200-day average (else all cash); stock above
+  its own 200-day average.
+- Buffer: none; or keep a holding while it still qualifies and ranks in the
+  top 2N, filling only open slots (fewer trades).
+
+## Samples and pass criteria
+
+Samples: S&P 500/400 2005-2015, S&P 500/400 2016-2026, and the 835 new
+stocks 2005-2026.
+
+A variant **passes** only if, at 5 bps per side, in **every** sample:
+
+1. its annual return beats SPY buy and hold over the same period, and
+2. its Sharpe ratio beats SPY's over the same period.
+
+Also reported for context: 10 bps results, max drawdown, turnover, and an
+equal-weight portfolio of all eligible stocks rebalanced weekly at the same
+cost. If no variant passes, the pullback idea is dropped as not tradable at
+the user's costs.
