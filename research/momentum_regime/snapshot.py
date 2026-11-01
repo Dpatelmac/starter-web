@@ -49,8 +49,10 @@ vix = etf[etf.ticker == "^VIX"].set_index("date")["close"]
 def stat(t):
     s = etf[etf.ticker == t].set_index("date")["adj_close"]
     return s.iloc[-1] / s.rolling(200).mean().iloc[-1] - 1, s.iloc[-1] / s.iloc[-22] - 1, s.iloc[-1] / s.cummax().iloc[-1] - 1
+sectors = {}
 for t in ["SPY", "XLK", "XLV", "XLF", "XLE", "XLU", "XLI", "XLP"]:
     a, b, c = stat(t); print(f"{t}: vs 200d {a:+.1%}  1m {b:+.1%}  from high {c:+.1%}")
+    sectors[t] = {"vs_200d": a, "ret_1m": b, "from_high": c}
 print(f"VIX {vix.iloc[-1]:.1f} (1y median {vix.iloc[-252:].median():.1f})")
 sp = px[px.ticker.isin(uni.ticker)].copy()
 sp["sma200"] = sp.groupby("ticker")["adj_close"].transform(lambda s: s.rolling(200).mean())
@@ -61,3 +63,9 @@ irx = yf.download("^IRX", start="2004-01-01", progress=False, auto_adjust=False)
 irx = irx["Close"].squeeze() if "Close" in irx else irx.squeeze()
 irx.rename("irx").to_frame().to_parquet(D / "irx.parquet")
 print(f"13-week T-bill yield: {float(irx.iloc[-1]):.2f}% (rows {len(irx)})")
+out = {"as_of": str(last.date()), "nav": nav, "cash": CASH, "invested_share": h["value"].sum() / nav,
+       "holdings": h.to_dict("records"), "sleeve_vol": float(port.std() * np.sqrt(252)), "sleeve_beta": float(beta),
+       "sectors": sectors, "vix": float(vix.iloc[-1]), "vix_1y_median": float(vix.iloc[-252:].median()),
+       "breadth": float((lastd.adj_close > lastd.sma200).mean()), "tbill": float(irx.iloc[-1])}
+Path(__file__).resolve().parent.joinpath("results").mkdir(exist_ok=True)
+Path(__file__).resolve().parent.joinpath("results", "snapshot.json").write_text(json.dumps(out, indent=1, default=float))
