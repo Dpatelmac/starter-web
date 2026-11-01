@@ -1,0 +1,11 @@
+,cagr,vol,sharpe,max_dd,month_win,growth_of_1,trade_win
+1. Buy every 2% drop (3-day hold),0.0091,0.2009,0.0578,-0.5581,0.5096,1.2187,0.5205
+"2. Oversold in a selloff (holdout rule, 3-day)",0.0319,0.0941,0.1934,-0.3031,0.4598,1.9851,0.5783
+"3. Weekly pullback, daily entries (5-day hold)",0.0871,0.2005,0.4295,-0.5254,0.5939,6.1904,0.5366
+"4. Weekly pullback portfolio (top 20, buffer)",0.1422,0.2793,0.5537,-0.6400,0.6360,18.2096,
+5. Regime-gated momentum (full strategy D),0.0709,0.1425,0.4289,-0.3161,0.6628,4.4603,
+5a. Plain top-20 momentum (no risk controls),0.1165,0.2764,0.4744,-0.5605,0.5939,11.0812,
+Lead: SPY with 200-day switch (not yet pre-registered),0.0950,0.1235,0.6543,-0.2429,0.7241,7.2386,
+6. Put-write layer (CBOE PutWrite index),0.0688,0.1621,0.3827,-0.3735,0.7356,4.2728,
+Benchmark: 50/50 SPY / T-bills,0.0666,0.0943,0.5437,-0.3058,0.6897,4.0805,
+Benchmark: SPY buy & hold,0.1078,0.1886,0.5442,-0.5519,0.6628,9.3329,
