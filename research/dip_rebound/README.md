@@ -57,3 +57,32 @@ Price data alone gives the AI nothing to build on, so any value has to come
 from the research (news, guidance, peer read-through). That can be measured:
 log each night's scores, then compare next-day returns of high vs low
 composite scores with the same edge metric used here.
+
+## Holdout test of the oversold lead (pre-registered)
+
+The rule and pass criteria were committed in `PREREGISTRATION.md` before any
+holdout prices were downloaded. Holdout: 835 US stocks over $2B that are not
+in the S&P 500/400 (`results/holdout_universe.csv`). Run with
+`python holdout.py`; results in `results/holdout.json`.
+
+| Rule (3-day hold) | Signals | Edge | t-stat | 2005-15 | 2016-26 | Raw 3-day | Win rate |
+|---|---|---|---|---|---|---|---|
+| H1: prior 5 days down 5%+ and SPY down 1%+ | 5,677 | +0.08% | 0.56 | -0.01% | +0.15% | +1.11% | 57.5% |
+| H2: prior 5 days down 5%+ | 15,194 | +0.02% | 0.20 | +0.23% | -0.08% | +0.50% | 52.5% |
+| H3: SPY down 1%+ | 19,883 | +0.01% | 0.19 | -0.05% | +0.08% | +0.46% | 53.7% |
+| H0: every dip | 65,141 | +0.05% | 1.12 | +0.01% | +0.08% | +0.19% | 50.9% |
+
+**Verdict: H1 fails.** It misses criterion 1 (t = 0.56, needed 2.0) and
+criterion 2 (negative in 2005-2015). It passes criterion 3 only barely
+(+1.5% a year after costs, vs 10.9% for SPY). The same H1 rule on the
+original S&P 500/400 stocks was also weak (edge +0.09%, t = 0.78). Its
+parts, H2 and H3, looked real there (t = 2.4 and 2.8) but show nothing on
+the holdout.
+
+The +1.1% raw return and 57.5% win rate for H1 look attractive, but they
+come from buying on market-wide selloff days that tend to rebound. Other
+stocks bought those same mornings did about as well. That's market timing
+with leverage to the bounce, not a dip-specific edge.
+
+**Conclusion:** there is no price-only edge here worth building on. The
+lead was a product of searching many splits on one set of stocks.
