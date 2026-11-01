@@ -86,3 +86,44 @@ with leverage to the bounce, not a dip-specific edge.
 
 **Conclusion:** there is no price-only edge here worth building on. The
 lead was a product of searching many splits on one set of stocks.
+
+## Drop-size sweep (`sweep.py`, `pullback_check.py`)
+
+The 2% cutoff was arbitrary, so `sweep.py` tests four drop measures (one-day
+%, drop vs the stock's normal daily move, 3- and 5-day drops, drop vs sector
+ETF), 34 cutoffs, holds of 1-10 days and three volume filters: 510
+combinations on three samples (S&P 2005-15, S&P 2016-26, new stocks).
+"Robust" was fixed before running: same sign in all three samples, |t| >= 2
+in at least two, and an edge of at least 0.10% per trade (the round-trip
+cost) in every sample.
+
+**Result: 0 of 510 combinations are robust.**
+
+- **One-day drops, any size:** no edge at any cutoff from 1% to 15%. Measuring
+  the drop against the stock's normal move doesn't help either. Very large
+  drops (7%+) lean toward continued falls in all three samples, but none
+  reach t = 2, so there is no reliable short signal either.
+- **Multi-day pullbacks are the one real pattern.** Stocks down 2-5% over the
+  last 3-5 days beat same-morning stocks over the next 3-10 days in all
+  three samples (e.g. 5-day drop 2%+, 5-day hold: +0.10% t=3.95, +0.08%
+  t=3.47, +0.09% t=2.94). This is the well-documented short-term reversal
+  effect. It fails "robust" only because the edge per trade (about 0.08-0.10%)
+  is about the same as the round-trip cost.
+
+Account simulation (`pullback_check.py`), 5-day drop 2%+, 5-day hold. The
+benchmark buys all eligible stocks on the same schedule, so it pays the same
+turnover; the gap between them is the pullback effect.
+
+| Universe | Cost per side | Pullback CAGR | Same-churn benchmark | SPY buy & hold |
+|---|---|---|---|---|
+| S&P 500/400 | 0 bps | 14.2% | 10.5% | 10.9% |
+| S&P 500/400 | 2 bps | 12.0% | 8.3% | 10.9% |
+| S&P 500/400 | 5 bps | 8.7% | 5.1% | 10.9% |
+| New stocks | 0 bps | 6.7% | 3.6% | 10.9% |
+| New stocks | 5 bps | 2.3% | -1.5% | 10.9% |
+
+The pullback filter adds about 3.5% a year over the same-churn benchmark in
+both universes. That's real, but the weekly turnover costs more than it adds
+unless execution costs stay near 2 bps per side, and even then it only
+slightly beats holding SPY, with a similar ~50% worst drawdown. Missing
+delisted stocks flatter all of these numbers.

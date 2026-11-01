@@ -1,0 +1,1531 @@
+sample,measure,measure_label,cutoff,unit,volume,hold,signals,days,edge,t
+S&P 2005-15,fixed,One-day drop,0.010000,pct,1M+ shares,1,125172,2747,-0.000065,-0.586576
+S&P 2005-15,fixed,One-day drop,0.010000,pct,1M+ shares,2,125172,2747,0.000247,1.572293
+S&P 2005-15,fixed,One-day drop,0.010000,pct,1M+ shares,3,125172,2747,0.000453,2.279383
+S&P 2005-15,fixed,One-day drop,0.010000,pct,1M+ shares,5,125172,2747,0.000504,2.143207
+S&P 2005-15,fixed,One-day drop,0.010000,pct,1M+ shares,10,125172,2747,0.000831,2.364664
+S&P 2005-15,fixed,One-day drop,0.010000,pct,1M+ and 1.5x normal,1,25696,2587,-0.000353,-1.760314
+S&P 2005-15,fixed,One-day drop,0.010000,pct,1M+ and 1.5x normal,2,25696,2587,0.000093,0.329534
+S&P 2005-15,fixed,One-day drop,0.010000,pct,1M+ and 1.5x normal,3,25696,2587,0.000287,0.863563
+S&P 2005-15,fixed,One-day drop,0.010000,pct,1M+ and 1.5x normal,5,25696,2587,0.000652,1.574584
+S&P 2005-15,fixed,One-day drop,0.010000,pct,1M+ and 1.5x normal,10,25696,2587,0.001309,2.256382
+S&P 2005-15,fixed,One-day drop,0.010000,pct,1M+ and 3x normal,1,3263,1559,-0.000308,-0.560020
+S&P 2005-15,fixed,One-day drop,0.010000,pct,1M+ and 3x normal,2,3263,1559,0.000894,1.237637
+S&P 2005-15,fixed,One-day drop,0.010000,pct,1M+ and 3x normal,3,3263,1559,0.001531,1.740876
+S&P 2005-15,fixed,One-day drop,0.010000,pct,1M+ and 3x normal,5,3263,1559,0.001720,1.713015
+S&P 2005-15,fixed,One-day drop,0.010000,pct,1M+ and 3x normal,10,3263,1559,0.002301,1.864232
+S&P 2005-15,fixed,One-day drop,0.015000,pct,1M+ shares,1,81872,2710,-0.000304,-2.039077
+S&P 2005-15,fixed,One-day drop,0.015000,pct,1M+ shares,2,81872,2710,-0.000080,-0.374124
+S&P 2005-15,fixed,One-day drop,0.015000,pct,1M+ shares,3,81872,2710,0.000213,0.815966
+S&P 2005-15,fixed,One-day drop,0.015000,pct,1M+ shares,5,81872,2710,0.000159,0.490680
+S&P 2005-15,fixed,One-day drop,0.015000,pct,1M+ shares,10,81872,2710,0.000657,1.421748
+S&P 2005-15,fixed,One-day drop,0.015000,pct,1M+ and 1.5x normal,1,20669,2498,-0.000460,-2.044500
+S&P 2005-15,fixed,One-day drop,0.015000,pct,1M+ and 1.5x normal,2,20669,2498,-0.000056,-0.180307
+S&P 2005-15,fixed,One-day drop,0.015000,pct,1M+ and 1.5x normal,3,20669,2498,0.000151,0.409731
+S&P 2005-15,fixed,One-day drop,0.015000,pct,1M+ and 1.5x normal,5,20669,2498,0.000345,0.753246
+S&P 2005-15,fixed,One-day drop,0.015000,pct,1M+ and 1.5x normal,10,20669,2498,0.001392,2.083515
+S&P 2005-15,fixed,One-day drop,0.015000,pct,1M+ and 3x normal,1,3006,1504,-0.000465,-0.802187
+S&P 2005-15,fixed,One-day drop,0.015000,pct,1M+ and 3x normal,2,3006,1504,0.000896,1.187432
+S&P 2005-15,fixed,One-day drop,0.015000,pct,1M+ and 3x normal,3,3006,1504,0.001489,1.614698
+S&P 2005-15,fixed,One-day drop,0.015000,pct,1M+ and 3x normal,5,3006,1504,0.001825,1.747287
+S&P 2005-15,fixed,One-day drop,0.015000,pct,1M+ and 3x normal,10,3006,1504,0.002509,1.960069
+S&P 2005-15,fixed,One-day drop,0.020000,pct,1M+ shares,1,54890,2620,-0.000267,-1.398478
+S&P 2005-15,fixed,One-day drop,0.020000,pct,1M+ shares,2,54890,2620,0.000035,0.124826
+S&P 2005-15,fixed,One-day drop,0.020000,pct,1M+ shares,3,54890,2620,-0.000067,-0.196387
+S&P 2005-15,fixed,One-day drop,0.020000,pct,1M+ shares,5,54890,2620,-0.000263,-0.628456
+S&P 2005-15,fixed,One-day drop,0.020000,pct,1M+ shares,10,54890,2620,0.000292,0.479342
+S&P 2005-15,fixed,One-day drop,0.020000,pct,1M+ and 1.5x normal,1,16479,2377,-0.000456,-1.721137
+S&P 2005-15,fixed,One-day drop,0.020000,pct,1M+ and 1.5x normal,2,16479,2377,-0.000078,-0.211733
+S&P 2005-15,fixed,One-day drop,0.020000,pct,1M+ and 1.5x normal,3,16479,2377,0.000003,0.007952
+S&P 2005-15,fixed,One-day drop,0.020000,pct,1M+ and 1.5x normal,5,16479,2377,0.000117,0.218043
+S&P 2005-15,fixed,One-day drop,0.020000,pct,1M+ and 1.5x normal,10,16479,2377,0.000855,1.088960
+S&P 2005-15,fixed,One-day drop,0.020000,pct,1M+ and 3x normal,1,2760,1432,-0.000408,-0.670473
+S&P 2005-15,fixed,One-day drop,0.020000,pct,1M+ and 3x normal,2,2760,1432,0.000900,1.126287
+S&P 2005-15,fixed,One-day drop,0.020000,pct,1M+ and 3x normal,3,2760,1432,0.001380,1.414553
+S&P 2005-15,fixed,One-day drop,0.020000,pct,1M+ and 3x normal,5,2760,1432,0.001823,1.643562
+S&P 2005-15,fixed,One-day drop,0.020000,pct,1M+ and 3x normal,10,2760,1432,0.002715,2.014273
+S&P 2005-15,fixed,One-day drop,0.030000,pct,1M+ shares,1,26407,2255,-0.000547,-1.878338
+S&P 2005-15,fixed,One-day drop,0.030000,pct,1M+ shares,2,26407,2255,-0.000174,-0.424123
+S&P 2005-15,fixed,One-day drop,0.030000,pct,1M+ shares,3,26407,2255,-0.000122,-0.249372
+S&P 2005-15,fixed,One-day drop,0.030000,pct,1M+ shares,5,26407,2255,-0.000128,-0.206923
+S&P 2005-15,fixed,One-day drop,0.030000,pct,1M+ shares,10,26407,2255,0.000860,0.995629
+S&P 2005-15,fixed,One-day drop,0.030000,pct,1M+ and 1.5x normal,1,10117,2047,-0.000687,-2.007290
+S&P 2005-15,fixed,One-day drop,0.030000,pct,1M+ and 1.5x normal,2,10117,2047,-0.000316,-0.664087
+S&P 2005-15,fixed,One-day drop,0.030000,pct,1M+ and 1.5x normal,3,10117,2047,-0.000340,-0.587125
+S&P 2005-15,fixed,One-day drop,0.030000,pct,1M+ and 1.5x normal,5,10117,2047,-0.000285,-0.388428
+S&P 2005-15,fixed,One-day drop,0.030000,pct,1M+ and 1.5x normal,10,10117,2047,0.001132,1.128882
+S&P 2005-15,fixed,One-day drop,0.030000,pct,1M+ and 3x normal,1,2278,1285,-0.000784,-1.152675
+S&P 2005-15,fixed,One-day drop,0.030000,pct,1M+ and 3x normal,2,2278,1285,0.000479,0.538956
+S&P 2005-15,fixed,One-day drop,0.030000,pct,1M+ and 3x normal,3,2278,1285,0.000997,0.917597
+S&P 2005-15,fixed,One-day drop,0.030000,pct,1M+ and 3x normal,5,2278,1285,0.001182,0.958532
+S&P 2005-15,fixed,One-day drop,0.030000,pct,1M+ and 3x normal,10,2278,1285,0.002777,1.877822
+S&P 2005-15,fixed,One-day drop,0.040000,pct,1M+ shares,1,13927,1839,-0.000742,-1.780383
+S&P 2005-15,fixed,One-day drop,0.040000,pct,1M+ shares,2,13927,1839,-0.000629,-1.061552
+S&P 2005-15,fixed,One-day drop,0.040000,pct,1M+ shares,3,13927,1839,-0.000832,-1.133160
+S&P 2005-15,fixed,One-day drop,0.040000,pct,1M+ shares,5,13927,1839,-0.000594,-0.676543
+S&P 2005-15,fixed,One-day drop,0.040000,pct,1M+ shares,10,13927,1839,0.001247,1.039283
+S&P 2005-15,fixed,One-day drop,0.040000,pct,1M+ and 1.5x normal,1,6153,1674,-0.000934,-1.998307
+S&P 2005-15,fixed,One-day drop,0.040000,pct,1M+ and 1.5x normal,2,6153,1674,-0.000639,-0.976825
+S&P 2005-15,fixed,One-day drop,0.040000,pct,1M+ and 1.5x normal,3,6153,1674,-0.000826,-1.029372
+S&P 2005-15,fixed,One-day drop,0.040000,pct,1M+ and 1.5x normal,5,6153,1674,-0.000904,-0.951209
+S&P 2005-15,fixed,One-day drop,0.040000,pct,1M+ and 1.5x normal,10,6153,1674,0.001059,0.833070
+S&P 2005-15,fixed,One-day drop,0.040000,pct,1M+ and 3x normal,1,1841,1104,-0.000728,-0.918709
+S&P 2005-15,fixed,One-day drop,0.040000,pct,1M+ and 3x normal,2,1841,1104,0.000762,0.739062
+S&P 2005-15,fixed,One-day drop,0.040000,pct,1M+ and 3x normal,3,1841,1104,0.001300,1.038615
+S&P 2005-15,fixed,One-day drop,0.040000,pct,1M+ and 3x normal,5,1841,1104,0.001940,1.348619
+S&P 2005-15,fixed,One-day drop,0.040000,pct,1M+ and 3x normal,10,1841,1104,0.003084,1.825765
+S&P 2005-15,fixed,One-day drop,0.050000,pct,1M+ shares,1,7779,1410,-0.001021,-1.820811
+S&P 2005-15,fixed,One-day drop,0.050000,pct,1M+ shares,2,7779,1410,-0.000765,-0.987682
+S&P 2005-15,fixed,One-day drop,0.050000,pct,1M+ shares,3,7779,1410,0.000294,0.310328
+S&P 2005-15,fixed,One-day drop,0.050000,pct,1M+ shares,5,7779,1410,0.000617,0.538843
+S&P 2005-15,fixed,One-day drop,0.050000,pct,1M+ shares,10,7779,1410,0.002609,1.699052
+S&P 2005-15,fixed,One-day drop,0.050000,pct,1M+ and 1.5x normal,1,3797,1293,-0.001173,-1.931675
+S&P 2005-15,fixed,One-day drop,0.050000,pct,1M+ and 1.5x normal,2,3797,1293,-0.000646,-0.785089
+S&P 2005-15,fixed,One-day drop,0.050000,pct,1M+ and 1.5x normal,3,3797,1293,0.000350,0.351419
+S&P 2005-15,fixed,One-day drop,0.050000,pct,1M+ and 1.5x normal,5,3797,1293,0.000147,0.121886
+S&P 2005-15,fixed,One-day drop,0.050000,pct,1M+ and 1.5x normal,10,3797,1293,0.001142,0.732963
+S&P 2005-15,fixed,One-day drop,0.050000,pct,1M+ and 3x normal,1,1421,918,-0.000977,-1.054188
+S&P 2005-15,fixed,One-day drop,0.050000,pct,1M+ and 3x normal,2,1421,918,0.000700,0.579598
+S&P 2005-15,fixed,One-day drop,0.050000,pct,1M+ and 3x normal,3,1421,918,0.001687,1.125554
+S&P 2005-15,fixed,One-day drop,0.050000,pct,1M+ and 3x normal,5,1421,918,0.002225,1.257422
+S&P 2005-15,fixed,One-day drop,0.050000,pct,1M+ and 3x normal,10,1421,918,0.002100,1.080509
+S&P 2005-15,fixed,One-day drop,0.070000,pct,1M+ shares,1,2940,805,-0.002500,-2.355707
+S&P 2005-15,fixed,One-day drop,0.070000,pct,1M+ shares,2,2940,805,-0.001964,-1.348088
+S&P 2005-15,fixed,One-day drop,0.070000,pct,1M+ shares,3,2940,805,-0.000305,-0.170038
+S&P 2005-15,fixed,One-day drop,0.070000,pct,1M+ shares,5,2940,805,0.001664,0.766458
+S&P 2005-15,fixed,One-day drop,0.070000,pct,1M+ shares,10,2940,805,0.002904,1.123204
+S&P 2005-15,fixed,One-day drop,0.070000,pct,1M+ and 1.5x normal,1,1577,759,-0.003028,-2.591580
+S&P 2005-15,fixed,One-day drop,0.070000,pct,1M+ and 1.5x normal,2,1577,759,-0.002215,-1.434176
+S&P 2005-15,fixed,One-day drop,0.070000,pct,1M+ and 1.5x normal,3,1577,759,-0.000286,-0.153531
+S&P 2005-15,fixed,One-day drop,0.070000,pct,1M+ and 1.5x normal,5,1577,759,0.000835,0.367783
+S&P 2005-15,fixed,One-day drop,0.070000,pct,1M+ and 1.5x normal,10,1577,759,0.003884,1.484143
+S&P 2005-15,fixed,One-day drop,0.070000,pct,1M+ and 3x normal,1,803,595,-0.002412,-1.683666
+S&P 2005-15,fixed,One-day drop,0.070000,pct,1M+ and 3x normal,2,803,595,-0.001115,-0.576098
+S&P 2005-15,fixed,One-day drop,0.070000,pct,1M+ and 3x normal,3,803,595,-0.000101,-0.040571
+S&P 2005-15,fixed,One-day drop,0.070000,pct,1M+ and 3x normal,5,803,595,0.000992,0.358118
+S&P 2005-15,fixed,One-day drop,0.070000,pct,1M+ and 3x normal,10,803,595,0.001451,0.481401
+S&P 2005-15,fixed,One-day drop,0.100000,pct,1M+ shares,1,976,389,-0.002133,-1.161930
+S&P 2005-15,fixed,One-day drop,0.100000,pct,1M+ shares,2,976,389,-0.002659,-1.023533
+S&P 2005-15,fixed,One-day drop,0.100000,pct,1M+ shares,3,976,389,-0.001361,-0.415981
+S&P 2005-15,fixed,One-day drop,0.100000,pct,1M+ shares,5,976,389,0.001383,0.346494
+S&P 2005-15,fixed,One-day drop,0.100000,pct,1M+ shares,10,976,389,0.001017,0.218386
+S&P 2005-15,fixed,One-day drop,0.100000,pct,1M+ and 1.5x normal,1,571,368,-0.002361,-1.230769
+S&P 2005-15,fixed,One-day drop,0.100000,pct,1M+ and 1.5x normal,2,571,368,-0.003079,-1.194519
+S&P 2005-15,fixed,One-day drop,0.100000,pct,1M+ and 1.5x normal,3,571,368,-0.002086,-0.627221
+S&P 2005-15,fixed,One-day drop,0.100000,pct,1M+ and 1.5x normal,5,571,368,-0.000485,-0.118783
+S&P 2005-15,fixed,One-day drop,0.100000,pct,1M+ and 1.5x normal,10,571,368,-0.000505,-0.114208
+S&P 2005-15,fixed,One-day drop,0.100000,pct,1M+ and 3x normal,1,372,316,-0.004328,-1.717452
+S&P 2005-15,fixed,One-day drop,0.100000,pct,1M+ and 3x normal,2,372,316,-0.001648,-0.489113
+S&P 2005-15,fixed,One-day drop,0.100000,pct,1M+ and 3x normal,3,372,316,0.000121,0.027551
+S&P 2005-15,fixed,One-day drop,0.100000,pct,1M+ and 3x normal,5,372,316,0.003452,0.706455
+S&P 2005-15,fixed,One-day drop,0.100000,pct,1M+ and 3x normal,10,372,316,0.003099,0.605142
+S&P 2005-15,fixed,One-day drop,0.150000,pct,1M+ shares,1,233,132,-0.004435,-0.765885
+S&P 2005-15,fixed,One-day drop,0.150000,pct,1M+ shares,2,233,132,-0.001675,-0.210913
+S&P 2005-15,fixed,One-day drop,0.150000,pct,1M+ shares,3,233,132,0.000803,0.065029
+S&P 2005-15,fixed,One-day drop,0.150000,pct,1M+ shares,5,233,132,0.007306,0.475327
+S&P 2005-15,fixed,One-day drop,0.150000,pct,1M+ shares,10,233,132,0.004872,0.376406
+S&P 2005-15,fixed,One-day drop,0.150000,pct,1M+ and 1.5x normal,1,145,119,-0.005991,-1.003231
+S&P 2005-15,fixed,One-day drop,0.150000,pct,1M+ and 1.5x normal,2,145,119,-0.004119,-0.470605
+S&P 2005-15,fixed,One-day drop,0.150000,pct,1M+ and 1.5x normal,3,145,119,-0.000857,-0.066809
+S&P 2005-15,fixed,One-day drop,0.150000,pct,1M+ and 1.5x normal,5,145,119,0.000134,0.008263
+S&P 2005-15,fixed,One-day drop,0.150000,pct,1M+ and 1.5x normal,10,145,119,-0.001328,-0.099812
+S&P 2005-15,fixed,One-day drop,0.150000,pct,1M+ and 3x normal,1,108,101,-0.007318,-0.964550
+S&P 2005-15,fixed,One-day drop,0.150000,pct,1M+ and 3x normal,2,108,101,0.000464,0.047180
+S&P 2005-15,fixed,One-day drop,0.150000,pct,1M+ and 3x normal,3,108,101,0.004061,0.278150
+S&P 2005-15,fixed,One-day drop,0.150000,pct,1M+ and 3x normal,5,108,101,0.017096,0.965301
+S&P 2005-15,fixed,One-day drop,0.150000,pct,1M+ and 3x normal,10,108,101,0.008999,0.653035
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.000000,x,1M+ shares,1,77885,2676,-0.000303,-1.800799
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.000000,x,1M+ shares,2,77885,2676,-0.000193,-0.816913
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.000000,x,1M+ shares,3,77885,2676,0.000050,0.188938
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.000000,x,1M+ shares,5,77885,2676,0.000328,1.007011
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.000000,x,1M+ shares,10,77885,2676,0.000564,1.228103
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 1.5x normal,1,21206,2487,-0.000522,-2.166771
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 1.5x normal,2,21206,2487,-0.000125,-0.382866
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 1.5x normal,3,21206,2487,0.000195,0.506497
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 1.5x normal,5,21206,2487,0.000351,0.736110
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 1.5x normal,10,21206,2487,0.001122,1.713372
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 3x normal,1,3001,1492,-0.000367,-0.636719
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 3x normal,2,3001,1492,0.000874,1.143543
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 3x normal,3,3001,1492,0.001446,1.553024
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 3x normal,5,3001,1492,0.001857,1.744957
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 3x normal,10,3001,1492,0.002184,1.696900
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.500000,x,1M+ shares,1,36826,2444,-0.000929,-3.576205
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.500000,x,1M+ shares,2,36826,2444,-0.000797,-2.264138
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.500000,x,1M+ shares,3,36826,2444,-0.000715,-1.728768
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.500000,x,1M+ shares,5,36826,2444,-0.000454,-0.960744
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.500000,x,1M+ shares,10,36826,2444,0.000322,0.509541
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 1.5x normal,1,14786,2250,-0.000812,-2.560977
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 1.5x normal,2,14786,2250,-0.000510,-1.288505
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 1.5x normal,3,14786,2250,-0.000330,-0.673469
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 1.5x normal,5,14786,2250,-0.000127,-0.210946
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 1.5x normal,10,14786,2250,0.000759,0.956207
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 3x normal,1,2635,1388,-0.000460,-0.748703
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 3x normal,2,2635,1388,0.000749,0.918352
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 3x normal,3,2635,1388,0.001333,1.306219
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 3x normal,5,2635,1388,0.001940,1.606443
+S&P 2005-15,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 3x normal,10,2635,1388,0.002222,1.680810
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.000000,x,1M+ shares,1,17888,2062,-0.000967,-3.285558
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.000000,x,1M+ shares,2,17888,2062,-0.001155,-2.734033
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.000000,x,1M+ shares,3,17888,2062,-0.000818,-1.557578
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.000000,x,1M+ shares,5,17888,2062,-0.000568,-0.862131
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.000000,x,1M+ shares,10,17888,2062,-0.000422,-0.509452
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 1.5x normal,1,9819,1937,-0.000775,-2.343915
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 1.5x normal,2,9819,1937,-0.000602,-1.372003
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 1.5x normal,3,9819,1937,-0.000185,-0.329915
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 1.5x normal,5,9819,1937,0.000095,0.132132
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 1.5x normal,10,9819,1937,-0.000139,-0.154277
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 3x normal,1,2297,1270,-0.000457,-0.710277
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 3x normal,2,2297,1270,0.000618,0.752837
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 3x normal,3,2297,1270,0.001230,1.184052
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 3x normal,5,2297,1270,0.001876,1.516347
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 3x normal,10,2297,1270,0.002090,1.525245
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.500000,x,1M+ shares,1,9197,1653,-0.001038,-2.559630
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.500000,x,1M+ shares,2,9197,1653,-0.000681,-1.135165
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.500000,x,1M+ shares,3,9197,1653,-0.000392,-0.542386
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.500000,x,1M+ shares,5,9197,1653,-0.000325,-0.414183
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.500000,x,1M+ shares,10,9197,1653,-0.000146,-0.146726
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 1.5x normal,1,6336,1587,-0.000945,-2.204088
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 1.5x normal,2,6336,1587,-0.000394,-0.661912
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 1.5x normal,3,6336,1587,-0.000110,-0.149347
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 1.5x normal,5,6336,1587,-0.000049,-0.059968
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 1.5x normal,10,6336,1587,0.000090,0.085694
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 3x normal,1,1936,1125,-0.000387,-0.515169
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 3x normal,2,1936,1125,0.000646,0.665604
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 3x normal,3,1936,1125,0.000735,0.600591
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 3x normal,5,1936,1125,0.000999,0.775859
+S&P 2005-15,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 3x normal,10,1936,1125,0.001542,1.022214
+S&P 2005-15,vol_adj,Drop vs normal daily move,3.000000,x,1M+ shares,1,5178,1343,-0.000660,-1.268272
+S&P 2005-15,vol_adj,Drop vs normal daily move,3.000000,x,1M+ shares,2,5178,1343,-0.000669,-0.910874
+S&P 2005-15,vol_adj,Drop vs normal daily move,3.000000,x,1M+ shares,3,5178,1343,-0.000545,-0.607889
+S&P 2005-15,vol_adj,Drop vs normal daily move,3.000000,x,1M+ shares,5,5178,1343,-0.000557,-0.568040
+S&P 2005-15,vol_adj,Drop vs normal daily move,3.000000,x,1M+ shares,10,5178,1343,0.000713,0.569996
+S&P 2005-15,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 1.5x normal,1,4200,1305,-0.000684,-1.273753
+S&P 2005-15,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 1.5x normal,2,4200,1305,-0.000603,-0.834636
+S&P 2005-15,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 1.5x normal,3,4200,1305,-0.000585,-0.651849
+S&P 2005-15,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 1.5x normal,5,4200,1305,-0.000753,-0.763294
+S&P 2005-15,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 1.5x normal,10,4200,1305,0.000670,0.528741
+S&P 2005-15,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 3x normal,1,1665,997,-0.000196,-0.259288
+S&P 2005-15,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 3x normal,2,1665,997,0.000563,0.521659
+S&P 2005-15,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 3x normal,3,1665,997,0.000634,0.463143
+S&P 2005-15,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 3x normal,5,1665,997,0.000192,0.141989
+S&P 2005-15,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 3x normal,10,1665,997,0.001074,0.655504
+S&P 2005-15,vol_adj,Drop vs normal daily move,4.000000,x,1M+ shares,1,2035,859,-0.000419,-0.497647
+S&P 2005-15,vol_adj,Drop vs normal daily move,4.000000,x,1M+ shares,2,2035,859,-0.000100,-0.097817
+S&P 2005-15,vol_adj,Drop vs normal daily move,4.000000,x,1M+ shares,3,2035,859,-0.000764,-0.607208
+S&P 2005-15,vol_adj,Drop vs normal daily move,4.000000,x,1M+ shares,5,2035,859,-0.001253,-0.906359
+S&P 2005-15,vol_adj,Drop vs normal daily move,4.000000,x,1M+ shares,10,2035,859,0.000445,0.267159
+S&P 2005-15,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 1.5x normal,1,1909,856,-0.000620,-0.732880
+S&P 2005-15,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 1.5x normal,2,1909,856,-0.000335,-0.328619
+S&P 2005-15,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 1.5x normal,3,1909,856,-0.000908,-0.726113
+S&P 2005-15,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 1.5x normal,5,1909,856,-0.001423,-1.036415
+S&P 2005-15,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 1.5x normal,10,1909,856,0.000172,0.104231
+S&P 2005-15,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 3x normal,1,1118,735,-0.000073,-0.062628
+S&P 2005-15,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 3x normal,2,1118,735,0.000891,0.645126
+S&P 2005-15,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 3x normal,3,1118,735,0.000738,0.420945
+S&P 2005-15,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 3x normal,5,1118,735,0.000784,0.417696
+S&P 2005-15,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 3x normal,10,1118,735,0.001111,0.563247
+S&P 2005-15,vol_adj,Drop vs normal daily move,5.000000,x,1M+ shares,1,963,566,-0.000050,-0.034987
+S&P 2005-15,vol_adj,Drop vs normal daily move,5.000000,x,1M+ shares,2,963,566,0.000816,0.568818
+S&P 2005-15,vol_adj,Drop vs normal daily move,5.000000,x,1M+ shares,3,963,566,0.000484,0.271740
+S&P 2005-15,vol_adj,Drop vs normal daily move,5.000000,x,1M+ shares,5,963,566,0.001977,0.893344
+S&P 2005-15,vol_adj,Drop vs normal daily move,5.000000,x,1M+ shares,10,963,566,0.004740,2.066878
+S&P 2005-15,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 1.5x normal,1,943,566,-0.000237,-0.167278
+S&P 2005-15,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 1.5x normal,2,943,566,0.000650,0.453380
+S&P 2005-15,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 1.5x normal,3,943,566,0.000167,0.094157
+S&P 2005-15,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 1.5x normal,5,943,566,0.001894,0.856998
+S&P 2005-15,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 1.5x normal,10,943,566,0.004484,1.957151
+S&P 2005-15,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 3x normal,1,718,523,0.000858,0.385820
+S&P 2005-15,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 3x normal,2,718,523,0.000938,0.588896
+S&P 2005-15,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 3x normal,3,718,523,0.000737,0.350687
+S&P 2005-15,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 3x normal,5,718,523,0.003664,1.042929
+S&P 2005-15,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 3x normal,10,718,523,0.004880,1.910192
+S&P 2005-15,multi3,3-day drop,0.020000,pct,1M+ shares,1,108165,2738,-0.000108,-0.980369
+S&P 2005-15,multi3,3-day drop,0.020000,pct,1M+ shares,2,108165,2738,0.000116,0.700319
+S&P 2005-15,multi3,3-day drop,0.020000,pct,1M+ shares,3,108165,2738,0.000271,1.307641
+S&P 2005-15,multi3,3-day drop,0.020000,pct,1M+ shares,5,108165,2738,0.000632,2.324218
+S&P 2005-15,multi3,3-day drop,0.020000,pct,1M+ shares,10,108165,2738,0.000803,2.112023
+S&P 2005-15,multi3,3-day drop,0.020000,pct,1M+ and 1.5x normal,1,25081,2550,-0.000137,-0.641442
+S&P 2005-15,multi3,3-day drop,0.020000,pct,1M+ and 1.5x normal,2,25081,2550,0.000416,1.377265
+S&P 2005-15,multi3,3-day drop,0.020000,pct,1M+ and 1.5x normal,3,25081,2550,0.000655,1.832179
+S&P 2005-15,multi3,3-day drop,0.020000,pct,1M+ and 1.5x normal,5,25081,2550,0.001006,2.208214
+S&P 2005-15,multi3,3-day drop,0.020000,pct,1M+ and 1.5x normal,10,25081,2550,0.001577,2.603140
+S&P 2005-15,multi3,3-day drop,0.020000,pct,1M+ and 3x normal,1,3020,1487,-0.000420,-0.698884
+S&P 2005-15,multi3,3-day drop,0.020000,pct,1M+ and 3x normal,2,3020,1487,0.000533,0.613847
+S&P 2005-15,multi3,3-day drop,0.020000,pct,1M+ and 3x normal,3,3020,1487,0.001268,1.226052
+S&P 2005-15,multi3,3-day drop,0.020000,pct,1M+ and 3x normal,5,3020,1487,0.002217,1.875658
+S&P 2005-15,multi3,3-day drop,0.020000,pct,1M+ and 3x normal,10,3020,1487,0.003376,2.424976
+S&P 2005-15,multi3,3-day drop,0.030000,pct,1M+ shares,1,66988,2680,-0.000092,-0.580007
+S&P 2005-15,multi3,3-day drop,0.030000,pct,1M+ shares,2,66988,2680,0.000066,0.293684
+S&P 2005-15,multi3,3-day drop,0.030000,pct,1M+ shares,3,66988,2680,0.000208,0.725812
+S&P 2005-15,multi3,3-day drop,0.030000,pct,1M+ shares,5,66988,2680,0.000803,2.081110
+S&P 2005-15,multi3,3-day drop,0.030000,pct,1M+ shares,10,66988,2680,0.000957,1.834072
+S&P 2005-15,multi3,3-day drop,0.030000,pct,1M+ and 1.5x normal,1,19200,2397,0.000214,0.844130
+S&P 2005-15,multi3,3-day drop,0.030000,pct,1M+ and 1.5x normal,2,19200,2397,0.000683,1.920000
+S&P 2005-15,multi3,3-day drop,0.030000,pct,1M+ and 1.5x normal,3,19200,2397,0.000931,2.189256
+S&P 2005-15,multi3,3-day drop,0.030000,pct,1M+ and 1.5x normal,5,19200,2397,0.001196,2.109012
+S&P 2005-15,multi3,3-day drop,0.030000,pct,1M+ and 1.5x normal,10,19200,2397,0.001641,2.190522
+S&P 2005-15,multi3,3-day drop,0.030000,pct,1M+ and 3x normal,1,2625,1363,-0.000393,-0.599732
+S&P 2005-15,multi3,3-day drop,0.030000,pct,1M+ and 3x normal,2,2625,1363,0.000741,0.781480
+S&P 2005-15,multi3,3-day drop,0.030000,pct,1M+ and 3x normal,3,2625,1363,0.001583,1.403208
+S&P 2005-15,multi3,3-day drop,0.030000,pct,1M+ and 3x normal,5,2625,1363,0.002514,1.948773
+S&P 2005-15,multi3,3-day drop,0.030000,pct,1M+ and 3x normal,10,2625,1363,0.004054,2.673390
+S&P 2005-15,multi3,3-day drop,0.050000,pct,1M+ shares,1,27270,2306,-0.000270,-0.971548
+S&P 2005-15,multi3,3-day drop,0.050000,pct,1M+ shares,2,27270,2306,-0.000037,-0.088552
+S&P 2005-15,multi3,3-day drop,0.050000,pct,1M+ shares,3,27270,2306,0.000258,0.511411
+S&P 2005-15,multi3,3-day drop,0.050000,pct,1M+ shares,5,27270,2306,0.000922,1.321679
+S&P 2005-15,multi3,3-day drop,0.050000,pct,1M+ shares,10,27270,2306,0.000503,0.507816
+S&P 2005-15,multi3,3-day drop,0.050000,pct,1M+ and 1.5x normal,1,10547,1938,-0.000245,-0.662747
+S&P 2005-15,multi3,3-day drop,0.050000,pct,1M+ and 1.5x normal,2,10547,1938,0.000308,0.586153
+S&P 2005-15,multi3,3-day drop,0.050000,pct,1M+ and 1.5x normal,3,10547,1938,0.000592,0.932345
+S&P 2005-15,multi3,3-day drop,0.050000,pct,1M+ and 1.5x normal,5,10547,1938,0.000813,0.954699
+S&P 2005-15,multi3,3-day drop,0.050000,pct,1M+ and 1.5x normal,10,10547,1938,0.000367,0.332369
+S&P 2005-15,multi3,3-day drop,0.050000,pct,1M+ and 3x normal,1,1822,1073,-0.000862,-1.002259
+S&P 2005-15,multi3,3-day drop,0.050000,pct,1M+ and 3x normal,2,1822,1073,-0.000140,-0.111164
+S&P 2005-15,multi3,3-day drop,0.050000,pct,1M+ and 3x normal,3,1822,1073,0.000830,0.543857
+S&P 2005-15,multi3,3-day drop,0.050000,pct,1M+ and 3x normal,5,1822,1073,0.001927,1.144480
+S&P 2005-15,multi3,3-day drop,0.050000,pct,1M+ and 3x normal,10,1822,1073,0.003954,2.006640
+S&P 2005-15,multi3,3-day drop,0.070000,pct,1M+ shares,1,12559,1764,-0.000250,-0.588500
+S&P 2005-15,multi3,3-day drop,0.070000,pct,1M+ shares,2,12559,1764,0.000444,0.708001
+S&P 2005-15,multi3,3-day drop,0.070000,pct,1M+ shares,3,12559,1764,0.001051,1.342826
+S&P 2005-15,multi3,3-day drop,0.070000,pct,1M+ shares,5,12559,1764,0.002383,2.420199
+S&P 2005-15,multi3,3-day drop,0.070000,pct,1M+ shares,10,12559,1764,0.003120,2.243788
+S&P 2005-15,multi3,3-day drop,0.070000,pct,1M+ and 1.5x normal,1,5787,1463,-0.000321,-0.610021
+S&P 2005-15,multi3,3-day drop,0.070000,pct,1M+ and 1.5x normal,2,5787,1463,0.000553,0.767913
+S&P 2005-15,multi3,3-day drop,0.070000,pct,1M+ and 1.5x normal,3,5787,1463,0.001322,1.469193
+S&P 2005-15,multi3,3-day drop,0.070000,pct,1M+ and 1.5x normal,5,5787,1463,0.002170,1.883071
+S&P 2005-15,multi3,3-day drop,0.070000,pct,1M+ and 1.5x normal,10,5787,1463,0.003941,2.594655
+S&P 2005-15,multi3,3-day drop,0.070000,pct,1M+ and 3x normal,1,1208,783,-0.001387,-1.215094
+S&P 2005-15,multi3,3-day drop,0.070000,pct,1M+ and 3x normal,2,1208,783,-0.000318,-0.188197
+S&P 2005-15,multi3,3-day drop,0.070000,pct,1M+ and 3x normal,3,1208,783,0.001496,0.727831
+S&P 2005-15,multi3,3-day drop,0.070000,pct,1M+ and 3x normal,5,1208,783,0.002637,1.175211
+S&P 2005-15,multi3,3-day drop,0.070000,pct,1M+ and 3x normal,10,1208,783,0.004559,1.747236
+S&P 2005-15,multi3,3-day drop,0.100000,pct,1M+ shares,1,4536,1047,0.000405,0.535918
+S&P 2005-15,multi3,3-day drop,0.100000,pct,1M+ shares,2,4536,1047,0.000644,0.593172
+S&P 2005-15,multi3,3-day drop,0.100000,pct,1M+ shares,3,4536,1047,0.001057,0.760353
+S&P 2005-15,multi3,3-day drop,0.100000,pct,1M+ shares,5,4536,1047,0.003382,1.992368
+S&P 2005-15,multi3,3-day drop,0.100000,pct,1M+ shares,10,4536,1047,0.005034,2.105019
+S&P 2005-15,multi3,3-day drop,0.100000,pct,1M+ and 1.5x normal,1,2383,885,0.000015,0.016147
+S&P 2005-15,multi3,3-day drop,0.100000,pct,1M+ and 1.5x normal,2,2383,885,0.000403,0.319109
+S&P 2005-15,multi3,3-day drop,0.100000,pct,1M+ and 1.5x normal,3,2383,885,0.001170,0.713462
+S&P 2005-15,multi3,3-day drop,0.100000,pct,1M+ and 1.5x normal,5,2383,885,0.002670,1.340904
+S&P 2005-15,multi3,3-day drop,0.100000,pct,1M+ and 1.5x normal,10,2383,885,0.005640,2.326585
+S&P 2005-15,multi3,3-day drop,0.100000,pct,1M+ and 3x normal,1,620,463,-0.001706,-0.923130
+S&P 2005-15,multi3,3-day drop,0.100000,pct,1M+ and 3x normal,2,620,463,-0.000605,-0.219869
+S&P 2005-15,multi3,3-day drop,0.100000,pct,1M+ and 3x normal,3,620,463,0.001557,0.462418
+S&P 2005-15,multi3,3-day drop,0.100000,pct,1M+ and 3x normal,5,620,463,0.004321,1.152827
+S&P 2005-15,multi3,3-day drop,0.100000,pct,1M+ and 3x normal,10,620,463,0.006031,1.452207
+S&P 2005-15,multi3,3-day drop,0.150000,pct,1M+ shares,1,1065,405,-0.000262,-0.125003
+S&P 2005-15,multi3,3-day drop,0.150000,pct,1M+ shares,2,1065,405,-0.001111,-0.357801
+S&P 2005-15,multi3,3-day drop,0.150000,pct,1M+ shares,3,1065,405,-0.000385,-0.100294
+S&P 2005-15,multi3,3-day drop,0.150000,pct,1M+ shares,5,1065,405,0.001367,0.296729
+S&P 2005-15,multi3,3-day drop,0.150000,pct,1M+ shares,10,1065,405,0.004020,0.726945
+S&P 2005-15,multi3,3-day drop,0.150000,pct,1M+ and 1.5x normal,1,612,332,-0.000984,-0.384669
+S&P 2005-15,multi3,3-day drop,0.150000,pct,1M+ and 1.5x normal,2,612,332,-0.002408,-0.657450
+S&P 2005-15,multi3,3-day drop,0.150000,pct,1M+ and 1.5x normal,3,612,332,-0.000753,-0.166936
+S&P 2005-15,multi3,3-day drop,0.150000,pct,1M+ and 1.5x normal,5,612,332,0.001697,0.316989
+S&P 2005-15,multi3,3-day drop,0.150000,pct,1M+ and 1.5x normal,10,612,332,0.007727,1.315837
+S&P 2005-15,multi3,3-day drop,0.150000,pct,1M+ and 3x normal,1,228,190,-0.004365,-1.039625
+S&P 2005-15,multi3,3-day drop,0.150000,pct,1M+ and 3x normal,2,228,190,-0.002717,-0.443188
+S&P 2005-15,multi3,3-day drop,0.150000,pct,1M+ and 3x normal,3,228,190,0.000378,0.049401
+S&P 2005-15,multi3,3-day drop,0.150000,pct,1M+ and 3x normal,5,228,190,0.009376,1.097678
+S&P 2005-15,multi3,3-day drop,0.150000,pct,1M+ and 3x normal,10,228,190,0.014063,1.582625
+S&P 2005-15,multi5,5-day drop,0.020000,pct,1M+ shares,1,131567,2755,0.000067,0.692241
+S&P 2005-15,multi5,5-day drop,0.020000,pct,1M+ shares,2,131567,2755,0.000412,2.699112
+S&P 2005-15,multi5,5-day drop,0.020000,pct,1M+ shares,3,131567,2755,0.000704,3.611807
+S&P 2005-15,multi5,5-day drop,0.020000,pct,1M+ shares,5,131567,2755,0.000995,3.953926
+S&P 2005-15,multi5,5-day drop,0.020000,pct,1M+ shares,10,131567,2755,0.000885,2.664465
+S&P 2005-15,multi5,5-day drop,0.020000,pct,1M+ and 1.5x normal,1,27253,2557,0.000161,0.761179
+S&P 2005-15,multi5,5-day drop,0.020000,pct,1M+ and 1.5x normal,2,27253,2557,0.000546,1.807053
+S&P 2005-15,multi5,5-day drop,0.020000,pct,1M+ and 1.5x normal,3,27253,2557,0.001093,3.003664
+S&P 2005-15,multi5,5-day drop,0.020000,pct,1M+ and 1.5x normal,5,27253,2557,0.001601,3.413858
+S&P 2005-15,multi5,5-day drop,0.020000,pct,1M+ and 1.5x normal,10,27253,2557,0.001870,3.149185
+S&P 2005-15,multi5,5-day drop,0.020000,pct,1M+ and 3x normal,1,3026,1479,-0.000600,-0.998018
+S&P 2005-15,multi5,5-day drop,0.020000,pct,1M+ and 3x normal,2,3026,1479,0.000416,0.480217
+S&P 2005-15,multi5,5-day drop,0.020000,pct,1M+ and 3x normal,3,3026,1479,0.001258,1.212960
+S&P 2005-15,multi5,5-day drop,0.020000,pct,1M+ and 3x normal,5,3026,1479,0.002278,1.919805
+S&P 2005-15,multi5,5-day drop,0.020000,pct,1M+ and 3x normal,10,3026,1479,0.003586,2.558005
+S&P 2005-15,multi5,5-day drop,0.030000,pct,1M+ shares,1,90419,2729,0.000048,0.380456
+S&P 2005-15,multi5,5-day drop,0.030000,pct,1M+ shares,2,90419,2729,0.000347,1.755435
+S&P 2005-15,multi5,5-day drop,0.030000,pct,1M+ shares,3,90419,2729,0.000580,2.375608
+S&P 2005-15,multi5,5-day drop,0.030000,pct,1M+ shares,5,90419,2729,0.000746,2.425622
+S&P 2005-15,multi5,5-day drop,0.030000,pct,1M+ shares,10,90419,2729,0.000633,1.478407
+S&P 2005-15,multi5,5-day drop,0.030000,pct,1M+ and 1.5x normal,1,22041,2463,0.000153,0.625506
+S&P 2005-15,multi5,5-day drop,0.030000,pct,1M+ and 1.5x normal,2,22041,2463,0.000622,1.767158
+S&P 2005-15,multi5,5-day drop,0.030000,pct,1M+ and 1.5x normal,3,22041,2463,0.000996,2.429561
+S&P 2005-15,multi5,5-day drop,0.030000,pct,1M+ and 1.5x normal,5,22041,2463,0.001363,2.591860
+S&P 2005-15,multi5,5-day drop,0.030000,pct,1M+ and 1.5x normal,10,22041,2463,0.001784,2.559233
+S&P 2005-15,multi5,5-day drop,0.030000,pct,1M+ and 3x normal,1,2661,1364,-0.000602,-0.929255
+S&P 2005-15,multi5,5-day drop,0.030000,pct,1M+ and 3x normal,2,2661,1364,0.000618,0.660874
+S&P 2005-15,multi5,5-day drop,0.030000,pct,1M+ and 3x normal,3,2661,1364,0.001585,1.409307
+S&P 2005-15,multi5,5-day drop,0.030000,pct,1M+ and 3x normal,5,2661,1364,0.002406,1.850015
+S&P 2005-15,multi5,5-day drop,0.030000,pct,1M+ and 3x normal,10,2661,1364,0.004194,2.738425
+S&P 2005-15,multi5,5-day drop,0.050000,pct,1M+ shares,1,43152,2553,0.000059,0.284778
+S&P 2005-15,multi5,5-day drop,0.050000,pct,1M+ shares,2,43152,2553,0.000384,1.295050
+S&P 2005-15,multi5,5-day drop,0.050000,pct,1M+ shares,3,43152,2553,0.000847,2.316125
+S&P 2005-15,multi5,5-day drop,0.050000,pct,1M+ shares,5,43152,2553,0.001404,2.881797
+S&P 2005-15,multi5,5-day drop,0.050000,pct,1M+ shares,10,43152,2553,0.001175,1.794315
+S&P 2005-15,multi5,5-day drop,0.050000,pct,1M+ and 1.5x normal,1,13685,2105,0.000097,0.299741
+S&P 2005-15,multi5,5-day drop,0.050000,pct,1M+ and 1.5x normal,2,13685,2105,0.000587,1.294565
+S&P 2005-15,multi5,5-day drop,0.050000,pct,1M+ and 1.5x normal,3,13685,2105,0.000943,1.759511
+S&P 2005-15,multi5,5-day drop,0.050000,pct,1M+ and 1.5x normal,5,13685,2105,0.001464,2.090658
+S&P 2005-15,multi5,5-day drop,0.050000,pct,1M+ and 1.5x normal,10,13685,2105,0.001914,2.105708
+S&P 2005-15,multi5,5-day drop,0.050000,pct,1M+ and 3x normal,1,1905,1088,-0.001124,-1.343473
+S&P 2005-15,multi5,5-day drop,0.050000,pct,1M+ and 3x normal,2,1905,1088,-0.000203,-0.164086
+S&P 2005-15,multi5,5-day drop,0.050000,pct,1M+ and 3x normal,3,1905,1088,0.001081,0.717496
+S&P 2005-15,multi5,5-day drop,0.050000,pct,1M+ and 3x normal,5,1905,1088,0.002275,1.340047
+S&P 2005-15,multi5,5-day drop,0.050000,pct,1M+ and 3x normal,10,1905,1088,0.004809,2.487058
+S&P 2005-15,multi5,5-day drop,0.070000,pct,1M+ shares,1,21591,2159,0.000112,0.364396
+S&P 2005-15,multi5,5-day drop,0.070000,pct,1M+ shares,2,21591,2159,0.000664,1.468846
+S&P 2005-15,multi5,5-day drop,0.070000,pct,1M+ shares,3,21591,2159,0.001274,2.233918
+S&P 2005-15,multi5,5-day drop,0.070000,pct,1M+ shares,5,21591,2159,0.001760,2.290948
+S&P 2005-15,multi5,5-day drop,0.070000,pct,1M+ shares,10,21591,2159,0.000890,0.871892
+S&P 2005-15,multi5,5-day drop,0.070000,pct,1M+ and 1.5x normal,1,8335,1672,-0.000377,-0.865738
+S&P 2005-15,multi5,5-day drop,0.070000,pct,1M+ and 1.5x normal,2,8335,1672,0.000163,0.254312
+S&P 2005-15,multi5,5-day drop,0.070000,pct,1M+ and 1.5x normal,3,8335,1672,0.000876,1.120080
+S&P 2005-15,multi5,5-day drop,0.070000,pct,1M+ and 1.5x normal,5,8335,1672,0.001738,1.746325
+S&P 2005-15,multi5,5-day drop,0.070000,pct,1M+ and 1.5x normal,10,8335,1672,0.002218,1.719622
+S&P 2005-15,multi5,5-day drop,0.070000,pct,1M+ and 3x normal,1,1324,831,-0.001438,-1.345411
+S&P 2005-15,multi5,5-day drop,0.070000,pct,1M+ and 3x normal,2,1324,831,-0.000034,-0.021195
+S&P 2005-15,multi5,5-day drop,0.070000,pct,1M+ and 3x normal,3,1324,831,0.001819,0.926018
+S&P 2005-15,multi5,5-day drop,0.070000,pct,1M+ and 3x normal,5,1324,831,0.003019,1.394414
+S&P 2005-15,multi5,5-day drop,0.070000,pct,1M+ and 3x normal,10,1324,831,0.004808,1.927080
+S&P 2005-15,multi5,5-day drop,0.100000,pct,1M+ shares,1,8758,1469,0.000027,0.050274
+S&P 2005-15,multi5,5-day drop,0.100000,pct,1M+ shares,2,8758,1469,0.001128,1.390665
+S&P 2005-15,multi5,5-day drop,0.100000,pct,1M+ shares,3,8758,1469,0.001648,1.568691
+S&P 2005-15,multi5,5-day drop,0.100000,pct,1M+ shares,5,8758,1469,0.003178,2.498546
+S&P 2005-15,multi5,5-day drop,0.100000,pct,1M+ shares,10,8758,1469,0.004922,2.669260
+S&P 2005-15,multi5,5-day drop,0.100000,pct,1M+ and 1.5x normal,1,3855,1066,-0.000465,-0.602552
+S&P 2005-15,multi5,5-day drop,0.100000,pct,1M+ and 1.5x normal,2,3855,1066,0.000442,0.381393
+S&P 2005-15,multi5,5-day drop,0.100000,pct,1M+ and 1.5x normal,3,3855,1066,0.001418,0.978986
+S&P 2005-15,multi5,5-day drop,0.100000,pct,1M+ and 1.5x normal,5,3855,1066,0.002129,1.286127
+S&P 2005-15,multi5,5-day drop,0.100000,pct,1M+ and 1.5x normal,10,3855,1066,0.004599,2.203202
+S&P 2005-15,multi5,5-day drop,0.100000,pct,1M+ and 3x normal,1,701,497,-0.001258,-0.733775
+S&P 2005-15,multi5,5-day drop,0.100000,pct,1M+ and 3x normal,2,701,497,0.000645,0.250725
+S&P 2005-15,multi5,5-day drop,0.100000,pct,1M+ and 3x normal,3,701,497,0.003248,1.019269
+S&P 2005-15,multi5,5-day drop,0.100000,pct,1M+ and 3x normal,5,701,497,0.005210,1.496222
+S&P 2005-15,multi5,5-day drop,0.100000,pct,1M+ and 3x normal,10,701,497,0.008955,2.293577
+S&P 2005-15,multi5,5-day drop,0.150000,pct,1M+ shares,1,2358,638,0.000212,0.168946
+S&P 2005-15,multi5,5-day drop,0.150000,pct,1M+ shares,2,2358,638,0.000922,0.472392
+S&P 2005-15,multi5,5-day drop,0.150000,pct,1M+ shares,3,2358,638,0.000795,0.326755
+S&P 2005-15,multi5,5-day drop,0.150000,pct,1M+ shares,5,2358,638,0.000652,0.232567
+S&P 2005-15,multi5,5-day drop,0.150000,pct,1M+ shares,10,2358,638,0.004419,1.168337
+S&P 2005-15,multi5,5-day drop,0.150000,pct,1M+ and 1.5x normal,1,1098,446,-0.000384,-0.212128
+S&P 2005-15,multi5,5-day drop,0.150000,pct,1M+ and 1.5x normal,2,1098,446,-0.001900,-0.693239
+S&P 2005-15,multi5,5-day drop,0.150000,pct,1M+ and 1.5x normal,3,1098,446,-0.001640,-0.488317
+S&P 2005-15,multi5,5-day drop,0.150000,pct,1M+ and 1.5x normal,5,1098,446,-0.001594,-0.404555
+S&P 2005-15,multi5,5-day drop,0.150000,pct,1M+ and 1.5x normal,10,1098,446,0.003097,0.682354
+S&P 2005-15,multi5,5-day drop,0.150000,pct,1M+ and 3x normal,1,258,202,-0.002525,-0.641519
+S&P 2005-15,multi5,5-day drop,0.150000,pct,1M+ and 3x normal,2,258,202,-0.001645,-0.283216
+S&P 2005-15,multi5,5-day drop,0.150000,pct,1M+ and 3x normal,3,258,202,0.001498,0.207151
+S&P 2005-15,multi5,5-day drop,0.150000,pct,1M+ and 3x normal,5,258,202,0.006810,0.866408
+S&P 2005-15,multi5,5-day drop,0.150000,pct,1M+ and 3x normal,10,258,202,0.007671,0.929387
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ shares,1,86866,2768,-0.000107,-1.505157
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ shares,2,86866,2768,0.000031,0.305218
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ shares,3,86866,2768,0.000244,1.929963
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ shares,5,86866,2768,0.000373,2.233962
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ shares,10,86866,2768,0.000467,2.083523
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 1.5x normal,1,20894,2619,-0.000011,-0.054929
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 1.5x normal,2,20894,2619,0.000355,1.328714
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 1.5x normal,3,20894,2619,0.000726,2.270835
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 1.5x normal,5,20894,2619,0.000872,2.200968
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 1.5x normal,10,20894,2619,0.001259,2.315823
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 3x normal,1,3128,1570,-0.000462,-0.804079
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 3x normal,2,3128,1570,0.000554,0.650787
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 3x normal,3,3128,1570,0.001180,1.154107
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 3x normal,5,3128,1570,0.001307,1.148174
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 3x normal,10,3128,1570,0.002427,1.820147
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ shares,1,27854,2715,-0.000360,-2.195183
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ shares,2,27854,2715,-0.000184,-0.809881
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ shares,3,27854,2715,-0.000123,-0.430691
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ shares,5,27854,2715,0.000132,0.361858
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ shares,10,27854,2715,0.000477,0.911225
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 1.5x normal,1,11385,2453,-0.000315,-1.177118
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 1.5x normal,2,11385,2453,-0.000064,-0.175536
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 1.5x normal,3,11385,2453,-0.000020,-0.046915
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 1.5x normal,5,11385,2453,0.000316,0.587220
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 1.5x normal,10,11385,2453,0.000843,1.095924
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 3x normal,1,2642,1446,-0.000606,-0.961061
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 3x normal,2,2642,1446,0.000338,0.365143
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 3x normal,3,2642,1446,0.000943,0.846442
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 3x normal,5,2642,1446,0.001107,0.894942
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 3x normal,10,2642,1446,0.002017,1.395269
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ shares,1,11674,2342,-0.000562,-1.968766
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ shares,2,11674,2342,-0.000158,-0.404373
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ shares,3,11674,2342,-0.000331,-0.690436
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ shares,5,11674,2342,-0.000150,-0.238732
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ shares,10,11674,2342,0.000811,0.886888
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 1.5x normal,1,6325,2093,-0.000471,-1.252332
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 1.5x normal,2,6325,2093,-0.000114,-0.226842
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 1.5x normal,3,6325,2093,0.000001,0.001870
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 1.5x normal,5,6325,2093,-0.000200,-0.263045
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 1.5x normal,10,6325,2093,0.000993,0.945529
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 3x normal,1,2174,1281,-0.000655,-0.934269
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 3x normal,2,2174,1281,0.000696,0.770188
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 3x normal,3,2174,1281,0.001403,1.266090
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 3x normal,5,2174,1281,0.001597,1.266997
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 3x normal,10,2174,1281,0.002540,1.693973
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ shares,1,3453,1322,-0.000998,-1.446127
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ shares,2,3453,1322,-0.000198,-0.220272
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ shares,3,3453,1322,-0.000020,-0.017710
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ shares,5,3453,1322,0.000178,0.139637
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ shares,10,3453,1322,0.001333,0.801674
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 1.5x normal,1,2377,1216,-0.001090,-1.366668
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 1.5x normal,2,2377,1216,-0.000081,-0.079477
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 1.5x normal,3,2377,1216,0.000976,0.787858
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 1.5x normal,5,2377,1216,0.000727,0.518678
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 1.5x normal,10,2377,1216,0.002375,1.331747
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 3x normal,1,1287,876,-0.000969,-0.887573
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 3x normal,2,1287,876,0.000492,0.350843
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 3x normal,3,1287,876,0.001486,0.829320
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 3x normal,5,1287,876,0.002152,1.095721
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 3x normal,10,1287,876,0.002364,1.080853
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ shares,1,1443,760,-0.000830,-0.688578
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ shares,2,1443,760,0.000534,0.322097
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ shares,3,1443,760,0.001710,0.806500
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ shares,5,1443,760,0.001773,0.779360
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ shares,10,1443,760,0.003803,1.377325
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 1.5x normal,1,1087,715,-0.001403,-1.082256
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 1.5x normal,2,1087,715,-0.000357,-0.201730
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 1.5x normal,3,1087,715,0.000932,0.422277
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 1.5x normal,5,1087,715,0.000120,0.050050
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 1.5x normal,10,1087,715,0.002812,0.984190
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 3x normal,1,748,585,-0.001415,-0.830960
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 3x normal,2,748,585,0.000215,0.107613
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 3x normal,3,748,585,0.001373,0.523806
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 3x normal,5,748,585,0.002278,0.761598
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 3x normal,10,748,585,0.003446,1.094949
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ shares,1,529,350,-0.003331,-1.223267
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ shares,2,529,350,-0.002955,-0.850600
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ shares,3,529,350,-0.002188,-0.489748
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ shares,5,529,350,0.001901,0.367608
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ shares,10,529,350,0.002892,0.529440
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 1.5x normal,1,429,329,-0.004101,-1.372703
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 1.5x normal,2,429,329,-0.003420,-0.880381
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 1.5x normal,3,429,329,-0.002397,-0.513418
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 1.5x normal,5,429,329,-0.000455,-0.086931
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 1.5x normal,10,429,329,0.001825,0.342855
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 3x normal,1,318,278,-0.004032,-1.203880
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 3x normal,2,318,278,-0.002260,-0.580893
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 3x normal,3,318,278,-0.000830,-0.158885
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 3x normal,5,318,278,0.004092,0.693528
+S&P 2005-15,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 3x normal,10,318,278,0.004296,0.760818
+S&P 2016-26,fixed,One-day drop,0.010000,pct,1M+ shares,1,253795,2721,0.000032,0.321359
+S&P 2016-26,fixed,One-day drop,0.010000,pct,1M+ shares,2,253795,2720,0.000079,0.522431
+S&P 2016-26,fixed,One-day drop,0.010000,pct,1M+ shares,3,253795,2719,0.000196,1.024296
+S&P 2016-26,fixed,One-day drop,0.010000,pct,1M+ shares,5,253795,2717,0.000218,0.878807
+S&P 2016-26,fixed,One-day drop,0.010000,pct,1M+ shares,10,253795,2712,0.000639,1.929748
+S&P 2016-26,fixed,One-day drop,0.010000,pct,1M+ and 1.5x normal,1,53673,2657,0.000448,2.436262
+S&P 2016-26,fixed,One-day drop,0.010000,pct,1M+ and 1.5x normal,2,53673,2656,0.000661,2.523724
+S&P 2016-26,fixed,One-day drop,0.010000,pct,1M+ and 1.5x normal,3,53673,2655,0.000681,2.165931
+S&P 2016-26,fixed,One-day drop,0.010000,pct,1M+ and 1.5x normal,5,53673,2653,0.000241,0.590538
+S&P 2016-26,fixed,One-day drop,0.010000,pct,1M+ and 1.5x normal,10,53673,2648,0.000648,1.232015
+S&P 2016-26,fixed,One-day drop,0.010000,pct,1M+ and 3x normal,1,7461,1998,0.000509,1.105673
+S&P 2016-26,fixed,One-day drop,0.010000,pct,1M+ and 3x normal,2,7461,1997,0.000380,0.602138
+S&P 2016-26,fixed,One-day drop,0.010000,pct,1M+ and 3x normal,3,7461,1996,0.000523,0.699261
+S&P 2016-26,fixed,One-day drop,0.010000,pct,1M+ and 3x normal,5,7461,1994,0.000201,0.220077
+S&P 2016-26,fixed,One-day drop,0.010000,pct,1M+ and 3x normal,10,7461,1990,0.000289,0.256453
+S&P 2016-26,fixed,One-day drop,0.015000,pct,1M+ shares,1,176930,2716,0.000037,0.286829
+S&P 2016-26,fixed,One-day drop,0.015000,pct,1M+ shares,2,176930,2715,0.000087,0.462159
+S&P 2016-26,fixed,One-day drop,0.015000,pct,1M+ shares,3,176930,2714,0.000214,0.914742
+S&P 2016-26,fixed,One-day drop,0.015000,pct,1M+ shares,5,176930,2712,0.000196,0.628851
+S&P 2016-26,fixed,One-day drop,0.015000,pct,1M+ shares,10,176930,2707,0.000719,1.705701
+S&P 2016-26,fixed,One-day drop,0.015000,pct,1M+ and 1.5x normal,1,44747,2631,0.000476,2.378517
+S&P 2016-26,fixed,One-day drop,0.015000,pct,1M+ and 1.5x normal,2,44747,2630,0.000714,2.466140
+S&P 2016-26,fixed,One-day drop,0.015000,pct,1M+ and 1.5x normal,3,44747,2629,0.000770,2.219560
+S&P 2016-26,fixed,One-day drop,0.015000,pct,1M+ and 1.5x normal,5,44747,2627,0.000327,0.735385
+S&P 2016-26,fixed,One-day drop,0.015000,pct,1M+ and 1.5x normal,10,44747,2622,0.000766,1.297246
+S&P 2016-26,fixed,One-day drop,0.015000,pct,1M+ and 3x normal,1,6802,1964,0.000646,1.376879
+S&P 2016-26,fixed,One-day drop,0.015000,pct,1M+ and 3x normal,2,6802,1963,0.000611,0.944563
+S&P 2016-26,fixed,One-day drop,0.015000,pct,1M+ and 3x normal,3,6802,1962,0.000718,0.941212
+S&P 2016-26,fixed,One-day drop,0.015000,pct,1M+ and 3x normal,5,6802,1960,0.000323,0.346918
+S&P 2016-26,fixed,One-day drop,0.015000,pct,1M+ and 3x normal,10,6802,1956,0.000242,0.209598
+S&P 2016-26,fixed,One-day drop,0.020000,pct,1M+ shares,1,124411,2704,0.000068,0.415189
+S&P 2016-26,fixed,One-day drop,0.020000,pct,1M+ shares,2,124411,2703,0.000236,0.991131
+S&P 2016-26,fixed,One-day drop,0.020000,pct,1M+ shares,3,124411,2702,0.000410,1.404090
+S&P 2016-26,fixed,One-day drop,0.020000,pct,1M+ shares,5,124411,2700,0.000403,1.049195
+S&P 2016-26,fixed,One-day drop,0.020000,pct,1M+ shares,10,124411,2695,0.001123,2.145485
+S&P 2016-26,fixed,One-day drop,0.020000,pct,1M+ and 1.5x normal,1,37052,2606,0.000427,1.912448
+S&P 2016-26,fixed,One-day drop,0.020000,pct,1M+ and 1.5x normal,2,37052,2605,0.000567,1.765073
+S&P 2016-26,fixed,One-day drop,0.020000,pct,1M+ and 1.5x normal,3,37052,2604,0.000628,1.628223
+S&P 2016-26,fixed,One-day drop,0.020000,pct,1M+ and 1.5x normal,5,37052,2602,0.000162,0.326324
+S&P 2016-26,fixed,One-day drop,0.020000,pct,1M+ and 1.5x normal,10,37052,2597,0.000696,1.051492
+S&P 2016-26,fixed,One-day drop,0.020000,pct,1M+ and 3x normal,1,6210,1921,0.000498,1.031965
+S&P 2016-26,fixed,One-day drop,0.020000,pct,1M+ and 3x normal,2,6210,1920,0.000397,0.594055
+S&P 2016-26,fixed,One-day drop,0.020000,pct,1M+ and 3x normal,3,6210,1919,0.000520,0.663105
+S&P 2016-26,fixed,One-day drop,0.020000,pct,1M+ and 3x normal,5,6210,1917,0.000087,0.091386
+S&P 2016-26,fixed,One-day drop,0.020000,pct,1M+ and 3x normal,10,6210,1913,-0.000250,-0.210676
+S&P 2016-26,fixed,One-day drop,0.030000,pct,1M+ shares,1,63972,2619,0.000255,1.064133
+S&P 2016-26,fixed,One-day drop,0.030000,pct,1M+ shares,2,63972,2618,0.000418,1.242401
+S&P 2016-26,fixed,One-day drop,0.030000,pct,1M+ shares,3,63972,2617,0.000780,1.859006
+S&P 2016-26,fixed,One-day drop,0.030000,pct,1M+ shares,5,63972,2615,0.001092,2.033229
+S&P 2016-26,fixed,One-day drop,0.030000,pct,1M+ shares,10,63972,2610,0.002037,2.854425
+S&P 2016-26,fixed,One-day drop,0.030000,pct,1M+ and 1.5x normal,1,25118,2480,0.000516,1.820558
+S&P 2016-26,fixed,One-day drop,0.030000,pct,1M+ and 1.5x normal,2,25118,2479,0.000386,0.955148
+S&P 2016-26,fixed,One-day drop,0.030000,pct,1M+ and 1.5x normal,3,25118,2478,0.000556,1.162199
+S&P 2016-26,fixed,One-day drop,0.030000,pct,1M+ and 1.5x normal,5,25118,2476,-0.000022,-0.035679
+S&P 2016-26,fixed,One-day drop,0.030000,pct,1M+ and 1.5x normal,10,25118,2471,0.000351,0.438313
+S&P 2016-26,fixed,One-day drop,0.030000,pct,1M+ and 3x normal,1,5316,1824,0.000552,1.060407
+S&P 2016-26,fixed,One-day drop,0.030000,pct,1M+ and 3x normal,2,5316,1823,0.000090,0.127545
+S&P 2016-26,fixed,One-day drop,0.030000,pct,1M+ and 3x normal,3,5316,1822,0.000080,0.098284
+S&P 2016-26,fixed,One-day drop,0.030000,pct,1M+ and 3x normal,5,5316,1820,0.000034,0.033963
+S&P 2016-26,fixed,One-day drop,0.030000,pct,1M+ and 3x normal,10,5316,1816,-0.000274,-0.216542
+S&P 2016-26,fixed,One-day drop,0.040000,pct,1M+ shares,1,35049,2437,0.000221,0.633462
+S&P 2016-26,fixed,One-day drop,0.040000,pct,1M+ shares,2,35049,2436,0.000166,0.349872
+S&P 2016-26,fixed,One-day drop,0.040000,pct,1M+ shares,3,35049,2435,0.000232,0.394951
+S&P 2016-26,fixed,One-day drop,0.040000,pct,1M+ shares,5,35049,2433,0.000238,0.336816
+S&P 2016-26,fixed,One-day drop,0.040000,pct,1M+ shares,10,35049,2428,0.001368,1.420745
+S&P 2016-26,fixed,One-day drop,0.040000,pct,1M+ and 1.5x normal,1,17109,2301,0.000387,1.036668
+S&P 2016-26,fixed,One-day drop,0.040000,pct,1M+ and 1.5x normal,2,17109,2300,-0.000043,-0.083538
+S&P 2016-26,fixed,One-day drop,0.040000,pct,1M+ and 1.5x normal,3,17109,2299,-0.000049,-0.082555
+S&P 2016-26,fixed,One-day drop,0.040000,pct,1M+ and 1.5x normal,5,17109,2297,-0.000821,-1.092072
+S&P 2016-26,fixed,One-day drop,0.040000,pct,1M+ and 1.5x normal,10,17109,2292,-0.000007,-0.006579
+S&P 2016-26,fixed,One-day drop,0.040000,pct,1M+ and 3x normal,1,4583,1712,0.000718,1.301708
+S&P 2016-26,fixed,One-day drop,0.040000,pct,1M+ and 3x normal,2,4583,1711,0.000189,0.252142
+S&P 2016-26,fixed,One-day drop,0.040000,pct,1M+ and 3x normal,3,4583,1710,0.000122,0.140592
+S&P 2016-26,fixed,One-day drop,0.040000,pct,1M+ and 3x normal,5,4583,1708,-0.000107,-0.101253
+S&P 2016-26,fixed,One-day drop,0.040000,pct,1M+ and 3x normal,10,4583,1704,-0.000400,-0.297449
+S&P 2016-26,fixed,One-day drop,0.050000,pct,1M+ shares,1,20681,2191,0.000548,1.242628
+S&P 2016-26,fixed,One-day drop,0.050000,pct,1M+ shares,2,20681,2190,0.000547,0.918088
+S&P 2016-26,fixed,One-day drop,0.050000,pct,1M+ shares,3,20681,2189,0.000880,1.235383
+S&P 2016-26,fixed,One-day drop,0.050000,pct,1M+ shares,5,20681,2187,0.001027,1.187359
+S&P 2016-26,fixed,One-day drop,0.050000,pct,1M+ shares,10,20681,2182,0.002781,2.345802
+S&P 2016-26,fixed,One-day drop,0.050000,pct,1M+ and 1.5x normal,1,11750,2068,0.000635,1.400083
+S&P 2016-26,fixed,One-day drop,0.050000,pct,1M+ and 1.5x normal,2,11750,2067,0.000232,0.367992
+S&P 2016-26,fixed,One-day drop,0.050000,pct,1M+ and 1.5x normal,3,11750,2066,0.000170,0.230325
+S&P 2016-26,fixed,One-day drop,0.050000,pct,1M+ and 1.5x normal,5,11750,2064,-0.000067,-0.074504
+S&P 2016-26,fixed,One-day drop,0.050000,pct,1M+ and 1.5x normal,10,11750,2059,0.001288,1.055353
+S&P 2016-26,fixed,One-day drop,0.050000,pct,1M+ and 3x normal,1,3882,1560,0.000931,1.536301
+S&P 2016-26,fixed,One-day drop,0.050000,pct,1M+ and 3x normal,2,3882,1559,0.000409,0.496497
+S&P 2016-26,fixed,One-day drop,0.050000,pct,1M+ and 3x normal,3,3882,1558,0.000224,0.237566
+S&P 2016-26,fixed,One-day drop,0.050000,pct,1M+ and 3x normal,5,3882,1556,0.000191,0.165037
+S&P 2016-26,fixed,One-day drop,0.050000,pct,1M+ and 3x normal,10,3882,1552,0.000309,0.209842
+S&P 2016-26,fixed,One-day drop,0.070000,pct,1M+ shares,1,8642,1645,0.000759,1.160657
+S&P 2016-26,fixed,One-day drop,0.070000,pct,1M+ shares,2,8642,1644,-0.000605,-0.698321
+S&P 2016-26,fixed,One-day drop,0.070000,pct,1M+ shares,3,8642,1643,-0.000662,-0.645620
+S&P 2016-26,fixed,One-day drop,0.070000,pct,1M+ shares,5,8642,1641,-0.000780,-0.634580
+S&P 2016-26,fixed,One-day drop,0.070000,pct,1M+ shares,10,8642,1638,0.001503,0.877226
+S&P 2016-26,fixed,One-day drop,0.070000,pct,1M+ and 1.5x normal,1,5951,1565,0.000674,1.054618
+S&P 2016-26,fixed,One-day drop,0.070000,pct,1M+ and 1.5x normal,2,5951,1564,-0.001025,-1.125283
+S&P 2016-26,fixed,One-day drop,0.070000,pct,1M+ and 1.5x normal,3,5951,1563,-0.001562,-1.507073
+S&P 2016-26,fixed,One-day drop,0.070000,pct,1M+ and 1.5x normal,5,5951,1561,-0.001429,-1.147782
+S&P 2016-26,fixed,One-day drop,0.070000,pct,1M+ and 1.5x normal,10,5951,1558,0.000239,0.138948
+S&P 2016-26,fixed,One-day drop,0.070000,pct,1M+ and 3x normal,1,2670,1234,0.000832,1.132105
+S&P 2016-26,fixed,One-day drop,0.070000,pct,1M+ and 3x normal,2,2670,1233,-0.000593,-0.583903
+S&P 2016-26,fixed,One-day drop,0.070000,pct,1M+ and 3x normal,3,2670,1232,-0.000612,-0.517098
+S&P 2016-26,fixed,One-day drop,0.070000,pct,1M+ and 3x normal,5,2670,1231,-0.000689,-0.471245
+S&P 2016-26,fixed,One-day drop,0.070000,pct,1M+ and 3x normal,10,2670,1228,-0.001145,-0.622791
+S&P 2016-26,fixed,One-day drop,0.100000,pct,1M+ shares,1,3106,956,0.001463,1.255132
+S&P 2016-26,fixed,One-day drop,0.100000,pct,1M+ shares,2,3106,955,-0.000207,-0.137310
+S&P 2016-26,fixed,One-day drop,0.100000,pct,1M+ shares,3,3106,954,0.000274,0.149604
+S&P 2016-26,fixed,One-day drop,0.100000,pct,1M+ shares,5,3106,952,0.000899,0.425619
+S&P 2016-26,fixed,One-day drop,0.100000,pct,1M+ shares,10,3106,949,0.004163,1.483496
+S&P 2016-26,fixed,One-day drop,0.100000,pct,1M+ and 1.5x normal,1,2407,916,0.001157,1.119980
+S&P 2016-26,fixed,One-day drop,0.100000,pct,1M+ and 1.5x normal,2,2407,915,0.000166,0.112490
+S&P 2016-26,fixed,One-day drop,0.100000,pct,1M+ and 1.5x normal,3,2407,914,0.000420,0.251703
+S&P 2016-26,fixed,One-day drop,0.100000,pct,1M+ and 1.5x normal,5,2407,912,0.001081,0.555797
+S&P 2016-26,fixed,One-day drop,0.100000,pct,1M+ and 1.5x normal,10,2407,909,0.004128,1.594240
+S&P 2016-26,fixed,One-day drop,0.100000,pct,1M+ and 3x normal,1,1395,800,0.001439,1.372568
+S&P 2016-26,fixed,One-day drop,0.100000,pct,1M+ and 3x normal,2,1395,799,0.000455,0.307983
+S&P 2016-26,fixed,One-day drop,0.100000,pct,1M+ and 3x normal,3,1395,798,0.000790,0.459065
+S&P 2016-26,fixed,One-day drop,0.100000,pct,1M+ and 3x normal,5,1395,797,0.001721,0.795305
+S&P 2016-26,fixed,One-day drop,0.100000,pct,1M+ and 3x normal,10,1395,794,0.001486,0.573177
+S&P 2016-26,fixed,One-day drop,0.150000,pct,1M+ shares,1,884,396,0.001166,0.518239
+S&P 2016-26,fixed,One-day drop,0.150000,pct,1M+ shares,2,884,395,0.000272,0.090255
+S&P 2016-26,fixed,One-day drop,0.150000,pct,1M+ shares,3,884,394,-0.000068,-0.017092
+S&P 2016-26,fixed,One-day drop,0.150000,pct,1M+ shares,5,884,394,0.000445,0.098492
+S&P 2016-26,fixed,One-day drop,0.150000,pct,1M+ shares,10,884,392,0.004276,0.785835
+S&P 2016-26,fixed,One-day drop,0.150000,pct,1M+ and 1.5x normal,1,764,388,0.002496,1.263399
+S&P 2016-26,fixed,One-day drop,0.150000,pct,1M+ and 1.5x normal,2,764,387,0.002801,0.976441
+S&P 2016-26,fixed,One-day drop,0.150000,pct,1M+ and 1.5x normal,3,764,386,0.003933,1.215510
+S&P 2016-26,fixed,One-day drop,0.150000,pct,1M+ and 1.5x normal,5,764,386,0.004921,1.311887
+S&P 2016-26,fixed,One-day drop,0.150000,pct,1M+ and 1.5x normal,10,764,384,0.008571,1.835276
+S&P 2016-26,fixed,One-day drop,0.150000,pct,1M+ and 3x normal,1,537,364,0.002063,1.068618
+S&P 2016-26,fixed,One-day drop,0.150000,pct,1M+ and 3x normal,2,537,363,0.002229,0.837922
+S&P 2016-26,fixed,One-day drop,0.150000,pct,1M+ and 3x normal,3,537,362,0.003727,1.162083
+S&P 2016-26,fixed,One-day drop,0.150000,pct,1M+ and 3x normal,5,537,362,0.006419,1.681225
+S&P 2016-26,fixed,One-day drop,0.150000,pct,1M+ and 3x normal,10,537,360,0.009375,2.060991
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.000000,x,1M+ shares,1,141267,2691,0.000074,0.495613
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.000000,x,1M+ shares,2,141267,2690,0.000188,0.879881
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.000000,x,1M+ shares,3,141267,2689,0.000303,1.093801
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.000000,x,1M+ shares,5,141267,2687,0.000074,0.216647
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.000000,x,1M+ shares,10,141267,2682,0.000076,0.164930
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 1.5x normal,1,41618,2598,0.000484,2.408118
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 1.5x normal,2,41618,2597,0.000523,1.828560
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 1.5x normal,3,41618,2596,0.000505,1.405303
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 1.5x normal,5,41618,2594,0.000089,0.197866
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 1.5x normal,10,41618,2589,0.000217,0.343694
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 3x normal,1,6468,1920,0.000587,1.238159
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 3x normal,2,6468,1919,0.000441,0.679538
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 3x normal,3,6468,1918,0.000522,0.696826
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 3x normal,5,6468,1916,0.000280,0.304722
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 3x normal,10,6468,1912,0.000253,0.220924
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.500000,x,1M+ shares,1,70963,2585,0.000313,1.596396
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.500000,x,1M+ shares,2,70963,2584,0.000295,1.080467
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.500000,x,1M+ shares,3,70963,2583,0.000585,1.743462
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.500000,x,1M+ shares,5,70963,2581,0.000290,0.705563
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.500000,x,1M+ shares,10,70963,2576,0.000581,0.997950
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 1.5x normal,1,29648,2489,0.000502,2.137474
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 1.5x normal,2,29648,2488,0.000341,1.040624
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 1.5x normal,3,29648,2487,0.000568,1.413220
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 1.5x normal,5,29648,2485,0.000059,0.117519
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 1.5x normal,10,29648,2480,0.000529,0.738230
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 3x normal,1,5584,1838,0.000718,1.472739
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 3x normal,2,5584,1837,0.000411,0.622658
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 3x normal,3,5584,1836,0.000357,0.460739
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 3x normal,5,5584,1834,0.000152,0.160785
+S&P 2016-26,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 3x normal,10,5584,1830,0.000162,0.135668
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.000000,x,1M+ shares,1,37234,2452,0.000121,0.480916
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.000000,x,1M+ shares,2,37234,2451,0.000078,0.224468
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.000000,x,1M+ shares,3,37234,2450,0.000262,0.666533
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.000000,x,1M+ shares,5,37234,2448,-0.000165,-0.343960
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.000000,x,1M+ shares,10,37234,2443,0.000423,0.608961
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 1.5x normal,1,20762,2363,0.000324,1.149302
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 1.5x normal,2,20762,2362,0.000232,0.586536
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 1.5x normal,3,20762,2361,0.000447,0.967565
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 1.5x normal,5,20762,2359,0.000075,0.133584
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 1.5x normal,10,20762,2354,0.000896,1.149981
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 3x normal,1,4950,1758,0.000573,1.130178
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 3x normal,2,4950,1757,-0.000018,-0.026786
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 3x normal,3,4950,1756,-0.000001,-0.001689
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 3x normal,5,4950,1755,-0.000108,-0.109922
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 3x normal,10,4950,1751,-0.000026,-0.021047
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.500000,x,1M+ shares,1,21004,2239,0.000366,1.161612
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.500000,x,1M+ shares,2,21004,2238,0.000085,0.199282
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.500000,x,1M+ shares,3,21004,2237,0.000102,0.208048
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.500000,x,1M+ shares,5,21004,2235,0.000055,0.090383
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.500000,x,1M+ shares,10,21004,2230,0.000636,0.760678
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 1.5x normal,1,14371,2169,0.000608,1.802823
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 1.5x normal,2,14371,2168,0.000423,0.917307
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 1.5x normal,3,14371,2167,0.000427,0.795798
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 1.5x normal,5,14371,2165,0.000444,0.668434
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 1.5x normal,10,14371,2161,0.001451,1.653823
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 3x normal,1,4353,1644,0.000709,1.307780
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 3x normal,2,4353,1643,0.000057,0.079702
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 3x normal,3,4353,1642,0.000102,0.120771
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 3x normal,5,4353,1641,-0.000044,-0.042203
+S&P 2016-26,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 3x normal,10,4353,1637,0.000042,0.032307
+S&P 2016-26,vol_adj,Drop vs normal daily move,3.000000,x,1M+ shares,1,12926,1969,0.000176,0.448685
+S&P 2016-26,vol_adj,Drop vs normal daily move,3.000000,x,1M+ shares,2,12926,1968,-0.000253,-0.507103
+S&P 2016-26,vol_adj,Drop vs normal daily move,3.000000,x,1M+ shares,3,12926,1967,-0.000154,-0.263563
+S&P 2016-26,vol_adj,Drop vs normal daily move,3.000000,x,1M+ shares,5,12926,1966,-0.000411,-0.568666
+S&P 2016-26,vol_adj,Drop vs normal daily move,3.000000,x,1M+ shares,10,12926,1961,0.000358,0.383825
+S&P 2016-26,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 1.5x normal,1,10081,1926,0.000532,1.308804
+S&P 2016-26,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 1.5x normal,2,10081,1925,0.000095,0.182247
+S&P 2016-26,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 1.5x normal,3,10081,1924,0.000152,0.249321
+S&P 2016-26,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 1.5x normal,5,10081,1923,0.000050,0.066023
+S&P 2016-26,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 1.5x normal,10,10081,1919,0.000853,0.893791
+S&P 2016-26,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 3x normal,1,3758,1512,0.000699,1.264838
+S&P 2016-26,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 3x normal,2,3758,1511,-0.000099,-0.133759
+S&P 2016-26,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 3x normal,3,3758,1510,0.000083,0.094545
+S&P 2016-26,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 3x normal,5,3758,1509,-0.000067,-0.062688
+S&P 2016-26,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 3x normal,10,3758,1506,0.000292,0.225312
+S&P 2016-26,vol_adj,Drop vs normal daily move,4.000000,x,1M+ shares,1,5986,1496,0.000407,0.752706
+S&P 2016-26,vol_adj,Drop vs normal daily move,4.000000,x,1M+ shares,2,5986,1495,0.000011,0.016034
+S&P 2016-26,vol_adj,Drop vs normal daily move,4.000000,x,1M+ shares,3,5986,1494,0.000110,0.135657
+S&P 2016-26,vol_adj,Drop vs normal daily move,4.000000,x,1M+ shares,5,5986,1493,0.000332,0.341884
+S&P 2016-26,vol_adj,Drop vs normal daily move,4.000000,x,1M+ shares,10,5986,1490,0.000852,0.691590
+S&P 2016-26,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 1.5x normal,1,5254,1476,0.000505,0.955053
+S&P 2016-26,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 1.5x normal,2,5254,1475,0.000035,0.049271
+S&P 2016-26,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 1.5x normal,3,5254,1474,0.000184,0.223783
+S&P 2016-26,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 1.5x normal,5,5254,1473,0.000531,0.539651
+S&P 2016-26,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 1.5x normal,10,5254,1470,0.001132,0.912335
+S&P 2016-26,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 3x normal,1,2760,1240,0.000763,1.221187
+S&P 2016-26,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 3x normal,2,2760,1239,0.000089,0.103275
+S&P 2016-26,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 3x normal,3,2760,1238,0.000108,0.106154
+S&P 2016-26,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 3x normal,5,2760,1237,0.000343,0.281042
+S&P 2016-26,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 3x normal,10,2760,1235,0.000630,0.424074
+S&P 2016-26,vol_adj,Drop vs normal daily move,5.000000,x,1M+ shares,1,3131,1095,0.000568,0.862988
+S&P 2016-26,vol_adj,Drop vs normal daily move,5.000000,x,1M+ shares,2,3131,1094,0.000306,0.341777
+S&P 2016-26,vol_adj,Drop vs normal daily move,5.000000,x,1M+ shares,3,3131,1093,0.000505,0.488581
+S&P 2016-26,vol_adj,Drop vs normal daily move,5.000000,x,1M+ shares,5,3131,1092,0.000569,0.473633
+S&P 2016-26,vol_adj,Drop vs normal daily move,5.000000,x,1M+ shares,10,3131,1090,0.000373,0.231389
+S&P 2016-26,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 1.5x normal,1,2909,1089,0.000633,0.955243
+S&P 2016-26,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 1.5x normal,2,2909,1088,0.000343,0.379753
+S&P 2016-26,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 1.5x normal,3,2909,1087,0.000551,0.529541
+S&P 2016-26,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 1.5x normal,5,2909,1086,0.000604,0.500755
+S&P 2016-26,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 1.5x normal,10,2909,1084,0.000536,0.330818
+S&P 2016-26,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 3x normal,1,1953,991,0.001250,1.655789
+S&P 2016-26,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 3x normal,2,1953,990,0.000472,0.460701
+S&P 2016-26,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 3x normal,3,1953,989,0.000676,0.572036
+S&P 2016-26,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 3x normal,5,1953,988,0.000557,0.405932
+S&P 2016-26,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 3x normal,10,1953,986,0.000752,0.428810
+S&P 2016-26,multi3,3-day drop,0.020000,pct,1M+ shares,1,229299,2718,0.000074,0.716668
+S&P 2016-26,multi3,3-day drop,0.020000,pct,1M+ shares,2,229299,2717,0.000276,1.736474
+S&P 2016-26,multi3,3-day drop,0.020000,pct,1M+ shares,3,229299,2716,0.000466,2.343143
+S&P 2016-26,multi3,3-day drop,0.020000,pct,1M+ shares,5,229299,2714,0.000789,3.009026
+S&P 2016-26,multi3,3-day drop,0.020000,pct,1M+ shares,10,229299,2709,0.001027,2.962530
+S&P 2016-26,multi3,3-day drop,0.020000,pct,1M+ and 1.5x normal,1,53476,2648,0.000337,1.921576
+S&P 2016-26,multi3,3-day drop,0.020000,pct,1M+ and 1.5x normal,2,53476,2647,0.000604,2.325120
+S&P 2016-26,multi3,3-day drop,0.020000,pct,1M+ and 1.5x normal,3,53476,2646,0.000659,2.086070
+S&P 2016-26,multi3,3-day drop,0.020000,pct,1M+ and 1.5x normal,5,53476,2644,0.000668,1.734988
+S&P 2016-26,multi3,3-day drop,0.020000,pct,1M+ and 1.5x normal,10,53476,2639,0.001027,1.995515
+S&P 2016-26,multi3,3-day drop,0.020000,pct,1M+ and 3x normal,1,7252,1983,0.000399,0.881920
+S&P 2016-26,multi3,3-day drop,0.020000,pct,1M+ and 3x normal,2,7252,1982,0.000304,0.507876
+S&P 2016-26,multi3,3-day drop,0.020000,pct,1M+ and 3x normal,3,7252,1981,0.000235,0.330585
+S&P 2016-26,multi3,3-day drop,0.020000,pct,1M+ and 3x normal,5,7252,1979,0.000344,0.387333
+S&P 2016-26,multi3,3-day drop,0.020000,pct,1M+ and 3x normal,10,7252,1975,0.000770,0.704532
+S&P 2016-26,multi3,3-day drop,0.030000,pct,1M+ shares,1,151755,2711,0.000107,0.811770
+S&P 2016-26,multi3,3-day drop,0.030000,pct,1M+ shares,2,151755,2710,0.000342,1.704222
+S&P 2016-26,multi3,3-day drop,0.030000,pct,1M+ shares,3,151755,2709,0.000628,2.509029
+S&P 2016-26,multi3,3-day drop,0.030000,pct,1M+ shares,5,151755,2707,0.000914,2.799522
+S&P 2016-26,multi3,3-day drop,0.030000,pct,1M+ shares,10,151755,2702,0.001224,2.792013
+S&P 2016-26,multi3,3-day drop,0.030000,pct,1M+ and 1.5x normal,1,42641,2605,0.000215,1.049477
+S&P 2016-26,multi3,3-day drop,0.030000,pct,1M+ and 1.5x normal,2,42641,2604,0.000473,1.559138
+S&P 2016-26,multi3,3-day drop,0.030000,pct,1M+ and 1.5x normal,3,42641,2603,0.000614,1.652621
+S&P 2016-26,multi3,3-day drop,0.030000,pct,1M+ and 1.5x normal,5,42641,2601,0.000525,1.188290
+S&P 2016-26,multi3,3-day drop,0.030000,pct,1M+ and 1.5x normal,10,42641,2596,0.001376,2.296256
+S&P 2016-26,multi3,3-day drop,0.030000,pct,1M+ and 3x normal,1,6356,1897,0.000529,1.085448
+S&P 2016-26,multi3,3-day drop,0.030000,pct,1M+ and 3x normal,2,6356,1896,0.000257,0.390393
+S&P 2016-26,multi3,3-day drop,0.030000,pct,1M+ and 3x normal,3,6356,1895,0.000195,0.253862
+S&P 2016-26,multi3,3-day drop,0.030000,pct,1M+ and 3x normal,5,6356,1893,0.000036,0.037849
+S&P 2016-26,multi3,3-day drop,0.030000,pct,1M+ and 3x normal,10,6356,1889,0.000202,0.173647
+S&P 2016-26,multi3,3-day drop,0.050000,pct,1M+ shares,1,69337,2622,0.000194,0.891544
+S&P 2016-26,multi3,3-day drop,0.050000,pct,1M+ shares,2,69337,2621,0.000556,1.817491
+S&P 2016-26,multi3,3-day drop,0.050000,pct,1M+ shares,3,69337,2620,0.000975,2.561430
+S&P 2016-26,multi3,3-day drop,0.050000,pct,1M+ shares,5,69337,2618,0.001196,2.515855
+S&P 2016-26,multi3,3-day drop,0.050000,pct,1M+ shares,10,69337,2613,0.002043,2.916732
+S&P 2016-26,multi3,3-day drop,0.050000,pct,1M+ and 1.5x normal,1,26098,2437,0.000046,0.156859
+S&P 2016-26,multi3,3-day drop,0.050000,pct,1M+ and 1.5x normal,2,26098,2436,0.000392,0.912489
+S&P 2016-26,multi3,3-day drop,0.050000,pct,1M+ and 1.5x normal,3,26098,2435,0.000688,1.331826
+S&P 2016-26,multi3,3-day drop,0.050000,pct,1M+ and 1.5x normal,5,26098,2433,0.000368,0.606486
+S&P 2016-26,multi3,3-day drop,0.050000,pct,1M+ and 1.5x normal,10,26098,2428,0.001329,1.609322
+S&P 2016-26,multi3,3-day drop,0.050000,pct,1M+ and 3x normal,1,4726,1687,0.000583,1.044973
+S&P 2016-26,multi3,3-day drop,0.050000,pct,1M+ and 3x normal,2,4726,1686,-0.000004,-0.005111
+S&P 2016-26,multi3,3-day drop,0.050000,pct,1M+ and 3x normal,3,4726,1685,0.000110,0.123206
+S&P 2016-26,multi3,3-day drop,0.050000,pct,1M+ and 3x normal,5,4726,1683,0.000203,0.187152
+S&P 2016-26,multi3,3-day drop,0.050000,pct,1M+ and 3x normal,10,4726,1679,0.000708,0.521138
+S&P 2016-26,multi3,3-day drop,0.070000,pct,1M+ shares,1,34188,2407,0.000122,0.367620
+S&P 2016-26,multi3,3-day drop,0.070000,pct,1M+ shares,2,34188,2406,0.000060,0.130224
+S&P 2016-26,multi3,3-day drop,0.070000,pct,1M+ shares,3,34188,2405,0.000394,0.709014
+S&P 2016-26,multi3,3-day drop,0.070000,pct,1M+ shares,5,34188,2403,0.000491,0.729547
+S&P 2016-26,multi3,3-day drop,0.070000,pct,1M+ shares,10,34188,2398,0.001241,1.275642
+S&P 2016-26,multi3,3-day drop,0.070000,pct,1M+ and 1.5x normal,1,15916,2160,0.000016,0.039621
+S&P 2016-26,multi3,3-day drop,0.070000,pct,1M+ and 1.5x normal,2,15916,2159,-0.000183,-0.303288
+S&P 2016-26,multi3,3-day drop,0.070000,pct,1M+ and 1.5x normal,3,15916,2158,-0.000249,-0.358042
+S&P 2016-26,multi3,3-day drop,0.070000,pct,1M+ and 1.5x normal,5,15916,2156,-0.000224,-0.274361
+S&P 2016-26,multi3,3-day drop,0.070000,pct,1M+ and 1.5x normal,10,15916,2151,0.000440,0.395488
+S&P 2016-26,multi3,3-day drop,0.070000,pct,1M+ and 3x normal,1,3444,1430,0.000585,0.885499
+S&P 2016-26,multi3,3-day drop,0.070000,pct,1M+ and 3x normal,2,3444,1429,-0.000376,-0.417660
+S&P 2016-26,multi3,3-day drop,0.070000,pct,1M+ and 3x normal,3,3444,1428,-0.000451,-0.431294
+S&P 2016-26,multi3,3-day drop,0.070000,pct,1M+ and 3x normal,5,3444,1426,0.000171,0.132711
+S&P 2016-26,multi3,3-day drop,0.070000,pct,1M+ and 3x normal,10,3444,1422,0.000233,0.143833
+S&P 2016-26,multi3,3-day drop,0.100000,pct,1M+ shares,1,13610,1896,-0.000225,-0.433601
+S&P 2016-26,multi3,3-day drop,0.100000,pct,1M+ shares,2,13610,1895,-0.000491,-0.688613
+S&P 2016-26,multi3,3-day drop,0.100000,pct,1M+ shares,3,13610,1894,0.000545,0.623353
+S&P 2016-26,multi3,3-day drop,0.100000,pct,1M+ shares,5,13610,1892,0.000648,0.613530
+S&P 2016-26,multi3,3-day drop,0.100000,pct,1M+ shares,10,13610,1888,0.002194,1.430229
+S&P 2016-26,multi3,3-day drop,0.100000,pct,1M+ and 1.5x normal,1,7751,1653,0.000032,0.056182
+S&P 2016-26,multi3,3-day drop,0.100000,pct,1M+ and 1.5x normal,2,7751,1652,-0.000131,-0.160932
+S&P 2016-26,multi3,3-day drop,0.100000,pct,1M+ and 1.5x normal,3,7751,1651,0.000517,0.528304
+S&P 2016-26,multi3,3-day drop,0.100000,pct,1M+ and 1.5x normal,5,7751,1649,0.001552,1.326974
+S&P 2016-26,multi3,3-day drop,0.100000,pct,1M+ and 1.5x normal,10,7751,1645,0.003480,2.054429
+S&P 2016-26,multi3,3-day drop,0.100000,pct,1M+ and 3x normal,1,2035,1041,0.001027,1.215864
+S&P 2016-26,multi3,3-day drop,0.100000,pct,1M+ and 3x normal,2,2035,1040,-0.000475,-0.411088
+S&P 2016-26,multi3,3-day drop,0.100000,pct,1M+ and 3x normal,3,2035,1039,-0.000626,-0.455128
+S&P 2016-26,multi3,3-day drop,0.100000,pct,1M+ and 3x normal,5,2035,1037,0.000977,0.564671
+S&P 2016-26,multi3,3-day drop,0.100000,pct,1M+ and 3x normal,10,2035,1035,0.002303,1.073106
+S&P 2016-26,multi3,3-day drop,0.150000,pct,1M+ shares,1,3849,1031,0.000027,0.024634
+S&P 2016-26,multi3,3-day drop,0.150000,pct,1M+ shares,2,3849,1030,0.000751,0.539514
+S&P 2016-26,multi3,3-day drop,0.150000,pct,1M+ shares,3,3849,1029,0.001510,0.897474
+S&P 2016-26,multi3,3-day drop,0.150000,pct,1M+ shares,5,3849,1027,0.004432,2.118413
+S&P 2016-26,multi3,3-day drop,0.150000,pct,1M+ shares,10,3849,1024,0.006581,2.338922
+S&P 2016-26,multi3,3-day drop,0.150000,pct,1M+ and 1.5x normal,1,2615,909,0.000079,0.078604
+S&P 2016-26,multi3,3-day drop,0.150000,pct,1M+ and 1.5x normal,2,2615,908,0.001460,1.013496
+S&P 2016-26,multi3,3-day drop,0.150000,pct,1M+ and 1.5x normal,3,2615,907,0.002845,1.702512
+S&P 2016-26,multi3,3-day drop,0.150000,pct,1M+ and 1.5x normal,5,2615,905,0.005801,2.775012
+S&P 2016-26,multi3,3-day drop,0.150000,pct,1M+ and 1.5x normal,10,2615,902,0.008120,2.686636
+S&P 2016-26,multi3,3-day drop,0.150000,pct,1M+ and 3x normal,1,870,552,0.000536,0.390288
+S&P 2016-26,multi3,3-day drop,0.150000,pct,1M+ and 3x normal,2,870,551,0.000026,0.013266
+S&P 2016-26,multi3,3-day drop,0.150000,pct,1M+ and 3x normal,3,870,550,-0.000360,-0.156868
+S&P 2016-26,multi3,3-day drop,0.150000,pct,1M+ and 3x normal,5,870,548,0.002800,0.979159
+S&P 2016-26,multi3,3-day drop,0.150000,pct,1M+ and 3x normal,10,870,546,0.006505,1.834101
+S&P 2016-26,multi5,5-day drop,0.020000,pct,1M+ shares,1,273727,2721,0.000018,0.187837
+S&P 2016-26,multi5,5-day drop,0.020000,pct,1M+ shares,2,273727,2720,0.000166,1.110800
+S&P 2016-26,multi5,5-day drop,0.020000,pct,1M+ shares,3,273727,2719,0.000400,2.167882
+S&P 2016-26,multi5,5-day drop,0.020000,pct,1M+ shares,5,273727,2717,0.000777,3.465687
+S&P 2016-26,multi5,5-day drop,0.020000,pct,1M+ shares,10,273727,2712,0.000862,2.818408
+S&P 2016-26,multi5,5-day drop,0.020000,pct,1M+ and 1.5x normal,1,57690,2654,0.000232,1.362399
+S&P 2016-26,multi5,5-day drop,0.020000,pct,1M+ and 1.5x normal,2,57690,2653,0.000433,1.673018
+S&P 2016-26,multi5,5-day drop,0.020000,pct,1M+ and 1.5x normal,3,57690,2652,0.000435,1.373436
+S&P 2016-26,multi5,5-day drop,0.020000,pct,1M+ and 1.5x normal,5,57690,2650,0.000672,1.709702
+S&P 2016-26,multi5,5-day drop,0.020000,pct,1M+ and 1.5x normal,10,57690,2645,0.001287,2.402643
+S&P 2016-26,multi5,5-day drop,0.020000,pct,1M+ and 3x normal,1,7433,1980,0.000419,0.889104
+S&P 2016-26,multi5,5-day drop,0.020000,pct,1M+ and 3x normal,2,7433,1979,0.000182,0.290624
+S&P 2016-26,multi5,5-day drop,0.020000,pct,1M+ and 3x normal,3,7433,1978,0.000437,0.583762
+S&P 2016-26,multi5,5-day drop,0.020000,pct,1M+ and 3x normal,5,7433,1976,0.000360,0.392294
+S&P 2016-26,multi5,5-day drop,0.020000,pct,1M+ and 3x normal,10,7433,1972,0.000756,0.677489
+S&P 2016-26,multi5,5-day drop,0.030000,pct,1M+ shares,1,199655,2718,0.000101,0.821966
+S&P 2016-26,multi5,5-day drop,0.030000,pct,1M+ shares,2,199655,2717,0.000227,1.275751
+S&P 2016-26,multi5,5-day drop,0.030000,pct,1M+ shares,3,199655,2716,0.000487,2.229028
+S&P 2016-26,multi5,5-day drop,0.030000,pct,1M+ shares,5,199655,2714,0.001022,3.664699
+S&P 2016-26,multi5,5-day drop,0.030000,pct,1M+ shares,10,199655,2709,0.001283,3.396860
+S&P 2016-26,multi5,5-day drop,0.030000,pct,1M+ and 1.5x normal,1,48075,2629,0.000274,1.281207
+S&P 2016-26,multi5,5-day drop,0.030000,pct,1M+ and 1.5x normal,2,48075,2628,0.000588,1.946544
+S&P 2016-26,multi5,5-day drop,0.030000,pct,1M+ and 1.5x normal,3,48075,2627,0.000789,2.125068
+S&P 2016-26,multi5,5-day drop,0.030000,pct,1M+ and 1.5x normal,5,48075,2625,0.000956,2.128819
+S&P 2016-26,multi5,5-day drop,0.030000,pct,1M+ and 1.5x normal,10,48075,2620,0.001777,2.996539
+S&P 2016-26,multi5,5-day drop,0.030000,pct,1M+ and 3x normal,1,6576,1900,0.000457,0.925656
+S&P 2016-26,multi5,5-day drop,0.030000,pct,1M+ and 3x normal,2,6576,1899,0.000293,0.452176
+S&P 2016-26,multi5,5-day drop,0.030000,pct,1M+ and 3x normal,3,6576,1898,0.000642,0.827061
+S&P 2016-26,multi5,5-day drop,0.030000,pct,1M+ and 3x normal,5,6576,1896,0.000614,0.646296
+S&P 2016-26,multi5,5-day drop,0.030000,pct,1M+ and 3x normal,10,6576,1892,0.000849,0.731490
+S&P 2016-26,multi5,5-day drop,0.050000,pct,1M+ shares,1,106003,2684,0.000059,0.348355
+S&P 2016-26,multi5,5-day drop,0.050000,pct,1M+ shares,2,106003,2683,0.000218,0.886232
+S&P 2016-26,multi5,5-day drop,0.050000,pct,1M+ shares,3,106003,2682,0.000489,1.633990
+S&P 2016-26,multi5,5-day drop,0.050000,pct,1M+ shares,5,106003,2680,0.000947,2.474505
+S&P 2016-26,multi5,5-day drop,0.050000,pct,1M+ shares,10,106003,2675,0.001400,2.625573
+S&P 2016-26,multi5,5-day drop,0.050000,pct,1M+ and 1.5x normal,1,32195,2504,0.000075,0.293569
+S&P 2016-26,multi5,5-day drop,0.050000,pct,1M+ and 1.5x normal,2,32195,2503,0.000444,1.200121
+S&P 2016-26,multi5,5-day drop,0.050000,pct,1M+ and 1.5x normal,3,32195,2502,0.000819,1.796388
+S&P 2016-26,multi5,5-day drop,0.050000,pct,1M+ and 1.5x normal,5,32195,2500,0.001002,1.817745
+S&P 2016-26,multi5,5-day drop,0.050000,pct,1M+ and 1.5x normal,10,32195,2495,0.002014,2.705230
+S&P 2016-26,multi5,5-day drop,0.050000,pct,1M+ and 3x normal,1,5007,1702,0.000651,1.199516
+S&P 2016-26,multi5,5-day drop,0.050000,pct,1M+ and 3x normal,2,5007,1701,0.000289,0.400741
+S&P 2016-26,multi5,5-day drop,0.050000,pct,1M+ and 3x normal,3,5007,1700,0.000656,0.757209
+S&P 2016-26,multi5,5-day drop,0.050000,pct,1M+ and 3x normal,5,5007,1698,0.000395,0.371630
+S&P 2016-26,multi5,5-day drop,0.050000,pct,1M+ and 3x normal,10,5007,1694,0.000503,0.381126
+S&P 2016-26,multi5,5-day drop,0.070000,pct,1M+ shares,1,57784,2589,0.000125,0.540625
+S&P 2016-26,multi5,5-day drop,0.070000,pct,1M+ shares,2,57784,2588,0.000475,1.406045
+S&P 2016-26,multi5,5-day drop,0.070000,pct,1M+ shares,3,57784,2587,0.000804,1.972198
+S&P 2016-26,multi5,5-day drop,0.070000,pct,1M+ shares,5,57784,2585,0.001290,2.449812
+S&P 2016-26,multi5,5-day drop,0.070000,pct,1M+ shares,10,57784,2580,0.002101,2.764407
+S&P 2016-26,multi5,5-day drop,0.070000,pct,1M+ and 1.5x normal,1,21240,2280,0.000174,0.517679
+S&P 2016-26,multi5,5-day drop,0.070000,pct,1M+ and 1.5x normal,2,21240,2279,0.000506,1.051031
+S&P 2016-26,multi5,5-day drop,0.070000,pct,1M+ and 1.5x normal,3,21240,2278,0.000845,1.467373
+S&P 2016-26,multi5,5-day drop,0.070000,pct,1M+ and 1.5x normal,5,21240,2276,0.000918,1.309080
+S&P 2016-26,multi5,5-day drop,0.070000,pct,1M+ and 1.5x normal,10,21240,2271,0.001943,2.009144
+S&P 2016-26,multi5,5-day drop,0.070000,pct,1M+ and 3x normal,1,3717,1456,0.000729,1.177150
+S&P 2016-26,multi5,5-day drop,0.070000,pct,1M+ and 3x normal,2,3717,1455,0.000032,0.038722
+S&P 2016-26,multi5,5-day drop,0.070000,pct,1M+ and 3x normal,3,3717,1454,0.000274,0.277187
+S&P 2016-26,multi5,5-day drop,0.070000,pct,1M+ and 3x normal,5,3717,1452,0.000557,0.448759
+S&P 2016-26,multi5,5-day drop,0.070000,pct,1M+ and 3x normal,10,3717,1449,0.000541,0.346956
+S&P 2016-26,multi5,5-day drop,0.100000,pct,1M+ shares,1,25340,2245,0.000446,1.222354
+S&P 2016-26,multi5,5-day drop,0.100000,pct,1M+ shares,2,25340,2244,0.000761,1.442354
+S&P 2016-26,multi5,5-day drop,0.100000,pct,1M+ shares,3,25340,2243,0.001133,1.764008
+S&P 2016-26,multi5,5-day drop,0.100000,pct,1M+ shares,5,25340,2241,0.001340,1.588311
+S&P 2016-26,multi5,5-day drop,0.100000,pct,1M+ shares,10,25340,2236,0.002350,1.936328
+S&P 2016-26,multi5,5-day drop,0.100000,pct,1M+ and 1.5x normal,1,11348,1848,0.000263,0.550869
+S&P 2016-26,multi5,5-day drop,0.100000,pct,1M+ and 1.5x normal,2,11348,1847,0.000508,0.732099
+S&P 2016-26,multi5,5-day drop,0.100000,pct,1M+ and 1.5x normal,3,11348,1846,0.001422,1.627519
+S&P 2016-26,multi5,5-day drop,0.100000,pct,1M+ and 1.5x normal,5,11348,1844,0.001579,1.444636
+S&P 2016-26,multi5,5-day drop,0.100000,pct,1M+ and 1.5x normal,10,11348,1839,0.003891,2.435688
+S&P 2016-26,multi5,5-day drop,0.100000,pct,1M+ and 3x normal,1,2271,1081,0.001164,1.403068
+S&P 2016-26,multi5,5-day drop,0.100000,pct,1M+ and 3x normal,2,2271,1080,0.000434,0.383335
+S&P 2016-26,multi5,5-day drop,0.100000,pct,1M+ and 3x normal,3,2271,1079,0.000833,0.624068
+S&P 2016-26,multi5,5-day drop,0.100000,pct,1M+ and 3x normal,5,2271,1077,0.001449,0.860690
+S&P 2016-26,multi5,5-day drop,0.100000,pct,1M+ and 3x normal,10,2271,1075,0.002845,1.352531
+S&P 2016-26,multi5,5-day drop,0.150000,pct,1M+ shares,1,7779,1485,0.000269,0.382556
+S&P 2016-26,multi5,5-day drop,0.150000,pct,1M+ shares,2,7779,1484,0.000836,0.877278
+S&P 2016-26,multi5,5-day drop,0.150000,pct,1M+ shares,3,7779,1483,0.001401,1.215756
+S&P 2016-26,multi5,5-day drop,0.150000,pct,1M+ shares,5,7779,1481,0.003554,2.393263
+S&P 2016-26,multi5,5-day drop,0.150000,pct,1M+ shares,10,7779,1477,0.005161,2.246609
+S&P 2016-26,multi5,5-day drop,0.150000,pct,1M+ and 1.5x normal,1,4227,1147,-0.000003,-0.003524
+S&P 2016-26,multi5,5-day drop,0.150000,pct,1M+ and 1.5x normal,2,4227,1146,0.000529,0.450664
+S&P 2016-26,multi5,5-day drop,0.150000,pct,1M+ and 1.5x normal,3,4227,1145,0.001103,0.787092
+S&P 2016-26,multi5,5-day drop,0.150000,pct,1M+ and 1.5x normal,5,4227,1143,0.002557,1.492739
+S&P 2016-26,multi5,5-day drop,0.150000,pct,1M+ and 1.5x normal,10,4227,1139,0.003418,1.390817
+S&P 2016-26,multi5,5-day drop,0.150000,pct,1M+ and 3x normal,1,1017,611,0.000589,0.447492
+S&P 2016-26,multi5,5-day drop,0.150000,pct,1M+ and 3x normal,2,1017,610,0.000839,0.474928
+S&P 2016-26,multi5,5-day drop,0.150000,pct,1M+ and 3x normal,3,1017,609,0.000716,0.331722
+S&P 2016-26,multi5,5-day drop,0.150000,pct,1M+ and 3x normal,5,1017,609,0.003207,1.182031
+S&P 2016-26,multi5,5-day drop,0.150000,pct,1M+ and 3x normal,10,1017,607,0.005806,1.739642
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ shares,1,204696,2722,0.000094,1.249146
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ shares,2,204696,2721,0.000209,1.838624
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ shares,3,204696,2720,0.000357,2.509492
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ shares,5,204696,2718,0.000558,3.065772
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ shares,10,204696,2713,0.000889,3.489482
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 1.5x normal,1,45792,2678,0.000336,2.050775
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 1.5x normal,2,45792,2677,0.000517,2.178843
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 1.5x normal,3,45792,2676,0.000544,1.838605
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 1.5x normal,5,45792,2674,0.000285,0.771737
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 1.5x normal,10,45792,2669,0.000471,0.941594
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 3x normal,1,7074,2021,0.000481,1.059721
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 3x normal,2,7074,2020,0.000383,0.621941
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 3x normal,3,7074,2019,0.000400,0.525790
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 3x normal,5,7074,2017,0.000101,0.108689
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 3x normal,10,7074,2013,-0.000153,-0.136029
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ shares,1,82507,2717,0.000109,0.832675
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ shares,2,82507,2716,0.000306,1.590713
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ shares,3,82507,2715,0.000349,1.438791
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ shares,5,82507,2713,0.000817,2.431071
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ shares,10,82507,2708,0.001393,3.019657
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 1.5x normal,1,28350,2626,0.000478,2.250560
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 1.5x normal,2,28350,2625,0.000544,1.802339
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 1.5x normal,3,28350,2624,0.000730,1.976069
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 1.5x normal,5,28350,2622,0.000383,0.807004
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 1.5x normal,10,28350,2617,0.000921,1.403912
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 3x normal,1,5793,1926,0.000637,1.313114
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 3x normal,2,5793,1925,0.000390,0.583298
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 3x normal,3,5793,1924,0.000221,0.278424
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 3x normal,5,5793,1922,0.000121,0.125093
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 3x normal,10,5793,1918,-0.000128,-0.108983
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ shares,1,38292,2661,0.000352,1.630011
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ shares,2,38292,2660,0.000563,1.806735
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ shares,3,38292,2659,0.000647,1.650519
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ shares,5,38292,2657,0.000832,1.691060
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ shares,10,38292,2652,0.001633,2.281225
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 1.5x normal,1,18045,2518,0.000504,1.715024
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 1.5x normal,2,18045,2517,0.000423,1.037541
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 1.5x normal,3,18045,2516,0.000426,0.869945
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 1.5x normal,5,18045,2514,-0.000106,-0.170878
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 1.5x normal,10,18045,2509,0.000423,0.503402
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 3x normal,1,4951,1826,0.000552,1.048880
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 3x normal,2,4951,1825,0.000360,0.497585
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 3x normal,3,4951,1824,0.000274,0.323457
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 3x normal,5,4951,1822,0.000110,0.106505
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 3x normal,10,4951,1818,-0.000260,-0.202854
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ shares,1,11927,2214,0.000873,2.011375
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ shares,2,11927,2213,0.000578,1.014006
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ shares,3,11927,2212,0.000799,1.144924
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ shares,5,11927,2210,0.000859,0.978360
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ shares,10,11927,2205,0.001827,1.490512
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 1.5x normal,1,8139,2044,0.000647,1.429762
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 1.5x normal,2,8139,2043,0.000172,0.261812
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 1.5x normal,3,8139,2042,0.000109,0.143673
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 1.5x normal,5,8139,2040,-0.000459,-0.490084
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 1.5x normal,10,8139,2035,0.000294,0.233186
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 3x normal,1,3596,1523,0.001158,1.843512
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 3x normal,2,3596,1522,0.000778,0.896839
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 3x normal,3,3596,1521,0.000956,0.953145
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 3x normal,5,3596,1519,0.000860,0.700435
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 3x normal,10,3596,1515,0.000675,0.438885
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ shares,1,4965,1597,0.000649,0.968766
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ shares,2,4965,1596,-0.000007,-0.007870
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ shares,3,4965,1595,0.000671,0.601427
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ shares,5,4965,1593,0.000483,0.359552
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ shares,10,4965,1589,0.002374,1.315383
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 1.5x normal,1,4060,1506,0.000495,0.735260
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 1.5x normal,2,4060,1505,-0.000493,-0.500873
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 1.5x normal,3,4060,1504,-0.000526,-0.452457
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 1.5x normal,5,4060,1502,-0.000523,-0.379921
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 1.5x normal,10,4060,1498,0.000972,0.531735
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 3x normal,1,2437,1204,0.001090,1.440164
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 3x normal,2,2437,1203,0.000278,0.265099
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 3x normal,3,2437,1202,0.000301,0.241552
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 3x normal,5,2437,1200,0.000409,0.266936
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 3x normal,10,2437,1196,0.000064,0.033352
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ shares,1,1815,911,0.000421,0.347537
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ shares,2,1815,910,-0.000110,-0.069206
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ shares,3,1815,909,-0.000016,-0.008325
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ shares,5,1815,907,0.000531,0.241020
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ shares,10,1815,904,0.002921,1.025651
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 1.5x normal,1,1673,875,0.001140,1.042657
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 1.5x normal,2,1673,874,0.000847,0.539953
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 1.5x normal,3,1673,873,0.001309,0.750424
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 1.5x normal,5,1673,871,0.002012,0.974598
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 1.5x normal,10,1673,868,0.004440,1.679736
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 3x normal,1,1295,786,0.000944,0.838315
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 3x normal,2,1295,785,0.000178,0.119969
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 3x normal,3,1295,784,0.000563,0.323859
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 3x normal,5,1295,783,0.001392,0.653848
+S&P 2016-26,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 3x normal,10,1295,780,0.001750,0.672584
+New stocks,fixed,One-day drop,0.010000,pct,1M+ shares,1,101067,5279,-0.000123,-0.875480
+New stocks,fixed,One-day drop,0.010000,pct,1M+ shares,2,101067,5278,0.000337,1.614880
+New stocks,fixed,One-day drop,0.010000,pct,1M+ shares,3,101067,5277,0.000423,1.617974
+New stocks,fixed,One-day drop,0.010000,pct,1M+ shares,5,101067,5275,0.000606,1.854027
+New stocks,fixed,One-day drop,0.010000,pct,1M+ shares,10,101067,5270,0.000303,0.662875
+New stocks,fixed,One-day drop,0.010000,pct,1M+ and 1.5x normal,1,27352,4528,-0.000387,-1.465929
+New stocks,fixed,One-day drop,0.010000,pct,1M+ and 1.5x normal,2,27352,4527,0.000291,0.763802
+New stocks,fixed,One-day drop,0.010000,pct,1M+ and 1.5x normal,3,27352,4526,0.000451,1.003071
+New stocks,fixed,One-day drop,0.010000,pct,1M+ and 1.5x normal,5,27352,4524,0.000605,0.864267
+New stocks,fixed,One-day drop,0.010000,pct,1M+ and 1.5x normal,10,27352,4519,0.000097,0.122882
+New stocks,fixed,One-day drop,0.010000,pct,1M+ and 3x normal,1,6642,2777,-0.000370,-0.690974
+New stocks,fixed,One-day drop,0.010000,pct,1M+ and 3x normal,2,6642,2776,0.000676,0.827170
+New stocks,fixed,One-day drop,0.010000,pct,1M+ and 3x normal,3,6642,2775,0.000226,0.250510
+New stocks,fixed,One-day drop,0.010000,pct,1M+ and 3x normal,5,6642,2774,0.002267,0.988105
+New stocks,fixed,One-day drop,0.010000,pct,1M+ and 3x normal,10,6642,2770,-0.000247,-0.157160
+New stocks,fixed,One-day drop,0.015000,pct,1M+ shares,1,81184,5107,-0.000269,-1.561266
+New stocks,fixed,One-day drop,0.015000,pct,1M+ shares,2,81184,5106,0.000182,0.721397
+New stocks,fixed,One-day drop,0.015000,pct,1M+ shares,3,81184,5105,0.000329,1.026099
+New stocks,fixed,One-day drop,0.015000,pct,1M+ shares,5,81184,5103,0.000572,1.441173
+New stocks,fixed,One-day drop,0.015000,pct,1M+ shares,10,81184,5098,0.000212,0.390907
+New stocks,fixed,One-day drop,0.015000,pct,1M+ and 1.5x normal,1,23804,4350,-0.000393,-1.355107
+New stocks,fixed,One-day drop,0.015000,pct,1M+ and 1.5x normal,2,23804,4349,0.000232,0.543814
+New stocks,fixed,One-day drop,0.015000,pct,1M+ and 1.5x normal,3,23804,4348,0.000453,0.893177
+New stocks,fixed,One-day drop,0.015000,pct,1M+ and 1.5x normal,5,23804,4346,0.000770,0.857040
+New stocks,fixed,One-day drop,0.015000,pct,1M+ and 1.5x normal,10,23804,4341,0.000129,0.147986
+New stocks,fixed,One-day drop,0.015000,pct,1M+ and 3x normal,1,6062,2678,-0.000299,-0.540557
+New stocks,fixed,One-day drop,0.015000,pct,1M+ and 3x normal,2,6062,2677,0.000725,0.845133
+New stocks,fixed,One-day drop,0.015000,pct,1M+ and 3x normal,3,6062,2676,0.000129,0.137285
+New stocks,fixed,One-day drop,0.015000,pct,1M+ and 3x normal,5,6062,2675,0.002408,1.011346
+New stocks,fixed,One-day drop,0.015000,pct,1M+ and 3x normal,10,6062,2671,-0.000560,-0.342123
+New stocks,fixed,One-day drop,0.020000,pct,1M+ shares,1,65141,4849,-0.000384,-1.873045
+New stocks,fixed,One-day drop,0.020000,pct,1M+ shares,2,65141,4848,0.000189,0.587737
+New stocks,fixed,One-day drop,0.020000,pct,1M+ shares,3,65141,4847,0.000458,1.115840
+New stocks,fixed,One-day drop,0.020000,pct,1M+ shares,5,65141,4845,0.000706,1.383917
+New stocks,fixed,One-day drop,0.020000,pct,1M+ shares,10,65141,4840,0.000419,0.623507
+New stocks,fixed,One-day drop,0.020000,pct,1M+ and 1.5x normal,1,20719,4154,-0.000481,-1.517282
+New stocks,fixed,One-day drop,0.020000,pct,1M+ and 1.5x normal,2,20719,4153,0.000181,0.369952
+New stocks,fixed,One-day drop,0.020000,pct,1M+ and 1.5x normal,3,20719,4152,0.000260,0.434261
+New stocks,fixed,One-day drop,0.020000,pct,1M+ and 1.5x normal,5,20719,4150,0.000485,0.483199
+New stocks,fixed,One-day drop,0.020000,pct,1M+ and 1.5x normal,10,20719,4145,-0.000264,-0.266782
+New stocks,fixed,One-day drop,0.020000,pct,1M+ and 3x normal,1,5583,2576,-0.000394,-0.690872
+New stocks,fixed,One-day drop,0.020000,pct,1M+ and 3x normal,2,5583,2575,0.000274,0.336551
+New stocks,fixed,One-day drop,0.020000,pct,1M+ and 3x normal,3,5583,2574,-0.000247,-0.259714
+New stocks,fixed,One-day drop,0.020000,pct,1M+ and 3x normal,5,5583,2573,0.001847,0.751618
+New stocks,fixed,One-day drop,0.020000,pct,1M+ and 3x normal,10,5583,2569,-0.001548,-0.927558
+New stocks,fixed,One-day drop,0.030000,pct,1M+ shares,1,42339,4374,-0.000845,-2.677087
+New stocks,fixed,One-day drop,0.030000,pct,1M+ shares,2,42339,4373,-0.000409,-0.874436
+New stocks,fixed,One-day drop,0.030000,pct,1M+ shares,3,42339,4372,0.000042,0.073659
+New stocks,fixed,One-day drop,0.030000,pct,1M+ shares,5,42339,4370,0.000333,0.485111
+New stocks,fixed,One-day drop,0.030000,pct,1M+ shares,10,42339,4365,-0.000193,-0.211551
+New stocks,fixed,One-day drop,0.030000,pct,1M+ and 1.5x normal,1,15670,3735,-0.000518,-1.246611
+New stocks,fixed,One-day drop,0.030000,pct,1M+ and 1.5x normal,2,15670,3734,0.000075,0.109556
+New stocks,fixed,One-day drop,0.030000,pct,1M+ and 1.5x normal,3,15670,3733,0.000075,0.093792
+New stocks,fixed,One-day drop,0.030000,pct,1M+ and 1.5x normal,5,15670,3731,0.000107,0.111972
+New stocks,fixed,One-day drop,0.030000,pct,1M+ and 1.5x normal,10,15670,3726,-0.000444,-0.371429
+New stocks,fixed,One-day drop,0.030000,pct,1M+ and 3x normal,1,4696,2351,-0.000439,-0.700031
+New stocks,fixed,One-day drop,0.030000,pct,1M+ and 3x normal,2,4696,2350,0.000038,0.042801
+New stocks,fixed,One-day drop,0.030000,pct,1M+ and 3x normal,3,4696,2349,-0.000899,-0.857752
+New stocks,fixed,One-day drop,0.030000,pct,1M+ and 3x normal,5,4696,2348,-0.000323,-0.253745
+New stocks,fixed,One-day drop,0.030000,pct,1M+ and 3x normal,10,4696,2344,-0.002961,-1.804326
+New stocks,fixed,One-day drop,0.040000,pct,1M+ shares,1,28022,3847,-0.000977,-2.452868
+New stocks,fixed,One-day drop,0.040000,pct,1M+ shares,2,28022,3846,-0.000765,-1.273653
+New stocks,fixed,One-day drop,0.040000,pct,1M+ shares,3,28022,3845,-0.000111,-0.156245
+New stocks,fixed,One-day drop,0.040000,pct,1M+ shares,5,28022,3843,0.000232,0.267687
+New stocks,fixed,One-day drop,0.040000,pct,1M+ shares,10,28022,3838,-0.000383,-0.330821
+New stocks,fixed,One-day drop,0.040000,pct,1M+ and 1.5x normal,1,11931,3305,-0.000563,-1.158278
+New stocks,fixed,One-day drop,0.040000,pct,1M+ and 1.5x normal,2,11931,3304,0.000138,0.175285
+New stocks,fixed,One-day drop,0.040000,pct,1M+ and 1.5x normal,3,11931,3303,0.000348,0.380777
+New stocks,fixed,One-day drop,0.040000,pct,1M+ and 1.5x normal,5,11931,3301,0.000899,0.820426
+New stocks,fixed,One-day drop,0.040000,pct,1M+ and 1.5x normal,10,11931,3296,0.000651,0.467623
+New stocks,fixed,One-day drop,0.040000,pct,1M+ and 3x normal,1,4049,2156,-0.000510,-0.763502
+New stocks,fixed,One-day drop,0.040000,pct,1M+ and 3x normal,2,4049,2155,0.000197,0.188264
+New stocks,fixed,One-day drop,0.040000,pct,1M+ and 3x normal,3,4049,2154,-0.000947,-0.846204
+New stocks,fixed,One-day drop,0.040000,pct,1M+ and 3x normal,5,4049,2153,-0.000408,-0.298095
+New stocks,fixed,One-day drop,0.040000,pct,1M+ and 3x normal,10,4049,2149,-0.002771,-1.556798
+New stocks,fixed,One-day drop,0.050000,pct,1M+ shares,1,19178,3361,-0.000981,-2.027426
+New stocks,fixed,One-day drop,0.050000,pct,1M+ shares,2,19178,3360,-0.000892,-1.226922
+New stocks,fixed,One-day drop,0.050000,pct,1M+ shares,3,19178,3359,-0.000724,-0.855954
+New stocks,fixed,One-day drop,0.050000,pct,1M+ shares,5,19178,3357,-0.000378,-0.359698
+New stocks,fixed,One-day drop,0.050000,pct,1M+ shares,10,19178,3352,-0.001130,-0.823419
+New stocks,fixed,One-day drop,0.050000,pct,1M+ and 1.5x normal,1,9255,2954,-0.000569,-1.024124
+New stocks,fixed,One-day drop,0.050000,pct,1M+ and 1.5x normal,2,9255,2953,0.000165,0.195095
+New stocks,fixed,One-day drop,0.050000,pct,1M+ and 1.5x normal,3,9255,2952,0.000060,0.059957
+New stocks,fixed,One-day drop,0.050000,pct,1M+ and 1.5x normal,5,9255,2951,0.000767,0.610653
+New stocks,fixed,One-day drop,0.050000,pct,1M+ and 1.5x normal,10,9255,2947,0.000182,0.110205
+New stocks,fixed,One-day drop,0.050000,pct,1M+ and 3x normal,1,3524,1979,-0.000590,-0.814965
+New stocks,fixed,One-day drop,0.050000,pct,1M+ and 3x normal,2,3524,1978,0.000556,0.494506
+New stocks,fixed,One-day drop,0.050000,pct,1M+ and 3x normal,3,3524,1977,-0.001034,-0.866196
+New stocks,fixed,One-day drop,0.050000,pct,1M+ and 3x normal,5,3524,1976,-0.000282,-0.193545
+New stocks,fixed,One-day drop,0.050000,pct,1M+ and 3x normal,10,3524,1973,-0.002633,-1.382586
+New stocks,fixed,One-day drop,0.070000,pct,1M+ shares,1,9456,2561,-0.001640,-2.557637
+New stocks,fixed,One-day drop,0.070000,pct,1M+ shares,2,9456,2560,-0.001378,-1.294978
+New stocks,fixed,One-day drop,0.070000,pct,1M+ shares,3,9456,2559,-0.001691,-1.406450
+New stocks,fixed,One-day drop,0.070000,pct,1M+ shares,5,9456,2557,-0.000798,-0.516130
+New stocks,fixed,One-day drop,0.070000,pct,1M+ shares,10,9456,2554,-0.002700,-1.322563
+New stocks,fixed,One-day drop,0.070000,pct,1M+ and 1.5x normal,1,5545,2255,-0.001045,-1.485673
+New stocks,fixed,One-day drop,0.070000,pct,1M+ and 1.5x normal,2,5545,2254,-0.000391,-0.338580
+New stocks,fixed,One-day drop,0.070000,pct,1M+ and 1.5x normal,3,5545,2253,-0.001110,-0.853413
+New stocks,fixed,One-day drop,0.070000,pct,1M+ and 1.5x normal,5,5545,2252,-0.000742,-0.447515
+New stocks,fixed,One-day drop,0.070000,pct,1M+ and 1.5x normal,10,5545,2249,-0.001498,-0.692562
+New stocks,fixed,One-day drop,0.070000,pct,1M+ and 3x normal,1,2613,1612,-0.000910,-1.031068
+New stocks,fixed,One-day drop,0.070000,pct,1M+ and 3x normal,2,2613,1611,0.000048,0.034718
+New stocks,fixed,One-day drop,0.070000,pct,1M+ and 3x normal,3,2613,1610,-0.002062,-1.430620
+New stocks,fixed,One-day drop,0.070000,pct,1M+ and 3x normal,5,2613,1609,-0.002118,-1.227922
+New stocks,fixed,One-day drop,0.070000,pct,1M+ and 3x normal,10,2613,1606,-0.005025,-2.244162
+New stocks,fixed,One-day drop,0.100000,pct,1M+ shares,1,3616,1573,-0.001587,-1.561540
+New stocks,fixed,One-day drop,0.100000,pct,1M+ shares,2,3616,1572,-0.001474,-1.005032
+New stocks,fixed,One-day drop,0.100000,pct,1M+ shares,3,3616,1571,-0.002106,-1.157656
+New stocks,fixed,One-day drop,0.100000,pct,1M+ shares,5,3616,1570,-0.002915,-1.311629
+New stocks,fixed,One-day drop,0.100000,pct,1M+ shares,10,3616,1568,-0.005099,-1.701413
+New stocks,fixed,One-day drop,0.100000,pct,1M+ and 1.5x normal,1,2670,1422,-0.001522,-1.446228
+New stocks,fixed,One-day drop,0.100000,pct,1M+ and 1.5x normal,2,2670,1421,-0.001085,-0.718603
+New stocks,fixed,One-day drop,0.100000,pct,1M+ and 1.5x normal,3,2670,1420,-0.001333,-0.723094
+New stocks,fixed,One-day drop,0.100000,pct,1M+ and 1.5x normal,5,2670,1419,-0.000730,-0.316070
+New stocks,fixed,One-day drop,0.100000,pct,1M+ and 1.5x normal,10,2670,1417,-0.002763,-0.924368
+New stocks,fixed,One-day drop,0.100000,pct,1M+ and 3x normal,1,1655,1111,-0.000725,-0.623553
+New stocks,fixed,One-day drop,0.100000,pct,1M+ and 3x normal,2,1655,1110,0.000389,0.250017
+New stocks,fixed,One-day drop,0.100000,pct,1M+ and 3x normal,3,1655,1109,-0.000341,-0.184702
+New stocks,fixed,One-day drop,0.100000,pct,1M+ and 3x normal,5,1655,1108,-0.001615,-0.740301
+New stocks,fixed,One-day drop,0.100000,pct,1M+ and 3x normal,10,1655,1106,-0.004881,-1.664286
+New stocks,fixed,One-day drop,0.150000,pct,1M+ shares,1,1114,737,-0.001936,-0.995228
+New stocks,fixed,One-day drop,0.150000,pct,1M+ shares,2,1114,736,-0.001212,-0.436916
+New stocks,fixed,One-day drop,0.150000,pct,1M+ shares,3,1114,735,-0.003141,-0.933985
+New stocks,fixed,One-day drop,0.150000,pct,1M+ shares,5,1114,735,-0.004336,-1.037939
+New stocks,fixed,One-day drop,0.150000,pct,1M+ shares,10,1114,733,-0.008882,-1.628670
+New stocks,fixed,One-day drop,0.150000,pct,1M+ and 1.5x normal,1,993,693,-0.001383,-0.705848
+New stocks,fixed,One-day drop,0.150000,pct,1M+ and 1.5x normal,2,993,692,-0.001129,-0.404974
+New stocks,fixed,One-day drop,0.150000,pct,1M+ and 1.5x normal,3,993,691,-0.001973,-0.584846
+New stocks,fixed,One-day drop,0.150000,pct,1M+ and 1.5x normal,5,993,691,-0.002711,-0.651860
+New stocks,fixed,One-day drop,0.150000,pct,1M+ and 1.5x normal,10,993,689,-0.006037,-1.159234
+New stocks,fixed,One-day drop,0.150000,pct,1M+ and 3x normal,1,786,607,0.000180,0.091389
+New stocks,fixed,One-day drop,0.150000,pct,1M+ and 3x normal,2,786,606,0.002429,0.939501
+New stocks,fixed,One-day drop,0.150000,pct,1M+ and 3x normal,3,786,605,0.001071,0.358174
+New stocks,fixed,One-day drop,0.150000,pct,1M+ and 3x normal,5,786,605,-0.000807,-0.239618
+New stocks,fixed,One-day drop,0.150000,pct,1M+ and 3x normal,10,786,603,-0.004911,-1.100851
+New stocks,vol_adj,Drop vs normal daily move,1.000000,x,1M+ shares,1,46555,4785,-0.000692,-3.334065
+New stocks,vol_adj,Drop vs normal daily move,1.000000,x,1M+ shares,2,46555,4784,-0.000009,-0.029107
+New stocks,vol_adj,Drop vs normal daily move,1.000000,x,1M+ shares,3,46555,4783,0.000297,0.817306
+New stocks,vol_adj,Drop vs normal daily move,1.000000,x,1M+ shares,5,46555,4781,0.000654,1.439380
+New stocks,vol_adj,Drop vs normal daily move,1.000000,x,1M+ shares,10,46555,4776,0.000596,0.938040
+New stocks,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 1.5x normal,1,18597,4113,-0.000412,-1.333034
+New stocks,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 1.5x normal,2,18597,4112,0.000370,0.801478
+New stocks,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 1.5x normal,3,18597,4111,0.000647,1.179198
+New stocks,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 1.5x normal,5,18597,4109,0.000554,0.801766
+New stocks,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 1.5x normal,10,18597,4104,0.000068,0.073272
+New stocks,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 3x normal,1,5227,2530,-0.000039,-0.071908
+New stocks,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 3x normal,2,5227,2529,0.000255,0.341501
+New stocks,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 3x normal,3,5227,2528,0.000027,0.030055
+New stocks,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 3x normal,5,5227,2527,0.000037,0.034436
+New stocks,vol_adj,Drop vs normal daily move,1.000000,x,1M+ and 3x normal,10,5227,2523,-0.001889,-1.335554
+New stocks,vol_adj,Drop vs normal daily move,1.500000,x,1M+ shares,1,23964,4045,-0.000385,-1.325411
+New stocks,vol_adj,Drop vs normal daily move,1.500000,x,1M+ shares,2,23964,4044,-0.000092,-0.209662
+New stocks,vol_adj,Drop vs normal daily move,1.500000,x,1M+ shares,3,23964,4043,0.000232,0.429100
+New stocks,vol_adj,Drop vs normal daily move,1.500000,x,1M+ shares,5,23964,4041,0.000594,0.875098
+New stocks,vol_adj,Drop vs normal daily move,1.500000,x,1M+ shares,10,23964,4036,0.000132,0.148523
+New stocks,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 1.5x normal,1,12948,3562,-0.000148,-0.405357
+New stocks,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 1.5x normal,2,12948,3561,0.000376,0.690326
+New stocks,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 1.5x normal,3,12948,3560,0.000324,0.484414
+New stocks,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 1.5x normal,5,12948,3558,0.000907,1.067797
+New stocks,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 1.5x normal,10,12948,3554,0.000912,0.828120
+New stocks,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 3x normal,1,4342,2300,0.000117,0.196527
+New stocks,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 3x normal,2,4342,2299,0.000404,0.507963
+New stocks,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 3x normal,3,4342,2298,-0.000168,-0.177392
+New stocks,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 3x normal,5,4342,2297,0.000025,0.022055
+New stocks,vol_adj,Drop vs normal daily move,1.500000,x,1M+ and 3x normal,10,4342,2294,-0.002347,-1.627262
+New stocks,vol_adj,Drop vs normal daily move,2.000000,x,1M+ shares,1,12985,3287,-0.000509,-1.316502
+New stocks,vol_adj,Drop vs normal daily move,2.000000,x,1M+ shares,2,12985,3286,-0.000870,-1.607331
+New stocks,vol_adj,Drop vs normal daily move,2.000000,x,1M+ shares,3,12985,3285,-0.000811,-1.238852
+New stocks,vol_adj,Drop vs normal daily move,2.000000,x,1M+ shares,5,12985,3283,-0.000393,-0.480172
+New stocks,vol_adj,Drop vs normal daily move,2.000000,x,1M+ shares,10,12985,3278,-0.002284,-2.158662
+New stocks,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 1.5x normal,1,8868,3018,-0.000349,-0.776795
+New stocks,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 1.5x normal,2,8868,3017,-0.000560,-0.882181
+New stocks,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 1.5x normal,3,8868,3016,-0.000545,-0.718733
+New stocks,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 1.5x normal,5,8868,3014,0.000249,0.253592
+New stocks,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 1.5x normal,10,8868,3011,-0.001565,-1.245384
+New stocks,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 3x normal,1,3655,2068,-0.000453,-0.712040
+New stocks,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 3x normal,2,3655,2067,-0.000237,-0.271385
+New stocks,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 3x normal,3,3655,2066,-0.001025,-0.996403
+New stocks,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 3x normal,5,3655,2065,-0.000827,-0.686882
+New stocks,vol_adj,Drop vs normal daily move,2.000000,x,1M+ and 3x normal,10,3655,2062,-0.003060,-1.971293
+New stocks,vol_adj,Drop vs normal daily move,2.500000,x,1M+ shares,1,7665,2648,-0.000945,-1.999032
+New stocks,vol_adj,Drop vs normal daily move,2.500000,x,1M+ shares,2,7665,2647,-0.001283,-1.944339
+New stocks,vol_adj,Drop vs normal daily move,2.500000,x,1M+ shares,3,7665,2646,-0.001108,-1.399876
+New stocks,vol_adj,Drop vs normal daily move,2.500000,x,1M+ shares,5,7665,2645,-0.001359,-1.413436
+New stocks,vol_adj,Drop vs normal daily move,2.500000,x,1M+ shares,10,7665,2641,-0.003705,-2.900649
+New stocks,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 1.5x normal,1,6100,2497,-0.000806,-1.538129
+New stocks,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 1.5x normal,2,6100,2496,-0.000713,-0.997636
+New stocks,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 1.5x normal,3,6100,2495,-0.000650,-0.760282
+New stocks,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 1.5x normal,5,6100,2494,-0.000681,-0.649433
+New stocks,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 1.5x normal,10,6100,2491,-0.002844,-2.039173
+New stocks,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 3x normal,1,3057,1840,-0.000957,-1.387521
+New stocks,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 3x normal,2,3057,1839,-0.000151,-0.168895
+New stocks,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 3x normal,3,3057,1838,-0.000807,-0.751679
+New stocks,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 3x normal,5,3057,1837,-0.000225,-0.177853
+New stocks,vol_adj,Drop vs normal daily move,2.500000,x,1M+ and 3x normal,10,3057,1834,-0.002685,-1.630736
+New stocks,vol_adj,Drop vs normal daily move,3.000000,x,1M+ shares,1,4949,2117,-0.000680,-1.103447
+New stocks,vol_adj,Drop vs normal daily move,3.000000,x,1M+ shares,2,4949,2116,-0.000576,-0.692131
+New stocks,vol_adj,Drop vs normal daily move,3.000000,x,1M+ shares,3,4949,2115,-0.000950,-0.978445
+New stocks,vol_adj,Drop vs normal daily move,3.000000,x,1M+ shares,5,4949,2114,-0.000945,-0.798748
+New stocks,vol_adj,Drop vs normal daily move,3.000000,x,1M+ shares,10,4949,2111,-0.003000,-1.995741
+New stocks,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 1.5x normal,1,4344,2036,-0.000683,-1.060552
+New stocks,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 1.5x normal,2,4344,2035,-0.000308,-0.356010
+New stocks,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 1.5x normal,3,4344,2034,-0.000803,-0.799055
+New stocks,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 1.5x normal,5,4344,2033,-0.000398,-0.323134
+New stocks,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 1.5x normal,10,4344,2031,-0.002361,-1.501112
+New stocks,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 3x normal,1,2581,1594,-0.000795,-1.033773
+New stocks,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 3x normal,2,2581,1593,0.000018,0.018442
+New stocks,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 3x normal,3,2581,1592,-0.000967,-0.824470
+New stocks,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 3x normal,5,2581,1591,-0.000087,-0.062822
+New stocks,vol_adj,Drop vs normal daily move,3.000000,x,1M+ and 3x normal,10,2581,1589,-0.002377,-1.306312
+New stocks,vol_adj,Drop vs normal daily move,4.000000,x,1M+ shares,1,2518,1405,0.000013,0.016330
+New stocks,vol_adj,Drop vs normal daily move,4.000000,x,1M+ shares,2,2518,1404,0.000403,0.379642
+New stocks,vol_adj,Drop vs normal daily move,4.000000,x,1M+ shares,3,2518,1403,0.000470,0.375285
+New stocks,vol_adj,Drop vs normal daily move,4.000000,x,1M+ shares,5,2518,1402,0.001124,0.736454
+New stocks,vol_adj,Drop vs normal daily move,4.000000,x,1M+ shares,10,2518,1400,-0.001739,-0.884639
+New stocks,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 1.5x normal,1,2385,1389,0.000003,0.003034
+New stocks,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 1.5x normal,2,2385,1388,0.000365,0.339566
+New stocks,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 1.5x normal,3,2385,1387,0.000319,0.251906
+New stocks,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 1.5x normal,5,2385,1386,0.001056,0.682171
+New stocks,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 1.5x normal,10,2385,1384,-0.001635,-0.820758
+New stocks,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 3x normal,1,1790,1210,0.000363,0.387883
+New stocks,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 3x normal,2,1790,1209,0.001516,1.254746
+New stocks,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 3x normal,3,1790,1208,0.001076,0.755853
+New stocks,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 3x normal,5,1790,1207,0.002131,1.252167
+New stocks,vol_adj,Drop vs normal daily move,4.000000,x,1M+ and 3x normal,10,1790,1206,-0.001356,-0.629975
+New stocks,vol_adj,Drop vs normal daily move,5.000000,x,1M+ shares,1,1500,983,0.000199,0.186694
+New stocks,vol_adj,Drop vs normal daily move,5.000000,x,1M+ shares,2,1500,982,-0.000220,-0.152522
+New stocks,vol_adj,Drop vs normal daily move,5.000000,x,1M+ shares,3,1500,981,-0.000386,-0.237282
+New stocks,vol_adj,Drop vs normal daily move,5.000000,x,1M+ shares,5,1500,980,-0.000161,-0.081872
+New stocks,vol_adj,Drop vs normal daily move,5.000000,x,1M+ shares,10,1500,978,-0.003836,-1.518366
+New stocks,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 1.5x normal,1,1453,978,0.000236,0.220232
+New stocks,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 1.5x normal,2,1453,977,-0.000141,-0.097593
+New stocks,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 1.5x normal,3,1453,976,-0.000391,-0.240357
+New stocks,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 1.5x normal,5,1453,975,-0.000092,-0.047168
+New stocks,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 1.5x normal,10,1453,973,-0.003816,-1.514432
+New stocks,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 3x normal,1,1223,902,0.000723,0.632191
+New stocks,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 3x normal,2,1223,901,0.000955,0.625427
+New stocks,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 3x normal,3,1223,900,0.000315,0.184160
+New stocks,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 3x normal,5,1223,899,0.000559,0.274827
+New stocks,vol_adj,Drop vs normal daily move,5.000000,x,1M+ and 3x normal,10,1223,898,-0.003620,-1.389025
+New stocks,multi3,3-day drop,0.020000,pct,1M+ shares,1,95618,5220,0.000099,0.689740
+New stocks,multi3,3-day drop,0.020000,pct,1M+ shares,2,95618,5219,0.000672,3.131898
+New stocks,multi3,3-day drop,0.020000,pct,1M+ shares,3,95618,5218,0.001133,4.471379
+New stocks,multi3,3-day drop,0.020000,pct,1M+ shares,5,95618,5216,0.001242,3.741955
+New stocks,multi3,3-day drop,0.020000,pct,1M+ shares,10,95618,5211,0.000670,1.425817
+New stocks,multi3,3-day drop,0.020000,pct,1M+ and 1.5x normal,1,27071,4484,0.000004,0.013297
+New stocks,multi3,3-day drop,0.020000,pct,1M+ and 1.5x normal,2,27071,4483,0.000474,1.285148
+New stocks,multi3,3-day drop,0.020000,pct,1M+ and 1.5x normal,3,27071,4482,0.000727,1.599921
+New stocks,multi3,3-day drop,0.020000,pct,1M+ and 1.5x normal,5,27071,4480,0.000177,0.308913
+New stocks,multi3,3-day drop,0.020000,pct,1M+ and 1.5x normal,10,27071,4475,0.000276,0.347741
+New stocks,multi3,3-day drop,0.020000,pct,1M+ and 3x normal,1,6374,2706,-0.000019,-0.035938
+New stocks,multi3,3-day drop,0.020000,pct,1M+ and 3x normal,2,6374,2705,0.000476,0.675008
+New stocks,multi3,3-day drop,0.020000,pct,1M+ and 3x normal,3,6374,2704,0.000653,0.743564
+New stocks,multi3,3-day drop,0.020000,pct,1M+ and 3x normal,5,6374,2703,-0.000045,-0.042738
+New stocks,multi3,3-day drop,0.020000,pct,1M+ and 3x normal,10,6374,2699,-0.001352,-1.036326
+New stocks,multi3,3-day drop,0.030000,pct,1M+ shares,1,74500,4990,0.000059,0.333706
+New stocks,multi3,3-day drop,0.030000,pct,1M+ shares,2,74500,4989,0.000588,2.262058
+New stocks,multi3,3-day drop,0.030000,pct,1M+ shares,3,74500,4988,0.001166,3.756452
+New stocks,multi3,3-day drop,0.030000,pct,1M+ shares,5,74500,4986,0.001308,3.232844
+New stocks,multi3,3-day drop,0.030000,pct,1M+ shares,10,74500,4981,0.000952,1.677821
+New stocks,multi3,3-day drop,0.030000,pct,1M+ and 1.5x normal,1,22958,4222,-0.000055,-0.184998
+New stocks,multi3,3-day drop,0.030000,pct,1M+ and 1.5x normal,2,22958,4221,0.000552,1.369747
+New stocks,multi3,3-day drop,0.030000,pct,1M+ and 1.5x normal,3,22958,4220,0.000722,1.426693
+New stocks,multi3,3-day drop,0.030000,pct,1M+ and 1.5x normal,5,22958,4218,0.000339,0.522727
+New stocks,multi3,3-day drop,0.030000,pct,1M+ and 1.5x normal,10,22958,4213,0.000786,0.887123
+New stocks,multi3,3-day drop,0.030000,pct,1M+ and 3x normal,1,5640,2541,-0.000226,-0.405053
+New stocks,multi3,3-day drop,0.030000,pct,1M+ and 3x normal,2,5640,2540,0.000094,0.126540
+New stocks,multi3,3-day drop,0.030000,pct,1M+ and 3x normal,3,5640,2539,0.000198,0.214706
+New stocks,multi3,3-day drop,0.030000,pct,1M+ and 3x normal,5,5640,2538,-0.000687,-0.625753
+New stocks,multi3,3-day drop,0.030000,pct,1M+ and 3x normal,10,5640,2534,-0.001772,-1.284731
+New stocks,multi3,3-day drop,0.050000,pct,1M+ shares,1,45320,4440,0.000164,0.641238
+New stocks,multi3,3-day drop,0.050000,pct,1M+ shares,2,45320,4439,0.000581,1.577592
+New stocks,multi3,3-day drop,0.050000,pct,1M+ shares,3,45320,4438,0.000913,2.028574
+New stocks,multi3,3-day drop,0.050000,pct,1M+ shares,5,45320,4436,0.000981,1.694502
+New stocks,multi3,3-day drop,0.050000,pct,1M+ shares,10,45320,4431,0.000597,0.742836
+New stocks,multi3,3-day drop,0.050000,pct,1M+ and 1.5x normal,1,16446,3684,-0.000113,-0.307654
+New stocks,multi3,3-day drop,0.050000,pct,1M+ and 1.5x normal,2,16446,3683,0.000360,0.706383
+New stocks,multi3,3-day drop,0.050000,pct,1M+ and 1.5x normal,3,16446,3682,0.000354,0.546943
+New stocks,multi3,3-day drop,0.050000,pct,1M+ and 1.5x normal,5,16446,3680,0.000037,0.045259
+New stocks,multi3,3-day drop,0.050000,pct,1M+ and 1.5x normal,10,16446,3675,0.000356,0.326797
+New stocks,multi3,3-day drop,0.050000,pct,1M+ and 3x normal,1,4401,2206,-0.000022,-0.033950
+New stocks,multi3,3-day drop,0.050000,pct,1M+ and 3x normal,2,4401,2205,0.000221,0.258321
+New stocks,multi3,3-day drop,0.050000,pct,1M+ and 3x normal,3,4401,2204,-0.000420,-0.388621
+New stocks,multi3,3-day drop,0.050000,pct,1M+ and 3x normal,5,4401,2203,-0.001550,-1.237621
+New stocks,multi3,3-day drop,0.050000,pct,1M+ and 3x normal,10,4401,2199,-0.003089,-1.984802
+New stocks,multi3,3-day drop,0.070000,pct,1M+ shares,1,27959,3800,0.000020,0.059196
+New stocks,multi3,3-day drop,0.070000,pct,1M+ shares,2,27959,3799,0.000359,0.737760
+New stocks,multi3,3-day drop,0.070000,pct,1M+ shares,3,27959,3798,0.000615,1.020036
+New stocks,multi3,3-day drop,0.070000,pct,1M+ shares,5,27959,3796,0.000460,0.597619
+New stocks,multi3,3-day drop,0.070000,pct,1M+ shares,10,27959,3791,0.000168,0.152702
+New stocks,multi3,3-day drop,0.070000,pct,1M+ and 1.5x normal,1,11652,3122,-0.000248,-0.541420
+New stocks,multi3,3-day drop,0.070000,pct,1M+ and 1.5x normal,2,11652,3121,-0.000181,-0.288689
+New stocks,multi3,3-day drop,0.070000,pct,1M+ and 1.5x normal,3,11652,3120,-0.000409,-0.509888
+New stocks,multi3,3-day drop,0.070000,pct,1M+ and 1.5x normal,5,11652,3118,-0.000541,-0.526227
+New stocks,multi3,3-day drop,0.070000,pct,1M+ and 1.5x normal,10,11652,3113,0.000485,0.338416
+New stocks,multi3,3-day drop,0.070000,pct,1M+ and 3x normal,1,3434,1858,0.000405,0.558421
+New stocks,multi3,3-day drop,0.070000,pct,1M+ and 3x normal,2,3434,1857,0.000813,0.841421
+New stocks,multi3,3-day drop,0.070000,pct,1M+ and 3x normal,3,3434,1856,-0.000195,-0.157241
+New stocks,multi3,3-day drop,0.070000,pct,1M+ and 3x normal,5,3434,1855,-0.001601,-1.115957
+New stocks,multi3,3-day drop,0.070000,pct,1M+ and 3x normal,10,3434,1851,-0.003055,-1.682841
+New stocks,multi3,3-day drop,0.100000,pct,1M+ shares,1,14173,2886,-0.000317,-0.627557
+New stocks,multi3,3-day drop,0.100000,pct,1M+ shares,2,14173,2885,-0.000358,-0.502273
+New stocks,multi3,3-day drop,0.100000,pct,1M+ shares,3,14173,2884,-0.000622,-0.697268
+New stocks,multi3,3-day drop,0.100000,pct,1M+ shares,5,14173,2882,-0.001126,-0.964148
+New stocks,multi3,3-day drop,0.100000,pct,1M+ shares,10,14173,2877,-0.001697,-1.057595
+New stocks,multi3,3-day drop,0.100000,pct,1M+ and 1.5x normal,1,6896,2345,-0.000230,-0.371674
+New stocks,multi3,3-day drop,0.100000,pct,1M+ and 1.5x normal,2,6896,2344,0.000332,0.373930
+New stocks,multi3,3-day drop,0.100000,pct,1M+ and 1.5x normal,3,6896,2343,-0.000210,-0.189784
+New stocks,multi3,3-day drop,0.100000,pct,1M+ and 1.5x normal,5,6896,2341,0.000126,0.088755
+New stocks,multi3,3-day drop,0.100000,pct,1M+ and 1.5x normal,10,6896,2337,0.000152,0.078601
+New stocks,multi3,3-day drop,0.100000,pct,1M+ and 3x normal,1,2312,1395,0.000734,0.766220
+New stocks,multi3,3-day drop,0.100000,pct,1M+ and 3x normal,2,2312,1394,0.001507,1.177470
+New stocks,multi3,3-day drop,0.100000,pct,1M+ and 3x normal,3,2312,1393,0.000300,0.193854
+New stocks,multi3,3-day drop,0.100000,pct,1M+ and 3x normal,5,2312,1392,-0.000428,-0.234966
+New stocks,multi3,3-day drop,0.100000,pct,1M+ and 3x normal,10,2312,1388,-0.003124,-1.349430
+New stocks,multi3,3-day drop,0.150000,pct,1M+ shares,1,4981,1702,-0.000160,-0.176508
+New stocks,multi3,3-day drop,0.150000,pct,1M+ shares,2,4981,1701,0.000414,0.315274
+New stocks,multi3,3-day drop,0.150000,pct,1M+ shares,3,4981,1700,-0.000428,-0.264276
+New stocks,multi3,3-day drop,0.150000,pct,1M+ shares,5,4981,1698,-0.000484,-0.230110
+New stocks,multi3,3-day drop,0.150000,pct,1M+ shares,10,4981,1693,-0.000567,-0.208027
+New stocks,multi3,3-day drop,0.150000,pct,1M+ and 1.5x normal,1,2946,1390,-0.000343,-0.328773
+New stocks,multi3,3-day drop,0.150000,pct,1M+ and 1.5x normal,2,2946,1389,-0.000134,-0.088288
+New stocks,multi3,3-day drop,0.150000,pct,1M+ and 1.5x normal,3,2946,1388,-0.001469,-0.795452
+New stocks,multi3,3-day drop,0.150000,pct,1M+ and 1.5x normal,5,2946,1388,-0.003359,-1.493038
+New stocks,multi3,3-day drop,0.150000,pct,1M+ and 1.5x normal,10,2946,1384,-0.003425,-1.176028
+New stocks,multi3,3-day drop,0.150000,pct,1M+ and 3x normal,1,1183,840,0.001343,0.873543
+New stocks,multi3,3-day drop,0.150000,pct,1M+ and 3x normal,2,1183,839,0.003036,1.481133
+New stocks,multi3,3-day drop,0.150000,pct,1M+ and 3x normal,3,1183,838,0.001725,0.725341
+New stocks,multi3,3-day drop,0.150000,pct,1M+ and 3x normal,5,1183,838,0.000227,0.082014
+New stocks,multi3,3-day drop,0.150000,pct,1M+ and 3x normal,10,1183,834,-0.000653,-0.180548
+New stocks,multi5,5-day drop,0.020000,pct,1M+ shares,1,105862,5295,0.000097,0.775117
+New stocks,multi5,5-day drop,0.020000,pct,1M+ shares,2,105862,5294,0.000587,3.095693
+New stocks,multi5,5-day drop,0.020000,pct,1M+ shares,3,105862,5293,0.000904,3.870376
+New stocks,multi5,5-day drop,0.020000,pct,1M+ shares,5,105862,5291,0.000897,2.943766
+New stocks,multi5,5-day drop,0.020000,pct,1M+ shares,10,105862,5286,0.001046,2.538140
+New stocks,multi5,5-day drop,0.020000,pct,1M+ and 1.5x normal,1,28683,4522,-0.000125,-0.485632
+New stocks,multi5,5-day drop,0.020000,pct,1M+ and 1.5x normal,2,28683,4521,0.000276,0.785354
+New stocks,multi5,5-day drop,0.020000,pct,1M+ and 1.5x normal,3,28683,4520,0.000490,1.091727
+New stocks,multi5,5-day drop,0.020000,pct,1M+ and 1.5x normal,5,28683,4518,0.000172,0.307797
+New stocks,multi5,5-day drop,0.020000,pct,1M+ and 1.5x normal,10,28683,4513,0.000830,1.068332
+New stocks,multi5,5-day drop,0.020000,pct,1M+ and 3x normal,1,6493,2712,-0.000186,-0.363171
+New stocks,multi5,5-day drop,0.020000,pct,1M+ and 3x normal,2,6493,2711,0.000243,0.348537
+New stocks,multi5,5-day drop,0.020000,pct,1M+ and 3x normal,3,6493,2710,0.000183,0.213752
+New stocks,multi5,5-day drop,0.020000,pct,1M+ and 3x normal,5,6493,2709,-0.000595,-0.593333
+New stocks,multi5,5-day drop,0.020000,pct,1M+ and 3x normal,10,6493,2705,-0.001234,-0.970483
+New stocks,multi5,5-day drop,0.030000,pct,1M+ shares,1,87777,5153,0.000106,0.717214
+New stocks,multi5,5-day drop,0.030000,pct,1M+ shares,2,87777,5152,0.000626,2.783641
+New stocks,multi5,5-day drop,0.030000,pct,1M+ shares,3,87777,5151,0.000957,3.485647
+New stocks,multi5,5-day drop,0.030000,pct,1M+ shares,5,87777,5149,0.000853,2.376186
+New stocks,multi5,5-day drop,0.030000,pct,1M+ shares,10,87777,5144,0.000752,1.532937
+New stocks,multi5,5-day drop,0.030000,pct,1M+ and 1.5x normal,1,25231,4342,-0.000149,-0.536362
+New stocks,multi5,5-day drop,0.030000,pct,1M+ and 1.5x normal,2,25231,4341,0.000328,0.864648
+New stocks,multi5,5-day drop,0.030000,pct,1M+ and 1.5x normal,3,25231,4340,0.000467,0.956855
+New stocks,multi5,5-day drop,0.030000,pct,1M+ and 1.5x normal,5,25231,4338,-0.000063,-0.103023
+New stocks,multi5,5-day drop,0.030000,pct,1M+ and 1.5x normal,10,25231,4333,0.000522,0.620666
+New stocks,multi5,5-day drop,0.030000,pct,1M+ and 3x normal,1,5814,2577,-0.000165,-0.304780
+New stocks,multi5,5-day drop,0.030000,pct,1M+ and 3x normal,2,5814,2576,0.000334,0.451910
+New stocks,multi5,5-day drop,0.030000,pct,1M+ and 3x normal,3,5814,2575,0.000090,0.096320
+New stocks,multi5,5-day drop,0.030000,pct,1M+ and 3x normal,5,5814,2574,-0.000818,-0.759528
+New stocks,multi5,5-day drop,0.030000,pct,1M+ and 3x normal,10,5814,2570,-0.001582,-1.169386
+New stocks,multi5,5-day drop,0.050000,pct,1M+ shares,1,59385,4751,0.000036,0.179471
+New stocks,multi5,5-day drop,0.050000,pct,1M+ shares,2,59385,4750,0.000468,1.505378
+New stocks,multi5,5-day drop,0.050000,pct,1M+ shares,3,59385,4749,0.000873,2.340663
+New stocks,multi5,5-day drop,0.050000,pct,1M+ shares,5,59385,4747,0.000753,1.541065
+New stocks,multi5,5-day drop,0.050000,pct,1M+ shares,10,59385,4742,0.000283,0.434595
+New stocks,multi5,5-day drop,0.050000,pct,1M+ and 1.5x normal,1,19071,3840,-0.000138,-0.416988
+New stocks,multi5,5-day drop,0.050000,pct,1M+ and 1.5x normal,2,19071,3839,0.000519,1.129839
+New stocks,multi5,5-day drop,0.050000,pct,1M+ and 1.5x normal,3,19071,3838,0.000790,1.345435
+New stocks,multi5,5-day drop,0.050000,pct,1M+ and 1.5x normal,5,19071,3836,0.000467,0.633966
+New stocks,multi5,5-day drop,0.050000,pct,1M+ and 1.5x normal,10,19071,3831,0.000384,0.384193
+New stocks,multi5,5-day drop,0.050000,pct,1M+ and 3x normal,1,4626,2252,0.000174,0.282505
+New stocks,multi5,5-day drop,0.050000,pct,1M+ and 3x normal,2,4626,2251,0.000820,0.986082
+New stocks,multi5,5-day drop,0.050000,pct,1M+ and 3x normal,3,4626,2250,0.000533,0.507317
+New stocks,multi5,5-day drop,0.050000,pct,1M+ and 3x normal,5,4626,2249,-0.000356,-0.294212
+New stocks,multi5,5-day drop,0.050000,pct,1M+ and 3x normal,10,4626,2245,-0.001663,-1.096746
+New stocks,multi5,5-day drop,0.070000,pct,1M+ shares,1,40154,4250,0.000324,1.191707
+New stocks,multi5,5-day drop,0.070000,pct,1M+ shares,2,40154,4249,0.000708,1.758815
+New stocks,multi5,5-day drop,0.070000,pct,1M+ shares,3,40154,4248,0.000906,1.854151
+New stocks,multi5,5-day drop,0.070000,pct,1M+ shares,5,40154,4246,0.000257,0.402988
+New stocks,multi5,5-day drop,0.070000,pct,1M+ shares,10,40154,4241,-0.000020,-0.022276
+New stocks,multi5,5-day drop,0.070000,pct,1M+ and 1.5x normal,1,14111,3320,0.000072,0.180563
+New stocks,multi5,5-day drop,0.070000,pct,1M+ and 1.5x normal,2,14111,3319,0.000370,0.653887
+New stocks,multi5,5-day drop,0.070000,pct,1M+ and 1.5x normal,3,14111,3318,0.000352,0.489300
+New stocks,multi5,5-day drop,0.070000,pct,1M+ and 1.5x normal,5,14111,3316,-0.000121,-0.133746
+New stocks,multi5,5-day drop,0.070000,pct,1M+ and 1.5x normal,10,14111,3311,0.000540,0.437539
+New stocks,multi5,5-day drop,0.070000,pct,1M+ and 3x normal,1,3613,1919,0.000328,0.456782
+New stocks,multi5,5-day drop,0.070000,pct,1M+ and 3x normal,2,3613,1918,0.001204,1.244797
+New stocks,multi5,5-day drop,0.070000,pct,1M+ and 3x normal,3,3613,1917,0.000390,0.323431
+New stocks,multi5,5-day drop,0.070000,pct,1M+ and 3x normal,5,3613,1916,-0.000617,-0.440274
+New stocks,multi5,5-day drop,0.070000,pct,1M+ and 3x normal,10,3613,1912,-0.002212,-1.251162
+New stocks,multi5,5-day drop,0.100000,pct,1M+ shares,1,22644,3422,0.000039,0.102722
+New stocks,multi5,5-day drop,0.100000,pct,1M+ shares,2,22644,3421,0.000568,1.009725
+New stocks,multi5,5-day drop,0.100000,pct,1M+ shares,3,22644,3420,0.000469,0.675414
+New stocks,multi5,5-day drop,0.100000,pct,1M+ shares,5,22644,3418,-0.000334,-0.373820
+New stocks,multi5,5-day drop,0.100000,pct,1M+ shares,10,22644,3413,-0.001094,-0.875157
+New stocks,multi5,5-day drop,0.100000,pct,1M+ and 1.5x normal,1,8999,2567,-0.000219,-0.416710
+New stocks,multi5,5-day drop,0.100000,pct,1M+ and 1.5x normal,2,8999,2566,0.000842,1.122498
+New stocks,multi5,5-day drop,0.100000,pct,1M+ and 1.5x normal,3,8999,2565,0.001012,1.068871
+New stocks,multi5,5-day drop,0.100000,pct,1M+ and 1.5x normal,5,8999,2564,0.000686,0.574242
+New stocks,multi5,5-day drop,0.100000,pct,1M+ and 1.5x normal,10,8999,2559,0.000268,0.164849
+New stocks,multi5,5-day drop,0.100000,pct,1M+ and 3x normal,1,2504,1453,0.000040,0.043885
+New stocks,multi5,5-day drop,0.100000,pct,1M+ and 3x normal,2,2504,1452,0.001479,1.215991
+New stocks,multi5,5-day drop,0.100000,pct,1M+ and 3x normal,3,2504,1451,0.000513,0.346095
+New stocks,multi5,5-day drop,0.100000,pct,1M+ and 3x normal,5,2504,1451,-0.000561,-0.320444
+New stocks,multi5,5-day drop,0.100000,pct,1M+ and 3x normal,10,2504,1447,-0.001543,-0.689403
+New stocks,multi5,5-day drop,0.150000,pct,1M+ shares,1,9096,2232,-0.000432,-0.661121
+New stocks,multi5,5-day drop,0.150000,pct,1M+ shares,2,9096,2231,-0.000542,-0.569745
+New stocks,multi5,5-day drop,0.150000,pct,1M+ shares,3,9096,2230,-0.001546,-1.316057
+New stocks,multi5,5-day drop,0.150000,pct,1M+ shares,5,9096,2229,-0.002037,-1.329137
+New stocks,multi5,5-day drop,0.150000,pct,1M+ shares,10,9096,2224,-0.001368,-0.668345
+New stocks,multi5,5-day drop,0.150000,pct,1M+ and 1.5x normal,1,4207,1628,-0.000543,-0.648887
+New stocks,multi5,5-day drop,0.150000,pct,1M+ and 1.5x normal,2,4207,1627,-0.000914,-0.756093
+New stocks,multi5,5-day drop,0.150000,pct,1M+ and 1.5x normal,3,4207,1626,-0.002107,-1.399600
+New stocks,multi5,5-day drop,0.150000,pct,1M+ and 1.5x normal,5,4207,1625,-0.002346,-1.243891
+New stocks,multi5,5-day drop,0.150000,pct,1M+ and 1.5x normal,10,4207,1620,-0.001802,-0.719497
+New stocks,multi5,5-day drop,0.150000,pct,1M+ and 3x normal,1,1359,914,0.001253,0.916301
+New stocks,multi5,5-day drop,0.150000,pct,1M+ and 3x normal,2,1359,913,0.001873,1.004796
+New stocks,multi5,5-day drop,0.150000,pct,1M+ and 3x normal,3,1359,912,-0.000566,-0.247317
+New stocks,multi5,5-day drop,0.150000,pct,1M+ and 3x normal,5,1359,912,-0.001030,-0.391882
+New stocks,multi5,5-day drop,0.150000,pct,1M+ and 3x normal,10,1359,909,-0.000902,-0.263450
+New stocks,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ shares,1,96083,5426,-0.000025,-0.218797
+New stocks,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ shares,2,96083,5425,0.000130,0.743765
+New stocks,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ shares,3,96083,5424,0.000412,1.934689
+New stocks,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ shares,5,96083,5422,0.000642,2.404957
+New stocks,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ shares,10,96083,5417,0.000727,1.961521
+New stocks,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 1.5x normal,1,26156,4641,-0.000267,-1.029218
+New stocks,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 1.5x normal,2,26156,4640,0.000209,0.556470
+New stocks,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 1.5x normal,3,26156,4639,0.000402,0.895891
+New stocks,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 1.5x normal,5,26156,4637,0.000700,1.101512
+New stocks,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 1.5x normal,10,26156,4632,0.000302,0.394604
+New stocks,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 3x normal,1,6500,2801,-0.000173,-0.329090
+New stocks,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 3x normal,2,6500,2800,0.001207,1.510594
+New stocks,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 3x normal,3,6500,2799,0.000607,0.680400
+New stocks,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 3x normal,5,6500,2798,0.002645,1.164515
+New stocks,vs_sector,Drop vs sector ETF,0.010000,pct,1M+ and 3x normal,10,6500,2794,0.000052,0.033290
+New stocks,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ shares,1,57057,5037,-0.000256,-1.307012
+New stocks,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ shares,2,57057,5036,0.000023,0.080289
+New stocks,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ shares,3,57057,5035,0.000366,1.013582
+New stocks,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ shares,5,57057,5033,0.000654,1.448351
+New stocks,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ shares,10,57057,5028,0.000520,0.836428
+New stocks,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 1.5x normal,1,18983,4227,-0.000192,-0.605202
+New stocks,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 1.5x normal,2,18983,4226,0.000307,0.625841
+New stocks,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 1.5x normal,3,18983,4225,0.000392,0.655571
+New stocks,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 1.5x normal,5,18983,4223,0.000580,0.675734
+New stocks,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 1.5x normal,10,18983,4218,0.000389,0.397584
+New stocks,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 3x normal,1,5382,2571,-0.000076,-0.131343
+New stocks,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 3x normal,2,5382,2570,0.000700,0.863839
+New stocks,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 3x normal,3,5382,2569,-0.000032,-0.032590
+New stocks,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 3x normal,5,5382,2568,0.002373,0.959182
+New stocks,vs_sector,Drop vs sector ETF,0.020000,pct,1M+ and 3x normal,10,5382,2564,-0.000879,-0.518371
+New stocks,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ shares,1,35053,4413,-0.000635,-2.003187
+New stocks,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ shares,2,35053,4412,-0.000299,-0.626796
+New stocks,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ shares,3,35053,4411,-0.000177,-0.301479
+New stocks,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ shares,5,35053,4409,0.000004,0.006285
+New stocks,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ shares,10,35053,4404,-0.000404,-0.436352
+New stocks,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 1.5x normal,1,13875,3749,-0.000397,-0.939246
+New stocks,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 1.5x normal,2,13875,3748,0.000247,0.355650
+New stocks,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 1.5x normal,3,13875,3747,0.000211,0.258225
+New stocks,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 1.5x normal,5,13875,3745,0.000645,0.522002
+New stocks,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 1.5x normal,10,13875,3740,0.000491,0.385865
+New stocks,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 3x normal,1,4532,2346,0.000030,0.048322
+New stocks,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 3x normal,2,4532,2345,0.000832,0.944384
+New stocks,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 3x normal,3,4532,2344,-0.000115,-0.108899
+New stocks,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 3x normal,5,4532,2343,0.002516,0.931595
+New stocks,vs_sector,Drop vs sector ETF,0.030000,pct,1M+ and 3x normal,10,4532,2339,-0.001414,-0.767658
+New stocks,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ shares,1,15126,3351,-0.000830,-1.692204
+New stocks,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ shares,2,15126,3350,-0.000780,-1.028506
+New stocks,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ shares,3,15126,3349,-0.000706,-0.809256
+New stocks,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ shares,5,15126,3347,-0.000162,-0.146154
+New stocks,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ shares,10,15126,3342,-0.000814,-0.553516
+New stocks,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 1.5x normal,1,8007,2925,-0.000444,-0.788861
+New stocks,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 1.5x normal,2,8007,2924,0.000065,0.070585
+New stocks,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 1.5x normal,3,8007,2923,-0.000354,-0.342434
+New stocks,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 1.5x normal,5,8007,2922,0.000086,0.066886
+New stocks,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 1.5x normal,10,8007,2918,-0.000504,-0.295080
+New stocks,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 3x normal,1,3396,1974,-0.000555,-0.766404
+New stocks,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 3x normal,2,3396,1973,0.000413,0.362496
+New stocks,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 3x normal,3,3396,1972,-0.000820,-0.684772
+New stocks,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 3x normal,5,3396,1971,-0.000372,-0.254117
+New stocks,vs_sector,Drop vs sector ETF,0.050000,pct,1M+ and 3x normal,10,3396,1968,-0.002878,-1.501017
+New stocks,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ shares,1,7328,2500,-0.001827,-2.774093
+New stocks,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ shares,2,7328,2499,-0.001836,-1.661852
+New stocks,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ shares,3,7328,2498,-0.002581,-2.057741
+New stocks,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ shares,5,7328,2496,-0.002017,-1.279009
+New stocks,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ shares,10,7328,2492,-0.002559,-1.081923
+New stocks,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 1.5x normal,1,4761,2201,-0.001439,-2.018403
+New stocks,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 1.5x normal,2,4761,2200,-0.000786,-0.658787
+New stocks,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 1.5x normal,3,4761,2199,-0.001994,-1.481035
+New stocks,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 1.5x normal,5,4761,2198,-0.001824,-1.083938
+New stocks,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 1.5x normal,10,4761,2194,-0.002842,-1.297447
+New stocks,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 3x normal,1,2545,1591,-0.001136,-1.261716
+New stocks,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 3x normal,2,2545,1590,0.000481,0.344576
+New stocks,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 3x normal,3,2545,1589,-0.001517,-1.050104
+New stocks,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 3x normal,5,2545,1588,-0.001779,-1.019744
+New stocks,vs_sector,Drop vs sector ETF,0.070000,pct,1M+ and 3x normal,10,2545,1585,-0.004324,-1.889028
+New stocks,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ shares,1,2943,1509,-0.001562,-1.503219
+New stocks,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ shares,2,2943,1508,-0.001525,-0.923910
+New stocks,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ shares,3,2943,1507,-0.001905,-0.971045
+New stocks,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ shares,5,2943,1506,-0.001220,-0.504629
+New stocks,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ shares,10,2943,1504,-0.001540,-0.480039
+New stocks,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 1.5x normal,1,2359,1364,-0.001147,-1.074102
+New stocks,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 1.5x normal,2,2359,1363,-0.000704,-0.439466
+New stocks,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 1.5x normal,3,2359,1362,-0.000997,-0.522241
+New stocks,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 1.5x normal,5,2359,1361,0.000650,0.271192
+New stocks,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 1.5x normal,10,2359,1359,-0.000507,-0.163639
+New stocks,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 3x normal,1,1622,1107,-0.000737,-0.624456
+New stocks,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 3x normal,2,1622,1106,0.000716,0.430242
+New stocks,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 3x normal,3,1622,1105,-0.000186,-0.097863
+New stocks,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 3x normal,5,1622,1104,-0.001347,-0.594099
+New stocks,vs_sector,Drop vs sector ETF,0.100000,pct,1M+ and 3x normal,10,1622,1102,-0.003530,-1.178427
