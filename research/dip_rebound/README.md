@@ -127,3 +127,32 @@ both universes. That's real, but the weekly turnover costs more than it adds
 unless execution costs stay near 2 bps per side, and even then it only
 slightly beats holding SPY, with a similar ~50% worst drawdown. Missing
 delisted stocks flatter all of these numbers.
+
+## Weekly pullback portfolio (pre-registered test 2, `weekly.py`)
+
+Attempt to make the pullback effect tradable at the user's costs
+(commission-free market orders, 5 bps per side): trade weekly, hold the top
+10/20/50 pullbacks (5-day drop of 2%+), two rankings, three filters, with
+and without a buffer that keeps qualifying holdings. 36 variants, criteria
+committed in `PREREGISTRATION.md` before running: beat SPY on both annual
+return and Sharpe at 5 bps, in all three samples.
+
+**Result: 0 of 36 pass.** No variant beats SPY in more than one of the three
+samples.
+
+| | S&P 2005-15 | S&P 2016-26 | New stocks 2005-26 |
+|---|---|---|---|
+| SPY buy & hold | 7.1%, Sharpe 0.44 | 14.8%, Sharpe 0.87 | 10.8%, Sharpe 0.64 |
+| Best S&P variant (top 20, deepest, buffer) | 11.3%, 0.54 | 17.2%, 0.69 | 0.7%, 0.16 |
+| Best new-stocks variant (top 10, 2-10% band, buffer) | 8.2%, 0.44 | 12.3%, 0.57 | 5.4%, 0.33 |
+| All eligible stocks, weekly (benchmark) | 7.6%, 0.45 | 14.1%, 0.81 | 2.3%, 0.22 |
+
+Why it fails: pullback names change almost completely every week, so even
+weekly trading turns the portfolio over 50-97 times a year (the buffer cuts
+that by only ~5%). At 5 bps per side that costs roughly 3-5% a year, which
+is about what the effect adds. The pullback portfolios do beat the
+all-eligible benchmark in each universe, so the effect is real, but they
+take on more risk than SPY and lose on Sharpe in every sample after 2016.
+
+**Conclusion (per the pre-registration):** the pullback idea is dropped as
+not tradable at retail costs.
