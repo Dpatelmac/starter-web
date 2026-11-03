@@ -10,6 +10,7 @@ Offline, self-contained HTML reports (open in any browser, no internet needed):
 | `LITE_backtest_report_V2.html` | **V2** (trend filter, 3% / 5% tight trail) vs V1, 1D 4 years + 4H/2H/1H since Dec 2023 |
 | `LITE_backtest_report_V3.html` | **V3** daily trend strategies (SMA 8/45 + 1% band and 4 others) on LITE 3 years, LITE 2016–2023, COHR, AAOI, CIEN, NVDA |
 | `LITE_backtest_report_V4.html` | **V4** V3 trend + 5×ATR stop order: more profit AND lower drawdown than buy & hold; stop-type and start-date tables |
+| `LITE_backtest_report_V5.html` | **V5** checks: 4H strategies and two-stage stops vs daily V4 on LITE, COHR, AAOI, CIEN, NVDA (6 Dec 2023 → now) |
 
 Pine scripts: `../pinescript/lite_dip_rebound_two_stage_trail.pine` (V1),
 `../pinescript/lite_dip_rebound_two_stage_trail_v2.pine` (V2) `../pinescript/lite_daily_trend_v3.pine` (V3) and `../pinescript/lite_daily_trend_v4.pine` (V4).
@@ -44,6 +45,10 @@ python3 backtest/backtest_v3.py report backtest/data/2026-11-03-daily LITE 2023-
 
 # V4: search trend × stop × re-entry, or report "key|fast,slow,band|stop|reentry|name;..."  stop = trail:12 | atr:5.0 | atrcap:5.0/22 | none
 python3 backtest/backtest_v4.py report backtest/data/2026-11-03-daily LITE 2023-11-03 - rep.json "V4|8,50,1.0|atr:5.0|hi10|V4"
+
+# V5: 4H / two-stage searches and mixed 1D+4H reports
+python3 backtest/backtest_v5.py search backtest/data/2026-11-03-hourly LITE 2023-12-06 - s.json 4H base   # or: 1D two · 4H two
+python3 backtest/backtest_v5.py report backtest/data/2026-11-03-hourly LITE 2023-12-06 - r.json "V4|1D|sma:8,50,1.0|atr:5.0|hi10|V4;4H|4H|sma:16,100,1.0|atr:8.0|hi20|4H"
 
 # Report: <template> <out.html> then one or more "<results.json> <window label> <period text>"
 REPORT_META='{"title":"My report","baseline":"V1 %"}' \

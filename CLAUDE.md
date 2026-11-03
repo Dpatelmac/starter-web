@@ -36,15 +36,17 @@ Start here:
 | `backtest/backtest.py` | Python replica of V1 with TradingView-style fills |
 | `backtest/backtest_v3.py` | V3 engine: `search` (412 settings, 11 trend families) and `report` modes; TradingView-equivalent indicators |
 | `backtest/backtest_v4.py` / `backtest/v4_meta.py` | V4 engine (trend + stop order + re-entry, `search`/`report`) and its report tables |
+| `backtest/backtest_v5.py` / `backtest/v5_meta.py` | V5 checks: 4H bars (SMA band, Supertrend, Donchian) and two-stage ATR stops vs daily V4; no new winner |
+| `backtest/data/2026-11-03-hourly/` | 1h + 1d data for LITE, COHR, AAOI, CIEN, NVDA (6 Dec 2023 → 3 Nov 2026 hourly; full 3 Nov session) |
 | `backtest/v3_meta.py` | Builds the V3 report's summary tables (family scores, SMA heat-table, test-set checks, start dates) |
 | `backtest/data/2026-11-03-daily/` | Daily data 2014 → 3 Nov 2026 for LITE, COHR, AAOI, CIEN, NVDA (V3) |
 | `backtest/backtest_v2.py` | Same engine plus V2 options (trend filter, tight-trail override) |
 | `backtest/build_report.py` + `report_template.html` | Builds the self-contained, offline HTML reports |
-| `backtest/rebuild_all.sh` | One command: all backtests + all six reports (byte-identical to the committed ones) |
+| `backtest/rebuild_all.sh` | One command: all backtests + all seven reports (byte-identical to the committed ones) |
 | `backtest/fetch_data.sh` | Downloads a fresh Yahoo snapshot (never overwrites an existing one) |
 | `backtest/data/2026-11-03/` | The exact data the committed results came from (1m, 6m, 4y, v2 sets) |
 | `backtest/tools/check_report.js` | Playwright smoke test of every report (errors, overflow, screenshots) |
-| `backtest/LITE_backtest_report*.html` | 1-month, 6-month, 4-year, V2, V3 and V4 reports |
+| `backtest/LITE_backtest_report*.html` | 1-month, 6-month, 4-year, V2, V3, V4 and V5 reports |
 
 ## How the simulator matches the Pine strategy (keep these in sync)
 
@@ -92,6 +94,8 @@ Start here:
   Only 5 trades, and one trade (May 2025 → Jun 2026) made almost all of the profit.
 - **V4 (V3 trend + 5×ATR stop) is the current best**: $242k vs $165k, drawdown 30% vs 56%, both from all 26 start dates;
   4/6 check sets. Owner's goal for it: more profit AND much lower drawdown than buy & hold, robust beyond LITE.
+- **V5 checks (4H, two-stage stops) found nothing better than V4.** With trend + stop orders only, ~30% drawdown is the
+  floor on LITE while profit stays above buy & hold (the October 2026 fall sets it).
 - Treat the "best" settings as likely over-fitted to one exceptional stock.
 
 ## Report template conventions

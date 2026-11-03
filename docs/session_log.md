@@ -39,13 +39,22 @@ What was asked and what was done, in order. Numbers are in `LITE_strategy_findin
     closing high: $242k vs $165k, drawdown 30% vs 56%, 26/26 start dates, 4/6 check sets. Capped stops reached 26%
     drawdown but failed the checks. New: `pinescript/lite_daily_trend_v4.pine`, `backtest/v4_meta.py`,
     `backtest/LITE_backtest_report_V4.html`.
-12. **Private repository (pending).** `starter-web` is a fork of the public `scm-ninja/starter-web`, so GitHub
+12. **V5: 4H or a two-stage stop to beat V4** (owner chose: same window for all, 6 Dec 2023 → now; stop-loss orders
+    only; goal = drawdown below V4 with profit above B&H; peers on 4H as checks). New data
+    `backtest/data/2026-11-03-hourly/` (1h + 1d for LITE, COHR, AAOI, CIEN, NVDA), `backtest/backtest_v5.py`
+    (4H bars, SMA band / Supertrend / Donchian trends, V4 broker), a two-stage stop type `atr2` added to
+    `backtest_v4.py` (V4 results unchanged, verified byte-identical), `backtest/v5_meta.py`,
+    `backtest/LITE_backtest_report_V5.html`. Result: no new winner. ~30% drawdown is the floor; daily V4 stays best
+    ($253.5k, 30.3%, 4/5 stocks on this window). No V5 Pine script was made because nothing beat V4.
+13. **Private repository (pending).** `starter-web` is a fork of the public `scm-ninja/starter-web`, so GitHub
     won't let it be made private. Plan: the owner creates an empty private repository `Dpatelmac/Pine-Research`
     (this session can't create repositories); then push the `LITE-research` branch there as its main branch.
 
 ## Open ideas, not done yet
 
 - Test V2 (Percent, 3%/5% trail) on 2–3 other stocks to check whether the improvement is real or over-fitted.
+- Lower drawdown below ~30% needs tools the owner hasn't allowed yet: a daily-trend filter for 4H entries,
+  volatility/ADX filters, or a QQQ market filter.
 - V3: a regime switch (use V3 only when volatility or trend strength is high, otherwise hold) to fix its losses
   on choppy LITE 2016–2023 and on steady risers like NVDA; walk-forward re-optimisation instead of one fixed setting.
 - A trend filter used as an *exit* (sell or tighten when price closes below the 200-day average) instead of an entry filter.

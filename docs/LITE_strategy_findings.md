@@ -19,6 +19,7 @@ TradingView's own Strategy Tester and **not investment advice**. Data as of 3 No
 | Report: **V3** daily trend search, LITE 3 years + 5 test sets | [`backtest/LITE_backtest_report_V3.html`](../backtest/LITE_backtest_report_V3.html) |
 | Pine strategy **V4** (V3 trend + 5×ATR trailing stop order) | [`pinescript/lite_daily_trend_v4.pine`](../pinescript/lite_daily_trend_v4.pine) |
 | Report: **V4** more profit AND lower drawdown than buy & hold | [`backtest/LITE_backtest_report_V4.html`](../backtest/LITE_backtest_report_V4.html) |
+| Report: **V5** 4H and two-stage-stop checks vs V4 (no new winner) | [`backtest/LITE_backtest_report_V5.html`](../backtest/LITE_backtest_report_V5.html) |
 | Backtest engines and report builder | [`backtest/`](../backtest/) (see its [README](../backtest/README.md)) |
 | Data snapshot the results came from | [`backtest/data/2026-11-03/`](../backtest/data/2026-11-03/) |
 | One-command rebuild / fresh data download | [`backtest/rebuild_all.sh`](../backtest/rebuild_all.sh) · [`backtest/fetch_data.sh`](../backtest/fetch_data.sh) |
@@ -166,6 +167,27 @@ after a stop-out it buys again only on a close above the prior 10-day closing hi
 - **Below ~30% drawdown it stops being robust:** capping the stop (e.g. "5×ATR, never more than 22%") reaches 26% on
   LITE but beats buy & hold in only 1 of 6 sets. It is a fit to LITE's exact path, so it was not picked.
 
+## 7. V5: can a 4H chart or a two-stage stop beat V4? (No)
+
+Owner's brief: try 4H, or any strategy, for profit above buy & hold and a drawdown below V4's; tools limited to trend
+rules plus stop-loss orders; everything on the same window, **6 Dec 2023 → 3 Nov 2026** (hourly data starts there);
+checked on COHR, AAOI, CIEN and NVDA 4H/1D. On this window buy & hold on LITE: $159,852, drawdown 56.1%.
+
+| LITE · 6 Dec 2023 → 3 Nov 2026 | Value | Max drawdown | Beats B&H on both, of 5 stocks |
+|---|---|---|---|
+| **V4 daily** (SMA 8/50 band + 5×ATR) | **$253,507** | **30.3%** | **4/5** (fails NVDA) |
+| Best 4H (SMA 16/100 band + 8×ATR) | $191,184 | 30.6% | 3/5 (fails COHR, NVDA) |
+| Lowest-drawdown 4H (SMA 8/80 2% + 6×ATR) | $161,103 | 30.0% | 1/5 |
+| Daily two-stage stop (5×ATR → 1.5×ATR after +50%) | $157,989 | 29.9% | 0/5 (just under B&H profit on LITE) |
+| Buy & hold | $159,852 | 56.1% | — |
+
+- Searched 5,203 4H settings (SMA band, Supertrend, Donchian × 15 stops × 3 re-entry rules), 15,480 4H and 12,900
+  daily two-stage-stop settings. **No setting had a drawdown below 30% and profit above buy & hold.**
+- 4H adds noise: more stop-outs and lower profit; its longer averages also need ~5 months of hourly data to warm up.
+- The ~30% floor is LITE's October 2026 fall. Exiting it earlier needs a tighter stop, and tighter stops sell too
+  early in the 2025–26 run. Going lower would need other tools (daily-trend or volatility filters, a market filter)
+  or accepting less profit.
+
 ## Conclusion in simple words
 
 - Over the long run the strategy made money (about 2× in 4 years, up to about 6.8× for V2 on 4H), but
@@ -182,6 +204,8 @@ after a stop-out it buys again only on a close above the prior 10-day closing hi
   crashes. It is not a sure thing: it lost to buy & hold on LITE 2016–2023 and on NVDA.
 - **V4 adds a wide 5×ATR stop-loss order to V3:** $242k vs $165k, max drawdown **30% vs 56%**, better than buy & hold on
   both from every start date tested. Getting the drawdown much below 30% only worked by fitting LITE's exact history.
+- **4H and two-stage stops (V5) did not beat V4**: with trend rules + stop orders only, ~30% drawdown is the floor on
+  LITE while keeping profit above buy & hold. Daily V4 remains the best strategy found.
 
 ## Why LITE flew in 2025–2026 (brief)
 

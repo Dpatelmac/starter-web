@@ -72,4 +72,19 @@ REPORT_META="$(cat "$OUT/v3/v4meta.json")" $PY build_report.py report_template.h
   "$OUT/v3/v4rep_AAOI_3y.json" "AAOI · 3 years" "3 years" \
   "$OUT/v3/v4rep_CIEN_3y.json" "CIEN · 3 years" "3 years" \
   "$OUT/v3/v4rep_NVDA_3y.json" "NVDA · 3 years" "3 years"
-echo "done · text summaries (every trade) in $OUT/*.txt and $OUT/v3/*.txt"
+echo "== V5 · 4H and two-stage-stop checks vs daily V4 (same window 6 Dec 2023 → 3 Nov 2026)"
+HOURLY=data/2026-11-03-hourly
+mkdir -p "$OUT/v5"
+$PY backtest_v5.py search "$HOURLY" LITE 2023-12-06 - "$OUT/v5/search_LITE.json" 4H base > "$OUT/v5/search_LITE.txt"
+$PY backtest_v5.py search "$HOURLY" LITE 2023-12-06 - "$OUT/v5/two_4H_LITE.json" 4H two > "$OUT/v5/two_4H_LITE.txt"
+$PY backtest_v5.py search "$HOURLY" LITE 2023-12-06 - "$OUT/v5/two_1D_LITE.json" 1D two > "$OUT/v5/two_1D_LITE.txt"
+V5SPECS="V4 1D|1D|sma:8,50,1.0|atr:5.0|hi10|V4 · daily (SMA 8/50 band + 5×ATR stop);4H best|4H|sma:16,100,1.0|atr:8.0|hi20|Best 4H (SMA 16/100 band + 8×ATR stop);4H low-dd|4H|sma:8,80,2.0|atr:6.0|hi20|Lowest-drawdown 4H (SMA 8/80, 2% band + 6×ATR);1D 2-stage|1D|sma:20,40,1.0|atr2:5.0/1.5/50.0|hi20|Daily two-stage stop (5×ATR → 1.5×ATR after +50%)"
+for s in LITE COHR AAOI CIEN NVDA; do
+  $PY backtest_v5.py report "$HOURLY" "$s" 2023-12-06 - "$OUT/v5/rep_$s.json" "$V5SPECS" > "$OUT/v5/rep_$s.txt"
+done
+$PY v5_meta.py "$OUT/v5" > "$OUT/v5/meta.json"
+REPORT_META="$(cat "$OUT/v5/meta.json")" $PY build_report.py report_template.html LITE_backtest_report_V5.html \
+  "$OUT/v5/rep_LITE.json" "LITE" "2 years 11 months" "$OUT/v5/rep_COHR.json" "COHR" "2 years 11 months" \
+  "$OUT/v5/rep_AAOI.json" "AAOI" "2 years 11 months" "$OUT/v5/rep_CIEN.json" "CIEN" "2 years 11 months" \
+  "$OUT/v5/rep_NVDA.json" "NVDA" "2 years 11 months"
+echo "done · text summaries (every trade) in $OUT/*.txt $OUT/v3/*.txt and $OUT/v5/*.txt"

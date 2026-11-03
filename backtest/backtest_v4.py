@@ -10,6 +10,8 @@ Rules per bar (TradingView broker emulator, process_orders_on_close = false):
                atr k     -> stop = highest high since entry - k x ATR(14)
                atrcap k/p -> stop = max(highest high - k x ATR(14), highest high x (1 - p/100))
                             (the ATR stop, but never more than p% below the high)
+               atr2 k1/k2/g -> two-stage: k1 x ATR below the highest high until the trade's best gain reaches g%,
+                            then k2 x ATR (tighter) to protect the profit (added for V5; V4 doesn't use it)
                none      -> only the trend exit
 - Trend exit: sell at the next open when the trend turns down (fast SMA < slow SMA x (1 - band%)).
 - Re-entry after a stop-out:  fresh = wait until the trend has turned down and up again
@@ -41,7 +43,7 @@ def trend_band(b, fast, slow, band):
     return tr, f, s
 
 
-def stop_level(kind, val, hh, atr_now):
+def stop_level(kind, val, hh, atr_now, entry_px=None):
     if kind == "trail":
         return hh * (1 - val / 100)
     if kind == "atr":
@@ -49,11 +51,16 @@ def stop_level(kind, val, hh, atr_now):
     if kind == "atrcap":
         k, p = val
         return max(hh - k * atr_now, hh * (1 - p / 100))
+    if kind == "atr2":
+        k1, k2, g = val
+        gain = (hh / entry_px - 1) * 100 if entry_px else 0.0
+        return hh - (k2 if gain >= g else k1) * atr_now
     return None
 
 
 def fmt_stop(kind, val):
-    return {"trail": lambda: f"{val:g}% trail", "atr": lambda: f"{val:g}×ATR", "atrcap": lambda: f"{val[0]:g}×ATR, max {val[1]:g}%"}.get(kind, lambda: "none")()
+    return {"trail": lambda: f"{val:g}% trail", "atr": lambda: f"{val:g}×ATR", "atrcap": lambda: f"{val[0]:g}×ATR, max {val[1]:g}%",
+            "atr2": lambda: f"{val[0]:g}×ATR, {val[1]:g}×ATR after +{val[2]:g}%"}.get(kind, lambda: "none")()
 
 
 def run(b, trend, stop_kind, stop_val, reentry, start, end, atr14=None):
@@ -116,7 +123,7 @@ def run(b, trend, stop_kind, stop_val, reentry, start, end, atr14=None):
             if qty and not trend[i]:
                 pend_sell = True
             elif qty:
-                stop_next = stop_level(stop_kind, stop_val, hh, atr14[i])
+                stop_next = stop_level(stop_kind, stop_val, hh, atr14[i], entry["px"])
             elif trend[i] and not pend_buy:
                 ok = not blocked
                 if blocked and reentry.startswith("hi") and hc[i - 1] is not None and x["c"] > hc[i - 1]:
@@ -124,7 +131,7 @@ def run(b, trend, stop_kind, stop_val, reentry, start, end, atr14=None):
                 if ok:
                     pend_buy, pend_qty = True, math.floor(cash / x["c"])
                     hh = x["c"]
-                    stop_next = stop_level(stop_kind, stop_val, x["c"], atr14[i])
+                    stop_next = stop_level(stop_kind, stop_val, x["c"], atr14[i], x["c"])
         st = 2 if (qty and not pend_sell) or pend_buy else 0
         levels.append([st, None, None, round(stop_next, 2) if stop_next else None, round(entry["px"], 2) if entry else None, None, None, None])
         stop_line.append(round(stop_next, 2) if stop_next else None)
@@ -157,6 +164,8 @@ def parse_stop(s):
     k, v = s.split(":")
     if k == "atrcap":
         a, p = v.split("/"); return k, (float(a), float(p))
+    if k == "atr2":
+        a, c, g = v.split("/"); return k, (float(a), float(c), float(g))
     return k, float(v)
 
 
