@@ -8,8 +8,11 @@ import json, math, sys, datetime as dt
 from zoneinfo import ZoneInfo
 
 NY = ZoneInfo("America/New_York")
+# usage: backtest.py <data_dir> <start YYYY-MM-DD> <out.json> <tf,tf,...>
 DATA = sys.argv[1]
-START = dt.datetime(2026, 10, 3, tzinfo=dt.timezone.utc)   # 1 month back
+START = dt.datetime.fromisoformat(sys.argv[2]).replace(tzinfo=dt.timezone.utc)
+OUT = sys.argv[3]
+TFS = sys.argv[4].split(",")
 CAP0 = 10000.0
 COMM = 0.001
 DIP, REB, WIDE, TGT, TIGHT = 60.0, 0.5, 95.0, 60.0, 10.0
@@ -27,11 +30,12 @@ def load(iv):
     return bars
 
 
-def to_4h(bars1h):
-    """TradingView session-aligned 4H bars for US stocks: 09:30-13:30, 13:30-16:00."""
+def to_nh(bars1h, n):
+    """TradingView session-aligned N-hour bars for US stocks, anchored at 09:30
+    (4H: 09:30-13:30, 13:30-16:00 · 2H: 09:30-11:30, 11:30-13:30, 13:30-15:30, 15:30-16:00)."""
     out = {}
     for b in bars1h:
-        seg = 0 if (b["t"].hour, b["t"].minute) < (13, 30) else 1
+        seg = max(0, (b["t"].hour * 60 + b["t"].minute) - 570) // (60 * n)
         k = (b["t"].date(), seg)
         if k not in out:
             out[k] = dict(b)
@@ -68,7 +72,7 @@ def run(bars):
             pnl = (px - entry["px"]) * qty - entry["fee"] - fee
             trades.append(dict(entry_t=entry["t"], entry_px=entry["px"], exit_t=b["t"], exit_px=px, qty=qty,
                                pnl=pnl, pct=pnl / (entry["px"] * qty) * 100,
-                               reason="$10 trail (profit)" if state == 3 else "$95 trail (stop)",
+                               reason="$10 trail (after target)" if state == 3 else "$95 trail",
                                runup=(entry["hi"] - entry["px"]) * qty, dd=(entry["lo"] - entry["px"]) * qty))
             qty, entry, just_sold = 0, None, True
         elif qty:
@@ -149,11 +153,14 @@ def report(name, res):
 
 
 if __name__ == "__main__":
-    b1h = load("1h")
-    sets = {"1D": load("1d"), "4H": to_4h(b1h), "1H": b1h, "30m": load("30m"), "15m": load("15m"),
-            "5m": load("5m"), "2m": load("2m")}
-    out = [report(k, run(v)) for k, v in sets.items()]
-    json.dump(out, open(f"{DATA}/../results.json", "w"), default=str, separators=(",", ":"))
+    def bars_for(tf):
+        if tf == "1D":
+            return load("1d")
+        if tf.endswith("H") and tf != "1H":
+            return to_nh(load("1h"), int(tf[:-1]))
+        return load(tf.lower() if tf == "1H" else tf)
+    out = [report(k, run(bars_for(k))) for k in TFS]
+    json.dump(out, open(OUT, "w"), default=str, separators=(",", ":"))
     for r in out:
         print(f"{r['tf']:>4} bars={r['bars']:5d} net={r['net']:9.2f} ({r['net_pct']:6.2f}%) trades={r['closed_trades']} "
               f"win={r['winrate']} pf={r['pf']} maxDD={r['maxdd']:.2f} ({r['maxdd_pct']:.2f}%) open={'Y' if r['open'] else 'N'} "

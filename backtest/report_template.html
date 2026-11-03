@@ -121,7 +121,7 @@ tr.sel td { background: var(--surface-2); font-weight: 600; }
   <header>
     <div>
       <h1>LITE · Dip-Rebound Two-Stage Trailing Stop</h1>
-      <p class="sub">How the strategy would have done with <b>$10,000</b> on Lumentum (NASDAQ: LITE) over the past month, tested on seven chart timeframes and compared with simply buying and holding.</p>
+      <p class="sub">How the strategy would have done with <b>$10,000</b> on Lumentum (NASDAQ: LITE) over the past <span id="periodTxt"></span>, tested on <span id="tfCount"></span> chart timeframes and compared with simply buying and holding.</p>
       <div id="pills"></div>
     </div>
     <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle light or dark theme">◐ Theme</button>
@@ -153,7 +153,7 @@ tr.sel td { background: var(--surface-2); font-weight: 600; }
   <section class="card" aria-labelledby="h-detail">
     <div class="card-head">
       <div><h2 id="h-detail">Timeframe detail</h2><div class="small muted" id="detailSub"></div></div>
-      <div class="seg" id="tfSeg" role="group" aria-label="Choose timeframe"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><div class="seg" id="tfSeg" role="group" aria-label="Choose timeframe"></div><div class="seg" id="rangeSeg" role="group" aria-label="Zoom the charts below"></div></div>
     </div>
     <div class="tiles" id="tiles"></div>
 
@@ -180,7 +180,7 @@ tr.sel td { background: var(--surface-2); font-weight: 600; }
       <li><b>Money:</b> $10,000 starting capital, 100% of account value per trade in whole shares, 0.1% commission each side, no slippage. Buy &amp; hold buys whole shares at the first bar's open and pays the same 0.1% commission.</li>
       <li><b>Order fills, matching TradingView's backtester:</b> signals are checked at each bar close, buys fill at the next bar's open, and stops fill at the stop price, or at the open if price gaps through it. Trailing stops move once per bar, never inside a bar.</li>
       <li><b>Data:</b> Yahoo Finance, regular trading hours only. The 4H bars are built from 1H bars on TradingView's session split (09:30–13:30, 13:30–16:00). Today's bar is unfinished: the data was fetched at <span id="fetchT"></span>.</li>
-      <li><b>Caveats:</b> this is a Python copy of the Pine script, not TradingView's own Strategy Tester, so expect small differences. One month and 4–7 trades per timeframe is a very small sample, and LITE fell about 37% during it. This is not investment advice.</li>
+      <li><b>Caveats:</b> this is a Python copy of the Pine script, not TradingView's own Strategy Tester, so expect small differences. <span id="sampleTxt"></span> This is not investment advice.</li>
     </ul>
   </section>
 </div>
@@ -189,10 +189,23 @@ tr.sel td { background: var(--surface-2); font-weight: 600; }
 "use strict";
 const D = /*__DATA__*/null;
 const NS = "http://www.w3.org/2000/svg";
-const TF_COLOR = { "1D": "--s1", "4H": "--s2", "1H": "--s3", "30m": "--s4", "15m": "--s5", "5m": "--s6", "2m": "--s7" };
+const TF_COLOR = Object.fromEntries(D.tfs.map((t, i) => [t.tf, "--s" + (i + 1)]));   // fixed slot order, never cycled
+const BH_TF = D.tfs[D.tfs.length - 1].tf;                                            // finest timeframe carries the buy & hold curve
 const BH_LABEL = "Buy & hold";
 const byTf = Object.fromEntries(D.tfs.map(t => [t.tf, t]));
-let selTf = "1D";
+let selTf = D.tfs[0].tf;
+let rangeDays = 0;                       // 0 = whole window; else last N trading days
+const RANGES = [["All", 0], ["3M", 63], ["1M", 21], ["1W", 5]].filter(r => r[1] === 0 || r[1] < D.days.length);
+function xMinFor(T) {
+  if (!rangeDays) return 0;
+  const lastDay = Math.floor((T.xc[T.xc.length - 1] - 1e-6) / 390);
+  return Math.max(0, lastDay - rangeDays + 1) * 390;
+}
+function sliceT(T, i0) {
+  const o = { ...T, i0 };
+  for (const k of ["xo", "xc", "t", "o", "h", "l", "c", "eq", "bh", "st", "tH", "tL", "stop", "buy", "tgt"]) o[k] = T[k].slice(i0);
+  return o;
+}
 const hiddenEq = new Set();
 const hiddenPx = new Set();
 
@@ -272,14 +285,15 @@ function showTip(clientX, clientY, title, rows) {
 }
 const hideTip = () => { tip.style.display = "none"; };
 
-function dayGrid(g, sx, x0, x1, top, bottom, xmax) {
-  const w = x1 - x0, n = D.days.length;
-  const every = Math.max(1, Math.ceil(n / Math.max(2, Math.floor(w / 70))));
-  for (let i = 0; i < n; i++) {
+function dayGrid(g, sx, x0, x1, top, bottom, xmax, xmin = 0) {
+  const w = x1 - x0, d0 = Math.ceil(xmin / 390 - 1e-9), n = Math.min(D.days.length, Math.ceil(xmax / 390) + 1);
+  const every = Math.max(1, Math.ceil((n - d0) / Math.max(2, Math.floor(w / 70))));
+  const gridEvery = (n - d0) > w / 14 ? every : 1;   // thin the day lines when days are very dense
+  for (let i = d0; i < n; i++) {
     const X = sx(i * 390);
     if (i * 390 > xmax) break;
-    svgEl("line", { x1: X, x2: X, y1: top, y2: bottom, style: "stroke:var(--grid);stroke-width:1" }, g);
-    if (i % every === 0) {
+    if ((i - d0) % gridEvery === 0) svgEl("line", { x1: X, x2: X, y1: top, y2: bottom, style: "stroke:var(--grid);stroke-width:1" }, g);
+    if ((i - d0) % every === 0) {
       const t = svgEl("text", { x: X + 3, y: bottom + 16 }, g); t.textContent = dayShort(i);
     }
   }
@@ -294,7 +308,13 @@ function yGrid(g, sy, ticks, x0, x1, fmt) {
 
 // ---------- header ----------
 (function header() {
-  const s = byTf["1D"].stats;
+  const s = D.tfs[0].stats;
+  const NUM = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight"];
+  document.getElementById("periodTxt").textContent = D.period;
+  document.getElementById("tfCount").textContent = NUM[D.tfs.length] || String(D.tfs.length);
+  const tr = D.tfs.map(t => t.stats.closed_trades), bh = byTf[BH_TF].stats;
+  document.getElementById("sampleTxt").textContent =
+    `${D.period[0].toUpperCase() + D.period.slice(1)} and ${Math.min(...tr)}–${Math.max(...tr)} closed trades per timeframe is still a small sample; LITE went from ${money(bh.first_px, 2)} to ${money(bh.last_px, 2)} (${sPct((bh.last_px / bh.first_px - 1) * 100)}) over the window.`;
   const p = document.getElementById("pills");
   [s.first.slice(0, 10) + " → " + D.fetched, "$10,000 start", "100% of equity per trade", "0.1% commission", "0 slippage", "Long & flat only"].forEach(x => hEl("span", "pill", x, p));
   document.getElementById("fetchT").textContent = D.fetched;
@@ -303,7 +323,7 @@ function yGrid(g, sy, ticks, x0, x1, fmt) {
 // ---------- hero + ending value bars ----------
 function scenarios() {
   const list = D.tfs.map(t => ({ key: t.tf, name: t.tf + " strategy", v: t.stats.final_eq, color: TF_COLOR[t.tf], bh: false }));
-  list.push({ key: "BH", name: BH_LABEL, v: byTf["2m"].stats.bh_final, color: "--neutral", bh: true });
+  list.push({ key: "BH", name: BH_LABEL, v: byTf[BH_TF].stats.bh_final, color: "--neutral", bh: true });
   return list;
 }
 function renderHero() {
@@ -316,7 +336,9 @@ function renderHero() {
   const strat = list.filter(s => !s.bh);
   const worst = strat.reduce((a, b) => a.v < b.v ? a : b);
   document.getElementById("heroCap2").textContent =
-    "Worst timeframe " + worst.key + ": " + money(worst.v) + ". Buy & hold: " + money(bh.v) + " (" + sPct((bh.v / 10000 - 1) * 100) + "). Every timeframe lost money but beat buy & hold.";
+    "Worst timeframe " + worst.key + ": " + money(worst.v) + ". Buy & hold: " + money(bh.v) + " (" + sPct((bh.v / 10000 - 1) * 100) + "). " +
+    strat.filter(s => s.v > 10000).length + " of " + strat.length + " timeframes made money; " +
+    strat.filter(s => s.v > bh.v).length + " of " + strat.length + " beat buy & hold.";
 }
 function renderEnd() {
   const host = document.getElementById("endChart"); host.replaceChildren();
@@ -324,8 +346,8 @@ function renderEnd() {
   const W = host.clientWidth || 600, rowH = 26, gap = 6, padL = 112, padR = 70, top = 6;
   const H = top + list.length * (rowH + gap) + 24;
   const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, height: H, role: "img", "aria-label": "Ending value of $10,000 by scenario" }, host);
-  const sx = lin(0, 10500, padL, W - padR);
-  for (const v of [0, 2500, 5000, 7500, 10000]) {
+  const vmax = Math.max(10500, ...list.map(s => s.v)) * 1.02, sx = lin(0, vmax, padL, W - padR);
+  for (const v of niceTicks(0, vmax, W < 520 ? 3 : 5)) {
     const X = sx(v);
     svgEl("line", { x1: X, x2: X, y1: top, y2: H - 20, style: "stroke:var(--grid)" }, svg);
     const t = svgEl("text", { x: X, y: H - 4, "text-anchor": "middle" }, svg); t.textContent = "$" + (v / 1000) + "k";
@@ -353,7 +375,7 @@ function renderEnd() {
 // ---------- equity over time (all scenarios) ----------
 function eqSeries() {
   const s = D.tfs.map(t => ({ key: t.tf, name: t.tf, color: TF_COLOR[t.tf], xs: t.xc, ys: t.eq, dash: false }));
-  const b = byTf["2m"];
+  const b = byTf[BH_TF];
   s.push({ key: "BH", name: BH_LABEL, color: "--neutral", xs: b.xc, ys: b.bh, dash: true });
   return s;
 }
@@ -430,6 +452,16 @@ function renderSeg() {
     b.addEventListener("click", () => selectTf(t.tf, false));
   }
 }
+function renderRange() {
+  const seg = document.getElementById("rangeSeg"); seg.replaceChildren();
+  if (RANGES.length < 2) { seg.style.display = "none"; return; }
+  for (const [lab, n] of RANGES) {
+    const b = hEl("button", null, lab, seg); b.type = "button";
+    b.setAttribute("aria-pressed", n === rangeDays ? "true" : "false");
+    b.title = n ? `Zoom the charts below to the last ${n} trading days` : "Show the whole window";
+    b.addEventListener("click", () => { rangeDays = n; renderRange(); renderPx(); renderDd(); });
+  }
+}
 function tile(parent, k, v, n, vcls) {
   const t = hEl("div", "tile", null, parent);
   hEl("div", "k", k, t); hEl("div", "v " + (vcls || ""), v, t); if (n) hEl("div", "n", n, t);
@@ -451,7 +483,7 @@ function renderTiles() {
   tile(host, "Avg winning trade", s.avg_win == null ? "—" : sMoney(s.avg_win, 2), "");
   tile(host, "Avg losing trade", s.avg_loss == null ? "—" : sMoney(s.avg_loss, 2), "");
   tile(host, "Avg trade", s.avg == null ? "—" : sMoney(s.avg, 2), "closed trades");
-  tile(host, "Open position", openTr ? `${openTr.q} sh @ ${money(openTr.ep, 2)}` : "Flat", openTr ? openTr.why : "waiting for the next dip");
+  tile(host, "Open position", openTr ? `${openTr.q} shares` : "Flat", openTr ? `bought @ ${money(openTr.ep, 2)} · ${openTr.why}` : "waiting for the next dip");
 }
 const PX_SERIES = [
   { key: "price", name: "LITE close", color: "--ink-2" },
@@ -485,14 +517,18 @@ function pxLevels(T) {
   return { dip, reb, wide, tight, tgt };
 }
 function renderPx() {
-  const T = byTf[selTf], host = document.getElementById("pxChart"); host.replaceChildren();
+  const FT = byTf[selTf], host = document.getElementById("pxChart"); host.replaceChildren();
   const W = host.clientWidth || 800, H = W < 560 ? 320 : 400, padL = 58, padR = 16, padT = 14, padB = 28;
+  const xmin = xMinFor(FT); let i0 = FT.xc.findIndex(x => x > xmin); if (i0 < 0) i0 = 0;
+  const T = sliceT(FT, i0), trades = FT.trades.filter(tr => tr.ie >= i0 || (tr.ix != null && tr.ix >= i0));
   const L = pxLevels(T), xs = T.xc, xmax = xs[xs.length - 1];
   const vals = [...T.l, ...T.h];
   for (const k of ["dip", "reb", "wide", "tight", "tgt"]) if (!hiddenPx.has(k)) for (const v of L[k]) if (v != null) vals.push(v);
   let lo = Math.min(...vals), hi = Math.max(...vals); const pad = (hi - lo) * 0.05; lo -= pad; hi += pad;
-  const sx = lin(0, xmax, padL, W - padR), sy = lin(lo, hi, H - padB, padT);
+  const sx = lin(xmin, xmax, padL, W - padR), sy = lin(lo, hi, H - padB, padT);
   const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, height: H, role: "img", "aria-label": `LITE price on ${selTf} bars with trades` }, host);
+  const clipId = "pxclip"; const cp = svgEl("clipPath", { id: clipId }, svgEl("defs", {}, svg));
+  svgEl("rect", { x: padL, y: 0, width: W - padL - padR, height: H }, cp);
   const g = svgEl("g", {}, svg);
   // shade in-position spans
   for (let i = 0; i < xs.length; i++) {
@@ -502,7 +538,7 @@ function renderPx() {
     }
   }
   yGrid(g, sy, niceTicks(lo, hi, 5), padL, W - padR, v => "$" + Math.round(v));
-  dayGrid(g, sx, padL, W - padR, padT, H - padB, xmax);
+  dayGrid(g, sx, padL, W - padR, padT, H - padB, xmax, xmin);
   const lvl = (k, arr, color, dash) => { if (hiddenPx.has(k)) return; svgEl("path", { d: stepPath(xs, arr, sx, sy), style: `fill:none;stroke:var(${color});stroke-width:2;${dash ? "stroke-dasharray:5 4;" : ""}stroke-linejoin:round` }, g); };
   lvl("dip", L.dip, "--s4", true); lvl("reb", L.reb, "--s3", true); lvl("tgt", L.tgt, "--s1", true);
   lvl("wide", L.wide, "--s2", false); lvl("tight", L.tight, "--s7", false);
@@ -515,14 +551,18 @@ function renderPx() {
     }
     svgEl("path", { d: pathFrom(xs, T.c, sx, sy), style: "fill:none;stroke:var(--ink-2);stroke-width:1.75;stroke-linejoin:round" }, g);
   }
-  // trade markers + P&L labels
-  for (const tr of T.trades) {
-    const ex = sx(tr.ex), ey = sy(tr.ep);
-    svgEl("path", { d: `M${ex},${ey + 1} l-6,10 h12 z`, style: "fill:var(--s1);stroke:var(--surface);stroke-width:1.5" }, g);
-    if (!tr.open) {
+  // trade markers + P&L labels (labels only where they have room; every value is also in the tooltip and table)
+  const mk = svgEl("g", { "clip-path": `url(#${clipId})` }, g);
+  let lastLbl = -1e9;
+  for (const tr of trades) {
+    if (tr.ie >= i0) {
+      const ex = sx(tr.ex), ey = sy(tr.ep);
+      svgEl("path", { d: `M${ex},${ey + 1} l-6,10 h12 z`, style: "fill:var(--s1);stroke:var(--surface);stroke-width:1.5" }, mk);
+    }
+    if (!tr.open && tr.ix >= i0) {
       const X = sx(tr.xx), Y = sy(tr.xp), win = tr.pnl > 0;
-      svgEl("path", { d: `M${X},${Y - 1} l-6,-10 h12 z`, style: `fill:var(${win ? "--good" : "--critical"});stroke:var(--surface);stroke-width:1.5` }, g);
-      const t = svgEl("text", { x: X, y: Y - 15, "text-anchor": "middle", class: "lbl" }, g); t.textContent = sMoney(tr.pnl);
+      svgEl("path", { d: `M${X},${Y - 1} l-6,-10 h12 z`, style: `fill:var(${win ? "--good" : "--critical"});stroke:var(--surface);stroke-width:1.5` }, mk);
+      if (X - lastLbl >= 46) { const t = svgEl("text", { x: X, y: Y - 15, "text-anchor": "middle", class: "lbl" }, mk); t.textContent = sMoney(tr.pnl); lastLbl = X; }
     }
   }
   // crosshair + tooltip
@@ -548,6 +588,11 @@ function renderPx() {
     if (L.tight[i] != null) rows.push({ name: "$10 stop", value: money(L.tight[i], 2), color: "--s7" });
     if (L.tgt[i] != null) rows.push({ name: "Profit target", value: money(L.tgt[i], 2), color: "--s1", dash: true });
     rows.push({ name: "Account value", value: money(T.eq[i], 2), cls: cls(T.eq[i] - 10000) });
+    const ia = i + i0;
+    for (const tr of FT.trades) {
+      if (tr.ie === ia) rows.push({ name: "▲ Bought " + tr.q + " sh", value: money(tr.ep, 2), color: "--s1" });
+      if (tr.ix === ia) rows.push({ name: "▼ Sold (" + tr.why.split(" (")[0] + ")", value: sMoney(tr.pnl, 2), cls: cls(tr.pnl) });
+    }
     showTip(e.clientX, e.clientY, "Bar ending " + xLabel(xs[i]), rows);
   });
   hit.addEventListener("pointerleave", () => { ch.style.display = "none"; dot.style.display = "none"; hideTip(); });
@@ -555,13 +600,15 @@ function renderPx() {
 function renderDd() {
   const T = byTf[selTf], host = document.getElementById("ddChart"); host.replaceChildren();
   const W = host.clientWidth || 800, H = 160, padL = 58, padR = 16, padT = 8, padB = 28;
-  const xs = T.xc, xmax = xs[xs.length - 1]; let peak = 10000; const dd = T.eq.map(v => { peak = Math.max(peak, v); return (v / peak - 1) * 100; });
+  let peak = 10000; const ddAll = T.eq.map(v => { peak = Math.max(peak, v); return (v / peak - 1) * 100; });
+  const xmin = xMinFor(T); let i0 = T.xc.findIndex(x => x > xmin); if (i0 < 0) i0 = 0;
+  const xs = T.xc.slice(i0), dd = ddAll.slice(i0), eqS = T.eq.slice(i0), xmax = xs[xs.length - 1];
   const lo = Math.min(-1, ...dd) * 1.1;
-  const sx = lin(0, xmax, padL, W - padR), sy = lin(lo, 0, H - padB, padT);
+  const sx = lin(xmin, xmax, padL, W - padR), sy = lin(lo, 0, H - padB, padT);
   const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, height: H, role: "img", "aria-label": "Drawdown chart" }, host);
   const g = svgEl("g", {}, svg);
   yGrid(g, sy, niceTicks(lo, 0, 3), padL, W - padR, v => v.toFixed(0) + "%");
-  dayGrid(g, sx, padL, W - padR, padT, H - padB, xmax);
+  dayGrid(g, sx, padL, W - padR, padT, H - padB, xmax, xmin);
   let d = `M${sx(xs[0])},${sy(0)}`; for (let i = 0; i < xs.length; i++) d += `L${sx(xs[i]).toFixed(1)},${sy(dd[i]).toFixed(1)}`; d += `L${sx(xmax)},${sy(0)}Z`;
   svgEl("path", { d, style: "fill:var(--s8);opacity:.18" }, g);
   svgEl("path", { d: pathFrom(xs, dd, sx, sy), style: "fill:none;stroke:var(--s8);stroke-width:2;stroke-linejoin:round" }, g);
@@ -575,7 +622,7 @@ function renderDd() {
     const r = svg.getBoundingClientRect(), px = (e.clientX - r.left) * (W / r.width);
     const i = Math.max(0, lastIdxLE(xs, (px - padL) / (W - padL - padR) * xmax));
     ch.setAttribute("x1", sx(xs[i])); ch.setAttribute("x2", sx(xs[i])); ch.style.display = "";
-    showTip(e.clientX, e.clientY, xLabel(xs[i]), [{ name: "Drawdown", value: dd[i].toFixed(2) + "%", color: "--s8" }, { name: "Account value", value: money(T.eq[i], 2) }]);
+    showTip(e.clientX, e.clientY, xLabel(xs[i]), [{ name: "Drawdown", value: dd[i].toFixed(2) + "%", color: "--s8" }, { name: "Account value", value: money(eqS[i], 2) }]);
   });
   hit.addEventListener("pointerleave", () => { ch.style.display = "none"; hideTip(); });
 }
@@ -611,8 +658,8 @@ function renderCmp() {
     const go = () => selectTf(t.tf, true);
     r.addEventListener("click", go); r.addEventListener("keydown", e => { if (e.key === "Enter") go(); });
   }
-  const b = byTf["2m"].stats, r = hEl("tr", null, null, tb);
-  const c0 = hEl("td", null, null, r); const k = hEl("span", "key box", null, c0); k.style.background = "var(--neutral)"; k.style.marginRight = "8px"; c0.appendChild(document.createTextNode(BH_LABEL + " (" + byTf["2m"].stats.bh_qty + " sh)"));
+  const b = byTf[BH_TF].stats, r = hEl("tr", null, null, tb);
+  const c0 = hEl("td", null, null, r); const k = hEl("span", "key box", null, c0); k.style.background = "var(--neutral)"; k.style.marginRight = "8px"; c0.appendChild(document.createTextNode(BH_LABEL + " (" + byTf[BH_TF].stats.bh_qty + " sh)"));
   hEl("td", null, money(b.bh_final, 2), r); hEl("td", "neg", sMoney(b.bh_final - 10000, 2), r); hEl("td", "neg", sPct(b.bh_pct, 2), r);
   ["—", "—", "—", "—", "—", "—", "—", "—"].forEach(x => hEl("td", null, x, r));
 }
@@ -620,7 +667,7 @@ function selectTf(tf, scroll) {
   selTf = tf; renderSeg(); renderTiles(); renderPx(); renderDd(); renderTrades(); renderCmp(); renderEq();
   if (scroll) document.getElementById("h-detail").scrollIntoView({ behavior: "smooth", block: "start" });
 }
-function renderAll() { renderHero(); renderEnd(); renderEqLegend(); renderEq(); renderSeg(); renderTiles(); renderPxLegend(); renderPx(); renderDd(); renderTrades(); renderCmp(); }
+function renderAll() { renderRange(); renderHero(); renderEnd(); renderEqLegend(); renderEq(); renderSeg(); renderTiles(); renderPxLegend(); renderPx(); renderDd(); renderTrades(); renderCmp(); }
 
 // theme toggle (remembered per browser when storage is available)
 (function theme() {
