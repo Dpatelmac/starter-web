@@ -3,7 +3,7 @@
 usage: build_report.py <template.html> <out.html> <results.json> "<window label>" "<period text>" [<results.json> "<label>" "<period>" ...]
 Each results file becomes one selectable window in the report.
 """
-import json, sys, datetime as dt
+import json, os, sys, datetime as dt
 from zoneinfo import ZoneInfo
 
 NY = ZoneInfo("America/New_York")
@@ -78,13 +78,27 @@ def build_window(R, label, period):
                                o=[s[1] for s in r["series"]], h=[s[2] for s in r["series"]],
                                l=[s[3] for s in r["series"]], c=[s[4] for s in r["series"]],
                                eq=[s[5] for s in r["series"]], bh=[s[6] for s in r["series"]],
-                               st=[v[0] for v in lv], dip=dip, reb=reb,
+                               st=[v[0] for v in lv], dip=dip, reb=reb, name=r.get("name"),
+                               sma=[v[7] if len(v) > 7 else None for v in lv] if prm.get("trend") else None,
                                stop=[v[3] for v in lv], buy=[v[4] for v in lv], tgt=[v[5] for v in lv],
                                trades=trades, stats=stats))
+    # variants on the same bars share their price/time arrays: store them once and point at the first copy
+    shared = ("xo", "xc", "t", "o", "h", "l", "c", "bh")
+    first_for = {}
+    for i, T in enumerate(win["tfs"]):
+        k = (T["bar"], len(T["t"]), T["t"][0], T["t"][-1])
+        if k in first_for:
+            T["ref"] = first_for[k]
+            for f in shared:
+                del T[f]
+        else:
+            first_for[k] = i
     return win
 
 
 windows = [build_window(json.load(open(rest[i])), rest[i + 1], rest[i + 2]) for i in range(0, len(rest), 3)]
-html = open(tpl_path).read().replace("/*__DATA__*/null", json.dumps(windows, separators=(",", ":")))
+meta = json.loads(os.environ.get("REPORT_META", "null"))   # optional {"title", "note", "noteTitle", "baseline"}
+html = (open(tpl_path).read().replace("/*__DATA__*/null", json.dumps(windows, separators=(",", ":")))
+        .replace("/*__META__*/null", json.dumps(meta)))
 open(out_path, "w").write(html)
 print("wrote", out_path, len(html) // 1024, "KB")

@@ -96,7 +96,7 @@ h3 { font-size: 14px; margin: 0 0 8px; color: var(--ink-2); font-weight: 600; }
 .chart svg { display: block; width: 100%; overflow: visible; }
 .chart text { font-size: 11px; fill: var(--ink-3); font-variant-numeric: tabular-nums; }
 .chart .lbl { fill: var(--ink); font-weight: 600; paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; }
-.chart .lbl2 { fill: var(--ink-2); }
+.chart .lbl2 { fill: var(--ink-2); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; }
 .tip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12px; box-shadow: 0 4px 18px rgba(0,0,0,.14); min-width: 170px; z-index: 5; display: none; }
 .tip .tt { color: var(--ink-2); margin-bottom: 4px; }
 .tip .row { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
@@ -120,7 +120,7 @@ tr.sel td { background: var(--surface-2); font-weight: 600; }
 <div class="wrap">
   <header>
     <div>
-      <h1>LITE · Dip-Rebound Two-Stage Trailing Stop</h1>
+      <h1 id="pageTitle">LITE · Dip-Rebound Two-Stage Trailing Stop</h1>
       <p class="sub">How the strategy would have done with <b>$10,000</b> on Lumentum (NASDAQ: LITE) over the past <span id="periodTxt"></span>, tested as <span id="tfCount"></span> and compared with simply buying and holding.</p>
       <div id="pills"></div>
       <div class="seg" id="winSeg" role="group" aria-label="Choose backtest window" style="margin-top:12px"></div>
@@ -141,6 +141,11 @@ tr.sel td { background: var(--surface-2); font-weight: 600; }
         <div class="chart" id="endChart"></div>
       </div>
     </div>
+  </section>
+
+  <section class="card" aria-labelledby="h-mx" id="mxCard" style="display:none">
+    <div class="card-head"><div><h2 id="h-mx">Every version on every timeframe</h2><div class="small muted" id="mxSub">Value of $10,000 today · best in each column marked ★ · click a cell to open it</div></div></div>
+    <div class="tbl-wrap"><table id="mxTbl"></table></div>
   </section>
 
   <section class="card" aria-labelledby="h-eq">
@@ -177,6 +182,7 @@ tr.sel td { background: var(--surface-2); font-weight: 600; }
   <section class="card notes" aria-labelledby="h-notes">
     <h2 id="h-notes">How this was tested</h2>
     <ul>
+      <li id="metaNote" style="display:none"></li>
       <li><b>Strategy rules:</b> track the highest price → when price falls a set amount below it (the dip), track the lowest price → buy when price rebounds 0.5% off that low → wide trailing stop → once price reaches the profit target, swap to a tight trailing stop → after any sale, start again with a fresh high. Long and flat only. <b>Dollar mode</b> (the flowchart): $60 dip, $95 wide trail, +$60 target, $10 tight trail. <b>Percent mode</b>: 6% dip, 9.5% wide trail, +6% target, 1% tight trail, so the distances scale with the share price.</li>
       <li><b>Money:</b> $10,000 starting capital, 100% of account value per trade in whole shares, 0.1% commission each side, no slippage. Buy &amp; hold buys whole shares at the first bar's open and pays the same 0.1% commission.</li>
       <li><b>Order fills, matching TradingView's backtester:</b> signals are checked at each bar close, buys fill at the next bar's open, and stops fill at the stop price, or at the open if price gaps through it. Trailing stops move once per bar, never inside a bar.</li>
@@ -189,6 +195,10 @@ tr.sel td { background: var(--surface-2); font-weight: 600; }
 <script>
 "use strict";
 const WINDOWS = /*__DATA__*/null;
+for (const w of WINDOWS) for (const T of w.tfs) if (T.ref != null)      // re-attach arrays shared between variants
+  for (const k of ["xo", "xc", "t", "o", "h", "l", "c", "bh"]) T[k] = w.tfs[T.ref][k];
+const META = /*__META__*/null || {};
+if (META.title) { document.getElementById("pageTitle").textContent = META.title; document.title = META.title; }
 const NS = "http://www.w3.org/2000/svg";
 const BH_LABEL = "Buy & hold";
 let D, TF_COLOR, BH_TF, byTf, selTf, RANGES, BOTH_MODES, winIdx = 0;
@@ -205,8 +215,9 @@ function setWindow(i) {
   RANGES = [["All", 0], ["1Y", 252], ["6M", 126], ["3M", 63], ["1M", 21], ["1W", 5]].filter(r => r[1] === 0 || r[1] < D.days.length);
 }
 const MODE_NAME = { "$": "Dollar", "%": "Percent" };
-function nameOf(tf) {                    // "1D · Percent mode" / "1D strategy"
+function nameOf(tf) {                    // explicit variant name, else "1D · Percent" / "1D strategy"
   const T = byTf[tf];
+  if (T.name) return T.name;
   return BOTH_MODES ? `${T.bar} · ${MODE_NAME[T.mode]}` : `${T.bar} strategy`;
 }
 function amt(T, k) { const p = T.params; return p.pct ? p[k] + "%" : "$" + p[k]; }
@@ -218,7 +229,7 @@ function xMinFor(T) {
 }
 function sliceT(T, i0) {
   const o = { ...T, i0 };
-  for (const k of ["xo", "xc", "t", "o", "h", "l", "c", "eq", "bh", "st", "dip", "reb", "stop", "buy", "tgt"]) o[k] = T[k].slice(i0);
+  for (const k of ["xo", "xc", "t", "o", "h", "l", "c", "eq", "bh", "st", "dip", "reb", "stop", "buy", "tgt", "sma"]) if (T[k]) o[k] = T[k].slice(i0);
   return o;
 }
 
@@ -348,8 +359,10 @@ function renderHeader() {
   const NUM = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight"];
   document.getElementById("periodTxt").textContent = D.period;
   const bars = [...new Set(D.tfs.map(t => t.bar))];
-  document.getElementById("tfCount").textContent = (NUM[D.tfs.length] || String(D.tfs.length)) + " scenarios (" + bars.join(", ") +
-    (BOTH_MODES ? " bars, each in Dollar and Percent mode)" : " bars)");
+  document.getElementById("tfCount").textContent = D.tfs[0].name
+    ? (NUM[D.tfs.length] || String(D.tfs.length)) + " strategy versions on " + bars.join(", ") + " bars"
+    : (NUM[D.tfs.length] || String(D.tfs.length)) + " scenarios (" + bars.join(", ") + (BOTH_MODES ? " bars, each in Dollar and Percent mode)" : " bars)");
+  if (META.note) { const mn = document.getElementById("metaNote"); mn.style.display = ""; mn.replaceChildren(); hEl("b", null, META.noteTitle || "Version notes: ", mn); mn.appendChild(document.createTextNode(META.note)); }
   const tr = D.tfs.map(t => t.stats.closed_trades), bh = byTf[BH_TF].stats;
   document.getElementById("sampleTxt").textContent =
     `${D.period[0].toUpperCase() + D.period.slice(1)} and ${Math.min(...tr)}–${Math.max(...tr)} closed trades per scenario; LITE went from ${money(bh.first_px, 2)} to ${money(bh.last_px, 2)} (${sPct((bh.last_px / bh.first_px - 1) * 100)}) over the window.`;
@@ -381,8 +394,11 @@ function renderHero() {
 function renderEnd() {
   const host = document.getElementById("endChart"); host.replaceChildren();
   const list = scenarios().sort((a, b) => b.v - a.v);
-  const W = host.clientWidth || 600, rowH = 26, gap = 6, padL = 112, padR = 70, top = 6;
-  const H = top + list.length * (rowH + gap) + 24;
+  const W = host.clientWidth || 600, longest = Math.max(...list.map(s => s.name.length));
+  const stacked = longest * 6.3 + 20 > W * 0.38;          // long names on narrow screens: label above each bar
+  const rowH = stacked ? 20 : 26, lblH = stacked ? 16 : 0, gap = 6, padR = 70, top = 6;
+  const padL = stacked ? 4 : Math.max(112, Math.ceil(longest * 6.3) + 20);
+  const H = top + list.length * (rowH + gap + lblH) + 24;
   const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, height: H, role: "img", "aria-label": "Ending value of $10,000 by scenario" }, host);
   const vmax = Math.max(10500, ...list.map(s => s.v)) * 1.02, sx = lin(0, vmax, padL, W - padR);
   for (const v of niceTicks(0, vmax, W < 520 ? 3 : 5)) {
@@ -391,10 +407,11 @@ function renderEnd() {
     const t = svgEl("text", { x: X, y: H - 4, "text-anchor": "middle" }, svg); t.textContent = "$" + (v / 1000) + "k";
   }
   list.forEach((s, i) => {
-    const y = top + i * (rowH + gap);
+    const y = top + i * (rowH + gap + lblH) + lblH;
     const g = svgEl("g", { tabindex: 0, role: "button", "aria-label": `${s.name}: ${money(s.v)}`, style: "cursor:" + (s.bh ? "default" : "pointer") }, svg);
-    svgEl("rect", { x: 0, y: y - gap / 2, width: W, height: rowH + gap, fill: "transparent" }, g);
-    const lt = svgEl("text", { x: padL - 10, y: y + rowH / 2 + 4, "text-anchor": "end", class: "lbl2" }, g); lt.textContent = s.name;
+    svgEl("rect", { x: 0, y: y - gap / 2 - lblH, width: W, height: rowH + gap + lblH, fill: "transparent" }, g);
+    const lt = stacked ? svgEl("text", { x: padL, y: y - 4, class: "lbl2" }, g) : svgEl("text", { x: padL - 10, y: y + rowH / 2 + 4, "text-anchor": "end", class: "lbl2" }, g);
+    lt.textContent = s.name;
     const bw = Math.max(2, sx(s.v) - padL);
     const bar = svgEl("path", { d: `M${padL},${y} h${bw - 4} a4,4 0 0 1 4,4 v${rowH - 8} a4,4 0 0 1 -4,4 h${-(bw - 4)} z`, style: `fill:var(${s.color})` }, g);
     const vt = svgEl("text", { x: padL + bw + 6, y: y + rowH / 2 + 4, class: "lbl" }, g); vt.textContent = money(s.v);
@@ -533,7 +550,7 @@ function pxSeries(T) {
     { key: "wide", name: `Wide trailing stop (${amt(T, "wide")})`, color: "--s2" },
     { key: "tight", name: `Tight trailing stop (${amt(T, "tight")})`, color: "--s7" },
     { key: "tgt", name: `Profit target (buy + ${amt(T, "tgt")})`, color: "--s1", dash: true },
-  ];
+  ].concat(T.sma && T.params.trend ? [{ key: "sma", name: `${T.params.sma}-day average (buy only above)`, color: "--s5" }] : []);
 }
 function renderPxLegend() {
   const lg = document.getElementById("pxLegend"); lg.replaceChildren();
@@ -556,7 +573,8 @@ function pxLevels(T) {
     tight.push(T.st[i] === 3 ? T.stop[i] : null);
     tgt.push(T.st[i] === 2 ? T.tgt[i] : null);
   }
-  return { dip, reb, wide, tight, tgt };
+  const sma = T.sma && T.params.trend ? T.sma : T.c.map(() => null);
+  return { dip, reb, wide, tight, tgt, sma };
 }
 function renderPx() {
   const FT = byTf[selTf], host = document.getElementById("pxChart"); host.replaceChildren();
@@ -566,7 +584,7 @@ function renderPx() {
   const L = pxLevels(T), xs = T.xc, xmax = xs[xs.length - 1];
   const vals = [...T.l, ...T.h];
   const floorV = Math.min(...T.l) * 0.75;   // levels far below the price are clipped instead of squashing the axis
-  for (const k of ["dip", "reb", "wide", "tight", "tgt"]) if (!hiddenPx.has(k)) for (const v of L[k]) if (v != null && v >= floorV) vals.push(v);
+  for (const k of ["dip", "reb", "wide", "tight", "tgt", "sma"]) if (!hiddenPx.has(k)) for (const v of L[k]) if (v != null && v >= floorV) vals.push(v);
   let lo = Infinity, hi = -Infinity; for (const v of vals) { if (v < lo) lo = v; if (v > hi) hi = v; }
   const pxLog = hi / lo > 4;
   if (pxLog) { lo /= 1.06; hi *= 1.06; } else { const pad = (hi - lo) * 0.05; lo -= pad; hi += pad; }
@@ -589,6 +607,7 @@ function renderPx() {
   const lvl = (k, arr, color, dash) => { if (hiddenPx.has(k)) return; svgEl("path", { d: stepPath(xs, arr, sx, sy), style: `fill:none;stroke:var(${color});stroke-width:2;${dash ? "stroke-dasharray:5 4;" : ""}stroke-linejoin:round` }, pl); };
   lvl("dip", L.dip, "--s4", true); lvl("reb", L.reb, "--s3", true); lvl("tgt", L.tgt, "--s1", true);
   lvl("wide", L.wide, "--s2", false); lvl("tight", L.tight, "--s7", false);
+  if (!hiddenPx.has("sma")) svgEl("path", { d: pathFrom(xs, L.sma, sx, sy), style: "fill:none;stroke:var(--s5);stroke-width:2;stroke-linejoin:round" }, pl);
   if (!hiddenPx.has("price")) {
     if (T.t.length <= 60) {          // few bars: draw high-low range ticks so intrabar moves are visible
       for (let i = 0; i < xs.length; i++) {
@@ -634,6 +653,7 @@ function renderPx() {
     if (L.wide[i] != null) rows.push({ name: "Wide stop", value: money(L.wide[i], 2), color: "--s2" });
     if (L.tight[i] != null) rows.push({ name: "Tight stop", value: money(L.tight[i], 2), color: "--s7" });
     if (L.tgt[i] != null) rows.push({ name: "Profit target", value: money(L.tgt[i], 2), color: "--s1", dash: true });
+    if (L.sma[i] != null) rows.push({ name: "Long-term average", value: money(L.sma[i], 2) + (T.c[i] > L.sma[i] ? " · above" : " · below"), color: "--s5" });
     rows.push({ name: "Account value", value: money(T.eq[i], 2), cls: cls(T.eq[i] - 10000) });
     const ia = i + i0;
     for (const tr of FT.trades) {
@@ -691,13 +711,15 @@ function renderTrades() {
 function renderCmp() {
   const tbl = document.getElementById("cmpTbl"); tbl.replaceChildren();
   const th = hEl("thead", null, null, tbl), hr = hEl("tr", null, null, th);
-  ["Scenario", "Value today", "Net P&L", "Return", "vs Buy & hold", "Closed trades", "Win rate", "Profit factor", "Max drawdown", "Avg win", "Avg loss", "Open trade P&L"].forEach(x => hEl("th", null, x, hr));
+  const base = byTf[META.baseline] || null;
+  ["Scenario", "Value today", "Net P&L", "Return", "vs Buy & hold"].concat(base ? ["vs " + nameOf(META.baseline)] : []).concat(["Closed trades", "Win rate", "Profit factor", "Max drawdown", "Avg win", "Avg loss", "Open trade P&L"]).forEach(x => hEl("th", null, x, hr));
   const tb = hEl("tbody", null, null, tbl);
   for (const t of D.tfs) {
     const s = t.stats, r = hEl("tr", t.tf === selTf ? "sel" : null, null, tb); r.style.cursor = "pointer"; r.tabIndex = 0;
     const c0 = hEl("td", null, null, r); const k = hEl("span", "key box", null, c0); k.style.background = `var(${TF_COLOR[t.tf]})`; k.style.marginRight = "8px"; c0.appendChild(document.createTextNode(nameOf(t.tf)));
     hEl("td", null, money(s.final_eq, 2), r); hEl("td", cls(s.net), sMoney(s.net, 2), r); hEl("td", cls(s.net), sPct(s.net_pct, 2), r);
     hEl("td", cls(s.final_eq - s.bh_final), sMoney(s.final_eq - s.bh_final, 2), r);
+    if (base) { const dv = s.final_eq - base.stats.final_eq; hEl("td", cls(dv), t.tf === META.baseline ? "baseline" : sMoney(dv, 2), r); }
     hEl("td", null, String(s.closed_trades), r); hEl("td", null, s.winrate == null ? "—" : s.winrate.toFixed(1) + "%", r);
     hEl("td", null, s.pf == null ? "—" : s.pf.toFixed(2), r); hEl("td", null, "−" + s.maxdd_pct.toFixed(2) + "%", r);
     hEl("td", null, s.avg_win == null ? "—" : sMoney(s.avg_win, 2), r); hEl("td", null, s.avg_loss == null ? "—" : sMoney(s.avg_loss, 2), r);
@@ -708,13 +730,40 @@ function renderCmp() {
   const b = byTf[BH_TF].stats, r = hEl("tr", null, null, tb);
   const c0 = hEl("td", null, null, r); const k = hEl("span", "key box", null, c0); k.style.background = "var(--neutral)"; k.style.marginRight = "8px"; c0.appendChild(document.createTextNode(BH_LABEL + " (" + byTf[BH_TF].stats.bh_qty + " sh)"));
   hEl("td", null, money(b.bh_final, 2), r); hEl("td", "neg", sMoney(b.bh_final - 10000, 2), r); hEl("td", "neg", sPct(b.bh_pct, 2), r);
-  ["—", "—", "—", "—", "—", "—", "—", "—"].forEach(x => hEl("td", null, x, r));
+  (base ? ["—"] : []).concat(["—", "—", "—", "—", "—", "—", "—", "—"]).forEach(x => hEl("td", null, x, r));
 }
 function selectTf(tf, scroll) {
-  selTf = tf; renderSeg(); renderTiles(); renderPxLegend(); renderPx(); renderDd(); renderTrades(); renderCmp(); renderEq();
+  selTf = tf; renderMatrix(); renderSeg(); renderTiles(); renderPxLegend(); renderPx(); renderDd(); renderTrades(); renderCmp(); renderEq();
   if (scroll) document.getElementById("h-detail").scrollIntoView({ behavior: "smooth", block: "start" });
 }
-function renderAll() { renderHeader(); renderRange(); renderHero(); renderEnd(); renderEqLegend(); renderEq(); renderSeg(); renderTiles(); renderPxLegend(); renderPx(); renderDd(); renderTrades(); renderCmp(); }
+function renderMatrix() {
+  const card = document.getElementById("mxCard");
+  const keys = WINDOWS[0].tfs.map(t => t.tf);
+  if (WINDOWS.length < 2 || !WINDOWS.every(w => w.tfs.length === keys.length && w.tfs.every((t, i) => t.tf === keys[i]))) { card.style.display = "none"; return; }
+  card.style.display = "";
+  const tbl = document.getElementById("mxTbl"); tbl.replaceChildren();
+  const hr = hEl("tr", null, null, hEl("thead", null, null, tbl));
+  hEl("th", null, "Version", hr); WINDOWS.forEach((w, i) => { const th = hEl("th", null, w.label, hr); if (i === winIdx) th.style.color = "var(--ink)"; });
+  const best = WINDOWS.map(w => Math.max(...w.tfs.map(t => t.stats.final_eq)));
+  const tb = hEl("tbody", null, null, tbl);
+  keys.forEach((k, ki) => {
+    const r = hEl("tr", null, null, tb);
+    const c0 = hEl("td", null, null, r); const kb = hEl("span", "key box", null, c0); kb.style.background = `var(--s${ki + 1})`; kb.style.marginRight = "8px";
+    c0.appendChild(document.createTextNode(WINDOWS[0].tfs[ki].name || k));
+    WINDOWS.forEach((w, wi) => {
+      const s = w.tfs[ki].stats, isBest = s.final_eq === best[wi];
+      const td = hEl("td", cls(s.final_eq - 10000), (isBest ? "★ " : "") + money(s.final_eq) + " (" + sPct(s.net_pct, 0) + ")", r);
+      if (isBest) td.style.fontWeight = "700";
+      td.style.cursor = "pointer"; td.tabIndex = 0;
+      if (wi === winIdx && k === selTf) td.style.background = "var(--surface-2)";
+      const go = () => { if (wi !== winIdx) setWindow(wi); selTf = k; renderAll(); document.getElementById("h-detail").scrollIntoView({ behavior: "smooth", block: "start" }); };
+      td.addEventListener("click", go); td.addEventListener("keydown", e => { if (e.key === "Enter") go(); });
+    });
+  });
+  const r = hEl("tr", null, null, tb); hEl("td", null, BH_LABEL, r);
+  WINDOWS.forEach(w => { const s = w.tfs[w.tfs.length - 1].stats; hEl("td", cls(s.bh_final - 10000), money(s.bh_final) + " (" + sPct(s.bh_pct, 0) + ")", r); });
+}
+function renderAll() { renderHeader(); renderMatrix(); renderRange(); renderHero(); renderEnd(); renderEqLegend(); renderEq(); renderSeg(); renderTiles(); renderPxLegend(); renderPx(); renderDd(); renderTrades(); renderCmp(); }
 
 // theme toggle (remembered per browser when storage is available)
 (function theme() {

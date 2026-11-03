@@ -1,0 +1,154 @@
+// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// V2 - Dip / Rebound entry with a two-stage trailing stop (long & flat only)
+// Changes vs V1:
+//   1. Optional trend filter: only buy while price closes above the 200-day average of completed daily closes.
+//   2. Wider tight trail in Percent mode (3% default instead of 1%) so winning trades can run longer.
+//   3. Percent mode is the default (Dollar mode is still available).
+//@version=6
+strategy("Demo GPT - LITE Dip Rebound Two-Stage Trailing Stop V2", overlay=true, default_qty_type=strategy.percent_of_equity, default_qty_value=100, commission_type=strategy.commission.percent, commission_value=0.1, slippage=0)
+
+// ──────────────────────────────── Inputs ────────────────────────────────
+amtMode    = input.string("Percent", "Amounts in", options=["Dollar", "Percent"], group="Mode", tooltip="Dollar = fixed $ distances (the flowchart). Percent = distances scale with price.")
+reboundPct = input.float(0.5,  "Rebound from Lowest Price (%)",     minval=0.0,  step=0.1, group="Entry")
+
+dipAmt     = input.float(60.0, "Dip from Highest Price ($)",        minval=0.01, step=1.0, group="Dollar mode")
+wideTrail  = input.float(95.0, "Initial Trailing Stop ($)",         minval=0.01, step=1.0, group="Dollar mode")
+targetAmt  = input.float(60.0, "Profit Target above Buy Price ($)", minval=0.01, step=1.0, group="Dollar mode")
+tightTrail = input.float(10.0, "Tight Trailing Stop ($)",           minval=0.01, step=1.0, group="Dollar mode")
+
+dipPct     = input.float(6.0,  "Dip from Highest Price (%)",        minval=0.01, step=0.1, group="Percent mode")
+widePct    = input.float(9.5,  "Initial Trailing Stop (%)",         minval=0.01, step=0.1, group="Percent mode")
+targetPct  = input.float(6.0,  "Profit Target above Buy Price (%)", minval=0.01, step=0.1, group="Percent mode")
+tightPct   = input.float(3.0,  "Tight Trailing Stop (%)",           minval=0.01, step=0.1, group="Percent mode", tooltip="V1 used 1%. Backtests on LITE favoured 3% on 4H and 5% on 2H.")
+
+useTrend   = input.bool(false, "Only buy above the long-term average", group="Trend filter", tooltip="Off by default: on LITE 2022-2026 this filter lowered returns in most tests. Turn on to trade only in uptrends.")
+smaLen     = input.int(200,    "Average length (days)", minval=1, group="Trend filter")
+
+startDate  = input.time(timestamp("01 Jan 2018 00:00 +0000"), "Start Date", group="Date Range")
+endDate    = input.time(timestamp("31 Dec 2069 23:59 +0000"), "End Date",   group="Date Range")
+
+isPct = amtMode == "Percent"
+
+// Distances for the active mode
+dipLevel(float hi)    => isPct ? hi * (1 - dipPct / 100) : hi - dipAmt
+targetLevel(float bp) => isPct ? bp * (1 + targetPct / 100) : bp + targetAmt
+wideStop(float hi)    => isPct ? hi * (1 - widePct / 100) : hi - wideTrail
+tightStop(float hi)   => isPct ? hi * (1 - tightPct / 100) : hi - tightTrail
+
+// ─────────────── Trend filter: average of the previous N completed daily closes ───────────────
+// Built from the chart itself (no request.security, no lookahead): on the first bar of each new day the
+// previous bar's close (= yesterday's close) is stored, so the value is identical on daily and intraday charts.
+var array<float> dCloses = array.new<float>()
+if timeframe.change("D") and not na(close[1])
+    array.push(dCloses, close[1])
+    if array.size(dCloses) > smaLen
+        array.shift(dCloses)
+smaD    = array.size(dCloses) >= smaLen ? array.avg(dCloses) : na
+trendOk = not useTrend or (not na(smaD) and close > smaD)
+
+// ──────────────────────────────── States ────────────────────────────────
+// 0 = FLAT, tracking the highest price
+// 1 = Dip found, tracking the lowest price
+// 2 = Long, wide trailing stop active ($95 / 9.5%), also watching for the profit target (+$60 / +6%)
+// 3 = Long, tight trailing stop active ($10 / 1%) after the profit target was reached
+int ST_TRACK_HIGH = 0
+int ST_TRACK_LOW  = 1
+int ST_LONG_WIDE  = 2
+int ST_LONG_TIGHT = 3
+
+var int   state     = ST_TRACK_HIGH
+var float trackHigh = na
+var float trackLow  = na
+var float buyPrice  = na
+var float trailHigh = na
+var float stopLevel = na
+
+inWindow = time >= startDate and time <= endDate
+inPos    = strategy.position_size > 0
+justSold = strategy.closedtrades > strategy.closedtrades[1]
+
+bool dipFound   = false
+bool targetHit  = false
+bool skipBar    = false
+
+// ─────────────────── Back to FLAT after every sale (high resets) ───────────────────
+if justSold and not inPos
+    state     := ST_TRACK_HIGH
+    trackHigh := close
+    trackLow  := na
+    buyPrice  := na
+    trailHigh := na
+    stopLevel := na
+    skipBar   := true
+
+// ─────────────────── Outside the date range: no trading, start fresh ───────────────────
+if not inWindow
+    if inPos
+        strategy.close("Long", comment="Date range end")
+    else
+        state     := ST_TRACK_HIGH
+        trackHigh := na
+        trackLow  := na
+        buyPrice  := na
+        trailHigh := na
+        stopLevel := na
+
+// ──────────────────────────────── State machine ────────────────────────────────
+if inWindow and not skipBar
+    // Track the highest price -> dip found?
+    if state == ST_TRACK_HIGH
+        trackHigh := na(trackHigh) ? high : math.max(trackHigh, high)
+        if low <= dipLevel(trackHigh)
+            state    := ST_TRACK_LOW
+            trackLow := low
+            dipFound := true
+    // Track the lowest price after the drop
+    else if state == ST_TRACK_LOW
+        trackLow := math.min(trackLow, low)
+
+    // Rebound (and, if enabled, above the long-term average)? -> BUY (100% of equity) and place the wide trailing stop
+    // Below the average the strategy keeps tracking the low and buys on the first bar that qualifies.
+    if state == ST_TRACK_LOW and close >= trackLow * (1 + reboundPct / 100) and trendOk
+        strategy.entry("Long", strategy.long, comment="Buy (rebound)")
+        state     := ST_LONG_WIDE
+        buyPrice  := na
+        trailHigh := close
+        stopLevel := wideStop(close)
+    // In position: monitor BOTH the trailing stop and the profit target
+    else if (state == ST_LONG_WIDE or state == ST_LONG_TIGHT) and inPos
+        bool firstBar = na(buyPrice)
+        if firstBar
+            buyPrice := strategy.position_avg_price
+        if state == ST_LONG_WIDE and high >= targetLevel(buyPrice)
+            // Profit target hit: cancel the wide stop, start the tight trail from here
+            state     := ST_LONG_TIGHT
+            trailHigh := high
+            targetHit := true
+        else
+            trailHigh := firstBar ? high : math.max(trailHigh, high)
+        stopLevel := state == ST_LONG_TIGHT ? tightStop(trailHigh) : wideStop(trailHigh)
+
+    // One exit order whose stop is replaced each bar (only one stop is ever active)
+    if state == ST_LONG_WIDE or state == ST_LONG_TIGHT
+        strategy.exit("Exit", "Long", stop=stopLevel, comment=state == ST_LONG_TIGHT ? "Sold - tight trail" : "Sold - wide trail")
+
+// ──────────────────────────────── Visuals ────────────────────────────────
+isTrackHigh = state == ST_TRACK_HIGH
+isTrackLow  = state == ST_TRACK_LOW
+isWide      = state == ST_LONG_WIDE
+isTight     = state == ST_LONG_TIGHT
+
+plot(isTrackHigh ? trackHigh : na,                         "Highest Price",       color=color.new(color.gray, 0),    style=plot.style_linebr, linewidth=1)
+plot(isTrackHigh ? dipLevel(trackHigh) : na,               "Dip Level",           color=color.new(color.orange, 0), style=plot.style_linebr, linewidth=1)
+plot(isTrackLow ? trackLow : na,                           "Lowest Price",        color=color.new(color.teal, 0),    style=plot.style_linebr, linewidth=1)
+plot(isTrackLow ? trackLow * (1 + reboundPct / 100) : na,  "Rebound Level",       color=color.new(color.lime, 0),    style=plot.style_linebr, linewidth=1)
+plot((isWide or isTight) ? buyPrice : na,                  "Buy Price",           color=color.new(color.blue, 0),    style=plot.style_linebr, linewidth=1)
+plot(isWide ? targetLevel(buyPrice) : na,                  "Profit Target",       color=color.new(color.green, 0),   style=plot.style_linebr, linewidth=1)
+plot(isWide ? stopLevel : na,                              "Wide Trailing Stop",  color=color.new(color.red, 0),     style=plot.style_linebr, linewidth=2)
+plot(isTight ? stopLevel : na,                             "Tight Trailing Stop", color=color.new(color.orange, 0),  style=plot.style_linebr, linewidth=2)
+
+plot(useTrend ? smaD : na,                                 "Long-term Average",   color=color.new(color.purple, 0),  style=plot.style_linebr, linewidth=2)
+
+plotshape(dipFound,  "Dip Found",          shape.triangledown, location.belowbar, color.new(color.orange, 0), size=size.tiny, text="Dip")
+plotshape(targetHit, "Profit Target Hit",  shape.diamond,      location.abovebar, color.new(color.green, 0),  size=size.tiny, text="+Target")
+bgcolor(isWide ? color.new(color.red, 92) : isTight ? color.new(color.green, 92) : na, title="Position Phase")
