@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LITE Strategy Backtest</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f4f3f0;
+  --surface: #fcfcfb;
+  --surface-2: #f0efec;
+  --border: #e2e1dc;
+  --grid: #e8e7e2;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-3: #7a7973;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+  --s5: #e87ba4; --s6: #008300; --s7: #6250d6; --s8: #e34948;
+  --neutral: #8a8984;
+  --good: #0ca30c; --critical: #d03b3b;
+  --good-ink: #006300; --critical-ink: #b42828;
+  --wash-wide: rgba(235,104,52,.08); --wash-tight: rgba(98,80,214,.09);
+  --shadow: 0 1px 2px rgba(0,0,0,.05), 0 4px 16px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #111110; --surface: #1a1a19; --surface-2: #262624; --border: #33332f; --grid: #2b2b28;
+    --ink: #f0efec; --ink-2: #c3c2b7; --ink-3: #8f8e86;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+    --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+    --neutral: #8f8e86; --good-ink: #4cc94c; --critical-ink: #f07a7a;
+    --wash-wide: rgba(217,89,38,.12); --wash-tight: rgba(144,133,233,.13);
+    --shadow: none;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111110; --surface: #1a1a19; --surface-2: #262624; --border: #33332f; --grid: #2b2b28;
+  --ink: #f0efec; --ink-2: #c3c2b7; --ink-3: #8f8e86;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+  --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+  --neutral: #8f8e86; --good-ink: #4cc94c; --critical-ink: #f07a7a;
+  --wash-wide: rgba(217,89,38,.12); --wash-tight: rgba(144,133,233,.13);
+  --shadow: none;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg); color: var(--ink);
+  font: 14px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1180px; margin: 0 auto; padding: 28px 16px 64px; }
+header { display: flex; gap: 16px; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; }
+h1 { font-size: 26px; line-height: 1.2; margin: 0 0 6px; letter-spacing: -.01em; }
+h2 { font-size: 17px; margin: 0 0 2px; }
+h3 { font-size: 14px; margin: 0 0 8px; color: var(--ink-2); font-weight: 600; }
+.sub { color: var(--ink-2); margin: 0; max-width: 760px; }
+.muted { color: var(--ink-3); }
+.small { font-size: 12px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: var(--shadow); margin-top: 16px; }
+.card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.theme-btn { border: 1px solid var(--border); background: var(--surface); color: var(--ink-2); border-radius: 8px; padding: 6px 12px; font: inherit; cursor: pointer; }
+.theme-btn:hover { color: var(--ink); }
+.pill { display: inline-block; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--ink-2); font-size: 12px; margin-right: 6px; margin-top: 8px; }
+
+.hero { display: grid; grid-template-columns: minmax(240px, 1fr) 2fr; gap: 24px; align-items: center; }
+.hero-num { font-size: 44px; font-weight: 700; letter-spacing: -.02em; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.hero-cap { color: var(--ink-2); margin-top: 6px; }
+.delta { font-weight: 600; font-variant-numeric: tabular-nums; }
+.delta.up { color: var(--good-ink); } .delta.down { color: var(--critical-ink); }
+@media (max-width: 760px) { .hero { grid-template-columns: 1fr; } .hero-num { font-size: 36px; } }
+
+.seg { display: inline-flex; flex-wrap: wrap; gap: 4px; background: var(--surface-2); padding: 4px; border-radius: 10px; }
+.seg button { border: 0; background: transparent; color: var(--ink-2); font: inherit; font-weight: 600; padding: 6px 12px; border-radius: 7px; cursor: pointer; font-variant-numeric: tabular-nums; }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 0 0 1px var(--border); }
+.seg button:focus-visible, .chip:focus-visible, .theme-btn:focus-visible { outline: 2px solid var(--s1); outline-offset: 2px; }
+
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin: 16px 0 4px; }
+.tile { background: var(--surface-2); border-radius: 10px; padding: 12px 14px; min-width: 0; }
+.tile .k { font-size: 12px; color: var(--ink-2); }
+.tile .v { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tile .n { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 3px 10px; font: inherit; font-size: 12px; cursor: pointer; }
+.chip[aria-pressed="false"] { color: var(--ink-3); }
+.chip[aria-pressed="false"] .key { opacity: .25; }
+.key { display: inline-block; width: 14px; height: 0; border-top: 2px solid; }
+.key.dash { border-top-style: dashed; }
+.key.box { width: 10px; height: 10px; border: 0; border-radius: 2px; }
+
+.chart { position: relative; width: 100%; }
+.chart svg { display: block; width: 100%; overflow: visible; }
+.chart text { font-size: 11px; fill: var(--ink-3); font-variant-numeric: tabular-nums; }
+.chart .lbl { fill: var(--ink); font-weight: 600; paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; }
+.chart .lbl2 { fill: var(--ink-2); }
+.tip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12px; box-shadow: 0 4px 18px rgba(0,0,0,.14); min-width: 170px; z-index: 5; display: none; }
+.tip .tt { color: var(--ink-2); margin-bottom: 4px; }
+.tip .row { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
+.tip .row .nm { color: var(--ink-2); display: inline-flex; align-items: center; gap: 6px; }
+.tip .row b { font-variant-numeric: tabular-nums; }
+
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.tbl-wrap { overflow-x: auto; }
+th, td { text-align: right; padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { font-size: 12px; color: var(--ink-2); font-weight: 600; }
+tbody tr:hover { background: var(--surface-2); }
+tr.sel td { background: var(--surface-2); font-weight: 600; }
+.pos { color: var(--good-ink); } .neg { color: var(--critical-ink); }
+.notes li { margin-bottom: 6px; color: var(--ink-2); }
+.notes b { color: var(--ink); }
+.two { display: grid; grid-template-columns: 1fr; gap: 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>LITE · Dip-Rebound Two-Stage Trailing Stop</h1>
+      <p class="sub">How the strategy would have done with <b>$10,000</b> on Lumentum (NASDAQ: LITE) over the past month, tested on seven chart timeframes and compared with simply buying and holding.</p>
+      <div id="pills"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle light or dark theme">◐ Theme</button>
+  </header>
+
+  <section class="card" aria-labelledby="h-end">
+    <div class="hero">
+      <div>
+        <div class="small muted" id="h-end">Best scenario: $10,000 is worth today</div>
+        <div class="hero-num" id="heroNum"></div>
+        <div class="hero-cap" id="heroCap"></div>
+        <div class="hero-cap small" id="heroCap2"></div>
+      </div>
+      <div>
+        <h3>Value of $10,000 today, by scenario</h3>
+        <div class="chart" id="endChart"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="h-eq">
+    <div class="card-head">
+      <div><h2 id="h-eq">Value of $10,000 over time</h2><div class="small muted">Account value at each bar close · nights and weekends collapsed · click a key to hide or show a line</div></div>
+    </div>
+    <div class="legend" id="eqLegend"></div>
+    <div class="chart" id="eqChart"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-detail">
+    <div class="card-head">
+      <div><h2 id="h-detail">Timeframe detail</h2><div class="small muted" id="detailSub"></div></div>
+      <div class="seg" id="tfSeg" role="group" aria-label="Choose timeframe"></div>
+    </div>
+    <div class="tiles" id="tiles"></div>
+
+    <h3 style="margin-top:18px">LITE price with entries, exits and stop levels</h3>
+    <div class="legend" id="pxLegend"></div>
+    <div class="chart" id="pxChart"></div>
+
+    <h3 style="margin-top:18px">Drawdown from the account's peak value</h3>
+    <div class="chart" id="ddChart"></div>
+
+    <h3 style="margin-top:18px">Trades</h3>
+    <div class="tbl-wrap"><table id="tradeTbl"></table></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-cmp">
+    <div class="card-head"><div><h2 id="h-cmp">All scenarios side by side</h2><div class="small muted">Click a row to open its detail above</div></div></div>
+    <div class="tbl-wrap"><table id="cmpTbl"></table></div>
+  </section>
+
+  <section class="card notes" aria-labelledby="h-notes">
+    <h2 id="h-notes">How this was tested</h2>
+    <ul>
+      <li><b>Strategy rules:</b> track the highest price → when price falls $60 below it, track the lowest price → buy when price rebounds 0.5% off that low → $95 trailing stop → once price reaches buy + $60, swap to a $10 trailing stop → after any sale, start again with a fresh high. Long and flat only.</li>
+      <li><b>Money:</b> $10,000 starting capital, 100% of account value per trade in whole shares, 0.1% commission each side, no slippage. Buy &amp; hold buys whole shares at the first bar's open and pays the same 0.1% commission.</li>
+      <li><b>Order fills, matching TradingView's backtester:</b> signals are checked at each bar close, buys fill at the next bar's open, and stops fill at the stop price, or at the open if price gaps through it. Trailing stops move once per bar, never inside a bar.</li>
+      <li><b>Data:</b> Yahoo Finance, regular trading hours only. The 4H bars are built from 1H bars on TradingView's session split (09:30–13:30, 13:30–16:00). Today's bar is unfinished: the data was fetched at <span id="fetchT"></span>.</li>
+      <li><b>Caveats:</b> this is a Python copy of the Pine script, not TradingView's own Strategy Tester, so expect small differences. One month and 4–7 trades per timeframe is a very small sample, and LITE fell about 37% during it. This is not investment advice.</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+"use strict";
+const D = /*__DATA__*/null;
+const NS = "http://www.w3.org/2000/svg";
+const TF_COLOR = { "1D": "--s1", "4H": "--s2", "1H": "--s3", "30m": "--s4", "15m": "--s5", "5m": "--s6", "2m": "--s7" };
+const BH_LABEL = "Buy & hold";
+const byTf = Object.fromEntries(D.tfs.map(t => [t.tf, t]));
+let selTf = "1D";
+const hiddenEq = new Set();
+const hiddenPx = new Set();
+
+// ---------- helpers ----------
+function svgEl(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) { if (k === "style") e.style.cssText = attrs[k]; else e.setAttribute(k, attrs[k]); }
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function hEl(tag, cls, text, parent) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text != null) e.textContent = text;
+  if (parent) parent.appendChild(e);
+  return e;
+}
+const money = (v, d = 0) => (v < 0 ? "−" : "") + "$" + Math.abs(v).toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+const sMoney = (v, d = 0) => (v > 0 ? "+" : v < 0 ? "−" : "") + "$" + Math.abs(v).toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+const sPct = (v, d = 1) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(d) + "%";
+const cls = v => v > 0 ? "pos" : v < 0 ? "neg" : "";
+const lin = (d0, d1, r0, r1) => v => r0 + (v - d0) / ((d1 - d0) || 1) * (r1 - r0);
+function niceTicks(lo, hi, n) {
+  const span = hi - lo, raw = span / n, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const step = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => s >= raw) || raw;
+  const out = []; for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) out.push(+v.toFixed(6));
+  return out;
+}
+function xLabel(x) {
+  const di = Math.min(D.days.length - 1, Math.floor(x / 390 + 1e-9));
+  let m = Math.round(x - di * 390);
+  if (m >= 390 && di < D.days.length - 1 && x / 390 === Math.floor(x / 390)) m = 390;
+  const tot = 9 * 60 + 30 + Math.min(390, m);
+  const hh = Math.floor(tot / 60), mm = tot % 60;
+  const d = new Date(D.days[di] + "T12:00:00");
+  return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }) + " · " + String(hh).padStart(2, "0") + ":" + String(mm).padStart(2, "0") + " ET";
+}
+function dayShort(i) { const d = new Date(D.days[i] + "T12:00:00"); return d.toLocaleDateString("en-US", { month: "short", day: "numeric" }); }
+function lastIdxLE(arr, x) { let lo = 0, hi = arr.length - 1, r = -1; while (lo <= hi) { const m = (lo + hi) >> 1; if (arr[m] <= x) { r = m; lo = m + 1; } else hi = m - 1; } return r; }
+function pathFrom(xs, ys, sx, sy) {
+  let d = "", pen = false;
+  for (let i = 0; i < xs.length; i++) {
+    const y = ys[i];
+    if (y == null) { pen = false; continue; }
+    d += (pen ? "L" : "M") + sx(xs[i]).toFixed(1) + "," + sy(y).toFixed(1); pen = true;
+  }
+  return d;
+}
+function stepPath(xs, ys, sx, sy) {           // levels hold until the next bar: draw as steps
+  let d = "", pen = false, prevY = null;
+  for (let i = 0; i < xs.length; i++) {
+    const y = ys[i];
+    if (y == null) { pen = false; continue; }
+    const X = sx(xs[i]).toFixed(1), Y = sy(y).toFixed(1);
+    if (!pen) d += "M" + X + "," + Y; else d += "L" + X + "," + prevY + "L" + X + "," + Y;
+    pen = true; prevY = Y;
+  }
+  return d;
+}
+const tip = hEl("div", "tip", null, document.body);
+function showTip(clientX, clientY, title, rows) {
+  tip.replaceChildren();
+  hEl("div", "tt", title, tip);
+  for (const r of rows) {
+    const row = hEl("div", "row", null, tip);
+    const nm = hEl("span", "nm", null, row);
+    if (r.color) { const k = hEl("span", "key" + (r.dash ? " dash" : ""), null, nm); k.style.borderTopColor = `var(${r.color})`; }
+    nm.appendChild(document.createTextNode(r.name));
+    const b = hEl("b", r.cls || "", r.value, row);
+  }
+  tip.style.display = "block";
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  let left = clientX + window.scrollX + 14, top = clientY + window.scrollY + 14;
+  if (left + w > window.scrollX + document.documentElement.clientWidth - 8) left = clientX + window.scrollX - w - 14;
+  if (top + h > window.scrollY + window.innerHeight - 8) top = clientY + window.scrollY - h - 14;
+  tip.style.left = Math.max(8, left) + "px"; tip.style.top = top + "px";
+}
+const hideTip = () => { tip.style.display = "none"; };
+
+function dayGrid(g, sx, x0, x1, top, bottom, xmax) {
+  const w = x1 - x0, n = D.days.length;
+  const every = Math.max(1, Math.ceil(n / Math.max(2, Math.floor(w / 70))));
+  for (let i = 0; i < n; i++) {
+    const X = sx(i * 390);
+    if (i * 390 > xmax) break;
+    svgEl("line", { x1: X, x2: X, y1: top, y2: bottom, style: "stroke:var(--grid);stroke-width:1" }, g);
+    if (i % every === 0) {
+      const t = svgEl("text", { x: X + 3, y: bottom + 16 }, g); t.textContent = dayShort(i);
+    }
+  }
+}
+function yGrid(g, sy, ticks, x0, x1, fmt) {
+  for (const v of ticks) {
+    const Y = sy(v);
+    svgEl("line", { x1: x0, x2: x1, y1: Y, y2: Y, style: "stroke:var(--grid);stroke-width:1" }, g);
+    const t = svgEl("text", { x: x0 - 8, y: Y + 4, "text-anchor": "end" }, g); t.textContent = fmt(v);
+  }
+}
+
+// ---------- header ----------
+(function header() {
+  const s = byTf["1D"].stats;
+  const p = document.getElementById("pills");
+  [s.first.slice(0, 10) + " → " + D.fetched, "$10,000 start", "100% of equity per trade", "0.1% commission", "0 slippage", "Long & flat only"].forEach(x => hEl("span", "pill", x, p));
+  document.getElementById("fetchT").textContent = D.fetched;
+})();
+
+// ---------- hero + ending value bars ----------
+function scenarios() {
+  const list = D.tfs.map(t => ({ key: t.tf, name: t.tf + " strategy", v: t.stats.final_eq, color: TF_COLOR[t.tf], bh: false }));
+  list.push({ key: "BH", name: BH_LABEL, v: byTf["2m"].stats.bh_final, color: "--neutral", bh: true });
+  return list;
+}
+function renderHero() {
+  const list = scenarios(), best = list.filter(s => !s.bh).sort((a, b) => b.v - a.v)[0];
+  const bh = list.find(s => s.bh);
+  document.getElementById("heroNum").textContent = money(best.v);
+  const cap = document.getElementById("heroCap"); cap.replaceChildren();
+  cap.appendChild(document.createTextNode(best.key + " timeframe · "));
+  hEl("span", "delta " + (best.v >= 10000 ? "up" : "down"), (best.v >= 10000 ? "▲ " : "▼ ") + sMoney(best.v - 10000) + " (" + sPct((best.v / 10000 - 1) * 100) + ")", cap);
+  const strat = list.filter(s => !s.bh);
+  const worst = strat.reduce((a, b) => a.v < b.v ? a : b);
+  document.getElementById("heroCap2").textContent =
+    "Worst timeframe " + worst.key + ": " + money(worst.v) + ". Buy & hold: " + money(bh.v) + " (" + sPct((bh.v / 10000 - 1) * 100) + "). Every timeframe lost money but beat buy & hold.";
+}
+function renderEnd() {
+  const host = document.getElementById("endChart"); host.replaceChildren();
+  const list = scenarios().sort((a, b) => b.v - a.v);
+  const W = host.clientWidth || 600, rowH = 26, gap = 6, padL = 112, padR = 70, top = 6;
+  const H = top + list.length * (rowH + gap) + 24;
+  const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, height: H, role: "img", "aria-label": "Ending value of $10,000 by scenario" }, host);
+  const sx = lin(0, 10500, padL, W - padR);
+  for (const v of [0, 2500, 5000, 7500, 10000]) {
+    const X = sx(v);
+    svgEl("line", { x1: X, x2: X, y1: top, y2: H - 20, style: "stroke:var(--grid)" }, svg);
+    const t = svgEl("text", { x: X, y: H - 4, "text-anchor": "middle" }, svg); t.textContent = "$" + (v / 1000) + "k";
+  }
+  list.forEach((s, i) => {
+    const y = top + i * (rowH + gap);
+    const g = svgEl("g", { tabindex: 0, role: "button", "aria-label": `${s.name}: ${money(s.v)}`, style: "cursor:" + (s.bh ? "default" : "pointer") }, svg);
+    svgEl("rect", { x: 0, y: y - gap / 2, width: W, height: rowH + gap, fill: "transparent" }, g);
+    const lt = svgEl("text", { x: padL - 10, y: y + rowH / 2 + 4, "text-anchor": "end", class: "lbl2" }, g); lt.textContent = s.name;
+    const bw = Math.max(2, sx(s.v) - padL);
+    const bar = svgEl("path", { d: `M${padL},${y} h${bw - 4} a4,4 0 0 1 4,4 v${rowH - 8} a4,4 0 0 1 -4,4 h${-(bw - 4)} z`, style: `fill:var(${s.color})` }, g);
+    const vt = svgEl("text", { x: padL + bw + 6, y: y + rowH / 2 + 4, class: "lbl" }, g); vt.textContent = money(s.v);
+    const on = () => { bar.style.opacity = ".8"; }, off = () => { bar.style.opacity = "1"; hideTip(); };
+    g.addEventListener("pointermove", e => { on(); showTip(e.clientX, e.clientY, s.name, [{ name: "Value today", value: money(s.v, 2) }, { name: "Profit / loss", value: sMoney(s.v - 10000, 2), cls: cls(s.v - 10000) }, { name: "Return", value: sPct((s.v / 10000 - 1) * 100, 2), cls: cls(s.v - 10000) }]); });
+    g.addEventListener("pointerleave", off); g.addEventListener("blur", off);
+    g.addEventListener("focus", () => { const r = bar.getBoundingClientRect(); on(); showTip(r.right, r.top, s.name, [{ name: "Value today", value: money(s.v, 2) }]); });
+    if (!s.bh) { const go = () => selectTf(s.key, true); g.addEventListener("click", go); g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } }); }
+  });
+  const X = sx(10000);
+  const ref = svgEl("line", { x1: X, x2: X, y1: top - 4, y2: H - 20, style: "stroke:var(--ink-2);stroke-width:1.5;stroke-dasharray:4 3" }, null);
+  svg.insertBefore(ref, svg.children[10] || null);
+  const t = svgEl("text", { x: X - 4, y: H - 22, "text-anchor": "end", class: "lbl2" }, svg); t.textContent = W < 520 ? "$10k" : "start $10k";
+}
+
+// ---------- equity over time (all scenarios) ----------
+function eqSeries() {
+  const s = D.tfs.map(t => ({ key: t.tf, name: t.tf, color: TF_COLOR[t.tf], xs: t.xc, ys: t.eq, dash: false }));
+  const b = byTf["2m"];
+  s.push({ key: "BH", name: BH_LABEL, color: "--neutral", xs: b.xc, ys: b.bh, dash: true });
+  return s;
+}
+function renderEqLegend() {
+  const lg = document.getElementById("eqLegend"); lg.replaceChildren();
+  for (const s of eqSeries()) {
+    const c = hEl("button", "chip", null, lg); c.type = "button";
+    c.setAttribute("aria-pressed", hiddenEq.has(s.key) ? "false" : "true");
+    const k = hEl("span", "key" + (s.dash ? " dash" : ""), null, c); k.style.borderTopColor = `var(${s.color})`;
+    c.appendChild(document.createTextNode(s.key === "BH" ? BH_LABEL : s.key + " strategy"));
+    c.addEventListener("click", () => { hiddenEq.has(s.key) ? hiddenEq.delete(s.key) : hiddenEq.add(s.key); renderEqLegend(); renderEq(); });
+  }
+}
+function renderEq() {
+  const host = document.getElementById("eqChart"); host.replaceChildren();
+  const W = host.clientWidth || 800, H = W < 560 ? 300 : 360, padL = 58, padR = W < 560 ? 92 : 112, padT = 10, padB = 28;
+  const all = eqSeries(), vis = all.filter(s => !hiddenEq.has(s.key));
+  const xmax = Math.max(...all.map(s => s.xs[s.xs.length - 1]));
+  let lo = 10000, hi = 10000;
+  for (const s of vis) for (const v of s.ys) { if (v < lo) lo = v; if (v > hi) hi = v; }
+  const pad = (hi - lo) * 0.06 || 100; lo -= pad; hi += pad;
+  const sx = lin(0, xmax, padL, W - padR), sy = lin(lo, hi, H - padB, padT);
+  const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, height: H, role: "img", "aria-label": "Value of $10,000 over time for each scenario" }, host);
+  const g = svgEl("g", {}, svg);
+  yGrid(g, sy, niceTicks(lo, hi, 5), padL, W - padR, v => "$" + (v / 1000).toFixed(v % 1000 ? 1 : 0) + "k");
+  dayGrid(g, sx, padL, W - padR, padT, H - padB, xmax);
+  svgEl("line", { x1: padL, x2: W - padR, y1: sy(10000), y2: sy(10000), style: "stroke:var(--ink-3);stroke-width:1;stroke-dasharray:4 3" }, g);
+  // lines: draw the selected timeframe last so it sits on top
+  const order = vis.slice().sort((a, b) => (a.key === selTf) - (b.key === selTf));
+  for (const s of order) {
+    const w = s.key === selTf ? 2.5 : 2;
+    svgEl("path", { d: pathFrom(s.xs, s.ys, sx, sy), style: `fill:none;stroke:var(--surface);stroke-width:${w + 2};stroke-linejoin:round` }, g);
+    svgEl("path", { d: pathFrom(s.xs, s.ys, sx, sy), style: `fill:none;stroke:var(${s.color});stroke-width:${w};stroke-linejoin:round;stroke-linecap:round;${s.dash ? "stroke-dasharray:6 4;" : ""}` }, g);
+  }
+  // direct labels at the right end, nudged apart
+  const labs = vis.map(s => ({ s, y: sy(s.ys[s.ys.length - 1]), v: s.ys[s.ys.length - 1] })).sort((a, b) => a.y - b.y);
+  const minGap = 13;
+  for (let i = 1; i < labs.length; i++) if (labs[i].y - labs[i - 1].y < minGap) labs[i].y = labs[i - 1].y + minGap;
+  const over = labs.length ? labs[labs.length - 1].y - (H - padB) : 0;
+  if (over > 0) { labs[labs.length - 1].y -= over; for (let i = labs.length - 2; i >= 0; i--) if (labs[i + 1].y - labs[i].y < minGap) labs[i].y = labs[i + 1].y - minGap; }
+  for (const L of labs) {
+    const ex = sx(L.s.xs[L.s.xs.length - 1]), ey = sy(L.v);
+    svgEl("circle", { cx: ex, cy: ey, r: 3, style: `fill:var(${L.s.color});stroke:var(--surface);stroke-width:2` }, g);
+    const t = svgEl("text", { x: ex + 8, y: L.y + 4, class: "lbl" }, g);
+    t.textContent = (L.s.key === "BH" ? "B&H" : L.s.key) + " " + money(L.v);
+  }
+  // crosshair
+  const ch = svgEl("line", { y1: padT, y2: H - padB, style: "stroke:var(--ink-3);stroke-width:1;display:none" }, svg);
+  const dots = svgEl("g", {}, svg);
+  const hit = svgEl("rect", { x: padL, y: padT, width: W - padL - padR, height: H - padT - padB, fill: "transparent", style: "cursor:crosshair" }, svg);
+  hit.addEventListener("pointermove", e => {
+    const r = svg.getBoundingClientRect(), px = (e.clientX - r.left) * (W / r.width);
+    const xv = Math.max(0, Math.min(xmax, (px - padL) / (W - padL - padR) * xmax));
+    ch.setAttribute("x1", sx(xv)); ch.setAttribute("x2", sx(xv)); ch.style.display = "";
+    dots.replaceChildren();
+    const rows = [];
+    for (const s of vis) {
+      const i = lastIdxLE(s.xs, xv); const v = i < 0 ? 10000 : s.ys[i];
+      rows.push({ name: s.key === "BH" ? BH_LABEL : s.key + " strategy", value: money(v), color: s.color, dash: s.dash, v, cls: cls(v - 10000) });
+      svgEl("circle", { cx: sx(xv), cy: sy(v), r: 3.5, style: `fill:var(${s.color});stroke:var(--surface);stroke-width:2` }, dots);
+    }
+    rows.sort((a, b) => b.v - a.v);
+    showTip(e.clientX, e.clientY, xLabel(xv), rows);
+  });
+  hit.addEventListener("pointerleave", () => { ch.style.display = "none"; dots.replaceChildren(); hideTip(); });
+}
+
+// ---------- detail ----------
+function renderSeg() {
+  const seg = document.getElementById("tfSeg"); seg.replaceChildren();
+  for (const t of D.tfs) {
+    const b = hEl("button", null, t.tf, seg); b.type = "button";
+    b.setAttribute("aria-pressed", t.tf === selTf ? "true" : "false");
+    b.addEventListener("click", () => selectTf(t.tf, false));
+  }
+}
+function tile(parent, k, v, n, vcls) {
+  const t = hEl("div", "tile", null, parent);
+  hEl("div", "k", k, t); hEl("div", "v " + (vcls || ""), v, t); if (n) hEl("div", "n", n, t);
+}
+function renderTiles() {
+  const T = byTf[selTf], s = T.stats, host = document.getElementById("tiles"); host.replaceChildren();
+  document.getElementById("detailSub").textContent = `${selTf} bars · ${T.t.length} bars · ${s.first} → ${D.fetched}`;
+  const openTr = T.trades.find(x => x.open);
+  tile(host, "Value today", money(s.final_eq, 2), `started at $10,000`);
+  tile(host, "Net profit / loss", sMoney(s.net, 2), sPct(s.net_pct, 2) + " incl. open trade", cls(s.net));
+  tile(host, "vs Buy & hold", sMoney(s.final_eq - s.bh_final, 2), `B&H worth ${money(s.bh_final)} (${sPct(s.bh_pct)})`, cls(s.final_eq - s.bh_final));
+  tile(host, "Closed-trade P&L", sMoney(s.closed, 2), `open trade ${sMoney(s.open_pnl, 2)}`, cls(s.closed));
+  tile(host, "Win rate", s.winrate == null ? "—" : s.winrate.toFixed(1) + "%", `${s.wins} won · ${s.losses} lost`);
+  tile(host, "Closed trades", String(s.closed_trades), openTr ? "+1 still open" : "no open trade");
+  tile(host, "Profit factor", s.pf == null ? "—" : s.pf.toFixed(2), "gross profit ÷ gross loss");
+  tile(host, "Max drawdown", "−" + s.maxdd_pct.toFixed(2) + "%", money(-s.maxdd, 2) + " from peak, intrabar");
+  tile(host, "Gross profit", money(s.gp, 2), "");
+  tile(host, "Gross loss", money(-s.gl, 2), "");
+  tile(host, "Avg winning trade", s.avg_win == null ? "—" : sMoney(s.avg_win, 2), "");
+  tile(host, "Avg losing trade", s.avg_loss == null ? "—" : sMoney(s.avg_loss, 2), "");
+  tile(host, "Avg trade", s.avg == null ? "—" : sMoney(s.avg, 2), "closed trades");
+  tile(host, "Open position", openTr ? `${openTr.q} sh @ ${money(openTr.ep, 2)}` : "Flat", openTr ? openTr.why : "waiting for the next dip");
+}
+const PX_SERIES = [
+  { key: "price", name: "LITE close", color: "--ink-2" },
+  { key: "dip", name: "Dip trigger (high − $60)", color: "--s4", dash: true },
+  { key: "reb", name: "Rebound level (low + 0.5%)", color: "--s3", dash: true },
+  { key: "wide", name: "$95 trailing stop", color: "--s2" },
+  { key: "tight", name: "$10 trailing stop", color: "--s7" },
+  { key: "tgt", name: "Profit target (buy + $60)", color: "--s1", dash: true },
+];
+function renderPxLegend() {
+  const lg = document.getElementById("pxLegend"); lg.replaceChildren();
+  for (const s of PX_SERIES) {
+    const c = hEl("button", "chip", null, lg); c.type = "button";
+    c.setAttribute("aria-pressed", hiddenPx.has(s.key) ? "false" : "true");
+    const k = hEl("span", "key" + (s.dash ? " dash" : ""), null, c); k.style.borderTopColor = `var(${s.color})`;
+    c.appendChild(document.createTextNode(s.name));
+    c.addEventListener("click", () => { hiddenPx.has(s.key) ? hiddenPx.delete(s.key) : hiddenPx.add(s.key); renderPxLegend(); renderPx(); });
+  }
+  const m = hEl("span", "chip", null, lg); m.style.cursor = "default";
+  m.appendChild(document.createTextNode("▲ buy  ▼ sell (green win · red loss)"));
+}
+function pxLevels(T) {
+  const n = T.c.length, dip = [], reb = [], wide = [], tight = [], tgt = [];
+  for (let i = 0; i < n; i++) {
+    dip.push(T.st[i] === 0 && T.tH[i] != null ? +(T.tH[i] - 60).toFixed(2) : null);
+    reb.push(T.st[i] === 1 && T.tL[i] != null ? +(T.tL[i] * 1.005).toFixed(2) : null);
+    wide.push(T.st[i] === 2 ? T.stop[i] : null);
+    tight.push(T.st[i] === 3 ? T.stop[i] : null);
+    tgt.push(T.st[i] === 2 ? T.tgt[i] : null);
+  }
+  return { dip, reb, wide, tight, tgt };
+}
+function renderPx() {
+  const T = byTf[selTf], host = document.getElementById("pxChart"); host.replaceChildren();
+  const W = host.clientWidth || 800, H = W < 560 ? 320 : 400, padL = 58, padR = 16, padT = 14, padB = 28;
+  const L = pxLevels(T), xs = T.xc, xmax = xs[xs.length - 1];
+  const vals = [...T.l, ...T.h];
+  for (const k of ["dip", "reb", "wide", "tight", "tgt"]) if (!hiddenPx.has(k)) for (const v of L[k]) if (v != null) vals.push(v);
+  let lo = Math.min(...vals), hi = Math.max(...vals); const pad = (hi - lo) * 0.05; lo -= pad; hi += pad;
+  const sx = lin(0, xmax, padL, W - padR), sy = lin(lo, hi, H - padB, padT);
+  const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, height: H, role: "img", "aria-label": `LITE price on ${selTf} bars with trades` }, host);
+  const g = svgEl("g", {}, svg);
+  // shade in-position spans
+  for (let i = 0; i < xs.length; i++) {
+    if (T.st[i] === 2 || T.st[i] === 3) {
+      const x0 = i === 0 ? sx(T.xo[i]) : sx(xs[i - 1]), x1 = sx(xs[i]);
+      svgEl("rect", { x: x0, y: padT, width: Math.max(0.5, x1 - x0), height: H - padT - padB, style: `fill:var(${T.st[i] === 2 ? "--wash-wide" : "--wash-tight"})` }, g);
+    }
+  }
+  yGrid(g, sy, niceTicks(lo, hi, 5), padL, W - padR, v => "$" + Math.round(v));
+  dayGrid(g, sx, padL, W - padR, padT, H - padB, xmax);
+  const lvl = (k, arr, color, dash) => { if (hiddenPx.has(k)) return; svgEl("path", { d: stepPath(xs, arr, sx, sy), style: `fill:none;stroke:var(${color});stroke-width:2;${dash ? "stroke-dasharray:5 4;" : ""}stroke-linejoin:round` }, g); };
+  lvl("dip", L.dip, "--s4", true); lvl("reb", L.reb, "--s3", true); lvl("tgt", L.tgt, "--s1", true);
+  lvl("wide", L.wide, "--s2", false); lvl("tight", L.tight, "--s7", false);
+  if (!hiddenPx.has("price")) {
+    if (T.t.length <= 60) {          // few bars: draw high-low range ticks so intrabar moves are visible
+      for (let i = 0; i < xs.length; i++) {
+        const X = (sx(T.xo[i]) + sx(xs[i])) / 2;
+        svgEl("line", { x1: X, x2: X, y1: sy(T.h[i]), y2: sy(T.l[i]), style: "stroke:var(--ink-3);stroke-width:1.5;opacity:.6" }, g);
+      }
+    }
+    svgEl("path", { d: pathFrom(xs, T.c, sx, sy), style: "fill:none;stroke:var(--ink-2);stroke-width:1.75;stroke-linejoin:round" }, g);
+  }
+  // trade markers + P&L labels
+  for (const tr of T.trades) {
+    const ex = sx(tr.ex), ey = sy(tr.ep);
+    svgEl("path", { d: `M${ex},${ey + 1} l-6,10 h12 z`, style: "fill:var(--s1);stroke:var(--surface);stroke-width:1.5" }, g);
+    if (!tr.open) {
+      const X = sx(tr.xx), Y = sy(tr.xp), win = tr.pnl > 0;
+      svgEl("path", { d: `M${X},${Y - 1} l-6,-10 h12 z`, style: `fill:var(${win ? "--good" : "--critical"});stroke:var(--surface);stroke-width:1.5` }, g);
+      const t = svgEl("text", { x: X, y: Y - 15, "text-anchor": "middle", class: "lbl" }, g); t.textContent = sMoney(tr.pnl);
+    }
+  }
+  // crosshair + tooltip
+  const ch = svgEl("line", { y1: padT, y2: H - padB, style: "stroke:var(--ink-3);stroke-width:1;display:none" }, svg);
+  const dot = svgEl("circle", { r: 3.5, style: "fill:var(--ink-2);stroke:var(--surface);stroke-width:2;display:none" }, svg);
+  const hit = svgEl("rect", { x: padL, y: padT, width: W - padL - padR, height: H - padT - padB, fill: "transparent", style: "cursor:crosshair" }, svg);
+  const STATE = ["Flat · tracking the high", "Dip found · tracking the low", "Long · $95 trailing stop", "Long · $10 trailing stop"];
+  hit.addEventListener("pointermove", e => {
+    const r = svg.getBoundingClientRect(), px = (e.clientX - r.left) * (W / r.width);
+    const xv = (px - padL) / (W - padL - padR) * xmax;
+    let i = lastIdxLE(xs, xv); if (i < xs.length - 1 && (i < 0 || xv - xs[i] > (xs[i + 1] - xs[i]) / 2)) i++;
+    i = Math.max(0, i);
+    ch.setAttribute("x1", sx(xs[i])); ch.setAttribute("x2", sx(xs[i])); ch.style.display = "";
+    dot.setAttribute("cx", sx(xs[i])); dot.setAttribute("cy", sy(T.c[i])); dot.style.display = "";
+    const rows = [
+      { name: "State", value: STATE[T.st[i]] },
+      { name: "Open / High", value: money(T.o[i], 2) + " / " + money(T.h[i], 2) },
+      { name: "Low / Close", value: money(T.l[i], 2) + " / " + money(T.c[i], 2) },
+    ];
+    if (L.dip[i] != null) rows.push({ name: "Dip trigger", value: money(L.dip[i], 2), color: "--s4", dash: true });
+    if (L.reb[i] != null) rows.push({ name: "Rebound level", value: money(L.reb[i], 2), color: "--s3", dash: true });
+    if (L.wide[i] != null) rows.push({ name: "$95 stop", value: money(L.wide[i], 2), color: "--s2" });
+    if (L.tight[i] != null) rows.push({ name: "$10 stop", value: money(L.tight[i], 2), color: "--s7" });
+    if (L.tgt[i] != null) rows.push({ name: "Profit target", value: money(L.tgt[i], 2), color: "--s1", dash: true });
+    rows.push({ name: "Account value", value: money(T.eq[i], 2), cls: cls(T.eq[i] - 10000) });
+    showTip(e.clientX, e.clientY, "Bar ending " + xLabel(xs[i]), rows);
+  });
+  hit.addEventListener("pointerleave", () => { ch.style.display = "none"; dot.style.display = "none"; hideTip(); });
+}
+function renderDd() {
+  const T = byTf[selTf], host = document.getElementById("ddChart"); host.replaceChildren();
+  const W = host.clientWidth || 800, H = 160, padL = 58, padR = 16, padT = 8, padB = 28;
+  const xs = T.xc, xmax = xs[xs.length - 1]; let peak = 10000; const dd = T.eq.map(v => { peak = Math.max(peak, v); return (v / peak - 1) * 100; });
+  const lo = Math.min(-1, ...dd) * 1.1;
+  const sx = lin(0, xmax, padL, W - padR), sy = lin(lo, 0, H - padB, padT);
+  const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, height: H, role: "img", "aria-label": "Drawdown chart" }, host);
+  const g = svgEl("g", {}, svg);
+  yGrid(g, sy, niceTicks(lo, 0, 3), padL, W - padR, v => v.toFixed(0) + "%");
+  dayGrid(g, sx, padL, W - padR, padT, H - padB, xmax);
+  let d = `M${sx(xs[0])},${sy(0)}`; for (let i = 0; i < xs.length; i++) d += `L${sx(xs[i]).toFixed(1)},${sy(dd[i]).toFixed(1)}`; d += `L${sx(xmax)},${sy(0)}Z`;
+  svgEl("path", { d, style: "fill:var(--s8);opacity:.18" }, g);
+  svgEl("path", { d: pathFrom(xs, dd, sx, sy), style: "fill:none;stroke:var(--s8);stroke-width:2;stroke-linejoin:round" }, g);
+  const mi = dd.indexOf(Math.min(...dd));
+  svgEl("circle", { cx: sx(xs[mi]), cy: sy(dd[mi]), r: 4, style: "fill:var(--s8);stroke:var(--surface);stroke-width:2" }, g);
+  const right = sx(xs[mi]) > (padL + W - padR) / 2;
+  const t = svgEl("text", { x: sx(xs[mi]) + (right ? -10 : 10), y: sy(dd[mi]) - 8, "text-anchor": right ? "end" : "start", class: "lbl" }, g); t.textContent = "deepest at bar close " + dd[mi].toFixed(1) + "%";
+  const ch = svgEl("line", { y1: padT, y2: H - padB, style: "stroke:var(--ink-3);display:none" }, svg);
+  const hit = svgEl("rect", { x: padL, y: padT, width: W - padL - padR, height: H - padT - padB, fill: "transparent", style: "cursor:crosshair" }, svg);
+  hit.addEventListener("pointermove", e => {
+    const r = svg.getBoundingClientRect(), px = (e.clientX - r.left) * (W / r.width);
+    const i = Math.max(0, lastIdxLE(xs, (px - padL) / (W - padL - padR) * xmax));
+    ch.setAttribute("x1", sx(xs[i])); ch.setAttribute("x2", sx(xs[i])); ch.style.display = "";
+    showTip(e.clientX, e.clientY, xLabel(xs[i]), [{ name: "Drawdown", value: dd[i].toFixed(2) + "%", color: "--s8" }, { name: "Account value", value: money(T.eq[i], 2) }]);
+  });
+  hit.addEventListener("pointerleave", () => { ch.style.display = "none"; hideTip(); });
+}
+function renderTrades() {
+  const T = byTf[selTf], tbl = document.getElementById("tradeTbl"); tbl.replaceChildren();
+  const th = hEl("thead", null, null, tbl), hr = hEl("tr", null, null, th);
+  ["#", "Bought", "Buy price", "Sold", "Sell price", "Shares", "P&L", "P&L %", "Best run-up", "Worst dip", "Exit"].forEach(x => hEl("th", null, x, hr));
+  const tb = hEl("tbody", null, null, tbl);
+  T.trades.forEach((tr, i) => {
+    const r = hEl("tr", null, null, tb);
+    hEl("td", null, String(i + 1), r); hEl("td", null, tr.et, r); hEl("td", null, money(tr.ep, 2), r);
+    hEl("td", null, tr.open ? "— (open, marked at " + money(tr.xp, 2) + ")" : tr.xt, r); hEl("td", null, tr.open ? "—" : money(tr.xp, 2), r);
+    hEl("td", null, String(tr.q), r);
+    hEl("td", cls(tr.pnl), sMoney(tr.pnl, 2), r); hEl("td", cls(tr.pnl), sPct(tr.pct, 2), r);
+    hEl("td", null, tr.runup == null ? "—" : sMoney(tr.runup), r); hEl("td", null, tr.dd == null ? "—" : sMoney(tr.dd), r);
+    hEl("td", null, (tr.open ? "" : (tr.pnl > 0 ? "✓ " : "✕ ")) + tr.why, r);
+  });
+}
+function renderCmp() {
+  const tbl = document.getElementById("cmpTbl"); tbl.replaceChildren();
+  const th = hEl("thead", null, null, tbl), hr = hEl("tr", null, null, th);
+  ["Scenario", "Value today", "Net P&L", "Return", "vs Buy & hold", "Closed trades", "Win rate", "Profit factor", "Max drawdown", "Avg win", "Avg loss", "Open trade P&L"].forEach(x => hEl("th", null, x, hr));
+  const tb = hEl("tbody", null, null, tbl);
+  for (const t of D.tfs) {
+    const s = t.stats, r = hEl("tr", t.tf === selTf ? "sel" : null, null, tb); r.style.cursor = "pointer"; r.tabIndex = 0;
+    const c0 = hEl("td", null, null, r); const k = hEl("span", "key box", null, c0); k.style.background = `var(${TF_COLOR[t.tf]})`; k.style.marginRight = "8px"; c0.appendChild(document.createTextNode(t.tf + " strategy"));
+    hEl("td", null, money(s.final_eq, 2), r); hEl("td", cls(s.net), sMoney(s.net, 2), r); hEl("td", cls(s.net), sPct(s.net_pct, 2), r);
+    hEl("td", cls(s.final_eq - s.bh_final), sMoney(s.final_eq - s.bh_final, 2), r);
+    hEl("td", null, String(s.closed_trades), r); hEl("td", null, s.winrate == null ? "—" : s.winrate.toFixed(1) + "%", r);
+    hEl("td", null, s.pf == null ? "—" : s.pf.toFixed(2), r); hEl("td", null, "−" + s.maxdd_pct.toFixed(2) + "%", r);
+    hEl("td", null, s.avg_win == null ? "—" : sMoney(s.avg_win, 2), r); hEl("td", null, s.avg_loss == null ? "—" : sMoney(s.avg_loss, 2), r);
+    hEl("td", cls(s.open_pnl), s.open_pnl ? sMoney(s.open_pnl, 2) : "—", r);
+    const go = () => selectTf(t.tf, true);
+    r.addEventListener("click", go); r.addEventListener("keydown", e => { if (e.key === "Enter") go(); });
+  }
+  const b = byTf["2m"].stats, r = hEl("tr", null, null, tb);
+  const c0 = hEl("td", null, null, r); const k = hEl("span", "key box", null, c0); k.style.background = "var(--neutral)"; k.style.marginRight = "8px"; c0.appendChild(document.createTextNode(BH_LABEL + " (" + byTf["2m"].stats.bh_qty + " sh)"));
+  hEl("td", null, money(b.bh_final, 2), r); hEl("td", "neg", sMoney(b.bh_final - 10000, 2), r); hEl("td", "neg", sPct(b.bh_pct, 2), r);
+  ["—", "—", "—", "—", "—", "—", "—", "—"].forEach(x => hEl("td", null, x, r));
+}
+function selectTf(tf, scroll) {
+  selTf = tf; renderSeg(); renderTiles(); renderPx(); renderDd(); renderTrades(); renderCmp(); renderEq();
+  if (scroll) document.getElementById("h-detail").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+function renderAll() { renderHero(); renderEnd(); renderEqLegend(); renderEq(); renderSeg(); renderTiles(); renderPxLegend(); renderPx(); renderDd(); renderTrades(); renderCmp(); }
+
+// theme toggle (remembered per browser when storage is available)
+(function theme() {
+  const root = document.documentElement;
+  try { const s = localStorage.getItem("lite-bt-theme"); if (s) root.setAttribute("data-theme", s); } catch (e) {}
+  document.getElementById("themeBtn").addEventListener("click", () => {
+    const cur = root.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    const nx = cur === "dark" ? "light" : "dark"; root.setAttribute("data-theme", nx);
+    try { localStorage.setItem("lite-bt-theme", nx); } catch (e) {}
+  });
+})();
+renderAll();
+let rz; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { renderEnd(); renderEq(); renderPx(); renderDd(); }, 120); });
+</script>
+</body>
+</html>
