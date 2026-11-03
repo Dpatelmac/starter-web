@@ -32,17 +32,19 @@ Start here:
 | `pinescript/lite_dip_rebound_two_stage_trail.pine` | V1: flowchart strategy + "Amounts in" Dollar (default) / Percent toggle |
 | `pinescript/lite_dip_rebound_two_stage_trail_v2.pine` | V2: Percent default, 3% tight trail, optional 200-day trend filter (off) |
 | `pinescript/lite_daily_trend_v3.pine` | V3: daily trend strategy, SMA 8/45 with a 1% hysteresis band (beats buy & hold on LITE 3 years) |
+| `pinescript/lite_daily_trend_v4.pine` | V4: SMA 8/50 + 1% band + 5×ATR(14) trailing stop order, re-entry on a new 10-day closing high (more profit AND lower drawdown than buy & hold) |
 | `backtest/backtest.py` | Python replica of V1 with TradingView-style fills |
 | `backtest/backtest_v3.py` | V3 engine: `search` (412 settings, 11 trend families) and `report` modes; TradingView-equivalent indicators |
+| `backtest/backtest_v4.py` / `backtest/v4_meta.py` | V4 engine (trend + stop order + re-entry, `search`/`report`) and its report tables |
 | `backtest/v3_meta.py` | Builds the V3 report's summary tables (family scores, SMA heat-table, test-set checks, start dates) |
 | `backtest/data/2026-11-03-daily/` | Daily data 2014 → 3 Nov 2026 for LITE, COHR, AAOI, CIEN, NVDA (V3) |
 | `backtest/backtest_v2.py` | Same engine plus V2 options (trend filter, tight-trail override) |
 | `backtest/build_report.py` + `report_template.html` | Builds the self-contained, offline HTML reports |
-| `backtest/rebuild_all.sh` | One command: all backtests + all five reports (byte-identical to the committed ones) |
+| `backtest/rebuild_all.sh` | One command: all backtests + all six reports (byte-identical to the committed ones) |
 | `backtest/fetch_data.sh` | Downloads a fresh Yahoo snapshot (never overwrites an existing one) |
 | `backtest/data/2026-11-03/` | The exact data the committed results came from (1m, 6m, 4y, v2 sets) |
 | `backtest/tools/check_report.js` | Playwright smoke test of every report (errors, overflow, screenshots) |
-| `backtest/LITE_backtest_report*.html` | 1-month, 6-month, 4-year, V2 and V3 reports |
+| `backtest/LITE_backtest_report*.html` | 1-month, 6-month, 4-year, V2, V3 and V4 reports |
 
 ## How the simulator matches the Pine strategy (keep these in sync)
 
@@ -62,6 +64,10 @@ Start here:
   fill at the next open (`strategy.entry` / `strategy.close`, no stops). Indicators match TradingView: `ta.sma`,
   `ta.ema`/`ta.rma` seeded with an SMA, `ta.atr` = RMA of true range, an exact port of `ta.supertrend`,
   `ta.highest(...)[1]` for breakouts.
+- V4 stop order: placed at the close for the next bar (on the signal bar too, so it is live on the fill bar); fills
+  at the stop or at the open on a gap. After a stop-out, re-entry needs a close above `ta.highest(close, 10)[1]` while
+  the trend is up; a trend down-turn clears that block. Drawdown on a stop bar counts the bar's high as a possible
+  peak and the fill as the low (conservative).
 - Results are simulations, not TradingView's Strategy Tester; expect small differences. Pine has never been
   compiled in this environment, so the owner compiles it in TradingView.
 
@@ -84,6 +90,8 @@ Start here:
 - **V3 (1D, SMA 8/45 + 1% band) beats buy & hold on LITE over 3 years**: $213k vs $165k, drawdown 40% vs 56%,
   from all 26 monthly start dates; but it lost to buy & hold on LITE 2016–2023 (choppy) and NVDA (steady riser).
   Only 5 trades, and one trade (May 2025 → Jun 2026) made almost all of the profit.
+- **V4 (V3 trend + 5×ATR stop) is the current best**: $242k vs $165k, drawdown 30% vs 56%, both from all 26 start dates;
+  4/6 check sets. Owner's goal for it: more profit AND much lower drawdown than buy & hold, robust beyond LITE.
 - Treat the "best" settings as likely over-fitted to one exceptional stock.
 
 ## Report template conventions

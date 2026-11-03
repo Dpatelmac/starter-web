@@ -33,7 +33,13 @@ What was asked and what was done, in order. Numbers are in `LITE_strategy_findin
     40% vs 56%, beat buy & hold from all 26 monthly start dates, and beat it in 4 of 6 test sets (lost on
     LITE 2016–2023 and NVDA). New files: `pinescript/lite_daily_trend_v3.pine`, `backtest/v3_meta.py`,
     `backtest/LITE_backtest_report_V3.html`. The template gained generic indicator lines and summary tables.
-11. **Private repository (pending).** `starter-web` is a fork of the public `scm-ninja/starter-web`, so GitHub
+11. **V4: more profit AND lower drawdown than buy & hold** (owner chose: much lower drawdown; LITE 3 years + checks;
+    stop-loss orders allowed; intrabar drawdown). `backtest/backtest_v4.py` searched 7,050 settings (V3 trend × 23
+    stop orders × 3 re-entry rules). Pick: SMA 8/50 + 1% band + 5×ATR(14) trailing stop, re-entry on a new 10-day
+    closing high: $242k vs $165k, drawdown 30% vs 56%, 26/26 start dates, 4/6 check sets. Capped stops reached 26%
+    drawdown but failed the checks. New: `pinescript/lite_daily_trend_v4.pine`, `backtest/v4_meta.py`,
+    `backtest/LITE_backtest_report_V4.html`.
+12. **Private repository (pending).** `starter-web` is a fork of the public `scm-ninja/starter-web`, so GitHub
     won't let it be made private. Plan: the owner creates an empty private repository `Dpatelmac/Pine-Research`
     (this session can't create repositories); then push the `LITE-research` branch there as its main branch.
 

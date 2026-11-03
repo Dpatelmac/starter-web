@@ -1,0 +1,87 @@
+// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// V4 - Daily trend strategy for LITE with a real stop-loss order (long & flat only).
+//   Trend:   SMA 8 / SMA 50 with a 1% hysteresis band (trend up when SMA8 > SMA50 x 1.01, down when SMA8 < SMA50 x 0.99).
+//   Entry:   when the trend is up (market order at the close -> fills at the next open).
+//   Stop:    a trailing stop order at (highest high since entry - 5 x ATR(14)); it can fill inside the bar.
+//   Exit:    the stop, or the trend turning down (market order at the close -> next open).
+//   Re-entry after a stop-out: only on a close above the prior 10-day closing high while the trend is still up
+//            (a fresh up-turn of the trend also allows a normal entry).
+// Designed for the 1D chart (a warning is shown on other timeframes).
+//@version=6
+strategy("Demo GPT - LITE Daily Trend V4 (SMA 8/50 Band + ATR Stop)", overlay=true, default_qty_type=strategy.percent_of_equity, default_qty_value=100, commission_type=strategy.commission.percent, commission_value=0.1, slippage=0)
+
+// ──────────────────────────────── Inputs ────────────────────────────────
+fastLen   = input.int(8,     "Fast SMA length (days)", minval=1, group="Trend")
+slowLen   = input.int(50,    "Slow SMA length (days)", minval=2, group="Trend")
+bandPct   = input.float(1.0, "Band around the slow SMA (%)", minval=0.0, step=0.1, group="Trend")
+atrLen    = input.int(14,    "ATR length", minval=1, group="Stop")
+atrMult   = input.float(5.0, "Stop distance (x ATR below the highest high)", minval=0.1, step=0.1, group="Stop")
+reLen     = input.int(10,    "Re-entry after a stop: close above the prior N-day closing high", minval=1, group="Stop")
+
+startDate = input.time(timestamp("01 Jan 2018 00:00 +0000"), "Start Date", group="Date Range")
+endDate   = input.time(timestamp("31 Dec 2069 23:59 +0000"), "End Date",   group="Date Range")
+
+// ──────────────────────────────── Trend state ────────────────────────────────
+fastMA = ta.sma(close, fastLen)
+slowMA = ta.sma(close, slowLen)
+upper  = slowMA * (1 + bandPct / 100)
+lower  = slowMA * (1 - bandPct / 100)
+atrVal = ta.atr(atrLen)
+prevHighClose = ta.highest(close, reLen)[1]
+
+var bool trendUp = false
+if not na(fastMA) and not na(slowMA)
+    if not trendUp and fastMA > upper
+        trendUp := true
+    else if trendUp and fastMA < lower
+        trendUp := false
+
+inWindow = time >= startDate and time <= endDate
+
+// ──────────────────────────────── Position bookkeeping ────────────────────────────────
+var float hh      = na       // highest high since entry (the stop trails below it)
+var bool  blocked = false    // true after a stop-out until the re-entry condition is met
+var float stopLvl = na
+
+justOpened = strategy.position_size > 0 and strategy.position_size[1] == 0
+justClosed = strategy.closedtrades > strategy.closedtrades[1]
+if justClosed and strategy.position_size == 0 and strategy.closedtrades.exit_id(strategy.closedtrades - 1) == "Stop"
+    blocked := true
+if not trendUp
+    blocked := false         // the trend turned down: the next up-turn is a normal entry
+if justOpened
+    hh := high
+else if strategy.position_size > 0
+    hh := math.max(hh, high)
+
+// ──────────────────────────────── Orders (decided at the close) ────────────────────────────────
+stopLvl := na
+if strategy.position_size > 0
+    if not trendUp or not inWindow
+        strategy.cancel("Stop")
+        strategy.close("Long", comment=inWindow ? "Trend down" : "Date range end")
+    else
+        stopLvl := hh - atrMult * atrVal
+        strategy.exit("Stop", "Long", stop=stopLvl, comment="ATR stop")
+else if inWindow and trendUp
+    bool ok = not blocked
+    if blocked and not na(prevHighClose) and close > prevHighClose
+        ok      := true
+        blocked := false
+    if ok
+        strategy.entry("Long", strategy.long, comment=justClosed ? "Re-entry" : "Trend up")
+        hh      := close
+        stopLvl := close - atrMult * atrVal
+        strategy.exit("Stop", "Long", stop=stopLvl, comment="ATR stop")
+
+// ──────────────────────────────── Visuals ────────────────────────────────
+plot(fastMA, "Fast SMA", color=color.new(color.blue, 0),   linewidth=2)
+plot(slowMA, "Slow SMA", color=color.new(color.orange, 0), linewidth=2)
+pU = plot(bandPct > 0 ? upper : na, "Band upper", color=color.new(color.orange, 70), linewidth=1)
+pL = plot(bandPct > 0 ? lower : na, "Band lower", color=color.new(color.orange, 70), linewidth=1)
+fill(pU, pL, color=color.new(color.orange, 92), title="Band")
+plot(stopLvl, "ATR trailing stop", color=color.new(color.red, 0), style=plot.style_linebr, linewidth=2)
+bgcolor(strategy.position_size > 0 ? color.new(color.green, 93) : blocked ? color.new(color.gray, 92) : na, title="In position / waiting to re-enter")
+
+if barstate.islast and not timeframe.isdaily
+    label.new(bar_index, high, "V4 is designed for the 1D chart", style=label.style_label_down, color=color.new(color.orange, 0), textcolor=color.white)

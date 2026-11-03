@@ -17,6 +17,8 @@ TradingView's own Strategy Tester and **not investment advice**. Data as of 3 No
 | Report: V2 vs V1, 4 years | [`backtest/LITE_backtest_report_V2.html`](../backtest/LITE_backtest_report_V2.html) |
 | Pine strategy **V3** (daily trend: SMA 8/45 with a 1% band) | [`pinescript/lite_daily_trend_v3.pine`](../pinescript/lite_daily_trend_v3.pine) |
 | Report: **V3** daily trend search, LITE 3 years + 5 test sets | [`backtest/LITE_backtest_report_V3.html`](../backtest/LITE_backtest_report_V3.html) |
+| Pine strategy **V4** (V3 trend + 5×ATR trailing stop order) | [`pinescript/lite_daily_trend_v4.pine`](../pinescript/lite_daily_trend_v4.pine) |
+| Report: **V4** more profit AND lower drawdown than buy & hold | [`backtest/LITE_backtest_report_V4.html`](../backtest/LITE_backtest_report_V4.html) |
 | Backtest engines and report builder | [`backtest/`](../backtest/) (see its [README](../backtest/README.md)) |
 | Data snapshot the results came from | [`backtest/data/2026-11-03/`](../backtest/data/2026-11-03/) |
 | One-command rebuild / fresh data download | [`backtest/rebuild_all.sh`](../backtest/rebuild_all.sh) · [`backtest/fetch_data.sh`](../backtest/fetch_data.sh) |
@@ -141,6 +143,29 @@ from every one of 26 monthly start dates (May 2023 → Jun 2025, held to today) 
 It wins in trending markets with deep crashes and loses in choppy markets or steady climbs. Almost all of its LITE
 profit came from one trade, and there are only five trades, so the edge rests on a small sample.
 
+## 6. V4: more profit AND a much lower drawdown than buy & hold
+
+Owner's brief: profit above buy & hold and a much lower max drawdown (intrabar, TradingView style), checked beyond
+LITE; the new tool allowed is a real stop-loss order. Search: 7,050 settings (trend SMA fast × slow × band, 23 stop
+orders, 3 re-entry rules) on LITE 3 years; 283 beat buy & hold on both. Then all were run on the five check sets.
+
+**Pick: V4 = SMA 8/50 with a 1% band + a trailing stop order 5 × ATR(14) below the highest high since entry;**
+after a stop-out it buys again only on a close above the prior 10-day closing high (or on a fresh trend up-turn).
+
+| LITE · 3 Nov 2023 → 3 Nov 2026 | V4 | V3 | Buy & hold |
+|---|---|---|---|
+| $10k → | **$242,034** | $213,237 | $164,604 |
+| Max drawdown (intrabar) | **30.3%** | 39.9% | 56.1% |
+| Trades / win rate | 5 / 80% | 5 / 60% | — |
+
+- From all **26 monthly start dates** (May 2023 → Jun 2025, held to today) V4 beat buy & hold on **both** profit and
+  drawdown; its worst drop was always about 30% (buy & hold 45–56%).
+- On the checks it beat buy & hold on both in **4 of 6** sets (LITE 3y, COHR, AAOI, CIEN) and lost on LITE 2016–2023 and
+  NVDA, the same pattern as V3 but with smaller drops everywhere.
+- **Tight stops don't work on LITE:** 10–25% trailing or 2–3×ATR stops sell too often and miss the 2025–26 run.
+- **Below ~30% drawdown it stops being robust:** capping the stop (e.g. "5×ATR, never more than 22%") reaches 26% on
+  LITE but beats buy & hold in only 1 of 6 sets. It is a fit to LITE's exact path, so it was not picked.
+
 ## Conclusion in simple words
 
 - Over the long run the strategy made money (about 2× in 4 years, up to about 6.8× for V2 on 4H), but
@@ -155,6 +180,8 @@ profit came from one trade, and there are only five trades, so the edge rests on
 - **V3 (daily SMA 8/45 with a 1% band) is the first strategy that beat buy & hold on LITE**, over the last 3 years:
   $213k vs $165k with a smaller drawdown (40% vs 56%), mainly by stepping aside in the early-2025 and Oct-2026
   crashes. It is not a sure thing: it lost to buy & hold on LITE 2016–2023 and on NVDA.
+- **V4 adds a wide 5×ATR stop-loss order to V3:** $242k vs $165k, max drawdown **30% vs 56%**, better than buy & hold on
+  both from every start date tested. Getting the drawdown much below 30% only worked by fitting LITE's exact history.
 
 ## Why LITE flew in 2025–2026 (brief)
 

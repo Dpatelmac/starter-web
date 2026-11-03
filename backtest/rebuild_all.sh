@@ -57,4 +57,19 @@ REPORT_META="$(cat "$OUT/v3/meta.json")" $PY build_report.py report_template.htm
   "$OUT/v3/rep_AAOI_3y.json" "AAOI · 3 years" "3 years" \
   "$OUT/v3/rep_CIEN_3y.json" "CIEN · 3 years" "3 years" \
   "$OUT/v3/rep_NVDA_3y.json" "NVDA · 3 years" "3 years"
+echo "== V4 · V3 trend + real stop-loss order (profit AND drawdown vs buy & hold)"
+V4SPECS="V4|8,50,1.0|atr:5.0|hi10|V4 · SMA 8/50 band + 5×ATR stop;8/50 2%|8,50,2.0|atr:5.0|hi10|SMA 8/50, 2% band + 5×ATR stop;V3|8,45,1.0|none|fresh|V3 · SMA 8/45 band, no stop;Low-DD fit|20,45,1.0|atrcap:5.0/22|fresh|Low-drawdown fit (SMA 20/45, 5×ATR max 22%)"
+for k in "${SETS[@]}"; do
+  set -- $k
+  $PY backtest_v4.py search "$DAILY" "$1" "$2" "$3" "$OUT/v3/v4search_$4.json" > "$OUT/v3/v4search_$4.txt"
+  $PY backtest_v4.py report "$DAILY" "$1" "$2" "$3" "$OUT/v3/v4rep_$4.json" "$V4SPECS" > "$OUT/v3/v4rep_$4.txt"
+done
+$PY v4_meta.py "$DAILY" "$OUT/v3" > "$OUT/v3/v4meta.json"
+REPORT_META="$(cat "$OUT/v3/v4meta.json")" $PY build_report.py report_template.html LITE_backtest_report_V4.html \
+  "$OUT/v3/v4rep_LITE_3y.json" "LITE · 3 years" "3 years" \
+  "$OUT/v3/v4rep_LITE_oos.json" "LITE · 2016–2023 (check)" "8 years (2016–2023)" \
+  "$OUT/v3/v4rep_COHR_3y.json" "COHR · 3 years" "3 years" \
+  "$OUT/v3/v4rep_AAOI_3y.json" "AAOI · 3 years" "3 years" \
+  "$OUT/v3/v4rep_CIEN_3y.json" "CIEN · 3 years" "3 years" \
+  "$OUT/v3/v4rep_NVDA_3y.json" "NVDA · 3 years" "3 years"
 echo "done · text summaries (every trade) in $OUT/*.txt and $OUT/v3/*.txt"
