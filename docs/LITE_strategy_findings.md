@@ -1,0 +1,147 @@
+# LITE Dip-Rebound Strategy: Findings
+
+All results are simulations of the Pine strategies on Yahoo Finance data (regular hours), with $10,000 start,
+100% of equity per trade, 0.1% commission per side, 0 slippage, long and flat only. Signals are taken at bar
+close, entries fill at the next bar's open, stops fill at the stop price or at the open on a gap. They are not
+TradingView's own Strategy Tester and **not investment advice**. Data as of 3 Nov 2026 (last bar partial).
+
+## Files in this repository
+
+| What | Where |
+|---|---|
+| Pine strategy V1 (flowchart, Dollar/Percent toggle) | [`pinescript/lite_dip_rebound_two_stage_trail.pine`](../pinescript/lite_dip_rebound_two_stage_trail.pine) |
+| Pine strategy V2 (trend filter, 3% tight trail) | [`pinescript/lite_dip_rebound_two_stage_trail_v2.pine`](../pinescript/lite_dip_rebound_two_stage_trail_v2.pine) |
+| Report: V1, past 1 month (1D → 2m) | [`backtest/LITE_backtest_report.html`](../backtest/LITE_backtest_report.html) |
+| Report: V1, past 6 months (1D/4H/2H/1H) | [`backtest/LITE_backtest_report_6M.html`](../backtest/LITE_backtest_report_6M.html) |
+| Report: V1 Dollar vs Percent, 4 years | [`backtest/LITE_backtest_report_4Y.html`](../backtest/LITE_backtest_report_4Y.html) |
+| Report: V2 vs V1, 4 years | [`backtest/LITE_backtest_report_V2.html`](../backtest/LITE_backtest_report_V2.html) |
+| Backtest engines and report builder | [`backtest/`](../backtest/) (see its [README](../backtest/README.md)) |
+
+The reports are self-contained HTML files: download one and open it in any browser, no internet needed.
+
+## The strategy (from the flowchart)
+
+Track the highest price → when price falls a set amount below it (the dip), track the lowest price → buy when
+price rebounds 0.5% off that low → wide trailing stop → once price reaches the profit target, swap to a tight
+trailing stop → after any sale, start again with a fresh high.
+
+| Setting | Dollar mode (flowchart) | Percent mode | V2 default |
+|---|---|---|---|
+| Dip from high | $60 | 6% | 6% |
+| Rebound from low | 0.5% | 0.5% | 0.5% |
+| Wide trailing stop | $95 | 9.5% | 9.5% |
+| Profit target | +$60 | +6% | +6% |
+| Tight trailing stop | $10 | 1% | **3%** |
+| Trend filter (buy only above 200-day average) | — | — | available, off by default |
+
+## 1. Past month (Oct 5 → Nov 3, 2026)
+
+LITE fell from $1,092 to $681 (−37%). Every timeframe lost money but lost less than buy & hold.
+
+| Timeframe | $10k today | Return | Trades | Win rate | Max drawdown |
+|---|---|---|---|---|---|
+| 1D | $8,656 | −13.4% | 4 | 25% | −18.0% |
+| 4H | $8,330 | −16.7% | 4 (+1 open) | 25% | −20.2% |
+| 2m | $8,260 | −17.4% | 7 (+1 open) | 43% | −24.2% |
+| 5m | $8,164 | −18.4% | 7 (+1 open) | 43% | −24.7% |
+| 30m | $7,638 | −23.6% | 7 | 43% | −27.8% |
+| 1H | $6,919 | −30.8% | 4 (+1 open) | 0% | −35.0% |
+| 15m | $6,796 | −32.0% | 5 | 0% | −35.1% |
+| Buy & hold | $6,283 | −37.2% | — | — | — |
+
+## 2. Past 6 months (May 4 → Nov 3, 2026)
+
+LITE went from $987 to $685 (−30%). Only the daily chart made money.
+
+| Timeframe | $10k today | Return | Trades | Win rate | Profit factor | Max drawdown |
+|---|---|---|---|---|---|---|
+| 1D | $11,277 | +12.8% | 24 | 45.8% | 1.14 | −26.8% |
+| 4H | $9,646 | −3.5% | 31 (+1) | 51.6% | 0.97 | −49.1% |
+| 2H | $5,238 | −47.6% | 33 (+1) | 42.4% | 0.57 | −58.4% |
+| 1H | $4,949 | −50.5% | 32 (+1) | 43.8% | 0.66 | −56.6% |
+| Buy & hold | $6,975 | −30.2% | — | — | — | — |
+
+## 3. Four years: Dollar vs Percent mode
+
+Daily over 4 years (Nov 2022 → Nov 2026, LITE $72.70 → $685): Dollar $20,644 (+106%), Percent $21,984 (+120%),
+buy & hold **$93,967 (+840%)**. Dollar mode made no trade until Dec 2025 because a $60 dip was impossible while
+LITE traded at $38–$110.
+
+Dec 2023 → now (LITE $42.45 → $685): best was 4H Percent at $44,384 (+344%); buy & hold **$161,147 (+1,512%)**.
+
+## 4. V2: trend filter and wider tight trail
+
+Value of $10,000 today (★ = best per column):
+
+| Version | 1D · 4 years | 4H · Dec 2023 → now | 2H · Dec 2023 → now | 1H · Dec 2023 → now |
+|---|---|---|---|---|
+| V1 · Dollar (original) | $20,644 | $20,817 | $10,477 | $7,604 |
+| V1 · Percent, 1% trail | ★ $21,708 | $44,384 | $22,159 | $15,735 |
+| V2 · Trend filter, 1% trail | $13,589 | $22,754 | $14,922 | $9,073 |
+| **V2 · 3% trail** | $20,874 | ★ **$67,813** | $32,761 | ★ $23,311 |
+| V2 · 5% trail | $13,140 | $43,635 | ★ $63,100 | $23,034 |
+| V2 · Trend filter + 3% trail | $11,735 | $40,403 | $24,172 | $15,542 |
+| V2 · Trend filter + 5% trail | $9,886 | $24,914 | $35,653 | $15,836 |
+| Buy & hold | $92,746 | $161,147 | $161,147 | $161,147 |
+
+**Wider tight trail (3–5%) helps on intraday charts.** With a 1% trail, winners were sold too early. 4H improved
+from $44k to $68k with a 3% trail; 2H from $22k to $63k with a 5% trail; 1H from $16k to $23k. On the daily
+chart it made no real difference (3%) or hurt (5%).
+
+**The 200-day trend filter hurt on LITE.** It lowered profit in almost every test. In 2022–2023 LITE moved
+sideways below its average; V1 had made small profits on those dips, and the filter blocked them, which also
+meant less compounding later. It reduced some drawdowns a little, not enough to pay for the lost profit.
+That is why it ships switched off in the V2 script.
+
+## Conclusion in simple words
+
+- Over the long run the strategy made money (about 2× in 4 years, up to about 6.8× for V2 on 4H), but
+  **buying and holding LITE made far more** (about 9–16×). In a stock running straight up, stepping in and out
+  keeps getting you off the train.
+- The fixed dollar amounts break when the share price changes a lot; **Percent mode is the better design**.
+- **Best tested setup: V2, Percent mode, 3% tight trail on the 4H chart** (or 5% on 2H). It still had drawdowns
+  of 35–55% from peak, which are hard to sit through.
+- In falling periods (last month, last 6 months) the strategy lost less than holding.
+- These settings were chosen on one exceptional stock, so they are likely over-fitted. Test them on other stocks
+  before trusting them.
+
+## Why LITE flew in 2025–2026 (brief)
+
+| When | Price (approx.) | What changed |
+|---|---|---|
+| 2022 – mid 2025 | $40–75 | Sideways, slow telecom business |
+| Jul 2025 | ~$110 | AI demand starts showing in results |
+| Oct 2025 | ~$194 | Rally speeds up |
+| Jan 2026 | ~$385 | About 4–5× for 2025 |
+| Apr 2026 | ~$858 | Momentum and index buying |
+| Oct 2026 | ~$1,100+ | Peak |
+| Nov 2026 | ~$685 | About a 37% fall in one month |
+
+1. **Its parts became an AI bottleneck.** AI data centers move huge amounts of data between GPUs over fast
+   optical links (800G, next 1.6T). Lumentum makes key laser chips (EMLs) for them, with a reported 50–60%
+   market share, and analysts said demand was outrunning supply.
+2. **Results confirmed it.** Revenue roughly doubled year over year; about 60% of revenue was tied to cloud and
+   AI by late 2025, according to the CEO; earnings kept beating estimates and price targets kept rising.
+3. **New products added long-term hope.** Reported co-packaged optics wins (commitments said to exceed
+   $5 billion) and a third hyperscale customer for its optical circuit switches.
+4. **Momentum and index buying.** Lumentum was set to join the Nasdaq-100 in May 2026, and "AI winner" headlines
+   drew in momentum traders.
+
+The recent fall has no single clear cause in the sources found; likely profit-taking, valuation worries and
+nerves ahead of earnings (reportedly around 5 Nov 2026). Claims found in only one source, such as reported
+acquisition talks or a large Nvidia investment, are left out as unconfirmed. The sources are mostly news and
+investor-commentary articles whose numbers and dates sometimes conflict.
+
+Sources:
+[Tiger Brokers – Nasdaq-100 inclusion](https://www.itiger.com/news/1105822165) ·
+[Motley Fool](https://www.fool.com/investing/2025/08/21/up-49-in-3-months-this-magnificent-ai-stock-can) ·
+[Zacks via TradingView](https://www.tradingview.com/news/zacks%3A0d94cecd4094b%3A0-lite-stock-jumps-219-in-a-year-will-the-momentum-continue-in-fy26) ·
+[Barchart](https://business.minstercommunitypost.com/minstercommunitypost/article/barchart-2025-11-27-insatiable-demand-is-powering-this-picks-and-shovels-ai-stock-up-245-should-you-buy-it-here) ·
+[PredictStreet](https://business.mammothtimes.com/mammothtimes/article/predictstreet-2025-12-16-lumentum-holdings-inc-lite-illuminating-the-future-of-ai-and-optical-networking) ·
+[TechNews](https://technews.tw/2025/12/26/lumentum-stock-on-track-to-record-8th-consecutive-monthly-gain/) ·
+[Nasdaq](https://www.nasdaq.com/articles/lumentum-stock-rides-strong-ai-push-sign-more-upside) ·
+[GuruFocus](https://www.gurufocus.com/news/9165751/lumentum-stock-gains-after-5-billion-copackaged-optics-win) ·
+[Yahoo Finance](https://finance.yahoo.com/markets/stocks/articles/lumentum-lite-beats-q1-earnings-152003979.html) ·
+[Investing.com](https://www.investing.com/news/analyst-ratings/lumentum-stock-named-top-ai-optics-pick-by-b-riley-on-capacity-93CH-4990489) ·
+[24/7 Wall St (Oct 19)](https://247wallst.com/investing/2026/10/19/optics-stocks-rally-ahead-of-earnings-applied-optoelectronics-jumps-5-lumentum-adds-4-coherent-rises-2/) ·
+[24/7 Wall St (Oct 28)](https://247wallst.com/investing/2026/10/28/optical-stocks-climb-as-analysts-flag-ai-bottleneck-lumentum-rises-4-applied-optoelectronics-and-corning-gain-3-coherent-sits-out-the-rally/)
