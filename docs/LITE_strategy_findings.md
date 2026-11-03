@@ -15,6 +15,8 @@ TradingView's own Strategy Tester and **not investment advice**. Data as of 3 No
 | Report: V1, past 6 months (1D/4H/2H/1H) | [`backtest/LITE_backtest_report_6M.html`](../backtest/LITE_backtest_report_6M.html) |
 | Report: V1 Dollar vs Percent, 4 years | [`backtest/LITE_backtest_report_4Y.html`](../backtest/LITE_backtest_report_4Y.html) |
 | Report: V2 vs V1, 4 years | [`backtest/LITE_backtest_report_V2.html`](../backtest/LITE_backtest_report_V2.html) |
+| Pine strategy **V3** (daily trend: SMA 8/45 with a 1% band) | [`pinescript/lite_daily_trend_v3.pine`](../pinescript/lite_daily_trend_v3.pine) |
+| Report: **V3** daily trend search, LITE 3 years + 5 test sets | [`backtest/LITE_backtest_report_V3.html`](../backtest/LITE_backtest_report_V3.html) |
 | Backtest engines and report builder | [`backtest/`](../backtest/) (see its [README](../backtest/README.md)) |
 | Data snapshot the results came from | [`backtest/data/2026-11-03/`](../backtest/data/2026-11-03/) |
 | One-command rebuild / fresh data download | [`backtest/rebuild_all.sh`](../backtest/rebuild_all.sh) · [`backtest/fetch_data.sh`](../backtest/fetch_data.sh) |
@@ -97,6 +99,48 @@ sideways below its average; V1 had made small profits on those dips, and the fil
 meant less compounding later. It reduced some drawdowns a little, not enough to pay for the lost profit.
 That is why it ships switched off in the V2 script.
 
+## 5. V3: a daily-chart strategy that beats buy & hold on LITE (last 3 years)
+
+Goal: long/flat on the 1D chart, beat buy & hold over 3 Nov 2023 → 3 Nov 2026 (buy & hold: $10k → **$164,604**,
+max drawdown 56%). Same rules: signals at the close, fills at the next open, 0.1% commission, 100% of equity.
+
+**Search.** 412 settings across 11 trend-following families (SMA/EMA crosses, SMA cross with a band, close above
+SMA/EMA, Donchian breakout, Supertrend, ROC momentum, MACD, trailing % stop, Chandelier ATR stop). Only the SMA-cross
+families beat buy & hold (18 of 130 plain crosses; 33 of 80 with a band). None of the others did.
+
+**Pick: V3 = SMA 8 / SMA 45 with a 1% band.** Buy when the 8-day SMA closes more than 1% above the 45-day SMA; sell
+when it closes more than 1% below it.
+
+| | V3 | Buy & hold |
+|---|---|---|
+| $10k → (3 years) | **$213,237** (+2,032%) | $164,604 (+1,546%) |
+| Yearly growth (CAGR) | 177% | 154% |
+| Max drawdown | **40%** | 56% |
+| Trades / win rate / time in market | 5 / 60% / 72% | 1 / — / 100% |
+| Position today | flat (sold 21 Oct 2026 at $863) | holding (~$680) |
+
+Its five trades: Nov 2023 → Feb 2024 (+10%), May → Aug 2024 (−12%), Aug 2024 → Feb 2025 (+54%, then sat out the
+early-2025 crash of about 50%), **May 2025 → Jun 2026 (+1,358%, $66 → $966)**, Aug → Oct 2026 (−4%, then sat out the
+fall to $680).
+
+**Why trust it a little:** the good zone is broad (fast 8–15 × slow 45–55 × band 1–2% mostly beat buy & hold), and
+from every one of 26 monthly start dates (May 2023 → Jun 2025, held to today) V3 beat buy & hold, e.g. starting
+1 Jan 2025: $142k vs $80k.
+
+**Why not trust it too much:**
+
+| Test set | V3 ÷ buy & hold |
+|---|---|
+| LITE · 3 yrs (where it was picked) | ✓ 1.30× |
+| LITE · 2016–2023 (choppy) | ✕ 0.39×: V3 lost 28% while buy & hold made 86% |
+| COHR · 3 yrs | ✓ 1.01× |
+| AAOI · 3 yrs | ✓ 1.11× |
+| CIEN · 3 yrs | ✓ 1.12× |
+| NVDA · 3 yrs (steady riser) | ✕ 0.50× |
+
+It wins in trending markets with deep crashes and loses in choppy markets or steady climbs. Almost all of its LITE
+profit came from one trade, and there are only five trades, so the edge rests on a small sample.
+
 ## Conclusion in simple words
 
 - Over the long run the strategy made money (about 2× in 4 years, up to about 6.8× for V2 on 4H), but
@@ -108,6 +152,9 @@ That is why it ships switched off in the V2 script.
 - In falling periods (last month, last 6 months) the strategy lost less than holding.
 - These settings were chosen on one exceptional stock, so they are likely over-fitted. Test them on other stocks
   before trusting them.
+- **V3 (daily SMA 8/45 with a 1% band) is the first strategy that beat buy & hold on LITE**, over the last 3 years:
+  $213k vs $165k with a smaller drawdown (40% vs 56%), mainly by stepping aside in the early-2025 and Oct-2026
+  crashes. It is not a sure thing: it lost to buy & hold on LITE 2016–2023 and on NVDA.
 
 ## Why LITE flew in 2025–2026 (brief)
 

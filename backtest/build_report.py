@@ -32,7 +32,7 @@ def build_window(R, label, period):
         m = (t.hour * 60 + t.minute + t.second / 60) - (9 * 60 + 30)
         return round(day_idx[t.date()] * 390 + max(0, min(390, m)), 1)
 
-    win = {"label": label, "period": period, "days": [d.strftime("%Y-%m-%d") for d in days],
+    win = {"label": label, "period": period, "symbol": R[0].get("symbol"), "subject": R[0].get("subject"), "days": [d.strftime("%Y-%m-%d") for d in days],
            "fetched": fetch.strftime("%b %d, %Y %H:%M ET"), "capital": 10000, "tfs": []}
     for r in R:
         tf, bar = r["tf"], r.get("bar", r["tf"])
@@ -63,7 +63,7 @@ def build_window(R, label, period):
             trades.append(dict(et=et.strftime(intraday_fmt), xt="open", ep=round(op["entry_px"], 2),
                                xp=round(op["mark"], 2), q=op["qty"], pnl=round(op["pnl"], 2),
                                pct=round(op["pnl"] / (op["entry_px"] * op["qty"]) * 100, 2),
-                               why="Still open · " + op["phase"] + f" stop ${op['stop']:.2f}",
+                               why=("Still open · " + op["phase"]) if r.get("kind") == "trend" else ("Still open · " + op["phase"] + f" stop ${op['stop']:.2f}"),
                                ex=xo[ie], xx=None, ie=ie, ix=None, runup=None, dd=None, open=True))
         stats = {k: r[k] for k in ("net", "net_pct", "closed", "closed_trades", "wins", "losses", "winrate", "gp",
                                    "gl", "pf", "avg", "avg_win", "avg_loss", "maxdd", "maxdd_pct", "final_eq",
@@ -78,7 +78,7 @@ def build_window(R, label, period):
                                o=[s[1] for s in r["series"]], h=[s[2] for s in r["series"]],
                                l=[s[3] for s in r["series"]], c=[s[4] for s in r["series"]],
                                eq=[s[5] for s in r["series"]], bh=[s[6] for s in r["series"]],
-                               st=[v[0] for v in lv], dip=dip, reb=reb, name=r.get("name"),
+                               st=[v[0] for v in lv], dip=dip, reb=reb, name=r.get("name"), kind=r.get("kind"), lines=r.get("lines"),
                                sma=[v[7] if len(v) > 7 else None for v in lv] if prm.get("trend") else None,
                                stop=[v[3] for v in lv], buy=[v[4] for v in lv], tgt=[v[5] for v in lv],
                                trades=trades, stats=stats))

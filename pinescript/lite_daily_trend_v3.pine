@@ -1,0 +1,55 @@
+// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// V3 - Daily trend strategy for LITE (long & flat only): SMA 8 / SMA 45 cross with a 1% hysteresis band.
+// Buy when the fast SMA closes more than band% above the slow SMA; sell when it closes more than band% below it.
+// Signals are evaluated at the bar close and fill at the next bar's open (TradingView default).
+// Designed for the 1D chart: on another timeframe the lengths count that timeframe's bars (a warning is shown).
+//@version=6
+strategy("Demo GPT - LITE Daily Trend V3 (SMA 8/45 Band)", overlay=true, default_qty_type=strategy.percent_of_equity, default_qty_value=100, commission_type=strategy.commission.percent, commission_value=0.1, slippage=0)
+
+// ──────────────────────────────── Inputs ────────────────────────────────
+fastLen   = input.int(8,     "Fast SMA length (days)", minval=1, group="Trend")
+slowLen   = input.int(45,    "Slow SMA length (days)", minval=2, group="Trend")
+bandPct   = input.float(1.0, "Band around the slow SMA (%)", minval=0.0, step=0.1, group="Trend", tooltip="Enter only when the fast SMA is this far above the slow SMA, exit only when it is this far below. 0 = a plain crossover.")
+
+startDate = input.time(timestamp("01 Jan 2018 00:00 +0000"), "Start Date", group="Date Range")
+endDate   = input.time(timestamp("31 Dec 2069 23:59 +0000"), "End Date",   group="Date Range")
+
+// ──────────────────────────────── Trend state ────────────────────────────────
+fastMA = ta.sma(close, fastLen)
+slowMA = ta.sma(close, slowLen)
+upper  = slowMA * (1 + bandPct / 100)
+lower  = slowMA * (1 - bandPct / 100)
+
+var bool trendUp = false
+bool turnedUp   = false
+bool turnedDown = false
+if not na(fastMA) and not na(slowMA)
+    if not trendUp and fastMA > upper
+        trendUp  := true
+        turnedUp := true
+    else if trendUp and fastMA < lower
+        trendUp    := false
+        turnedDown := true
+
+inWindow = time >= startDate and time <= endDate
+
+// ──────────────────────────────── Orders ────────────────────────────────
+if inWindow and trendUp and strategy.position_size == 0
+    strategy.entry("Long", strategy.long, comment="Trend up")
+
+if strategy.position_size > 0 and (not trendUp or not inWindow)
+    strategy.close("Long", comment=inWindow ? "Trend down" : "Date range end")
+
+// ──────────────────────────────── Visuals ────────────────────────────────
+plot(fastMA, "Fast SMA", color=color.new(color.blue, 0),   linewidth=2)
+plot(slowMA, "Slow SMA", color=color.new(color.orange, 0), linewidth=2)
+pU = plot(bandPct > 0 ? upper : na, "Band upper", color=color.new(color.orange, 70), linewidth=1)
+pL = plot(bandPct > 0 ? lower : na, "Band lower", color=color.new(color.orange, 70), linewidth=1)
+fill(pU, pL, color=color.new(color.orange, 92), title="Band")
+
+plotshape(turnedUp,   "Trend turned up",   shape.triangleup,   location.belowbar, color.new(color.green, 0), size=size.small, text="Up")
+plotshape(turnedDown, "Trend turned down", shape.triangledown, location.abovebar, color.new(color.red, 0),   size=size.small, text="Down")
+bgcolor(trendUp ? color.new(color.green, 93) : na, title="Trend up")
+
+if barstate.islast and not timeframe.isdaily
+    label.new(bar_index, high, "V3 is designed for the 1D chart", style=label.style_label_down, color=color.new(color.orange, 0), textcolor=color.white)

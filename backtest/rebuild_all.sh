@@ -27,7 +27,7 @@ for b in 4H 2H 1H; do
   $PY backtest_v2.py "$SNAP/v2" 2023-12-06 "$OUT/v2_$b.json" "$(specs $b)" > "$OUT/v2_$b.txt"
 done
 
-echo "== Reports"
+echo "== V1/V2 reports"
 $PY build_report.py report_template.html LITE_backtest_report.html "$OUT/v1_1m.json" "1 month" "month"
 $PY build_report.py report_template.html LITE_backtest_report_6M.html "$OUT/v1_6m.json" "6 months" "6 months"
 $PY build_report.py report_template.html LITE_backtest_report_4Y.html \
@@ -39,4 +39,22 @@ $PY build_report.py report_template.html LITE_backtest_report_V2.html \
   "$OUT/v2_4H.json" "4H · Dec 2023 → now" "2 years 11 months" \
   "$OUT/v2_2H.json" "2H · Dec 2023 → now" "2 years 11 months" \
   "$OUT/v2_1H.json" "1H · Dec 2023 → now" "2 years 11 months"
-echo "done · text summaries (every trade) in $OUT/*.txt"
+echo "== V3 · daily trend-strategy search (LITE 3 years) + checks on LITE 2016–2023 and peers"
+DAILY=data/2026-11-03-daily
+mkdir -p "$OUT/v3"
+SETS=("LITE 2023-11-03 - LITE_3y" "LITE 2016-01-04 2023-11-02 LITE_oos" "COHR 2023-11-03 - COHR_3y" "AAOI 2023-11-03 - AAOI_3y" "CIEN 2023-11-03 - CIEN_3y" "NVDA 2023-11-03 - NVDA_3y")
+V3SPECS="V3|sma_band|8,45,1.0|V3 · SMA 8/45, 1% band;10/45 2%|sma_band|10,45,2.0|SMA 10/45, 2% band;15/50|sma_cross|15,50|SMA 15/50 cross;Supertrend|supertrend|10,3.0|Supertrend 10/3;Donchian|donchian|20,15|Donchian 20/15"
+for k in "${SETS[@]}"; do
+  set -- $k
+  $PY backtest_v3.py search "$DAILY" "$1" "$2" "$3" "$OUT/v3/search_$4.json" > "$OUT/v3/search_$4.txt"
+  $PY backtest_v3.py report "$DAILY" "$1" "$2" "$3" "$OUT/v3/rep_$4.json" "$V3SPECS" > "$OUT/v3/rep_$4.txt"
+done
+$PY v3_meta.py "$DAILY" "$OUT/v3" > "$OUT/v3/meta.json"
+REPORT_META="$(cat "$OUT/v3/meta.json")" $PY build_report.py report_template.html LITE_backtest_report_V3.html \
+  "$OUT/v3/rep_LITE_3y.json" "LITE · 3 years" "3 years" \
+  "$OUT/v3/rep_LITE_oos.json" "LITE · 2016–2023 (check)" "8 years (2016–2023)" \
+  "$OUT/v3/rep_COHR_3y.json" "COHR · 3 years" "3 years" \
+  "$OUT/v3/rep_AAOI_3y.json" "AAOI · 3 years" "3 years" \
+  "$OUT/v3/rep_CIEN_3y.json" "CIEN · 3 years" "3 years" \
+  "$OUT/v3/rep_NVDA_3y.json" "NVDA · 3 years" "3 years"
+echo "done · text summaries (every trade) in $OUT/*.txt and $OUT/v3/*.txt"

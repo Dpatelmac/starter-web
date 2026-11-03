@@ -8,9 +8,10 @@ Offline, self-contained HTML reports (open in any browser, no internet needed):
 | `LITE_backtest_report_6M.html` | V1, past 6 months, 1D/4H/2H/1H |
 | `LITE_backtest_report_4Y.html` | V1 Dollar vs Percent mode, 4 years daily + Dec 2023 → now intraday |
 | `LITE_backtest_report_V2.html` | **V2** (trend filter, 3% / 5% tight trail) vs V1, 1D 4 years + 4H/2H/1H since Dec 2023 |
+| `LITE_backtest_report_V3.html` | **V3** daily trend strategies (SMA 8/45 + 1% band and 4 others) on LITE 3 years, LITE 2016–2023, COHR, AAOI, CIEN, NVDA |
 
-Pine scripts: `../pinescript/lite_dip_rebound_two_stage_trail.pine` (V1) and
-`../pinescript/lite_dip_rebound_two_stage_trail_v2.pine` (V2).
+Pine scripts: `../pinescript/lite_dip_rebound_two_stage_trail.pine` (V1),
+`../pinescript/lite_dip_rebound_two_stage_trail_v2.pine` (V2) and `../pinescript/lite_daily_trend_v3.pine` (V3).
 
 ## Regenerating
 
@@ -35,6 +36,10 @@ python3 backtest/backtest.py backtest/data/2026-11-03/4y 2022-11-03 out.json '1D
 
 # V2: <data_dir> <start> <out.json> "key|bar|mode|trend 0/1|tight override|name;..."
 python3 backtest/backtest_v2.py backtest/data/2026-11-03/v2 2023-12-06 out.json "V1 %|4H|%|0||V1 · Percent;3%|4H|%|0|3|V2 · 3% trail"
+
+# V3: search every trend family, or report chosen specs "key|family|p1,p2,..|name;..."
+python3 backtest/backtest_v3.py search backtest/data/2026-11-03-daily LITE 2023-11-03 - search.json
+python3 backtest/backtest_v3.py report backtest/data/2026-11-03-daily LITE 2023-11-03 - rep.json "V3|sma_band|8,45,1.0|V3 · SMA 8/45, 1% band"
 
 # Report: <template> <out.html> then one or more "<results.json> <window label> <period text>"
 REPORT_META='{"title":"My report","baseline":"V1 %"}' \

@@ -31,14 +31,18 @@ Start here:
 | `docs/flowchart.jpg`, `docs/flowchart.md` | The original flowchart and a text version |
 | `pinescript/lite_dip_rebound_two_stage_trail.pine` | V1: flowchart strategy + "Amounts in" Dollar (default) / Percent toggle |
 | `pinescript/lite_dip_rebound_two_stage_trail_v2.pine` | V2: Percent default, 3% tight trail, optional 200-day trend filter (off) |
+| `pinescript/lite_daily_trend_v3.pine` | V3: daily trend strategy, SMA 8/45 with a 1% hysteresis band (beats buy & hold on LITE 3 years) |
 | `backtest/backtest.py` | Python replica of V1 with TradingView-style fills |
+| `backtest/backtest_v3.py` | V3 engine: `search` (412 settings, 11 trend families) and `report` modes; TradingView-equivalent indicators |
+| `backtest/v3_meta.py` | Builds the V3 report's summary tables (family scores, SMA heat-table, test-set checks, start dates) |
+| `backtest/data/2026-11-03-daily/` | Daily data 2014 → 3 Nov 2026 for LITE, COHR, AAOI, CIEN, NVDA (V3) |
 | `backtest/backtest_v2.py` | Same engine plus V2 options (trend filter, tight-trail override) |
 | `backtest/build_report.py` + `report_template.html` | Builds the self-contained, offline HTML reports |
-| `backtest/rebuild_all.sh` | One command: all backtests + all four reports (byte-identical to the committed ones) |
+| `backtest/rebuild_all.sh` | One command: all backtests + all five reports (byte-identical to the committed ones) |
 | `backtest/fetch_data.sh` | Downloads a fresh Yahoo snapshot (never overwrites an existing one) |
 | `backtest/data/2026-11-03/` | The exact data the committed results came from (1m, 6m, 4y, v2 sets) |
 | `backtest/tools/check_report.js` | Playwright smoke test of every report (errors, overflow, screenshots) |
-| `backtest/LITE_backtest_report*.html` | 1-month, 6-month, 4-year and V2 reports |
+| `backtest/LITE_backtest_report*.html` | 1-month, 6-month, 4-year, V2 and V3 reports |
 
 ## How the simulator matches the Pine strategy (keep these in sync)
 
@@ -54,6 +58,10 @@ Start here:
 - V2 trend filter: average of the **previous 200 completed daily closes** (Pine builds it in an array from
   `close[1]` on each new day, with no `request.security` and no lookahead; Python uses official daily closes).
   Below the average, the strategy stays in state 1 and buys on the first bar that qualifies.
+- V3 (trend strategies): the position is a pure function of close-based indicators; orders go out at the close and
+  fill at the next open (`strategy.entry` / `strategy.close`, no stops). Indicators match TradingView: `ta.sma`,
+  `ta.ema`/`ta.rma` seeded with an SMA, `ta.atr` = RMA of true range, an exact port of `ta.supertrend`,
+  `ta.highest(...)[1]` for breakouts.
 - Results are simulations, not TradingView's Strategy Tester; expect small differences. Pine has never been
   compiled in this environment, so the owner compiles it in TradingView.
 
@@ -73,6 +81,9 @@ Start here:
   On 2H, a 5% trail was best ($63.1k).
 - The 200-day trend filter **lowered** returns in almost every test on LITE.
 - In falling periods (last month, last 6 months) the strategy lost less than holding.
+- **V3 (1D, SMA 8/45 + 1% band) beats buy & hold on LITE over 3 years**: $213k vs $165k, drawdown 40% vs 56%,
+  from all 26 monthly start dates; but it lost to buy & hold on LITE 2016–2023 (choppy) and NVDA (steady riser).
+  Only 5 trades, and one trade (May 2025 → Jun 2026) made almost all of the profit.
 - Treat the "best" settings as likely over-fitted to one exceptional stock.
 
 ## Report template conventions
@@ -87,7 +98,9 @@ Start here:
 
 ## Working conventions
 
-- Use a dated folder under `backtest/data/` for new data; never overwrite the 2026-11-03 snapshot.
+- Use a dated folder under `backtest/data/` for new data; never overwrite the 2026-11-03 snapshots.
+- When searching settings, report how many were tried and always check the winner on data it wasn't picked on
+  (another period, other stocks, other start dates). The owner wants honest results, not just the best number.
 - Name new strategy versions `..._v3.pine` etc. with matching `backtest_v3.py` / `LITE_backtest_report_V3.html`,
   and keep older versions unchanged so results stay comparable.
 - Not investment advice; say so in reports.

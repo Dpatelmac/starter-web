@@ -121,7 +121,7 @@ tr.sel td { background: var(--surface-2); font-weight: 600; }
   <header>
     <div>
       <h1 id="pageTitle">LITE · Dip-Rebound Two-Stage Trailing Stop</h1>
-      <p class="sub">How the strategy would have done with <b>$10,000</b> on Lumentum (NASDAQ: LITE) over the past <span id="periodTxt"></span>, tested as <span id="tfCount"></span> and compared with simply buying and holding.</p>
+      <p class="sub">How the strategy would have done with <b>$10,000</b> on <span id="subjTxt">Lumentum (NASDAQ: LITE)</span> over the past <span id="periodTxt"></span>, tested as <span id="tfCount"></span> and compared with simply buying and holding.</p>
       <div id="pills"></div>
       <div class="seg" id="winSeg" role="group" aria-label="Choose backtest window" style="margin-top:12px"></div>
     </div>
@@ -163,7 +163,7 @@ tr.sel td { background: var(--surface-2); font-weight: 600; }
     </div>
     <div class="tiles" id="tiles"></div>
 
-    <h3 style="margin-top:18px">LITE price with entries, exits and stop levels<span class="muted" id="pxScale" style="font-weight:400"></span></h3>
+    <h3 style="margin-top:18px"><span id="pxTitle">LITE price with entries, exits and stop levels</span><span class="muted" id="pxScale" style="font-weight:400"></span></h3>
     <div class="legend" id="pxLegend"></div>
     <div class="chart" id="pxChart"></div>
 
@@ -178,6 +178,8 @@ tr.sel td { background: var(--surface-2); font-weight: 600; }
     <div class="card-head"><div><h2 id="h-cmp">All scenarios side by side</h2><div class="small muted">Click a row to open its detail above</div></div></div>
     <div class="tbl-wrap"><table id="cmpTbl"></table></div>
   </section>
+
+  <div id="extraTables"></div>
 
   <section class="card notes" aria-labelledby="h-notes">
     <h2 id="h-notes">How this was tested</h2>
@@ -230,6 +232,7 @@ function xMinFor(T) {
 function sliceT(T, i0) {
   const o = { ...T, i0 };
   for (const k of ["xo", "xc", "t", "o", "h", "l", "c", "eq", "bh", "st", "dip", "reb", "stop", "buy", "tgt", "sma"]) if (T[k]) o[k] = T[k].slice(i0);
+  if (T.lines) o.lines = T.lines.map(ln => ({ ...ln, values: ln.values.slice(i0) }));
   return o;
 }
 
@@ -358,6 +361,7 @@ function renderHeader() {
   });
   const NUM = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight"];
   document.getElementById("periodTxt").textContent = D.period;
+  document.getElementById("subjTxt").textContent = D.subject || "Lumentum (NASDAQ: LITE)";
   const bars = [...new Set(D.tfs.map(t => t.bar))];
   document.getElementById("tfCount").textContent = D.tfs[0].name
     ? (NUM[D.tfs.length] || String(D.tfs.length)) + " strategy versions on " + bars.join(", ") + " bars"
@@ -525,6 +529,7 @@ function tile(parent, k, v, n, vcls) {
 }
 function renderTiles() {
   const T = byTf[selTf], s = T.stats, host = document.getElementById("tiles"); host.replaceChildren();
+  document.getElementById("pxTitle").textContent = `${D.symbol || "LITE"} price with ${T.kind === "trend" ? "entries, exits and the strategy's lines" : "entries, exits and stop levels"}`;
   document.getElementById("detailSub").textContent = `${nameOf(selTf)} · ${T.bar} bars · ${T.t.length} bars · ${s.first} → ${D.fetched}`;
   const openTr = T.trades.find(x => x.open);
   tile(host, "Value today", money(s.final_eq, 2), `started at $10,000`);
@@ -540,9 +545,12 @@ function renderTiles() {
   tile(host, "Avg winning trade", s.avg_win == null ? "—" : sMoney(s.avg_win, 2), "");
   tile(host, "Avg losing trade", s.avg_loss == null ? "—" : sMoney(s.avg_loss, 2), "");
   tile(host, "Avg trade", s.avg == null ? "—" : sMoney(s.avg, 2), "closed trades");
-  tile(host, "Open position", openTr ? `${openTr.q} shares` : "Flat", openTr ? `bought @ ${money(openTr.ep, 2)} · ${openTr.why}` : "waiting for the next dip");
+  tile(host, "Open position", openTr ? `${openTr.q} shares` : "Flat", openTr ? `bought @ ${money(openTr.ep, 2)} · ${openTr.why}` : (T.kind === "trend" ? "in cash, waiting for the trend to turn up" : "waiting for the next dip"));
 }
+const LINE_SLOTS = ["--s1", "--s2", "--s3", "--s4"];
 function pxSeries(T) {
+  if (T.lines) return [{ key: "price", name: `${D.symbol || "LITE"} close`, color: "--ink-2" }]
+    .concat(T.lines.map((ln, i) => ({ key: "ln" + i, name: ln.name, color: LINE_SLOTS[i % LINE_SLOTS.length] })));
   return [
     { key: "price", name: "LITE close", color: "--ink-2" },
     { key: "dip", name: `Dip trigger (high − ${amt(T, "dip")})`, color: "--s4", dash: true },
@@ -582,9 +590,11 @@ function renderPx() {
   const xmin = xMinFor(FT); let i0 = FT.xc.findIndex(x => x > xmin); if (i0 < 0) i0 = 0;
   const T = sliceT(FT, i0), trades = FT.trades.filter(tr => tr.ie >= i0 || (tr.ix != null && tr.ix >= i0));
   const L = pxLevels(T), xs = T.xc, xmax = xs[xs.length - 1];
+  const LN = (T.lines || []).map((ln, i) => ({ key: "ln" + i, name: ln.name, color: LINE_SLOTS[i % LINE_SLOTS.length], values: ln.values }));
   const vals = [...T.l, ...T.h];
   const floorV = Math.min(...T.l) * 0.75;   // levels far below the price are clipped instead of squashing the axis
   for (const k of ["dip", "reb", "wide", "tight", "tgt", "sma"]) if (!hiddenPx.has(k)) for (const v of L[k]) if (v != null && v >= floorV) vals.push(v);
+  for (const ln of LN) if (!hiddenPx.has(ln.key)) for (const v of ln.values) if (v != null && v >= floorV) vals.push(v);
   let lo = Infinity, hi = -Infinity; for (const v of vals) { if (v < lo) lo = v; if (v > hi) hi = v; }
   const pxLog = hi / lo > 4;
   if (pxLog) { lo /= 1.06; hi *= 1.06; } else { const pad = (hi - lo) * 0.05; lo -= pad; hi += pad; }
@@ -607,6 +617,7 @@ function renderPx() {
   const lvl = (k, arr, color, dash) => { if (hiddenPx.has(k)) return; svgEl("path", { d: stepPath(xs, arr, sx, sy), style: `fill:none;stroke:var(${color});stroke-width:2;${dash ? "stroke-dasharray:5 4;" : ""}stroke-linejoin:round` }, pl); };
   lvl("dip", L.dip, "--s4", true); lvl("reb", L.reb, "--s3", true); lvl("tgt", L.tgt, "--s1", true);
   lvl("wide", L.wide, "--s2", false); lvl("tight", L.tight, "--s7", false);
+  for (const ln of LN) if (!hiddenPx.has(ln.key)) svgEl("path", { d: pathFrom(xs, ln.values, sx, sy), style: `fill:none;stroke:var(${ln.color});stroke-width:2;stroke-linejoin:round` }, pl);
   if (!hiddenPx.has("sma")) svgEl("path", { d: pathFrom(xs, L.sma, sx, sy), style: "fill:none;stroke:var(--s5);stroke-width:2;stroke-linejoin:round" }, pl);
   if (!hiddenPx.has("price")) {
     if (T.t.length <= 60) {          // few bars: draw high-low range ticks so intrabar moves are visible
@@ -635,7 +646,7 @@ function renderPx() {
   const ch = svgEl("line", { y1: padT, y2: H - padB, style: "stroke:var(--ink-3);stroke-width:1;display:none" }, svg);
   const dot = svgEl("circle", { r: 3.5, style: "fill:var(--ink-2);stroke:var(--surface);stroke-width:2;display:none" }, svg);
   const hit = svgEl("rect", { x: padL, y: padT, width: W - padL - padR, height: H - padT - padB, fill: "transparent", style: "cursor:crosshair" }, svg);
-  const STATE = ["Flat · tracking the high", "Dip found · tracking the low", `Long · wide ${amt(FT, "wide")} trail`, `Long · tight ${amt(FT, "tight")} trail`];
+  const STATE = FT.kind === "trend" ? ["Flat · waiting for the trend", "", "Long · trend up", ""] : ["Flat · tracking the high", "Dip found · tracking the low", `Long · wide ${amt(FT, "wide")} trail`, `Long · tight ${amt(FT, "tight")} trail`];
   hit.addEventListener("pointermove", e => {
     const r = svg.getBoundingClientRect(), px = (e.clientX - r.left) * (W / r.width);
     const xv = (px - padL) / (W - padL - padR) * xmax;
@@ -653,6 +664,7 @@ function renderPx() {
     if (L.wide[i] != null) rows.push({ name: "Wide stop", value: money(L.wide[i], 2), color: "--s2" });
     if (L.tight[i] != null) rows.push({ name: "Tight stop", value: money(L.tight[i], 2), color: "--s7" });
     if (L.tgt[i] != null) rows.push({ name: "Profit target", value: money(L.tgt[i], 2), color: "--s1", dash: true });
+    for (const ln of LN) if (ln.values[i] != null) rows.push({ name: ln.name, value: money(ln.values[i], 2), color: ln.color });
     if (L.sma[i] != null) rows.push({ name: "Long-term average", value: money(L.sma[i], 2) + (T.c[i] > L.sma[i] ? " · above" : " · below"), color: "--s5" });
     rows.push({ name: "Account value", value: money(T.eq[i], 2), cls: cls(T.eq[i] - 10000) });
     const ia = i + i0;
@@ -741,6 +753,7 @@ function renderMatrix() {
   const keys = WINDOWS[0].tfs.map(t => t.tf);
   if (WINDOWS.length < 2 || !WINDOWS.every(w => w.tfs.length === keys.length && w.tfs.every((t, i) => t.tf === keys[i]))) { card.style.display = "none"; return; }
   card.style.display = "";
+  if (META.matrixTitle) document.getElementById("h-mx").textContent = META.matrixTitle;
   const tbl = document.getElementById("mxTbl"); tbl.replaceChildren();
   const hr = hEl("tr", null, null, hEl("thead", null, null, tbl));
   hEl("th", null, "Version", hr); WINDOWS.forEach((w, i) => { const th = hEl("th", null, w.label, hr); if (i === winIdx) th.style.color = "var(--ink)"; });
@@ -763,7 +776,22 @@ function renderMatrix() {
   const r = hEl("tr", null, null, tb); hEl("td", null, BH_LABEL, r);
   WINDOWS.forEach(w => { const s = w.tfs[w.tfs.length - 1].stats; hEl("td", cls(s.bh_final - 10000), money(s.bh_final) + " (" + sPct(s.bh_pct, 0) + ")", r); });
 }
-function renderAll() { renderHeader(); renderMatrix(); renderRange(); renderHero(); renderEnd(); renderEqLegend(); renderEq(); renderSeg(); renderTiles(); renderPxLegend(); renderPx(); renderDd(); renderTrades(); renderCmp(); }
+function renderExtraTables() {                 // META.tables: [{title, sub, head: [...], rows: [[...]], hl: [rowIndex,...]}]
+  const host = document.getElementById("extraTables"); host.replaceChildren();
+  for (const tb of META.tables || []) {
+    const card = hEl("section", "card", null, host);
+    const head = hEl("div", "card-head", null, card), hd = hEl("div", null, null, head);
+    hEl("h2", null, tb.title, hd); if (tb.sub) hEl("div", "small muted", tb.sub, hd);
+    const tbl = hEl("table", null, null, hEl("div", "tbl-wrap", null, card));
+    const hr = hEl("tr", null, null, hEl("thead", null, null, tbl)); tb.head.forEach(x => hEl("th", null, x, hr));
+    const body = hEl("tbody", null, null, tbl);
+    tb.rows.forEach((row, ri) => {
+      const r = hEl("tr", (tb.hl || []).includes(ri) ? "sel" : null, null, body);
+      row.forEach(cell => { const s = String(cell); hEl("td", s.startsWith("✓") ? "pos" : s.startsWith("✕") ? "neg" : null, s, r); });
+    });
+  }
+}
+function renderAll() { renderHeader(); renderMatrix(); renderExtraTables(); renderRange(); renderHero(); renderEnd(); renderEqLegend(); renderEq(); renderSeg(); renderTiles(); renderPxLegend(); renderPx(); renderDd(); renderTrades(); renderCmp(); }
 
 // theme toggle (remembered per browser when storage is available)
 (function theme() {

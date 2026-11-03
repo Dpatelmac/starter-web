@@ -26,10 +26,22 @@ What was asked and what was done, in order. Numbers are in `LITE_strategy_findin
    in Oct 2026. Sources are listed in the findings doc.
 9. **Storage.** Everything is on the `LITE-research` branch (kept separate from `master`, not merged). The data snapshot,
    rebuild and fetch scripts, report checker, this log and `CLAUDE.md` were added so a new session can continue.
+10. **V3: find a 1D strategy that beats buy & hold on LITE over 3 years.** Built `backtest/backtest_v3.py`
+    (indicators ported from TradingView's built-ins) and searched 412 settings in 11 trend families on LITE 3 Nov
+    2023 → 3 Nov 2026, then checked them on LITE 2016–2023 and on COHR, AAOI, CIEN and NVDA (data:
+    `backtest/data/2026-11-03-daily/`). Pick: **SMA 8/45 with a 1% band**, $213k vs buy & hold $165k, drawdown
+    40% vs 56%, beat buy & hold from all 26 monthly start dates, and beat it in 4 of 6 test sets (lost on
+    LITE 2016–2023 and NVDA). New files: `pinescript/lite_daily_trend_v3.pine`, `backtest/v3_meta.py`,
+    `backtest/LITE_backtest_report_V3.html`. The template gained generic indicator lines and summary tables.
+11. **Private repository (pending).** `starter-web` is a fork of the public `scm-ninja/starter-web`, so GitHub
+    won't let it be made private. Plan: the owner creates an empty private repository `Dpatelmac/Pine-Research`
+    (this session can't create repositories); then push the `LITE-research` branch there as its main branch.
 
 ## Open ideas, not done yet
 
 - Test V2 (Percent, 3%/5% trail) on 2–3 other stocks to check whether the improvement is real or over-fitted.
+- V3: a regime switch (use V3 only when volatility or trend strength is high, otherwise hold) to fix its losses
+  on choppy LITE 2016–2023 and on steady risers like NVDA; walk-forward re-optimisation instead of one fixed setting.
 - A trend filter used as an *exit* (sell or tighten when price closes below the 200-day average) instead of an entry filter.
 - A hybrid: hold the stock most of the time and step aside only on large drops.
 - Compare the Python numbers against TradingView's Strategy Tester for one chart once the Pine scripts are compiled.
