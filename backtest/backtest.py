@@ -15,7 +15,18 @@ OUT = sys.argv[3]
 TFS = sys.argv[4].split(",")
 CAP0 = 10000.0
 COMM = 0.001
-DIP, REB, WIDE, TGT, TIGHT = 60.0, 0.5, 95.0, 60.0, 10.0
+REB = 0.5                                  # rebound off the low, % (same in both modes)
+MODES = {                                  # Pine input "Amounts in": Dollar (flowchart) or Percent
+    "$": dict(dip=60.0, wide=95.0, tgt=60.0, tight=10.0, pct=False),
+    "%": dict(dip=6.0, wide=9.5, tgt=6.0, tight=1.0, pct=True),
+}
+P = MODES["$"]
+
+
+def dip_level(hi):  return hi * (1 - P["dip"] / 100) if P["pct"] else hi - P["dip"]
+def tgt_level(bp):  return bp * (1 + P["tgt"] / 100) if P["pct"] else bp + P["tgt"]
+def wide_stop(hi):  return hi * (1 - P["wide"] / 100) if P["pct"] else hi - P["wide"]
+def tight_stop(hi): return hi * (1 - P["tight"] / 100) if P["pct"] else hi - P["tight"]
 
 
 def load(iv):
@@ -72,7 +83,7 @@ def run(bars):
             pnl = (px - entry["px"]) * qty - entry["fee"] - fee
             trades.append(dict(entry_t=entry["t"], entry_px=entry["px"], exit_t=b["t"], exit_px=px, qty=qty,
                                pnl=pnl, pct=pnl / (entry["px"] * qty) * 100,
-                               reason="$10 trail (after target)" if state == 3 else "$95 trail",
+                               reason="tight trail (after target)" if state == 3 else "wide trail",
                                runup=(entry["hi"] - entry["px"]) * qty, dd=(entry["lo"] - entry["px"]) * qty))
             qty, entry, just_sold = 0, None, True
         elif qty:
@@ -88,37 +99,38 @@ def run(bars):
         # ---- script at bar close ----
         if just_sold:
             state, tH, tL, buy, trH, stop = 0, b["c"], None, None, None, None
-            levels.append([0, r2(tH), None, None, None, None])
+            levels.append([0, r2(tH), None, None, None, None, r2(dip_level(tH))])
             continue
         if state == 0:
             tH = b["h"] if tH is None else max(tH, b["h"])
-            if b["l"] <= tH - DIP:
+            if b["l"] <= dip_level(tH):
                 state, tL = 1, b["l"]
         elif state == 1:
             tL = min(tL, b["l"])
         if state == 1 and b["c"] >= tL * (1 + REB / 100):
             pend_entry_qty = math.floor(cash / b["c"])
-            state, buy, trH, stop = 2, None, b["c"], b["c"] - WIDE
+            state, buy, trH, stop = 2, None, b["c"], wide_stop(b["c"])
         elif state in (2, 3) and qty:
             first = buy is None
             if first:
                 buy = entry["px"]
-            if state == 2 and b["h"] >= buy + TGT:
+            if state == 2 and b["h"] >= tgt_level(buy):
                 state, trH = 3, b["h"]
             else:
                 trH = b["h"] if first else max(trH, b["h"])
-            stop = trH - (TIGHT if state == 3 else WIDE)
+            stop = tight_stop(trH) if state == 3 else wide_stop(trH)
         if state in (2, 3):
             pend_stop = stop
         levels.append([state, r2(tH) if state == 0 else None, r2(tL) if state == 1 else None,
                        r2(stop) if state in (2, 3) else None, r2(buy) if state in (2, 3) else None,
-                       r2(buy + TGT) if state == 2 and buy is not None else None])
+                       r2(tgt_level(buy)) if state == 2 and buy is not None else None,
+                       r2(dip_level(tH)) if state == 0 and tH is not None else None])
     last = bars[-1]
     open_pnl = None
     if qty:
         open_pnl = dict(entry_t=entry["t"], entry_px=entry["px"], qty=qty, mark=last["c"],
                         pnl=(last["c"] - entry["px"]) * qty - entry["fee"], stop=stop,
-                        phase="$10 trail" if state == 3 else "$95 trail")
+                        phase="tight trail" if state == 3 else "wide trail")
     final_eq = cash + qty * last["c"]
     bh_qty = math.floor(CAP0 / bars[0]["o"])
     bh = bh_qty * (last["c"] - bars[0]["o"]) - bh_qty * bars[0]["o"] * COMM
@@ -159,7 +171,13 @@ if __name__ == "__main__":
         if tf.endswith("H") and tf != "1H":
             return to_nh(load("1h"), int(tf[:-1]))
         return load(tf.lower() if tf == "1H" else tf)
-    out = [report(k, run(bars_for(k))) for k in TFS]
+    out = []
+    for spec in TFS:                       # "1D" (dollar) or "1D:%" (percent)
+        tf, mode = (spec.split(":") + ["$"])[:2]
+        P = MODES[mode]
+        r = report(f"{tf} {mode}" if ":" in spec else tf, run(bars_for(tf)))
+        r["bar"], r["mode"], r["params"] = tf, mode, dict(P, reb=REB)
+        out.append(r)
     json.dump(out, open(OUT, "w"), default=str, separators=(",", ":"))
     for r in out:
         print(f"{r['tf']:>4} bars={r['bars']:5d} net={r['net']:9.2f} ({r['net_pct']:6.2f}%) trades={r['closed_trades']} "

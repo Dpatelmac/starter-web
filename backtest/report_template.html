@@ -121,8 +121,9 @@ tr.sel td { background: var(--surface-2); font-weight: 600; }
   <header>
     <div>
       <h1>LITE · Dip-Rebound Two-Stage Trailing Stop</h1>
-      <p class="sub">How the strategy would have done with <b>$10,000</b> on Lumentum (NASDAQ: LITE) over the past <span id="periodTxt"></span>, tested on <span id="tfCount"></span> chart timeframes and compared with simply buying and holding.</p>
+      <p class="sub">How the strategy would have done with <b>$10,000</b> on Lumentum (NASDAQ: LITE) over the past <span id="periodTxt"></span>, tested as <span id="tfCount"></span> and compared with simply buying and holding.</p>
       <div id="pills"></div>
+      <div class="seg" id="winSeg" role="group" aria-label="Choose backtest window" style="margin-top:12px"></div>
     </div>
     <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle light or dark theme">◐ Theme</button>
   </header>
@@ -144,7 +145,7 @@ tr.sel td { background: var(--surface-2); font-weight: 600; }
 
   <section class="card" aria-labelledby="h-eq">
     <div class="card-head">
-      <div><h2 id="h-eq">Value of $10,000 over time</h2><div class="small muted">Account value at each bar close · nights and weekends collapsed · click a key to hide or show a line</div></div>
+      <div><h2 id="h-eq">Value of $10,000 over time</h2><div class="small muted">Account value at each bar close · nights and weekends collapsed · click a key to hide or show a line<span id="eqScale"></span></div></div>
     </div>
     <div class="legend" id="eqLegend"></div>
     <div class="chart" id="eqChart"></div>
@@ -157,7 +158,7 @@ tr.sel td { background: var(--surface-2); font-weight: 600; }
     </div>
     <div class="tiles" id="tiles"></div>
 
-    <h3 style="margin-top:18px">LITE price with entries, exits and stop levels</h3>
+    <h3 style="margin-top:18px">LITE price with entries, exits and stop levels<span class="muted" id="pxScale" style="font-weight:400"></span></h3>
     <div class="legend" id="pxLegend"></div>
     <div class="chart" id="pxChart"></div>
 
@@ -176,7 +177,7 @@ tr.sel td { background: var(--surface-2); font-weight: 600; }
   <section class="card notes" aria-labelledby="h-notes">
     <h2 id="h-notes">How this was tested</h2>
     <ul>
-      <li><b>Strategy rules:</b> track the highest price → when price falls $60 below it, track the lowest price → buy when price rebounds 0.5% off that low → $95 trailing stop → once price reaches buy + $60, swap to a $10 trailing stop → after any sale, start again with a fresh high. Long and flat only.</li>
+      <li><b>Strategy rules:</b> track the highest price → when price falls a set amount below it (the dip), track the lowest price → buy when price rebounds 0.5% off that low → wide trailing stop → once price reaches the profit target, swap to a tight trailing stop → after any sale, start again with a fresh high. Long and flat only. <b>Dollar mode</b> (the flowchart): $60 dip, $95 wide trail, +$60 target, $10 tight trail. <b>Percent mode</b>: 6% dip, 9.5% wide trail, +6% target, 1% tight trail, so the distances scale with the share price.</li>
       <li><b>Money:</b> $10,000 starting capital, 100% of account value per trade in whole shares, 0.1% commission each side, no slippage. Buy &amp; hold buys whole shares at the first bar's open and pays the same 0.1% commission.</li>
       <li><b>Order fills, matching TradingView's backtester:</b> signals are checked at each bar close, buys fill at the next bar's open, and stops fill at the stop price, or at the open if price gaps through it. Trailing stops move once per bar, never inside a bar.</li>
       <li><b>Data:</b> Yahoo Finance, regular trading hours only. The 4H bars are built from 1H bars on TradingView's session split (09:30–13:30, 13:30–16:00). Today's bar is unfinished: the data was fetched at <span id="fetchT"></span>.</li>
@@ -187,15 +188,29 @@ tr.sel td { background: var(--surface-2); font-weight: 600; }
 
 <script>
 "use strict";
-const D = /*__DATA__*/null;
+const WINDOWS = /*__DATA__*/null;
 const NS = "http://www.w3.org/2000/svg";
-const TF_COLOR = Object.fromEntries(D.tfs.map((t, i) => [t.tf, "--s" + (i + 1)]));   // fixed slot order, never cycled
-const BH_TF = D.tfs[D.tfs.length - 1].tf;                                            // finest timeframe carries the buy & hold curve
 const BH_LABEL = "Buy & hold";
-const byTf = Object.fromEntries(D.tfs.map(t => [t.tf, t]));
-let selTf = D.tfs[0].tf;
+let D, TF_COLOR, BH_TF, byTf, selTf, RANGES, BOTH_MODES, winIdx = 0;
 let rangeDays = 0;                       // 0 = whole window; else last N trading days
-const RANGES = [["All", 0], ["3M", 63], ["1M", 21], ["1W", 5]].filter(r => r[1] === 0 || r[1] < D.days.length);
+const hiddenEq = new Set();
+const hiddenPx = new Set();
+function setWindow(i) {
+  winIdx = i; D = WINDOWS[i];
+  TF_COLOR = Object.fromEntries(D.tfs.map((t, k) => [t.tf, "--s" + (k + 1)]));   // fixed slot order, never cycled
+  BH_TF = D.tfs[D.tfs.length - 1].tf;                                            // finest timeframe carries the buy & hold curve
+  byTf = Object.fromEntries(D.tfs.map(t => [t.tf, t]));
+  BOTH_MODES = new Set(D.tfs.map(t => t.mode)).size > 1;
+  selTf = D.tfs[0].tf; rangeDays = 0; hiddenEq.clear();
+  RANGES = [["All", 0], ["1Y", 252], ["6M", 126], ["3M", 63], ["1M", 21], ["1W", 5]].filter(r => r[1] === 0 || r[1] < D.days.length);
+}
+const MODE_NAME = { "$": "Dollar", "%": "Percent" };
+function nameOf(tf) {                    // "1D · Percent mode" / "1D strategy"
+  const T = byTf[tf];
+  return BOTH_MODES ? `${T.bar} · ${MODE_NAME[T.mode]}` : `${T.bar} strategy`;
+}
+function amt(T, k) { const p = T.params; return p.pct ? p[k] + "%" : "$" + p[k]; }
+setWindow(0);
 function xMinFor(T) {
   if (!rangeDays) return 0;
   const lastDay = Math.floor((T.xc[T.xc.length - 1] - 1e-6) / 390);
@@ -203,11 +218,9 @@ function xMinFor(T) {
 }
 function sliceT(T, i0) {
   const o = { ...T, i0 };
-  for (const k of ["xo", "xc", "t", "o", "h", "l", "c", "eq", "bh", "st", "tH", "tL", "stop", "buy", "tgt"]) o[k] = T[k].slice(i0);
+  for (const k of ["xo", "xc", "t", "o", "h", "l", "c", "eq", "bh", "st", "dip", "reb", "stop", "buy", "tgt"]) o[k] = T[k].slice(i0);
   return o;
 }
-const hiddenEq = new Set();
-const hiddenPx = new Set();
 
 // ---------- helpers ----------
 function svgEl(tag, attrs, parent) {
@@ -228,6 +241,18 @@ const sMoney = (v, d = 0) => (v > 0 ? "+" : v < 0 ? "−" : "") + "$" + Math.abs
 const sPct = (v, d = 1) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(d) + "%";
 const cls = v => v > 0 ? "pos" : v < 0 ? "neg" : "";
 const lin = (d0, d1, r0, r1) => v => r0 + (v - d0) / ((d1 - d0) || 1) * (r1 - r0);
+function yScale(lo, hi, r0, r1, log) {
+  if (!log) return lin(lo, hi, r0, r1);
+  const f = lin(Math.log(lo), Math.log(hi), r0, r1);
+  return v => f(Math.log(Math.max(v, 1e-9)));
+}
+function logTicks(lo, hi) {
+  const out = [];
+  for (let e = Math.floor(Math.log10(lo)); e <= Math.ceil(Math.log10(hi)); e++)
+    for (const m of [1, 2, 5]) { const v = m * Math.pow(10, e); if (v >= lo && v <= hi) out.push(v); }
+  return out.length >= 3 ? out : niceTicks(lo, hi, 4);
+}
+const kFmt = v => v >= 1000 ? "$" + (v / 1000).toLocaleString("en-US", { maximumFractionDigits: v % 1000 ? 1 : 0 }) + "k" : "$" + Math.round(v);
 function niceTicks(lo, hi, n) {
   const span = hi - lo, raw = span / n, mag = Math.pow(10, Math.floor(Math.log10(raw)));
   const step = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => s >= raw) || raw;
@@ -241,9 +266,13 @@ function xLabel(x) {
   const tot = 9 * 60 + 30 + Math.min(390, m);
   const hh = Math.floor(tot / 60), mm = tot % 60;
   const d = new Date(D.days[di] + "T12:00:00");
-  return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }) + " · " + String(hh).padStart(2, "0") + ":" + String(mm).padStart(2, "0") + " ET";
+  return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric", year: "numeric" }) + " · " + String(hh).padStart(2, "0") + ":" + String(mm).padStart(2, "0") + " ET";
 }
-function dayShort(i) { const d = new Date(D.days[i] + "T12:00:00"); return d.toLocaleDateString("en-US", { month: "short", day: "numeric" }); }
+function dayShort(i, span) {
+  const d = new Date(D.days[i] + "T12:00:00");
+  return span > 260 ? d.toLocaleDateString("en-US", { month: "short" }) + " '" + String(d.getFullYear()).slice(2)
+                    : d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+}
 function lastIdxLE(arr, x) { let lo = 0, hi = arr.length - 1, r = -1; while (lo <= hi) { const m = (lo + hi) >> 1; if (arr[m] <= x) { r = m; lo = m + 1; } else hi = m - 1; } return r; }
 function pathFrom(xs, ys, sx, sy) {
   let d = "", pen = false;
@@ -294,7 +323,7 @@ function dayGrid(g, sx, x0, x1, top, bottom, xmax, xmin = 0) {
     if (i * 390 > xmax) break;
     if ((i - d0) % gridEvery === 0) svgEl("line", { x1: X, x2: X, y1: top, y2: bottom, style: "stroke:var(--grid);stroke-width:1" }, g);
     if ((i - d0) % every === 0) {
-      const t = svgEl("text", { x: X + 3, y: bottom + 16 }, g); t.textContent = dayShort(i);
+      const t = svgEl("text", { x: X + 3, y: bottom + 16 }, g); t.textContent = dayShort(i, n - d0);
     }
   }
 }
@@ -307,22 +336,31 @@ function yGrid(g, sy, ticks, x0, x1, fmt) {
 }
 
 // ---------- header ----------
-(function header() {
+function renderHeader() {
   const s = D.tfs[0].stats;
+  const ws = document.getElementById("winSeg"); ws.replaceChildren();
+  if (WINDOWS.length < 2) ws.style.display = "none";
+  else WINDOWS.forEach((w, i) => {
+    const b = hEl("button", null, w.label, ws); b.type = "button";
+    b.setAttribute("aria-pressed", i === winIdx ? "true" : "false");
+    b.addEventListener("click", () => { setWindow(i); renderAll(); });
+  });
   const NUM = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight"];
   document.getElementById("periodTxt").textContent = D.period;
-  document.getElementById("tfCount").textContent = NUM[D.tfs.length] || String(D.tfs.length);
+  const bars = [...new Set(D.tfs.map(t => t.bar))];
+  document.getElementById("tfCount").textContent = (NUM[D.tfs.length] || String(D.tfs.length)) + " scenarios (" + bars.join(", ") +
+    (BOTH_MODES ? " bars, each in Dollar and Percent mode)" : " bars)");
   const tr = D.tfs.map(t => t.stats.closed_trades), bh = byTf[BH_TF].stats;
   document.getElementById("sampleTxt").textContent =
-    `${D.period[0].toUpperCase() + D.period.slice(1)} and ${Math.min(...tr)}–${Math.max(...tr)} closed trades per timeframe is still a small sample; LITE went from ${money(bh.first_px, 2)} to ${money(bh.last_px, 2)} (${sPct((bh.last_px / bh.first_px - 1) * 100)}) over the window.`;
-  const p = document.getElementById("pills");
+    `${D.period[0].toUpperCase() + D.period.slice(1)} and ${Math.min(...tr)}–${Math.max(...tr)} closed trades per scenario; LITE went from ${money(bh.first_px, 2)} to ${money(bh.last_px, 2)} (${sPct((bh.last_px / bh.first_px - 1) * 100)}) over the window.`;
+  const p = document.getElementById("pills"); p.replaceChildren();
   [s.first.slice(0, 10) + " → " + D.fetched, "$10,000 start", "100% of equity per trade", "0.1% commission", "0 slippage", "Long & flat only"].forEach(x => hEl("span", "pill", x, p));
   document.getElementById("fetchT").textContent = D.fetched;
-})();
+}
 
 // ---------- hero + ending value bars ----------
 function scenarios() {
-  const list = D.tfs.map(t => ({ key: t.tf, name: t.tf + " strategy", v: t.stats.final_eq, color: TF_COLOR[t.tf], bh: false }));
+  const list = D.tfs.map(t => ({ key: t.tf, name: nameOf(t.tf), v: t.stats.final_eq, color: TF_COLOR[t.tf], bh: false }));
   list.push({ key: "BH", name: BH_LABEL, v: byTf[BH_TF].stats.bh_final, color: "--neutral", bh: true });
   return list;
 }
@@ -331,13 +369,13 @@ function renderHero() {
   const bh = list.find(s => s.bh);
   document.getElementById("heroNum").textContent = money(best.v);
   const cap = document.getElementById("heroCap"); cap.replaceChildren();
-  cap.appendChild(document.createTextNode(best.key + " timeframe · "));
+  cap.appendChild(document.createTextNode(best.name + " · "));
   hEl("span", "delta " + (best.v >= 10000 ? "up" : "down"), (best.v >= 10000 ? "▲ " : "▼ ") + sMoney(best.v - 10000) + " (" + sPct((best.v / 10000 - 1) * 100) + ")", cap);
   const strat = list.filter(s => !s.bh);
   const worst = strat.reduce((a, b) => a.v < b.v ? a : b);
   document.getElementById("heroCap2").textContent =
-    "Worst timeframe " + worst.key + ": " + money(worst.v) + ". Buy & hold: " + money(bh.v) + " (" + sPct((bh.v / 10000 - 1) * 100) + "). " +
-    strat.filter(s => s.v > 10000).length + " of " + strat.length + " timeframes made money; " +
+    "Worst: " + worst.name + " "  + money(worst.v) + ". Buy & hold: " + money(bh.v) + " (" + sPct((bh.v / 10000 - 1) * 100) + "). " +
+    strat.filter(s => s.v > 10000).length + " of " + strat.length + " scenarios made money; " +
     strat.filter(s => s.v > bh.v).length + " of " + strat.length + " beat buy & hold.";
 }
 function renderEnd() {
@@ -385,7 +423,7 @@ function renderEqLegend() {
     const c = hEl("button", "chip", null, lg); c.type = "button";
     c.setAttribute("aria-pressed", hiddenEq.has(s.key) ? "false" : "true");
     const k = hEl("span", "key" + (s.dash ? " dash" : ""), null, c); k.style.borderTopColor = `var(${s.color})`;
-    c.appendChild(document.createTextNode(s.key === "BH" ? BH_LABEL : s.key + " strategy"));
+    c.appendChild(document.createTextNode(s.key === "BH" ? BH_LABEL : nameOf(s.key)));
     c.addEventListener("click", () => { hiddenEq.has(s.key) ? hiddenEq.delete(s.key) : hiddenEq.add(s.key); renderEqLegend(); renderEq(); });
   }
 }
@@ -396,11 +434,13 @@ function renderEq() {
   const xmax = Math.max(...all.map(s => s.xs[s.xs.length - 1]));
   let lo = 10000, hi = 10000;
   for (const s of vis) for (const v of s.ys) { if (v < lo) lo = v; if (v > hi) hi = v; }
-  const pad = (hi - lo) * 0.06 || 100; lo -= pad; hi += pad;
-  const sx = lin(0, xmax, padL, W - padR), sy = lin(lo, hi, H - padB, padT);
+  const eqLog = hi / lo > 4;
+  if (eqLog) { lo /= 1.08; hi *= 1.08; } else { const pad = (hi - lo) * 0.06 || 100; lo -= pad; hi += pad; }
+  const sx = lin(0, xmax, padL, W - padR), sy = yScale(lo, hi, H - padB, padT, eqLog);
+  document.getElementById("eqScale").textContent = eqLog ? " · log scale (equal % moves look equal)" : "";
   const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, height: H, role: "img", "aria-label": "Value of $10,000 over time for each scenario" }, host);
   const g = svgEl("g", {}, svg);
-  yGrid(g, sy, niceTicks(lo, hi, 5), padL, W - padR, v => "$" + (v / 1000).toFixed(v % 1000 ? 1 : 0) + "k");
+  yGrid(g, sy, eqLog ? logTicks(lo, hi) : niceTicks(lo, hi, 5), padL, W - padR, kFmt);
   dayGrid(g, sx, padL, W - padR, padT, H - padB, xmax);
   svgEl("line", { x1: padL, x2: W - padR, y1: sy(10000), y2: sy(10000), style: "stroke:var(--ink-3);stroke-width:1;stroke-dasharray:4 3" }, g);
   // lines: draw the selected timeframe last so it sits on top
@@ -434,7 +474,7 @@ function renderEq() {
     const rows = [];
     for (const s of vis) {
       const i = lastIdxLE(s.xs, xv); const v = i < 0 ? 10000 : s.ys[i];
-      rows.push({ name: s.key === "BH" ? BH_LABEL : s.key + " strategy", value: money(v), color: s.color, dash: s.dash, v, cls: cls(v - 10000) });
+      rows.push({ name: s.key === "BH" ? BH_LABEL : nameOf(s.key), value: money(v), color: s.color, dash: s.dash, v, cls: cls(v - 10000) });
       svgEl("circle", { cx: sx(xv), cy: sy(v), r: 3.5, style: `fill:var(${s.color});stroke:var(--surface);stroke-width:2` }, dots);
     }
     rows.sort((a, b) => b.v - a.v);
@@ -468,7 +508,7 @@ function tile(parent, k, v, n, vcls) {
 }
 function renderTiles() {
   const T = byTf[selTf], s = T.stats, host = document.getElementById("tiles"); host.replaceChildren();
-  document.getElementById("detailSub").textContent = `${selTf} bars · ${T.t.length} bars · ${s.first} → ${D.fetched}`;
+  document.getElementById("detailSub").textContent = `${nameOf(selTf)} · ${T.bar} bars · ${T.t.length} bars · ${s.first} → ${D.fetched}`;
   const openTr = T.trades.find(x => x.open);
   tile(host, "Value today", money(s.final_eq, 2), `started at $10,000`);
   tile(host, "Net profit / loss", sMoney(s.net, 2), sPct(s.net_pct, 2) + " incl. open trade", cls(s.net));
@@ -485,17 +525,19 @@ function renderTiles() {
   tile(host, "Avg trade", s.avg == null ? "—" : sMoney(s.avg, 2), "closed trades");
   tile(host, "Open position", openTr ? `${openTr.q} shares` : "Flat", openTr ? `bought @ ${money(openTr.ep, 2)} · ${openTr.why}` : "waiting for the next dip");
 }
-const PX_SERIES = [
-  { key: "price", name: "LITE close", color: "--ink-2" },
-  { key: "dip", name: "Dip trigger (high − $60)", color: "--s4", dash: true },
-  { key: "reb", name: "Rebound level (low + 0.5%)", color: "--s3", dash: true },
-  { key: "wide", name: "$95 trailing stop", color: "--s2" },
-  { key: "tight", name: "$10 trailing stop", color: "--s7" },
-  { key: "tgt", name: "Profit target (buy + $60)", color: "--s1", dash: true },
-];
+function pxSeries(T) {
+  return [
+    { key: "price", name: "LITE close", color: "--ink-2" },
+    { key: "dip", name: `Dip trigger (high − ${amt(T, "dip")})`, color: "--s4", dash: true },
+    { key: "reb", name: `Rebound level (low + ${T.params.reb}%)`, color: "--s3", dash: true },
+    { key: "wide", name: `Wide trailing stop (${amt(T, "wide")})`, color: "--s2" },
+    { key: "tight", name: `Tight trailing stop (${amt(T, "tight")})`, color: "--s7" },
+    { key: "tgt", name: `Profit target (buy + ${amt(T, "tgt")})`, color: "--s1", dash: true },
+  ];
+}
 function renderPxLegend() {
   const lg = document.getElementById("pxLegend"); lg.replaceChildren();
-  for (const s of PX_SERIES) {
+  for (const s of pxSeries(byTf[selTf])) {
     const c = hEl("button", "chip", null, lg); c.type = "button";
     c.setAttribute("aria-pressed", hiddenPx.has(s.key) ? "false" : "true");
     const k = hEl("span", "key" + (s.dash ? " dash" : ""), null, c); k.style.borderTopColor = `var(${s.color})`;
@@ -508,8 +550,8 @@ function renderPxLegend() {
 function pxLevels(T) {
   const n = T.c.length, dip = [], reb = [], wide = [], tight = [], tgt = [];
   for (let i = 0; i < n; i++) {
-    dip.push(T.st[i] === 0 && T.tH[i] != null ? +(T.tH[i] - 60).toFixed(2) : null);
-    reb.push(T.st[i] === 1 && T.tL[i] != null ? +(T.tL[i] * 1.005).toFixed(2) : null);
+    dip.push(T.dip[i] != null && T.dip[i] > 0 ? T.dip[i] : null);   // a $ dip larger than the price can never trigger
+    reb.push(T.reb[i]);
     wide.push(T.st[i] === 2 ? T.stop[i] : null);
     tight.push(T.st[i] === 3 ? T.stop[i] : null);
     tgt.push(T.st[i] === 2 ? T.tgt[i] : null);
@@ -523,12 +565,16 @@ function renderPx() {
   const T = sliceT(FT, i0), trades = FT.trades.filter(tr => tr.ie >= i0 || (tr.ix != null && tr.ix >= i0));
   const L = pxLevels(T), xs = T.xc, xmax = xs[xs.length - 1];
   const vals = [...T.l, ...T.h];
-  for (const k of ["dip", "reb", "wide", "tight", "tgt"]) if (!hiddenPx.has(k)) for (const v of L[k]) if (v != null) vals.push(v);
-  let lo = Math.min(...vals), hi = Math.max(...vals); const pad = (hi - lo) * 0.05; lo -= pad; hi += pad;
-  const sx = lin(xmin, xmax, padL, W - padR), sy = lin(lo, hi, H - padB, padT);
+  const floorV = Math.min(...T.l) * 0.75;   // levels far below the price are clipped instead of squashing the axis
+  for (const k of ["dip", "reb", "wide", "tight", "tgt"]) if (!hiddenPx.has(k)) for (const v of L[k]) if (v != null && v >= floorV) vals.push(v);
+  let lo = Infinity, hi = -Infinity; for (const v of vals) { if (v < lo) lo = v; if (v > hi) hi = v; }
+  const pxLog = hi / lo > 4;
+  if (pxLog) { lo /= 1.06; hi *= 1.06; } else { const pad = (hi - lo) * 0.05; lo -= pad; hi += pad; }
+  const sx = lin(xmin, xmax, padL, W - padR), sy = yScale(lo, hi, H - padB, padT, pxLog);
+  document.getElementById("pxScale").textContent = pxLog ? " · log scale" : "";
   const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, height: H, role: "img", "aria-label": `LITE price on ${selTf} bars with trades` }, host);
   const clipId = "pxclip"; const cp = svgEl("clipPath", { id: clipId }, svgEl("defs", {}, svg));
-  svgEl("rect", { x: padL, y: 0, width: W - padL - padR, height: H }, cp);
+  svgEl("rect", { x: padL, y: padT - 14, width: W - padL - padR, height: H - padT - padB + 14 }, cp);
   const g = svgEl("g", {}, svg);
   // shade in-position spans
   for (let i = 0; i < xs.length; i++) {
@@ -537,9 +583,10 @@ function renderPx() {
       svgEl("rect", { x: x0, y: padT, width: Math.max(0.5, x1 - x0), height: H - padT - padB, style: `fill:var(${T.st[i] === 2 ? "--wash-wide" : "--wash-tight"})` }, g);
     }
   }
-  yGrid(g, sy, niceTicks(lo, hi, 5), padL, W - padR, v => "$" + Math.round(v));
+  yGrid(g, sy, pxLog ? logTicks(lo, hi) : niceTicks(lo, hi, 5), padL, W - padR, v => "$" + Math.round(v));
   dayGrid(g, sx, padL, W - padR, padT, H - padB, xmax, xmin);
-  const lvl = (k, arr, color, dash) => { if (hiddenPx.has(k)) return; svgEl("path", { d: stepPath(xs, arr, sx, sy), style: `fill:none;stroke:var(${color});stroke-width:2;${dash ? "stroke-dasharray:5 4;" : ""}stroke-linejoin:round` }, g); };
+  const pl = svgEl("g", { "clip-path": `url(#${clipId})` }, g);
+  const lvl = (k, arr, color, dash) => { if (hiddenPx.has(k)) return; svgEl("path", { d: stepPath(xs, arr, sx, sy), style: `fill:none;stroke:var(${color});stroke-width:2;${dash ? "stroke-dasharray:5 4;" : ""}stroke-linejoin:round` }, pl); };
   lvl("dip", L.dip, "--s4", true); lvl("reb", L.reb, "--s3", true); lvl("tgt", L.tgt, "--s1", true);
   lvl("wide", L.wide, "--s2", false); lvl("tight", L.tight, "--s7", false);
   if (!hiddenPx.has("price")) {
@@ -562,14 +609,14 @@ function renderPx() {
     if (!tr.open && tr.ix >= i0) {
       const X = sx(tr.xx), Y = sy(tr.xp), win = tr.pnl > 0;
       svgEl("path", { d: `M${X},${Y - 1} l-6,-10 h12 z`, style: `fill:var(${win ? "--good" : "--critical"});stroke:var(--surface);stroke-width:1.5` }, mk);
-      if (X - lastLbl >= 46) { const t = svgEl("text", { x: X, y: Y - 15, "text-anchor": "middle", class: "lbl" }, mk); t.textContent = sMoney(tr.pnl); lastLbl = X; }
+      if (X - lastLbl >= 58) { const t = svgEl("text", { x: X, y: Y - 15, "text-anchor": "middle", class: "lbl" }, mk); t.textContent = sMoney(tr.pnl); lastLbl = X; }
     }
   }
   // crosshair + tooltip
   const ch = svgEl("line", { y1: padT, y2: H - padB, style: "stroke:var(--ink-3);stroke-width:1;display:none" }, svg);
   const dot = svgEl("circle", { r: 3.5, style: "fill:var(--ink-2);stroke:var(--surface);stroke-width:2;display:none" }, svg);
   const hit = svgEl("rect", { x: padL, y: padT, width: W - padL - padR, height: H - padT - padB, fill: "transparent", style: "cursor:crosshair" }, svg);
-  const STATE = ["Flat · tracking the high", "Dip found · tracking the low", "Long · $95 trailing stop", "Long · $10 trailing stop"];
+  const STATE = ["Flat · tracking the high", "Dip found · tracking the low", `Long · wide ${amt(FT, "wide")} trail`, `Long · tight ${amt(FT, "tight")} trail`];
   hit.addEventListener("pointermove", e => {
     const r = svg.getBoundingClientRect(), px = (e.clientX - r.left) * (W / r.width);
     const xv = (px - padL) / (W - padL - padR) * xmax;
@@ -584,8 +631,8 @@ function renderPx() {
     ];
     if (L.dip[i] != null) rows.push({ name: "Dip trigger", value: money(L.dip[i], 2), color: "--s4", dash: true });
     if (L.reb[i] != null) rows.push({ name: "Rebound level", value: money(L.reb[i], 2), color: "--s3", dash: true });
-    if (L.wide[i] != null) rows.push({ name: "$95 stop", value: money(L.wide[i], 2), color: "--s2" });
-    if (L.tight[i] != null) rows.push({ name: "$10 stop", value: money(L.tight[i], 2), color: "--s7" });
+    if (L.wide[i] != null) rows.push({ name: "Wide stop", value: money(L.wide[i], 2), color: "--s2" });
+    if (L.tight[i] != null) rows.push({ name: "Tight stop", value: money(L.tight[i], 2), color: "--s7" });
     if (L.tgt[i] != null) rows.push({ name: "Profit target", value: money(L.tgt[i], 2), color: "--s1", dash: true });
     rows.push({ name: "Account value", value: money(T.eq[i], 2), cls: cls(T.eq[i] - 10000) });
     const ia = i + i0;
@@ -648,7 +695,7 @@ function renderCmp() {
   const tb = hEl("tbody", null, null, tbl);
   for (const t of D.tfs) {
     const s = t.stats, r = hEl("tr", t.tf === selTf ? "sel" : null, null, tb); r.style.cursor = "pointer"; r.tabIndex = 0;
-    const c0 = hEl("td", null, null, r); const k = hEl("span", "key box", null, c0); k.style.background = `var(${TF_COLOR[t.tf]})`; k.style.marginRight = "8px"; c0.appendChild(document.createTextNode(t.tf + " strategy"));
+    const c0 = hEl("td", null, null, r); const k = hEl("span", "key box", null, c0); k.style.background = `var(${TF_COLOR[t.tf]})`; k.style.marginRight = "8px"; c0.appendChild(document.createTextNode(nameOf(t.tf)));
     hEl("td", null, money(s.final_eq, 2), r); hEl("td", cls(s.net), sMoney(s.net, 2), r); hEl("td", cls(s.net), sPct(s.net_pct, 2), r);
     hEl("td", cls(s.final_eq - s.bh_final), sMoney(s.final_eq - s.bh_final, 2), r);
     hEl("td", null, String(s.closed_trades), r); hEl("td", null, s.winrate == null ? "—" : s.winrate.toFixed(1) + "%", r);
@@ -664,10 +711,10 @@ function renderCmp() {
   ["—", "—", "—", "—", "—", "—", "—", "—"].forEach(x => hEl("td", null, x, r));
 }
 function selectTf(tf, scroll) {
-  selTf = tf; renderSeg(); renderTiles(); renderPx(); renderDd(); renderTrades(); renderCmp(); renderEq();
+  selTf = tf; renderSeg(); renderTiles(); renderPxLegend(); renderPx(); renderDd(); renderTrades(); renderCmp(); renderEq();
   if (scroll) document.getElementById("h-detail").scrollIntoView({ behavior: "smooth", block: "start" });
 }
-function renderAll() { renderRange(); renderHero(); renderEnd(); renderEqLegend(); renderEq(); renderSeg(); renderTiles(); renderPxLegend(); renderPx(); renderDd(); renderTrades(); renderCmp(); }
+function renderAll() { renderHeader(); renderRange(); renderHero(); renderEnd(); renderEqLegend(); renderEq(); renderSeg(); renderTiles(); renderPxLegend(); renderPx(); renderDd(); renderTrades(); renderCmp(); }
 
 // theme toggle (remembered per browser when storage is available)
 (function theme() {
