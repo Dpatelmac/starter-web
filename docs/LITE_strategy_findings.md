@@ -16,6 +16,10 @@ TradingView's own Strategy Tester and **not investment advice**. Data as of 3 No
 | Report: V1 Dollar vs Percent, 4 years | [`backtest/LITE_backtest_report_4Y.html`](../backtest/LITE_backtest_report_4Y.html) |
 | Report: V2 vs V1, 4 years | [`backtest/LITE_backtest_report_V2.html`](../backtest/LITE_backtest_report_V2.html) |
 | Backtest engines and report builder | [`backtest/`](../backtest/) (see its [README](../backtest/README.md)) |
+| Data snapshot the results came from | [`backtest/data/2026-11-03/`](../backtest/data/2026-11-03/) |
+| One-command rebuild / fresh data download | [`backtest/rebuild_all.sh`](../backtest/rebuild_all.sh) · [`backtest/fetch_data.sh`](../backtest/fetch_data.sh) |
+| Original flowchart | [`docs/flowchart.jpg`](flowchart.jpg) · [`docs/flowchart.md`](flowchart.md) |
+| Project context for new Claude sessions | [`CLAUDE.md`](../CLAUDE.md) · [`docs/session_log.md`](session_log.md) |
 
 The reports are self-contained HTML files: download one and open it in any browser, no internet needed.
 
