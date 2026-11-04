@@ -21,7 +21,7 @@ or push to git and let the user copy it.
 - `research/top4_trailing/`: top 4 of 10 biggest decliners, trailing-stop exits (test 8);
   `live_2wk/` 2-week ledger, `live_3m/` 3-month ledger, `live_1y/` 1-year test of 32
   versions; `backtest_6y/` 6-year pre-registered test of the top 3 (test 9);
-  `backtest_20y/` 20-year test of S1 (test 10, run on the Mac with `run_20y.py`);
+  `backtest_20y/` 20-year test of S1 (test 10, failed; `run_20y.py` reruns it on the Mac);
   each with an interactive `report.html`
 - `research/report/`: `build_report.py` -> offline `trading-research.html`;
   `compare.py` -> like-for-like ranking; `dashboard/` = online artifact page source

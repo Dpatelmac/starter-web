@@ -39,3 +39,28 @@ After running, commit the results so they're saved:
 ```bash
 cd /Users/claud/Documents/1Projects/tradingbot2-repo && cp -R ../tradingbot2/research/top4_trailing/backtest_20y/. research/top4_trailing/backtest_20y/ && git add research/top4_trailing/backtest_20y && git commit -m "Test 10 results: S1 over twenty years" && git push origin pullback_research
 ```
+
+## Result (run 2026-11-04 in the cloud session; prices through 2026-10-30)
+
+**FAIL on all three pre-registered checks** for the never-tested period
+(2005-01-04 to 2020-10-30), $24,000 account, idle cash earning T-bills:
+
+| | Profit | Per year | Sharpe | Worst drawdown |
+|---|---|---|---|---|
+| SPY buy & hold | $65,471 | 8.7% | 0.46 | -55.2% |
+| S1 | $30,603 | 5.3% | 0.30 | **-69.9%** |
+| 2010 - Oct 2020 (robustness): SPY | $64,173 | 12.5% | 0.74 | -33.7% |
+| 2010 - Oct 2020: S1 | $32,237 | 8.6% | 0.63 | -21.7% |
+
+- 2008-09 sank it: S1 lost 46.8% in 2008 (SPY -39.4%). Losses took the
+  account to $9,904 (2009-03-06) while the fixed-$1,000 rule kept opening
+  positions, reaching 2.07x the account's value: implicit margin.
+- In percent per year S1 beat SPY in 5 of 22 years (2005, 2007, 2009, 2018,
+  2022), mostly falling or flat markets; it lagged in most rising years. On
+  average 65% of the account was invested.
+- Full 2005-2026: S1 $71,561 (6.5%/yr, Sharpe 0.35) vs SPY $200,017
+  (10.8%/yr, Sharpe 0.55). Top 10 trades = 22% of profit; 41% winners,
+  average win +18% vs loss -8%.
+- Earnings history: Yahoo had dates for all 503 stocks; no year flagged.
+- The 6-year pass (test 9) does not hold over 20 years. Survivorship bias
+  (removed S&P members missing) still flatters these numbers.

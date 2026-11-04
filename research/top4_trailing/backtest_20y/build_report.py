@@ -46,6 +46,24 @@ def build(o: dict, path: Path) -> Path:
                     f"<td class='{'pos' if s['profit']>0 else 'neg'}'>{usd(s['profit'])}{' ▲' if s['profit']>sp['profit'] else ''}</td>"
                     f"<td class='neg'>{pc(sp['max_dd'],0)}</td><td class='neg'>{pc(s['max_dd'],0)}</td><td>{blk['trades'].get('trades','–')}</td>"
                     f"<td>{(blk['trades'].get('win_rate') or 0)*100:.0f}%</td><td class='muted'>{q.get('share',0)*100:.0f}%</td></tr>")
+    # Fair comparison in % per year, and implied exposure (positions x $1,000 / account value).
+    import pandas as _pd, numpy as _np
+    s1c = _pd.Series({d: v for d, v in o["curves"]["S1"]}); spc = _pd.Series({d: v for d, v in o["curves"]["SPY"]})
+    s1c.index = _pd.to_datetime(s1c.index); spc.index = _pd.to_datetime(spc.index)
+    yr = lambda x: x.resample("YE").last().pct_change().fillna(x.resample("YE").last().iloc[0] / x.iloc[0] - 1)
+    ys1, yspy = yr(s1c), yr(spc)
+    pct_rows = "".join(f"<tr><td class='t'>{d.year}</td><td class='{'pos' if b>0 else 'neg'}'>{pc(b)}</td><td class='{'pos' if a>0 else 'neg'}'>{pc(a)}{' ▲' if a>b else ''}</td></tr>" for d, a, b in zip(ys1.index, ys1.values, yspy.values))
+    wins = int((ys1.values > yspy.values).sum())
+    openc = _np.zeros(len(s1c))
+    for x in o["trades"]:
+        a_ = _pd.Timestamp(x["buy_day"]); b_ = _pd.Timestamp(x["sell_day"]) if x["exit"] != "open" else s1c.index[-1]
+        openc += (s1c.index >= a_) & (s1c.index <= b_)
+    expo = _pd.Series(openc * 1000 / s1c.values, index=s1c.index)
+    howto = f"""<section aria-labelledby="hx"><h2 id="hx">How to read this</h2>
+<div class="cols3"><div class="card small"><h3>Dollars vs percent</h3><p>S1 always trades $1,000 positions, while the SPY account compounds as it grows, so later-year dollar profits favor SPY. Year by year in percent, S1 beat SPY in {wins} of {len(ys1)} years, mostly years when the market fell or went sideways.</p></div>
+<div class="card small"><h3>Hidden borrowing in 2008-09</h3><p>Losses took the account down to {usd(s1c.min())} ({s1c.idxmin().date()}), but the fixed-size rule kept opening $1,000 positions, so open positions reached {expo.max():.2f}x the account's value ({expo.idxmax().date()}). That implicit margin deepened the {pc(T['S1']['max_dd'],0)} drawdown. On average {expo.mean()*100:.0f}% of the account was invested.</p></div>
+<div class="card small"><h3>Earnings data</h3><p>Yahoo had earnings history for all {o['meta']['tickers_with_earnings']} stocks; no year had more than 30% of candidates skipped for missing history, so no year is flagged.</p></div></div>
+<div class="card"><h3>Return by calendar year (percent of start-of-year value)</h3><div class="tw"><table><thead><tr><th class="t">Year</th><th>SPY</th><th>S1</th></tr></thead><tbody>{pct_rows}</tbody></table></div><p class="small muted">▲ S1 beat SPY that year.</p></div></section>"""
     sub = "".join(f"<div class='card'><h3>{p}</h3>{_ptable(P[p])}</div>" for p in ("2005-2009", "2010-2014", "2015-2019", "2020-2026", "Full period") if P[p]["S1"])
     pack = {"curves": o["curves"], "trades": o["trades"], "dates": o["dates"], "years": {y: b for y, b in o["years"].items() if b["S1"]},
             "top": o["top_trades"], "worst": o["worst_trades"], "sectors": o["sectors"]}
@@ -64,6 +82,7 @@ def build(o: dict, path: Path) -> Path:
 <div class="card"><h3>Never-tested period: 2005 to Oct 2020</h3>{_ptable(T)}</div>
 <div class="card"><h3>2010 to Oct 2020</h3>{_ptable(P['2010 - Oct 2020 (robustness)'])}</div>
 </section>
+{howto}
 <section aria-labelledby="h2"><h2 id="h2">Account value and drawdown</h2>
 <div class="card"><div class="legend"><span><i style="background:var(--c0)"></i>S1 (with T-bill interest)</span><span><i style="background:var(--c1)"></i>S1 without interest</span><span><i style="background:var(--mute)"></i>SPY (dashed)</span></div>
 <h3>Account value ($24,000 start, weekly)</h3><div class="chart" id="c-eq"></div><h3>Drawdown from peak</h3><div class="chart" id="c-dd"></div>

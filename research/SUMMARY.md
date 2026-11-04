@@ -50,6 +50,7 @@ acquired stocks flatter the stock-picking strategies.
 | 5 | Regime-gated, risk-budgeted 12-1 momentum | `momentum_regime/momentum.py` | yes | Failed: lower Sharpe than SPY in 2 of 3 samples |
 | 6 | Cash-secured put-write layer on idle cash (^PUT) | `putwrite/putwrite.py` | yes | Failed after 2007 (after costs and tax); account too small for one SPY put |
 | 8 | Top 4 of the 10 biggest S&P 500 decliners, trailing-stop exits (3%; 5/8%/ATR reported) | `top4_trailing/top4.py` | yes | Failed: 3% stop makes -0.9% to 3.4% a year (low drawdown only from low exposure); wider stops track the market, ranking barely beats random |
+| 10 | S1 over twenty years (2005-2026), T-bill interest on cash | `top4_trailing/backtest_20y/run_20y.py` | yes | **Failed all three checks** on the never-tested 2005-Oct 2020: $30,603 vs SPY $65,471, Sharpe 0.30 vs 0.46, worst drawdown -69.9% vs -55.2% (2008-09, with implicit 2x margin from fixed sizing) |
 | 9 | Three best one-year top-4 versions over six years (12% stop, risk controls) | `top4_trailing/backtest_6y/bt6y.py` | yes | **S1 passed** on the unseen five years (Nov 2020-Oct 2025): $29,161 vs SPY $28,452 on $24k, Sharpe 0.95 vs 0.82, drawdown -20.4% vs -24.5%; S2, S3 failed (less profit than SPY) |
 | 7 | User's pullback framework v6: ignore list + bounce signals + final flush | `pullback_v6/v6.py` | yes | Failed: no rule passes; only the final-flush signal is positive in all samples, weak since 2016 |
 
@@ -133,6 +134,14 @@ The profit margin over SPY is thin ($709 in five years); the clearer edge is
 lower risk, especially in 2022 (-$2,427 vs SPY -$6,520). Over all six years
 S1 made $33,507 vs SPY $35,629 with better Sharpe and drawdown.
 
+**20-year pre-registered test (test 10)** (`top4_trailing/backtest_20y/report.html`):
+S1 **failed all three checks** on the never-tested 2005 to Oct 2020: $30,603
+vs SPY $65,471 on $24,000, Sharpe 0.30 vs 0.46, worst drawdown -69.9% vs
+-55.2%. 2008 cost 46.8% (SPY -39.4%), deepened by implicit margin from the
+fixed $1,000 sizing (exposure up to 2.07x). In 2010-2020 S1 had smaller
+drawdowns but less profit and a lower Sharpe. In percent per year S1 beat SPY
+in 5 of 22 years, mostly down or flat markets. The six-year pass did not hold.
+
 ## Open items
 
 1. Check why the SIGNUM bot has been inactive since 2026-10-14.
@@ -143,10 +152,10 @@ S1 made $33,507 vs SPY $35,629 with better Sharpe and drawdown.
    history before 2005 plus QQQ, small caps and international indexes.
 5. Measure the evening prompt's value: log nightly composite scores and
    compare next-day returns of high vs low scores with the same edge measure.
-6. S1 passed the 6-year pre-registered test (thin profit edge, clearer risk
-   edge). The 20-year test (test 10) is pre-registered and scripted in
-   `top4_trailing/backtest_20y/` to run on the Mac (`run_20y.py`); results
-   pending. If it passes, paper-trade S1 for 2-3 months, and test a
+6. S1 passed the 6-year test but FAILED the 20-year pre-registered test
+   (test 10): it lagged SPY on profit and Sharpe and fell 70% in 2008-09.
+   Do not trade it. If revisited: size positions as a % of current account
+   value (no implicit margin) and add a market filter, then pre-register again, and test a
    position cap (20-24 for a ~$24k account), a per-sector limit, a cool-off
    after a stop-out, and skipping stocks that report during the hold.
 7. Build the nightly paper log: top losers + AI ranking of the top 4, with
@@ -169,6 +178,8 @@ S1 made $33,507 vs SPY $35,629 with better Sharpe and drawdown.
   `research/top4_trailing/live_3m/report.html` (rebuild: `python3 ledger3m.py`
   then `python3 build_report.py` in that folder).
 - 2-week ledger: `research/top4_trailing/live_2wk/LEDGER.md`.
+- 20-year pre-registered backtest report (offline, interactive):
+  `research/top4_trailing/backtest_20y/report.html`.
 - 6-year pre-registered backtest report (offline, interactive):
   `research/top4_trailing/backtest_6y/report.html`.
 - 1-year test report (offline, interactive, 32 versions):
