@@ -144,8 +144,9 @@ S1 made $33,507 vs SPY $35,629 with better Sharpe and drawdown.
 5. Measure the evening prompt's value: log nightly composite scores and
    compare next-day returns of high vs low scores with the same edge measure.
 6. S1 passed the 6-year pre-registered test (thin profit edge, clearer risk
-   edge). Next: extend to 20 years (2005-2026) on the same rules, add T-bill
-   interest on idle cash, then paper-trade it for 2-3 months, and test a
+   edge). The 20-year test (test 10) is pre-registered and scripted in
+   `top4_trailing/backtest_20y/` to run on the Mac (`run_20y.py`); results
+   pending. If it passes, paper-trade S1 for 2-3 months, and test a
    position cap (20-24 for a ~$24k account), a per-sector limit, a cool-off
    after a stop-out, and skipping stocks that report during the hold.
 7. Build the nightly paper log: top losers + AI ranking of the top 4, with
