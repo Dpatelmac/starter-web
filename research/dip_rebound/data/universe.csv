@@ -1,0 +1,904 @@
+ticker,name,sector,index,sp500_added
+MMM,3M,Industrials,SP500,1957-03-04
+AOS,A. O. Smith,Industrials,SP500,2017-07-26
+ABT,Abbott Laboratories,Health Care,SP500,1957-03-04
+ABBV,AbbVie,Health Care,SP500,2012-12-31
+ACN,Accenture,Information Technology,SP500,2011-07-06
+ADBE,Adobe Inc.,Information Technology,SP500,1997-05-05
+AMD,Advanced Micro Devices,Information Technology,SP500,2017-03-20
+AES,AES Corporation,Utilities,SP500,1998-10-02
+AFL,Aflac,Financials,SP500,1999-05-28
+A,Agilent Technologies,Health Care,SP500,2000-06-05
+APD,Air Products,Materials,SP500,1985-04-30
+ABNB,Airbnb,Consumer Discretionary,SP500,2023-09-18
+AKAM,Akamai Technologies,Information Technology,SP500,2007-07-12
+ALB,Albemarle Corporation,Materials,SP500,2016-07-01
+ARE,Alexandria Real Estate Equities,Real Estate,SP500,2017-03-20
+ALGN,Align Technology,Health Care,SP500,2017-06-19
+ALLE,Allegion,Industrials,SP500,2013-12-02
+LNT,Alliant Energy,Utilities,SP500,2016-07-01
+ALL,Allstate,Financials,SP500,1995-07-13
+GOOGL,Alphabet Inc. (Class A),Communication Services,SP500,2006-04-03
+GOOG,Alphabet Inc. (Class C),Communication Services,SP500,2014-04-03
+MO,Altria,Consumer Staples,SP500,1957-03-04
+AMZN,Amazon,Consumer Discretionary,SP500,2005-11-18
+AMCR,Amcor,Materials,SP500,2019-06-07
+AEE,Ameren,Utilities,SP500,1991-09-19
+AEP,American Electric Power,Utilities,SP500,1957-03-04
+AXP,American Express,Financials,SP500,1976-06-30
+AIG,American International Group,Financials,SP500,1980-03-31
+AMT,American Tower,Real Estate,SP500,2007-11-19
+AWK,American Water Works,Utilities,SP500,2016-03-04
+AMP,Ameriprise Financial,Financials,SP500,2005-10-03
+AME,Ametek,Industrials,SP500,2013-09-23
+AMGN,Amgen,Health Care,SP500,1992-01-02
+APH,Amphenol,Information Technology,SP500,2008-09-30
+ADI,Analog Devices,Information Technology,SP500,1999-10-12
+AON,Aon plc,Financials,SP500,1996-04-23
+APA,APA Corporation,Energy,SP500,1997-07-28
+APO,Apollo Global Management,Financials,SP500,2024-12-23
+AAPL,Apple Inc.,Information Technology,SP500,1982-11-30
+AMAT,Applied Materials,Information Technology,SP500,1995-03-16
+APP,AppLovin,Communication Services,SP500,2025-09-22
+APTV,Aptiv,Consumer Discretionary,SP500,2012-12-24
+ACGL,Arch Capital Group,Financials,SP500,2022-11-01
+ADM,Archer Daniels Midland,Consumer Staples,SP500,1957-03-04
+ARES,Ares Management,Financials,SP500,2025-12-11
+ANET,Arista Networks,Information Technology,SP500,2018-08-28
+AJG,Arthur J. Gallagher & Co.,Financials,SP500,2016-05-31
+AIZ,Assurant,Financials,SP500,2007-04-10
+T,AT&T,Communication Services,SP500,1983-11-30
+ATO,Atmos Energy,Utilities,SP500,2019-02-15
+ADSK,Autodesk,Information Technology,SP500,1989-12-01
+ADP,Automatic Data Processing,Industrials,SP500,1981-03-31
+AZO,AutoZone,Consumer Discretionary,SP500,1997-01-02
+AVY,Avery Dennison,Materials,SP500,1987-12-31
+AXON,Axon Enterprise,Industrials,SP500,2023-05-04
+BKR,Baker Hughes,Energy,SP500,2017-07-07
+BALL,Ball Corporation,Materials,SP500,1984-10-31
+BAC,Bank of America,Financials,SP500,1976-06-30
+BAX,Baxter International,Health Care,SP500,1972-09-30
+BDX,Becton Dickinson,Health Care,SP500,1972-09-30
+BRK-B,Berkshire Hathaway,Financials,SP500,2010-02-16
+BBY,Best Buy,Consumer Discretionary,SP500,1999-06-29
+TECH,Bio-Techne,Health Care,SP500,2021-08-30
+BIIB,Biogen,Health Care,SP500,2003-11-13
+BLK,BlackRock,Financials,SP500,2011-04-04
+BX,Blackstone Inc.,Financials,SP500,2023-09-18
+XYZ,"Block, Inc.",Financials,SP500,2025-07-23
+BE,Bloom Energy,Industrials,SP500,2026-09-21
+BNY,BNY Mellon,Financials,SP500,1995-03-31
+BA,Boeing,Industrials,SP500,1957-03-04
+BKNG,Booking Holdings,Consumer Discretionary,SP500,2009-11-06
+BSX,Boston Scientific,Health Care,SP500,1995-02-24
+BMY,Bristol Myers Squibb,Health Care,SP500,1957-03-04
+AVGO,Broadcom,Information Technology,SP500,2014-05-08
+BR,Broadridge Financial Solutions,Industrials,SP500,2018-06-18
+BRO,Brown & Brown,Financials,SP500,2021-09-20
+BF-B,Brown–Forman,Consumer Staples,SP500,1982-10-31
+BG,Bunge Global,Consumer Staples,SP500,2023-03-15
+BXP,"BXP, Inc.",Real Estate,SP500,2006-04-03
+CHRW,C.H. Robinson,Industrials,SP500,2007-03-02
+CDNS,Cadence Design Systems,Information Technology,SP500,2017-09-18
+CPT,Camden Property Trust,Real Estate,SP500,2022-04-04
+COF,Capital One,Financials,SP500,1998-07-01
+CAH,Cardinal Health,Health Care,SP500,1997-05-27
+CCL,Carnival Corporation,Consumer Discretionary,SP500,1998-12-22
+CARR,Carrier Global,Industrials,SP500,2020-04-03
+CVNA,Carvana,Consumer Discretionary,SP500,2025-12-22
+CASY,Casey's,Consumer Staples,SP500,2026-04-09
+CAT,Caterpillar Inc.,Industrials,SP500,1957-03-04
+CBOE,Cboe Global Markets,Financials,SP500,2017-03-01
+CBRE,CBRE Group,Real Estate,SP500,2006-11-10
+CDW,CDW Corporation,Information Technology,SP500,2019-09-23
+COR,Cencora,Health Care,SP500,2001-08-30
+CNC,Centene Corporation,Health Care,SP500,2016-03-30
+CNP,CenterPoint Energy,Utilities,SP500,1985-07-31
+CF,CF Industries,Materials,SP500,2008-08-27
+CRL,Charles River Laboratories,Health Care,SP500,2021-05-14
+SCHW,Charles Schwab Corporation,Financials,SP500,1997-06-02
+CHTR,Charter Communications,Communication Services,SP500,2016-09-08
+CVX,Chevron Corporation,Energy,SP500,1957-03-04
+CMG,Chipotle Mexican Grill,Consumer Discretionary,SP500,2011-04-28
+CB,Chubb Limited,Financials,SP500,2010-07-15
+CHD,Church & Dwight,Consumer Staples,SP500,2015-12-29
+CIEN,Ciena,Information Technology,SP500,2026-02-09
+CI,Cigna,Health Care,SP500,1976-06-30
+CINF,Cincinnati Financial,Financials,SP500,1997-12-18
+CTAS,Cintas,Industrials,SP500,2001-03-01
+CSCO,Cisco,Information Technology,SP500,1993-12-01
+C,Citigroup,Financials,SP500,1988-05-31
+CFG,Citizens Financial Group,Financials,SP500,2016-01-29
+CLX,Clorox,Consumer Staples,SP500,1969-03-31
+CME,CME Group,Financials,SP500,2006-08-11
+CMS,CMS Energy,Utilities,SP500,1957-03-04
+KO,Coca-Cola Company (The),Consumer Staples,SP500,1957-03-04
+CTSH,Cognizant,Information Technology,SP500,2006-11-17
+COHR,Coherent Corp.,Information Technology,SP500,2026-03-23
+COIN,Coinbase,Financials,SP500,2025-05-19
+CL,Colgate-Palmolive,Consumer Staples,SP500,1957-03-04
+CMCSA,Comcast,Communication Services,SP500,2002-11-19
+FIX,Comfort Systems USA,Industrials,SP500,2025-12-22
+COP,ConocoPhillips,Energy,SP500,1957-03-04
+ED,Consolidated Edison,Utilities,SP500,1957-03-04
+STZ,Constellation Brands,Consumer Staples,SP500,2005-07-01
+CEG,Constellation Energy,Utilities,SP500,2022-02-02
+COO,Cooper Companies (The),Health Care,SP500,2016-09-23
+CPRT,Copart,Industrials,SP500,2018-07-02
+GLW,Corning Inc.,Information Technology,SP500,1995-02-27
+CPAY,Corpay,Financials,SP500,2018-06-20
+CSGP,CoStar Group,Real Estate,SP500,2022-09-19
+COST,Costco,Consumer Staples,SP500,1993-10-01
+CRH,CRH plc,Materials,SP500,2025-12-22
+CRWD,CrowdStrike,Information Technology,SP500,2024-06-24
+CCI,Crown Castle,Real Estate,SP500,2012-03-14
+CSX,CSX Corporation,Industrials,SP500,1957-03-04
+CMI,Cummins,Industrials,SP500,1965-03-31
+CVS,CVS Health,Health Care,SP500,1957-03-04
+DHR,Danaher Corporation,Health Care,SP500,1998-11-18
+DRI,Darden Restaurants,Consumer Discretionary,SP500,1995-05-31
+DDOG,Datadog,Information Technology,SP500,2025-07-09
+DVA,DaVita,Health Care,SP500,2008-07-31
+DECK,Deckers Brands,Consumer Discretionary,SP500,2024-03-18
+DE,Deere & Company,Industrials,SP500,1957-03-04
+DELL,Dell Technologies,Information Technology,SP500,2024-09-23
+DAL,Delta Air Lines,Industrials,SP500,2013-09-11
+DVN,Devon Energy,Energy,SP500,2000-08-30
+DXCM,Dexcom,Health Care,SP500,2020-05-12
+FANG,Diamondback Energy,Energy,SP500,2018-12-03
+DLR,Digital Realty,Real Estate,SP500,2016-05-18
+DG,Dollar General,Consumer Staples,SP500,2012-12-03
+DLTR,Dollar Tree,Consumer Staples,SP500,2011-12-19
+D,Dominion Energy,Utilities,SP500,2016-11-30
+DPZ,Domino's,Consumer Discretionary,SP500,2020-05-12
+DASH,DoorDash,Consumer Discretionary,SP500,2025-03-24
+DOV,Dover Corporation,Industrials,SP500,1985-10-31
+DOW,Dow Inc.,Materials,SP500,2019-04-01
+DHI,D. R. Horton,Consumer Discretionary,SP500,2005-06-22
+DTE,DTE Energy,Utilities,SP500,1957-03-04
+DUK,Duke Energy,Utilities,SP500,1976-06-30
+DD,DuPont,Industrials,SP500,2019-06-03
+ETN,Eaton Corporation,Industrials,SP500,1957-03-04
+EBAY,eBay Inc.,Consumer Discretionary,SP500,2002-07-22
+ECHO,EchoStar,Communication Services,SP500,2026-03-23
+ECL,Ecolab,Materials,SP500,1989-01-31
+EIX,Edison International,Utilities,SP500,1957-03-04
+EW,Edwards Lifesciences,Health Care,SP500,2011-04-01
+ELV,Elevance Health,Health Care,SP500,2002-07-25
+EME,Emcor,Industrials,SP500,2025-09-22
+EMR,Emerson Electric,Industrials,SP500,1965-03-31
+ETR,Entergy,Utilities,SP500,1957-03-04
+EOG,EOG Resources,Energy,SP500,2000-11-02
+EQT,EQT Corporation,Energy,SP500,2022-10-03
+EFX,Equifax,Industrials,SP500,1997-06-19
+EQIX,Equinix,Real Estate,SP500,2015-03-20
+ERIE,Erie Indemnity,Financials,SP500,2024-09-23
+ESS,Essex Property Trust,Real Estate,SP500,2014-04-02
+EL,Estée Lauder Companies (The),Consumer Staples,SP500,2006-01-05
+EG,Everest Group,Financials,SP500,2017-06-19
+EVRG,Evergy,Utilities,SP500,2018-06-05
+P,Everpure,Information Technology,SP500,2026-09-21
+ES,Eversource Energy,Utilities,SP500,2009-07-24
+EXC,Exelon,Utilities,SP500,1957-03-04
+EXE,Expand Energy,Energy,SP500,2025-03-24
+EXPE,Expedia Group,Consumer Discretionary,SP500,2007-10-02
+EXPD,Expeditors International,Industrials,SP500,2007-10-10
+EXR,Extra Space Storage,Real Estate,SP500,2016-01-19
+XOM,ExxonMobil,Energy,SP500,1957-03-04
+FFIV,"F5, Inc.",Information Technology,SP500,2010-12-20
+FDS,FactSet,Financials,SP500,2021-12-20
+FICO,Fair Isaac,Information Technology,SP500,2023-03-20
+FAST,Fastenal,Industrials,SP500,2008-09-15
+FRT,Federal Realty Investment Trust,Real Estate,SP500,2016-02-01
+FDX,FedEx,Industrials,SP500,1980-12-31
+FDXF,FedEx Freight,Industrials,SP500,2026-06-01
+FERG,Ferguson Enterprises,Industrials,SP500,2026-08-05
+FIS,Fidelity National Information Services,Financials,SP500,2006-11-10
+FITB,Fifth Third Bancorp,Financials,SP500,1996-03-29
+FSLR,First Solar,Information Technology,SP500,2022-12-19
+FE,FirstEnergy,Utilities,SP500,1997-11-28
+FISV,Fiserv,Financials,SP500,2001-04-02
+FLEX,Flex Ltd.,Information Technology,SP500,2026-06-22
+F,Ford Motor Company,Consumer Discretionary,SP500,1957-03-04
+FTNT,Fortinet,Information Technology,SP500,2018-10-11
+FTV,Fortive,Industrials,SP500,2016-07-01
+FOXA,Fox Corporation (Class A),Communication Services,SP500,2019-03-19
+FOX,Fox Corporation (Class B),Communication Services,SP500,2019-03-19
+BEN,Franklin Resources,Financials,SP500,1998-04-30
+FCX,Freeport-McMoRan,Materials,SP500,2011-07-01
+GRMN,Garmin,Consumer Discretionary,SP500,2012-12-12
+IT,Gartner,Information Technology,SP500,2017-04-05
+GE,GE Aerospace,Industrials,SP500,1957-03-04
+GEHC,GE HealthCare,Health Care,SP500,2023-01-04
+GEV,GE Vernova,Industrials,SP500,2024-04-02
+GEN,Gen Digital,Information Technology,SP500,2003-03-25
+GNRC,Generac,Industrials,SP500,2021-03-22
+GD,General Dynamics,Industrials,SP500,1957-03-04
+GIS,General Mills,Consumer Staples,SP500,1957-03-04
+GM,General Motors,Consumer Discretionary,SP500,2013-06-06
+GPC,Genuine Parts Company,Consumer Discretionary,SP500,1973-12-31
+GILD,Gilead Sciences,Health Care,SP500,2004-07-01
+GPN,Global Payments,Financials,SP500,2016-04-25
+GL,Globe Life,Financials,SP500,1989-04-30
+GDDY,GoDaddy,Information Technology,SP500,2024-06-24
+GS,Goldman Sachs,Financials,SP500,2002-07-22
+HAL,Halliburton,Energy,SP500,1957-03-04
+HIG,Hartford (The),Financials,SP500,1957-03-04
+HAS,Hasbro,Consumer Discretionary,SP500,1984-09-30
+HCA,HCA Healthcare,Health Care,SP500,2015-01-27
+DOC,Healthpeak Properties,Real Estate,SP500,2008-03-31
+HSIC,Henry Schein,Health Care,SP500,2015-03-17
+HSY,Hershey Company (The),Consumer Staples,SP500,1957-03-04
+HPE,Hewlett Packard Enterprise,Information Technology,SP500,2015-11-02
+HLT,Hilton Worldwide,Consumer Discretionary,SP500,2017-06-19
+HD,Home Depot (The),Consumer Discretionary,SP500,1988-03-31
+HONA,Honeywell Aerospace,Industrials,SP500,2026-06-29
+HON,Honeywell Technologies,Industrials,SP500,1957-03-04
+HRL,Hormel Foods,Consumer Staples,SP500,2009-03-04
+HST,Host Hotels & Resorts,Real Estate,SP500,2007-03-20
+HWM,Howmet Aerospace,Industrials,SP500,2016-10-21
+HPQ,HP Inc.,Information Technology,SP500,1974-12-31
+HUBB,Hubbell Incorporated,Industrials,SP500,2023-10-18
+HUM,Humana,Health Care,SP500,2012-12-10
+HBAN,Huntington Bancshares,Financials,SP500,1997-08-28
+HII,Huntington Ingalls Industries,Industrials,SP500,2018-01-03
+IBM,IBM,Information Technology,SP500,1957-03-04
+IEX,IDEX Corporation,Industrials,SP500,2019-08-09
+IDXX,Idexx Laboratories,Health Care,SP500,2017-01-05
+ITW,Illinois Tool Works,Industrials,SP500,1986-02-28
+ILMN,"Illumina, Inc.",Health Care,SP500,2026-09-21
+INCY,Incyte,Health Care,SP500,2017-02-28
+IR,Ingersoll Rand,Industrials,SP500,2020-03-03
+PODD,Insulet Corporation,Health Care,SP500,2023-03-15
+INTC,Intel,Information Technology,SP500,1976-12-31
+IBKR,Interactive Brokers,Financials,SP500,2025-08-28
+ICE,Intercontinental Exchange,Financials,SP500,2007-09-26
+IFF,International Flavors & Fragrances,Materials,SP500,1976-03-31
+IP,International Paper,Materials,SP500,1957-03-04
+INTU,Intuit,Information Technology,SP500,2000-12-05
+ISRG,Intuitive Surgical,Health Care,SP500,2008-06-02
+IVZ,Invesco,Financials,SP500,2008-08-21
+INVH,Invitation Homes,Real Estate,SP500,2022-09-19
+IQV,IQVIA,Health Care,SP500,2017-08-29
+IRM,Iron Mountain,Real Estate,SP500,2009-01-06
+JBHT,J.B. Hunt,Industrials,SP500,2015-07-01
+JBL,Jabil,Information Technology,SP500,2023-12-18
+JKHY,Jack Henry & Associates,Financials,SP500,2018-11-13
+J,Jacobs Solutions,Industrials,SP500,2007-10-26
+JNJ,Johnson & Johnson,Health Care,SP500,1973-06-30
+JCI,Johnson Controls,Industrials,SP500,2010-08-27
+JPM,JPMorgan Chase,Financials,SP500,1975-06-30
+KVUE,Kenvue,Consumer Staples,SP500,2023-08-25
+KDP,Keurig Dr Pepper,Consumer Staples,SP500,2022-06-21
+KEY,KeyCorp,Financials,SP500,1994-03-01
+KEYS,Keysight Technologies,Information Technology,SP500,2018-11-06
+KMB,Kimberly-Clark,Consumer Staples,SP500,1957-03-04
+KIM,Kimco Realty,Real Estate,SP500,2006-04-04
+KMI,Kinder Morgan,Energy,SP500,2012-05-25
+KKR,KKR & Co.,Financials,SP500,2024-06-24
+KLAC,KLA Corporation,Information Technology,SP500,1997-09-30
+KHC,Kraft Heinz,Consumer Staples,SP500,2015-07-06
+KR,Kroger,Consumer Staples,SP500,1957-03-04
+LHX,L3Harris,Industrials,SP500,2008-09-22
+LH,Labcorp,Health Care,SP500,2004-11-01
+LRCX,Lam Research,Information Technology,SP500,2012-06-29
+LVS,Las Vegas Sands,Consumer Discretionary,SP500,2019-10-03
+LDOS,Leidos,Industrials,SP500,2019-08-09
+LEN,Lennar,Consumer Discretionary,SP500,2005-10-04
+LII,Lennox International,Industrials,SP500,2024-12-23
+LLY,Lilly (Eli),Health Care,SP500,1970-12-31
+LIN,Linde plc,Materials,SP500,1992-07-01
+LYV,Live Nation Entertainment,Communication Services,SP500,2019-12-23
+LMT,Lockheed Martin,Industrials,SP500,1957-03-04
+L,Loews Corporation,Financials,SP500,1995-05-31
+LOW,Lowe's,Consumer Discretionary,SP500,1984-02-29
+LULU,Lululemon Athletica,Consumer Discretionary,SP500,2023-10-18
+LITE,Lumentum,Information Technology,SP500,2026-03-23
+LYB,LyondellBasell,Materials,SP500,2012-09-05
+MTB,M&T Bank,Financials,SP500,2004-02-23
+MPC,Marathon Petroleum,Energy,SP500,2011-07-01
+MAR,Marriott International,Consumer Discretionary,SP500,1998-05-29
+MRSH,Marsh McLennan,Financials,SP500,1987-08-31
+MLM,Martin Marietta Materials,Materials,SP500,2014-07-02
+MRVL,Marvell Technology,Information Technology,SP500,2026-06-22
+MAS,Masco,Industrials,SP500,1981-06-30
+MA,Mastercard,Financials,SP500,2008-07-18
+MKC,McCormick & Company,Consumer Staples,SP500,2003-03-20
+MCD,McDonald's,Consumer Discretionary,SP500,1970-06-30
+MCK,McKesson,Health Care,SP500,1999-01-13
+MDT,Medtronic,Health Care,SP500,1986-10-31
+MRK,Merck & Co.,Health Care,SP500,1957-03-04
+META,Meta Platforms,Communication Services,SP500,2013-12-23
+MET,MetLife,Financials,SP500,2000-12-11
+MTD,Mettler Toledo,Health Care,SP500,2016-09-06
+MGM,MGM Resorts,Consumer Discretionary,SP500,2017-07-26
+MCHP,Microchip Technology,Information Technology,SP500,2007-09-07
+MU,Micron Technology,Information Technology,SP500,1994-09-27
+MSFT,Microsoft,Information Technology,SP500,1994-06-01
+MAA,Mid-America Apartment Communities,Real Estate,SP500,2016-12-02
+MRNA,Moderna,Health Care,SP500,2021-07-21
+MDLZ,Mondelez International,Consumer Staples,SP500,2012-10-02
+MPWR,Monolithic Power Systems,Information Technology,SP500,2021-02-12
+MNST,Monster Beverage,Consumer Staples,SP500,2012-06-28
+MCO,Moody's Corporation,Financials,SP500,1998-07-01
+MS,Morgan Stanley,Financials,SP500,1993-07-29
+MOS,Mosaic Company (The),Materials,SP500,2011-09-26
+MSI,Motorola Solutions,Information Technology,SP500,1957-03-04
+MSCI,MSCI,Financials,SP500,2018-04-04
+NDAQ,"Nasdaq, Inc.",Financials,SP500,2008-10-22
+NTAP,NetApp,Information Technology,SP500,1999-06-25
+NFLX,Netflix,Communication Services,SP500,2010-12-20
+NEM,Newmont,Materials,SP500,1969-06-30
+NWSA,News Corp (Class A),Communication Services,SP500,2013-08-01
+NWS,News Corp (Class B),Communication Services,SP500,2015-09-18
+NEE,NextEra Energy,Utilities,SP500,1976-06-30
+NKE,"Nike, Inc.",Consumer Discretionary,SP500,1988-11-30
+NI,NiSource,Utilities,SP500,2000-11-02
+NDSN,Nordson Corporation,Industrials,SP500,2022-02-15
+NSC,Norfolk Southern,Industrials,SP500,1957-03-04
+NTRS,Northern Trust,Financials,SP500,1998-01-30
+NOC,Northrop Grumman,Industrials,SP500,1957-03-04
+NCLH,Norwegian Cruise Line Holdings,Consumer Discretionary,SP500,2017-10-13
+NRG,NRG Energy,Utilities,SP500,2010-01-29
+NUE,Nucor,Materials,SP500,1985-04-30
+NVDA,Nvidia,Information Technology,SP500,2001-11-30
+NVR,"NVR, Inc.",Consumer Discretionary,SP500,2019-09-26
+NXPI,NXP Semiconductors,Information Technology,SP500,2021-03-22
+ORLY,O'Reilly Automotive,Consumer Discretionary,SP500,2009-03-27
+OXY,Occidental Petroleum,Energy,SP500,1957-03-04
+ODFL,Old Dominion,Industrials,SP500,2019-12-09
+OMC,Omnicom Group,Communication Services,SP500,1997-12-31
+ON,ON Semiconductor,Information Technology,SP500,2022-06-21
+OKE,Oneok,Energy,SP500,2010-03-15
+ORCL,Oracle Corporation,Information Technology,SP500,1989-08-31
+OTIS,Otis Worldwide,Industrials,SP500,2020-04-03
+PCAR,Paccar,Industrials,SP500,1980-12-31
+PKG,Packaging Corporation of America,Materials,SP500,2017-07-26
+PLTR,Palantir Technologies,Information Technology,SP500,2024-09-23
+PANW,Palo Alto Networks,Information Technology,SP500,2023-06-20
+PH,Parker Hannifin,Industrials,SP500,1985-11-30
+PAYX,Paychex,Industrials,SP500,1998-10-01
+PYPL,PayPal,Financials,SP500,2015-07-20
+PNR,Pentair,Industrials,SP500,2012-10-01
+PEP,PepsiCo,Consumer Staples,SP500,1957-03-04
+PFE,Pfizer,Health Care,SP500,1957-03-04
+PCG,PG&E Corporation,Utilities,SP500,2022-10-03
+PM,Philip Morris International,Consumer Staples,SP500,2008-03-31
+PSX,Phillips 66,Energy,SP500,2012-05-01
+PNW,Pinnacle West Capital,Utilities,SP500,1999-10-04
+PNC,PNC Financial Services,Financials,SP500,1988-04-30
+PPG,PPG Industries,Materials,SP500,1957-03-04
+PPL,PPL Corporation,Utilities,SP500,2001-10-01
+PFG,Principal Financial Group,Financials,SP500,2002-07-22
+PG,Procter & Gamble,Consumer Staples,SP500,1957-03-04
+PGR,Progressive Corporation,Financials,SP500,1997-08-04
+PLD,Prologis,Real Estate,SP500,2003-07-17
+PRU,Prudential Financial,Financials,SP500,2002-07-22
+PTC,PTC Inc.,Information Technology,SP500,2021-04-20
+PEG,Public Service Enterprise Group,Utilities,SP500,1957-03-04
+PSA,Public Storage,Real Estate,SP500,2005-08-19
+PHM,PulteGroup,Consumer Discretionary,SP500,1984-04-30
+Q,Qnity Electronics,Information Technology,SP500,2025-11-03
+QCOM,Qualcomm,Information Technology,SP500,1999-07-22
+PWR,Quanta Services,Industrials,SP500,2009-07-01
+DGX,Quest Diagnostics,Health Care,SP500,2002-12-12
+RL,Ralph Lauren Corporation,Consumer Discretionary,SP500,2007-02-02
+RJF,Raymond James Financial,Financials,SP500,2017-03-20
+RDDT,Reddit,Communication Services,SP500,2026-08-18
+O,Realty Income,Real Estate,SP500,2015-04-07
+REG,Regency Centers,Real Estate,SP500,2017-03-02
+REGN,Regeneron Pharmaceuticals,Health Care,SP500,2013-05-01
+RF,Regions Financial Corporation,Financials,SP500,1998-08-28
+RSG,Republic Services,Industrials,SP500,2008-12-05
+RMD,ResMed,Health Care,SP500,2017-07-26
+RVTY,Revvity,Health Care,SP500,1985-05-31
+HOOD,Robinhood Markets,Financials,SP500,2025-09-22
+ROK,Rockwell Automation,Industrials,SP500,2000-03-12
+ROL,"Rollins, Inc.",Industrials,SP500,2018-10-01
+ROP,Roper Technologies,Information Technology,SP500,2009-12-23
+ROST,Ross Stores,Consumer Discretionary,SP500,2009-12-21
+RCL,Royal Caribbean Group,Consumer Discretionary,SP500,2014-12-05
+RTX,RTX Corporation,Industrials,SP500,1957-03-04
+SPGI,S&P Global,Financials,SP500,1957-03-04
+CRM,Salesforce,Information Technology,SP500,2008-09-15
+SNDK,Sandisk,Information Technology,SP500,2025-11-28
+SBAC,SBA Communications,Real Estate,SP500,2017-09-01
+SLB,Schlumberger,Energy,SP500,1957-03-04
+STX,Seagate Technology,Information Technology,SP500,2012-07-02
+SRE,Sempra,Utilities,SP500,2017-03-17
+NOW,ServiceNow,Information Technology,SP500,2019-11-21
+SHW,Sherwin-Williams,Materials,SP500,1964-06-30
+SPG,Simon Property Group,Real Estate,SP500,2002-06-26
+SKYD,Skydance,Communication Services,SP500,1994-09-30
+SWKS,Skyworks Solutions,Information Technology,SP500,2015-03-12
+SJM,J.M. Smucker Company (The),Consumer Staples,SP500,2008-11-06
+SW,Smurfit Westrock,Materials,SP500,2024-07-08
+SNA,Snap-on,Industrials,SP500,1982-09-30
+SOLV,Solventum,Health Care,SP500,2024-04-01
+SO,Southern Company,Utilities,SP500,1957-03-04
+LUV,Southwest Airlines,Industrials,SP500,1994-07-01
+SWK,Stanley Black & Decker,Industrials,SP500,1982-09-30
+SBUX,Starbucks,Consumer Discretionary,SP500,2000-06-07
+STT,State Street Corporation,Financials,SP500,2003-03-14
+STLD,Steel Dynamics,Materials,SP500,2022-12-22
+STE,Steris,Health Care,SP500,2019-12-23
+SYK,Stryker Corporation,Health Care,SP500,2000-12-12
+SMCI,Supermicro,Information Technology,SP500,2024-03-18
+SYF,Synchrony Financial,Financials,SP500,2015-11-18
+SNPS,Synopsys,Information Technology,SP500,2017-03-16
+SYY,Sysco,Consumer Staples,SP500,1986-12-31
+TMUS,T-Mobile US,Communication Services,SP500,2019-07-15
+TROW,T. Rowe Price,Financials,SP500,2019-07-29
+TTWO,Take-Two Interactive,Communication Services,SP500,2018-03-19
+TPR,"Tapestry, Inc.",Consumer Discretionary,SP500,2004-09-01
+TRGP,Targa Resources,Energy,SP500,2022-10-12
+TGT,Target Corporation,Consumer Staples,SP500,1976-12-31
+TEL,TE Connectivity,Information Technology,SP500,2011-10-17
+TDY,Teledyne Technologies,Information Technology,SP500,2020-06-22
+TER,Teradyne,Information Technology,SP500,2020-09-21
+TSLA,"Tesla, Inc.",Consumer Discretionary,SP500,2020-12-21
+TXN,Texas Instruments,Information Technology,SP500,2001-03-12
+TPL,Texas Pacific Land Corporation,Energy,SP500,2024-11-26
+TXT,Textron,Industrials,SP500,1978-12-31
+TMO,Thermo Fisher Scientific,Health Care,SP500,2004-08-03
+TJX,TJX Companies,Consumer Discretionary,SP500,1985-09-30
+TKO,TKO Group Holdings,Communication Services,SP500,2025-03-24
+TSCO,Tractor Supply,Consumer Discretionary,SP500,2014-01-24
+TT,Trane Technologies,Industrials,SP500,2010-11-17
+TDG,TransDigm Group,Industrials,SP500,2016-06-03
+TRV,Travelers Companies (The),Financials,SP500,2002-08-21
+TRMB,Trimble Inc.,Information Technology,SP500,2021-01-21
+TFC,Truist Financial,Financials,SP500,1997-12-04
+TWLO,Twilio,Information Technology,SP500,2026-10-06
+TYL,Tyler Technologies,Information Technology,SP500,2020-06-22
+TSN,Tyson Foods,Consumer Staples,SP500,2005-08-10
+USB,U.S. Bancorp,Financials,SP500,1999-11-01
+UBER,Uber,Industrials,SP500,2023-12-18
+UDR,"UDR, Inc.",Real Estate,SP500,2016-03-07
+ULTA,Ulta Beauty,Consumer Discretionary,SP500,2016-04-18
+UNP,Union Pacific Corporation,Industrials,SP500,1957-03-04
+UAL,United Airlines Holdings,Industrials,SP500,2015-09-03
+UPS,United Parcel Service,Industrials,SP500,2002-07-22
+URI,United Rentals,Industrials,SP500,2014-09-20
+UNH,UnitedHealth Group,Health Care,SP500,1994-07-01
+UHS,Universal Health Services,Health Care,SP500,2014-09-20
+VLO,Valero Energy,Energy,SP500,2002-12-20
+VEEV,Veeva Systems,Health Care,SP500,2026-05-07
+VTR,Ventas,Real Estate,SP500,2009-03-04
+VLTO,Veralto,Industrials,SP500,2023-10-02
+VRSN,Verisign,Information Technology,SP500,2006-02-01
+VRSK,Verisk Analytics,Industrials,SP500,2015-10-08
+VZ,Verizon,Communication Services,SP500,1983-11-30
+VRTX,Vertex Pharmaceuticals,Health Care,SP500,2013-09-23
+VRT,Vertiv,Industrials,SP500,2026-03-23
+VTRS,Viatris,Health Care,SP500,2004-04-23
+VICI,Vici Properties,Real Estate,SP500,2022-06-08
+V,Visa Inc.,Financials,SP500,2009-12-21
+VST,Vistra Corp.,Utilities,SP500,2024-05-08
+VMRK,Vivmark Residential,Real Estate,SP500,2001-12-03
+VMC,Vulcan Materials Company,Materials,SP500,1999-06-30
+VYLR,Vylor,Consumer Staples,SP500,2026-10-01
+WRB,W. R. Berkley Corporation,Financials,SP500,2019-12-05
+GWW,W. W. Grainger,Industrials,SP500,1981-06-30
+WAB,Wabtec,Industrials,SP500,2019-02-27
+WMT,Walmart,Consumer Staples,SP500,1982-08-31
+DIS,Walt Disney Company (The),Communication Services,SP500,1976-06-30
+WM,Waste Management,Industrials,SP500,1998-08-31
+WAT,Waters Corporation,Health Care,SP500,2002-01-02
+WEC,WEC Energy Group,Utilities,SP500,2008-10-31
+WFC,Wells Fargo,Financials,SP500,1976-06-30
+WELL,Welltower,Real Estate,SP500,2009-01-30
+WST,West Pharmaceutical Services,Health Care,SP500,2020-05-22
+WDC,Western Digital,Information Technology,SP500,2009-07-01
+WY,Weyerhaeuser,Real Estate,SP500,1979-10-01
+WSM,"Williams-Sonoma, Inc.",Consumer Discretionary,SP500,2025-03-24
+WMB,Williams Companies,Energy,SP500,1975-03-31
+WTW,Willis Towers Watson,Financials,SP500,2016-01-05
+WDAY,"Workday, Inc.",Information Technology,SP500,2024-12-23
+WYNN,Wynn Resorts,Consumer Discretionary,SP500,2008-11-14
+XEL,Xcel Energy,Utilities,SP500,1957-03-04
+XYL,Xylem Inc.,Industrials,SP500,2011-11-01
+YUM,Yum! Brands,Consumer Discretionary,SP500,1997-10-06
+ZBRA,Zebra Technologies,Information Technology,SP500,2019-12-23
+ZBH,Zimmer Biomet,Health Care,SP500,2001-08-07
+ZTS,Zoetis,Health Care,SP500,2013-06-21
+AA,Alcoa,Materials,SP400,
+AAL,American Airlines Group,Industrials,SP400,
+AAON,AAON,Industrials,SP400,
+ACI,Albertsons,Consumer Staples,SP400,
+ACM,AECOM,Industrials,SP400,
+ADC,Agree Realty,Real Estate,SP400,
+AEIS,Advanced Energy,Information Technology,SP400,
+AFG,American Financial Group,Financials,SP400,
+AGCO,AGCO,Industrials,SP400,
+AGNC,AGNC Investment,Financials,SP400,
+AHR,American Healthcare REIT,Real Estate,SP400,
+AIT,Applied Industrial Technologies,Industrials,SP400,
+ALGM,Allegro MicroSystems,Information Technology,SP400,
+ALK,Alaska Air Group,Industrials,SP400,
+ALLY,Ally Financial,Financials,SP400,
+ALSN,Allison Transmission,Industrials,SP400,
+ALV,Autoliv,Consumer Discretionary,SP400,
+AM,Antero Midstream,Energy,SP400,
+AMG,Affiliated Managers Group,Financials,SP400,
+AMH,American Homes 4 Rent,Real Estate,SP400,
+AMKR,Amkor Technology,Information Technology,SP400,
+AN,AutoNation,Consumer Discretionary,SP400,
+ANF,Abercrombie & Fitch,Consumer Discretionary,SP400,
+APG,APi Group,Industrials,SP400,
+APPF,AppFolio,Information Technology,SP400,
+AR,Antero Resources,Energy,SP400,
+ARMK,Aramark,Consumer Discretionary,SP400,
+ARW,Arrow Electronics,Information Technology,SP400,
+ARWR,Arrowhead Pharmaceuticals,Health Care,SP400,
+ASB,Associated Bank,Financials,SP400,
+ASH,Ashland Global,Materials,SP400,
+ATI,ATI Inc.,Industrials,SP400,
+ATR,AptarGroup,Materials,SP400,
+AVAV,AeroVironment,Industrials,SP400,
+AVNT,Avient,Materials,SP400,
+AVT,Avnet,Information Technology,SP400,
+AVTR,Avantor,Health Care,SP400,
+AXTA,Axalta,Materials,SP400,
+AYI,Acuity Brands,Industrials,SP400,
+BAH,Booz Allen Hamilton,Industrials,SP400,
+BBWI,"Bath & Body Works, Inc.",Consumer Discretionary,SP400,
+BC,Brunswick,Consumer Discretionary,SP400,
+BCO,Brink's,Industrials,SP400,
+BDC,Belden Inc.,Information Technology,SP400,
+BHF,Brighthouse Financial,Financials,SP400,
+BILL,Bill Holdings,Information Technology,SP400,
+BIO,Bio-Rad Laboratories,Health Care,SP400,
+BJ,BJ's Wholesale Club,Consumer Staples,SP400,
+BKH,Black Hills Corporation,Utilities,SP400,
+BMRN,BioMarin Pharmaceutical,Health Care,SP400,
+BRKR,Bruker,Health Care,SP400,
+BROS,Dutch Bros Inc.,Consumer Discretionary,SP400,
+BRX,Brixmor Property Group,Real Estate,SP400,
+BSY,Bentley Systems,Information Technology,SP400,
+BTSG,BrightSpring Health Services,Health Care,SP400,
+BURL,Burlington Stores,Consumer Discretionary,SP400,
+BWA,BorgWarner,Consumer Discretionary,SP400,
+BWXT,BWX Technologies,Industrials,SP400,
+BYD,Boyd Gaming,Consumer Discretionary,SP400,
+CACI,CACI International,Industrials,SP400,
+CAR,Avis Budget Group,Industrials,SP400,
+CART,Maplebear Inc.,Consumer Staples,SP400,
+CAVA,Cava Group,Consumer Discretionary,SP400,
+CBSH,Commerce Bancshares,Financials,SP400,
+CBT,Cabot Corp,Materials,SP400,
+CCK,Crown Holdings,Materials,SP400,
+CDE,Coeur Mining,Materials,SP400,
+CDP,COPT Defense Properties,Real Estate,SP400,
+CELH,Celsius Holdings,Consumer Staples,SP400,
+CFR,Frost Bank,Financials,SP400,
+CG,Carlyle Group (The),Financials,SP400,
+CGNX,Cognex,Information Technology,SP400,
+CHDN,Churchill Downs Inc.,Consumer Discretionary,SP400,
+CHE,Chemed Corp.,Health Care,SP400,
+CHH,Choice Hotels,Consumer Discretionary,SP400,
+CHRD,Chord Energy,Energy,SP400,
+CHWY,Chewy,Consumer Discretionary,SP400,
+CLF,Cleveland-Cliffs,Materials,SP400,
+CLH,Clean Harbors,Industrials,SP400,
+CMC,Commercial Metals,Materials,SP400,
+CNH,CNH Industrial,Industrials,SP400,
+CNM,Core & Main,Industrials,SP400,
+CNO,CNO Financial Group,Financials,SP400,
+CNX,CNX Resources,Energy,SP400,
+COKE,Coca-Cola Consolidated,Consumer Staples,SP400,
+COLB,Columbia Banking System,Financials,SP400,
+COLM,Columbia Sportswear,Consumer Discretionary,SP400,
+CORT,Corcept Therapeutics,Health Care,SP400,
+CR,Crane,Industrials,SP400,
+CRBG,Corebridge Financial,Financials,SP400,
+CROX,Crocs,Consumer Discretionary,SP400,
+CRS,Carpenter Technology,Industrials,SP400,
+CRUS,Cirrus Logic,Information Technology,SP400,
+CSL,Carlisle Companies,Industrials,SP400,
+CTRE,CareTrust REIT,Real Estate,SP400,
+CTVA,Corteva,Materials,SP400,
+CUBE,CubeSmart,Real Estate,SP400,
+CUZ,Cousins Properties,Real Estate,SP400,
+CVLT,CommVault Systems,Information Technology,SP400,
+CW,Curtiss-Wright,Industrials,SP400,
+CXT,Crane NXT,Information Technology,SP400,
+CYTK,Cytokinetics,Health Care,SP400,
+DAR,Darling Ingredients,Consumer Staples,SP400,
+DBX,Dropbox,Information Technology,SP400,
+DCI,Donaldson Company,Industrials,SP400,
+DINO,HF Sinclair,Energy,SP400,
+DKS,Dick's Sporting Goods,Consumer Discretionary,SP400,
+DLB,Dolby,Information Technology,SP400,
+DOCN,DigitalOcean,Information Technology,SP400,
+DOCS,Doximity,Health Care,SP400,
+DOCU,Docusign,Information Technology,SP400,
+DT,Dynatrace,Information Technology,SP400,
+DTM,DT Midstream,Energy,SP400,
+DUOL,Duolingo,Consumer Discretionary,SP400,
+DY,Dycom Industries,Industrials,SP400,
+EAT,Brinker International,Consumer Discretionary,SP400,
+EEFT,Euronet Worldwide,Financials,SP400,
+EGP,EastGroup Properties,Real Estate,SP400,
+EHC,Encompass Health,Health Care,SP400,
+ELAN,Elanco,Health Care,SP400,
+ELF,e.l.f. Beauty,Consumer Staples,SP400,
+ELS,Equity Lifestyle Properties,Real Estate,SP400,
+ENS,EnerSys,Industrials,SP400,
+ENSG,Ensign Group,Health Care,SP400,
+ENTG,Entegris,Information Technology,SP400,
+EPR,EPR Properties,Real Estate,SP400,
+EQH,Equitable Holdings,Financials,SP400,
+ESAB,ESAB,Industrials,SP400,
+ESNT,Essent Group Ltd.,Financials,SP400,
+EVR,Evercore,Financials,SP400,
+EWBC,East West Bancorp,Financials,SP400,
+EXEL,Exelixis,Health Care,SP400,
+EXLS,EXL Service,Industrials,SP400,
+EXP,Eagle Materials,Materials,SP400,
+EXPO,"Exponent, Inc.",Industrials,SP400,
+FAF,First American Financial Corporation,Financials,SP400,
+FBIN,Fortune Brands Innovations,Industrials,SP400,
+FCFS,FirstCash,Financials,SP400,
+FCN,FTI Consulting,Industrials,SP400,
+FFIN,First Financial Bankshares,Financials,SP400,
+FHI,Federated Hermes,Financials,SP400,
+FHN,First Horizon,Financials,SP400,
+FIVE,Five Below,Consumer Discretionary,SP400,
+FLG,Flagstar Bank,Financials,SP400,
+FLR,Fluor,Industrials,SP400,
+FLS,Flowserve,Industrials,SP400,
+FN,Fabrinet,Information Technology,SP400,
+FNB,FNB Corporation,Financials,SP400,
+FND,Floor & Decor,Consumer Discretionary,SP400,
+FNF,Fidelity National Financial,Financials,SP400,
+FORM,"FormFactor, Inc.",Information Technology,SP400,
+FOUR,Shift4,Financials,SP400,
+FR,First Industrial Realty Trust,Real Estate,SP400,
+FTI,TechnipFMC,Energy,SP400,
+G,Genpact,Industrials,SP400,
+GAP,Gap Inc.,Consumer Discretionary,SP400,
+GATX,GATX,Industrials,SP400,
+GBCI,Glacier Bancorp,Financials,SP400,
+GEF,"Greif, Inc.",Materials,SP400,
+GGG,Graco Inc.,Industrials,SP400,
+GHC,Graham Holdings,Consumer Discretionary,SP400,
+GLPI,Gaming and Leisure Properties,Real Estate,SP400,
+GME,GameStop,Consumer Discretionary,SP400,
+GMED,Globus Medical,Health Care,SP400,
+GNTX,Gentex,Consumer Discretionary,SP400,
+GPK,Graphic Packaging,Materials,SP400,
+GWRE,Guidewire Software,Information Technology,SP400,
+GXO,GXO Logistics,Industrials,SP400,
+H,Hyatt,Consumer Discretionary,SP400,
+HAE,Haemonetics,Health Care,SP400,
+HALO,Halozyme,Health Care,SP400,
+HGV,Hilton Grand Vacations,Consumer Discretionary,SP400,
+HIMS,Hims & Hers Health,Health Care,SP400,
+HL,Hecla Mining,Materials,SP400,
+HLI,Houlihan Lokey,Financials,SP400,
+HLNE,Hamilton Lane,Financials,SP400,
+HOG,Harley-Davidson,Consumer Discretionary,SP400,
+HOMB,Home BancShares,Financials,SP400,
+HQY,HealthEquity,Health Care,SP400,
+HR,Healthcare Realty Trust,Real Estate,SP400,
+HRB,H&R Block,Consumer Discretionary,SP400,
+HUBS,HubSpot,Information Technology,SP400,
+HWC,Hancock Whitney,Financials,SP400,
+HXL,Hexcel,Industrials,SP400,
+IBOC,Intl Bancshares Corp,Financials,SP400,
+IDA,Idacorp,Utilities,SP400,
+IDCC,InterDigital,Information Technology,SP400,
+IESC,IES Holdings,Industrials,SP400,
+INGR,Ingredion,Consumer Staples,SP400,
+IPGP,IPG Photonics,Information Technology,SP400,
+IRT,Independence Realty Trust,Real Estate,SP400,
+ITT,ITT Inc.,Industrials,SP400,
+JAZZ,Jazz Pharmaceuticals,Health Care,SP400,
+JEF,Jefferies,Financials,SP400,
+JLL,Jones Lang LaSalle,Real Estate,SP400,
+KBH,KB Home,Consumer Discretionary,SP400,
+KBR,"KBR, Inc.",Industrials,SP400,
+KD,Kyndryl,Information Technology,SP400,
+KEX,Kirby Corporation,Industrials,SP400,
+KNF,Knife River Corporation,Materials,SP400,
+KNSL,Kinsale Capital Group,Financials,SP400,
+KNX,Knight-Swift,Industrials,SP400,
+KRC,Kilroy Realty Corp,Real Estate,SP400,
+KRG,Kite Realty Group Trust,Real Estate,SP400,
+KRYS,Krystal Biotech,Health Care,SP400,
+KTOS,Kratos Defense & Security Solutions,Industrials,SP400,
+LAD,Lithia Motors,Consumer Discretionary,SP400,
+LAMR,Lamar Advertising Company,Real Estate,SP400,
+LEA,Lear,Consumer Discretionary,SP400,
+LECO,Lincoln Electric,Industrials,SP400,
+LFUS,Littelfuse,Information Technology,SP400,
+LIVN,LivaNova,Health Care,SP400,
+LNTH,Lantheus Holdings,Health Care,SP400,
+LOPE,Grand Canyon Education,Consumer Discretionary,SP400,
+LPX,Louisiana-Pacific,Industrials,SP400,
+LSCC,Lattice Semiconductor,Information Technology,SP400,
+LSTR,Landstar System,Industrials,SP400,
+M,Macy's,Consumer Discretionary,SP400,
+MANH,Manhattan Associates,Information Technology,SP400,
+MAT,Mattel,Consumer Discretionary,SP400,
+MEDP,Medpace,Health Care,SP400,
+MIDD,Middleby,Industrials,SP400,
+MKSI,MKS Instruments,Information Technology,SP400,
+MLI,Mueller Industries,Industrials,SP400,
+MMS,Maximus Inc.,Industrials,SP400,
+MOG-A,Moog Inc.,Industrials,SP400,
+MOH,Molina Healthcare,Health Care,SP400,
+MORN,"Morningstar, Inc.",Financials,SP400,
+MP,MP Materials,Materials,SP400,
+MSA,MSA Safety,Industrials,SP400,
+MSM,MSC Industrial Direct,Industrials,SP400,
+MTDR,Matador Resources,Energy,SP400,
+MTG,MGIC Investment Corporation,Financials,SP400,
+MTN,Vail Resorts,Consumer Discretionary,SP400,
+MTSI,MACOM Technology Solutions,Information Technology,SP400,
+MTZ,MasTec,Industrials,SP400,
+MUR,Murphy Oil,Energy,SP400,
+MUSA,Murphy USA,Consumer Discretionary,SP400,
+MZTI,The Marzetti Company,Consumer Staples,SP400,
+NBIX,Neurocrine Biosciences,Health Care,SP400,
+NEU,NewMarket Corporation,Materials,SP400,
+NFG,National Fuel Gas,Utilities,SP400,
+NJR,New Jersey Resources,Utilities,SP400,
+NLY,Annaly Capital Management,Financials,SP400,
+NNN,NNN Reit,Real Estate,SP400,
+NOV,NOV Inc.,Energy,SP400,
+NOVT,Novanta,Information Technology,SP400,
+NTNX,Nutanix,Information Technology,SP400,
+NVST,Envista Holdings,Health Care,SP400,
+NVT,nVent Electric plc,Industrials,SP400,
+NWE,NorthWestern Energy,Utilities,SP400,
+NXST,Nexstar Media Group,Communication Services,SP400,
+NXT,Nextpower,Industrials,SP400,
+NYT,New York Times Company,Communication Services,SP400,
+OC,Owens Corning,Industrials,SP400,
+OGE,OGE Energy,Utilities,SP400,
+OGS,One Gas,Utilities,SP400,
+OHI,Omega Healthcare Investors,Real Estate,SP400,
+OKTA,"Okta, Inc.",Information Technology,SP400,
+OLED,Universal Display,Information Technology,SP400,
+OLLI,Ollie's Bargain Outlet,Consumer Discretionary,SP400,
+ONB,Old National Bank,Financials,SP400,
+ONTO,Onto Innovation,Information Technology,SP400,
+OPCH,Option Care Health,Health Care,SP400,
+ORA,Ormat Technologies,Utilities,SP400,
+ORI,Old Republic International,Financials,SP400,
+OSK,Oshkosh,Industrials,SP400,
+OVV,Ovintiv,Energy,SP400,
+OZK,Bank OZK,Financials,SP400,
+PAG,Penske Automotive Group,Consumer Discretionary,SP400,
+PATH,UiPath,Information Technology,SP400,
+PB,Prosperity Bancshares,Financials,SP400,
+PBF,PBF Energy,Energy,SP400,
+PCTY,Paylocity,Industrials,SP400,
+PEGA,Pegasystems,Information Technology,SP400,
+PEN,"Penumbra, Inc.",Health Care,SP400,
+PFGC,Performance Food Group,Consumer Staples,SP400,
+PII,Polaris,Consumer Discretionary,SP400,
+PINS,Pinterest,Communication Services,SP400,
+PK,Park Hotels & Resorts,Real Estate,SP400,
+PLNT,Planet Fitness,Consumer Discretionary,SP400,
+PNFP,Pinnacle Financial Partners,Financials,SP400,
+POR,Portland General Electric,Utilities,SP400,
+POST,Post Holdings,Consumer Staples,SP400,
+PPC,Pilgrim's Pride,Consumer Staples,SP400,
+PR,Permian Resources,Energy,SP400,
+PRI,Primerica,Financials,SP400,
+PSN,Parsons Corporation,Industrials,SP400,
+PVH,PVH Corp.,Consumer Discretionary,SP400,
+QLYS,Qualys,Information Technology,SP400,
+R,Ryder,Industrials,SP400,
+RBA,RB Global,Industrials,SP400,
+RBC,RBC Bearings,Industrials,SP400,
+REXR,Rexford Industrial Realty,Real Estate,SP400,
+RGA,Reinsurance Group of America,Financials,SP400,
+RGEN,Repligen,Health Care,SP400,
+RGLD,Royal Gold,Materials,SP400,
+RH,RH,Consumer Discretionary,SP400,
+RLI,RLI Corp.,Financials,SP400,
+RMBS,Rambus,Information Technology,SP400,
+RNR,RenaissanceRe,Financials,SP400,
+ROIV,Roivant Sciences,Health Care,SP400,
+ROKU,"Roku, Inc.",Communication Services,SP400,
+RPM,RPM International,Materials,SP400,
+RRC,Range Resources,Energy,SP400,
+RRX,Regal Rexnord,Industrials,SP400,
+RS,"Reliance, Inc.",Materials,SP400,
+RYAN,Ryan Specialty,Financials,SP400,
+RYN,Rayonier,Real Estate,SP400,
+SAIA,Saia,Industrials,SP400,
+SAIC,Science Applications Intl Corp,Industrials,SP400,
+SANM,Sanmina Corporation,Information Technology,SP400,
+SARO,StandardAero,Industrials,SP400,
+SBRA,Sabra Health Care REIT,Real Estate,SP400,
+SCI,Service Corp Intl,Consumer Discretionary,SP400,
+SEIC,SEI Investments Company,Financials,SP400,
+SF,Stifel,Financials,SP400,
+SFM,Sprouts Farmers Market,Consumer Staples,SP400,
+SGI,Somnigroup International,Consumer Discretionary,SP400,
+SHC,Sotera Health,Health Care,SP400,
+SIGI,Selective Insurance Group,Financials,SP400,
+SIRI,SiriusXM,Communication Services,SP400,
+SITM,SiTime,Information Technology,SP400,
+SLAB,Silicon Labs,Information Technology,SP400,
+SLGN,Silgan Holdings,Materials,SP400,
+SLM,SLM Corp,Financials,SP400,
+SMG,Scotts Miracle-Gro Company,Materials,SP400,
+SMTC,Semtech,Information Technology,SP400,
+SN,SharkNinja,Consumer Discretionary,SP400,
+SNX,TD Synnex,Information Technology,SP400,
+SOLS,Solstice Advanced Materials,Materials,SP400,
+SON,Sonoco,Materials,SP400,
+SPXC,SPX Technologies,Industrials,SP400,
+SR,Spire,Utilities,SP400,
+SSB,South State Bank,Financials,SP400,
+SSD,Simpson Manufacturing,Industrials,SP400,
+ST,Sensata Technologies,Industrials,SP400,
+STAG,STAG Industrial,Real Estate,SP400,
+STRL,Sterling Infrastructure,Industrials,SP400,
+STWD,Starwood Property Trust,Financials,SP400,
+SUI,Sun Communities,Real Estate,SP400,
+SWX,Southwest Gas Corp,Utilities,SP400,
+SYNA,Synaptics,Information Technology,SP400,
+TCBI,Texas Capital Bancshares,Financials,SP400,
+TEX,Terex,Industrials,SP400,
+THC,Tenet Health,Health Care,SP400,
+THG,Hanover Insurance,Financials,SP400,
+THO,Thor Industries,Consumer Discretionary,SP400,
+TKR,Timken,Industrials,SP400,
+TLN,Talen Energy,Utilities,SP400,
+TNL,Travel + Leisure Co.,Consumer Discretionary,SP400,
+TOL,Toll Brothers,Consumer Discretionary,SP400,
+TOST,"Toast, Inc.",Financials,SP400,
+TREX,Trex,Industrials,SP400,
+TRU,TransUnion,Industrials,SP400,
+TTC,Toro,Industrials,SP400,
+TTEK,Tetra Tech,Industrials,SP400,
+TTMI,TTM Technologies,Information Technology,SP400,
+TXNM,TXNM Energy,Utilities,SP400,
+TXRH,Texas Roadhouse,Consumer Discretionary,SP400,
+UBSI,United Bankshares,Financials,SP400,
+UFPI,UFP Industries,Industrials,SP400,
+UGI,UGI Corp,Utilities,SP400,
+ULS,UL Solutions,Industrials,SP400,
+UMBF,UMB Financial Corp.,Financials,SP400,
+UNM,Unum,Financials,SP400,
+USFD,US Foods,Consumer Staples,SP400,
+UTHR,United Therapeutics,Health Care,SP400,
+VAL,Valaris,Energy,SP400,
+VC,Visteon,Consumer Discretionary,SP400,
+VFC,VF Corporation,Consumer Discretionary,SP400,
+VIAV,Viavi Solutions,Information Technology,SP400,
+VICR,Vicor Corporation,Industrials,SP400,
+VLY,Valley Bank,Financials,SP400,
+VMI,Valmont Industries,Industrials,SP400,
+VNO,Vornado Realty Trust,Real Estate,SP400,
+VNOM,Viper Energy,Energy,SP400,
+VNT,Vontier,Information Technology,SP400,
+VOYA,Voya Financial,Financials,SP400,
+VVV,Valvoline,Consumer Discretionary,SP400,
+WAL,Western Alliance Bancorporation,Financials,SP400,
+WCC,WESCO International,Industrials,SP400,
+WEX,WEX Inc.,Financials,SP400,
+WFRD,Weatherford International,Energy,SP400,
+WH,Wyndham Hotels & Resorts,Consumer Discretionary,SP400,
+WHR,Whirlpool Corporation,Consumer Discretionary,SP400,
+WING,Wingstop,Consumer Discretionary,SP400,
+WLK,Westlake Corporation,Materials,SP400,
+WMG,Warner Music Group,Communication Services,SP400,
+WMS,Advanced Drainage Systems,Industrials,SP400,
+WPC,W. P. Carey,Real Estate,SP400,
+WSO,Watsco,Industrials,SP400,
+WTFC,Wintrust Financial,Financials,SP400,
+WTRG,Essential Utilities,Utilities,SP400,
+WTS,Watts Water Technologies,Industrials,SP400,
+WWD,"Woodward, Inc.",Industrials,SP400,
+XPO,"XPO, Inc.",Industrials,SP400,
+XRAY,Dentsply Sirona,Health Care,SP400,
+YETI,Yeti Holdings,Consumer Discretionary,SP400,
+ZION,Zions Bancorporation,Financials,SP400,
