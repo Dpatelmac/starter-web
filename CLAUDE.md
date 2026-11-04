@@ -18,7 +18,8 @@ or push to git and let the user copy it.
 - `research/momentum_regime/`: portfolio snapshot, momentum test (test 5)
 - `research/putwrite/`: put-write layer test (test 6)
 - `research/pullback_v6/`: user's pullback framework, ignore list + signals (test 7)
-- `research/top4_trailing/`: top 4 of 10 biggest decliners, trailing-stop exits (test 8)
+- `research/top4_trailing/`: top 4 of 10 biggest decliners, trailing-stop exits (test 8);
+  `live_2wk/` 2-week ledger, `live_3m/` 3-month ledger + interactive `report.html`
 - `research/report/`: `build_report.py` -> offline `trading-research.html`;
   `compare.py` -> like-for-like ranking; `dashboard/` = online artifact page source
 - `research/SUMMARY.md`: findings, ranking, portfolio snapshot, open items
@@ -27,6 +28,11 @@ or push to git and let the user copy it.
 Price data (`research/dip_rebound/data/`) is not committed; rebuild with
 `python3 research/dip_rebound/fetch_data.py`, then `holdout.py` and
 `momentum_regime/snapshot.py`.
+
+## Git
+
+Work branch: `pullback_research` (renamed from `claude/blissful-euler-i26lau`;
+the old remote branch still needs deleting on GitHub).
 
 ## Research rules used so far
 

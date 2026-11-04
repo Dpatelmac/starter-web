@@ -1,6 +1,6 @@
 # Trading research summary
 
-Session dates: 2026-11-01 to 2026-11-04. Market data through the close of
+Session dates: 2026-11-01 to 2026-11-04. Branch: `pullback_research`. Market data through the close of
 2026-10-30. Research only, not financial advice. **No trades were sent.**
 
 ## Bottom line
@@ -84,6 +84,35 @@ with two dissents for a hike; futures priced ~83% odds of a hike on
 2026-12-09; S&P 500 forward P/E ~18.7 (FactSet); Nasdaq -5% in October on
 AI-spending worries.
 
+## Live ledgers: top 4 unexplained S&P 500 losers (illustrations, not tests)
+
+Each day: S&P 500 losers down 2%+ (close >= $20, volume >= 1M); skip
+"explained" ones (earnings that day or the evening before, or an 8%+ gap down
+at the open); buy the 4 biggest remaining at the next open, $1,000 each; exit
+only by trailing stop. Not pre-registered; analyst news not checked; no trades
+sent. Prices and earnings dates: Yahoo Finance.
+
+**2 weeks** (drop days 2026-10-21 to 11-03, marked at the 11-04 close;
+`top4_trailing/live_2wk/LEDGER.md`), first-10-then-remove selection:
+3% stop +$583 on 29 trades (48% profitable); 8% stop +$978 (59%). Without the
+trades held through earnings: +$107 and +$11.
+
+**3 months** (drop days 2026-08-06 to 11-03, 63 days; interactive report
+`top4_trailing/live_3m/report.html`):
+
+| Selection, 8% stop | Trades | Total P&L | Closed trades | Open positions | Win rate | Worst drawdown |
+|---|---|---|---|---|---|---|
+| First 10, then remove explained | 239 | +$2,010 | -$4,575 | +$6,585 | 40% | -$2,709 |
+| **Top 4 after removing explained** | 252 | **+$3,526** | -$3,361 | +$6,887 | 40% | -$2,465 |
+| Same + skip stocks reporting within 10 days | 247 | +$3,004 | -$3,365 | +$6,369 | 41% | -$2,608 |
+
+The 3% stop loses money in every version (-$169 to -$754). The whole gain is
+in positions still open; closed trades lost money (about 26% of closed trades
+profitable). Up to 60 positions were open at once (~$60,000). SPY over the same
+window: -0.3%. APP was caught by the new selection (bought 2026-11-02 at
+$234.52, +15.8% at the 11-04 close; +24% after hours on its earnings report,
+not counted). Missing price data: NTAP.
+
 ## Open items
 
 1. Check why the SIGNUM bot has been inactive since 2026-10-14.
@@ -94,7 +123,15 @@ AI-spending worries.
    history before 2005 plus QQQ, small caps and international indexes.
 5. Measure the evening prompt's value: log nightly composite scores and
    compare next-day returns of high vs low scores with the same edge measure.
-6. Copy `research/` to the local research home
+6. Before trading the top-4 ledger rule: pre-register and backtest "top 4
+   after removing explained" with an 8% stop over 20 years, and test a
+   position cap (20-24 for a ~$24k account), a per-sector limit, a cool-off
+   after a stop-out, and skipping stocks that report during the hold.
+7. Build the nightly paper log: top losers + AI ranking of the top 4, with
+   next-day opens and trailing-stop exits, to judge the AI step after 2-3 months.
+8. Delete the old branch `claude/blissful-euler-i26lau` on GitHub (the session
+   couldn't; work now lives on `pullback_research`).
+9. Copy `research/` to the local research home
    `/Users/claud/Documents/1Projects/tradingbot2/research` (Remote Control
    was not connected, so a cloud session could not write there).
 
@@ -106,6 +143,11 @@ AI-spending worries.
   https://claude.ai/artifact/3AtkyTudQyCmEdXpCk7MSQ
   (page source: `research/report/dashboard/index.html`).
 - Evening prompt review: `research/evening_prompt_review.md`.
+- 3-month ledger report (offline, interactive):
+  `research/top4_trailing/live_3m/report.html` (rebuild: `python3 ledger3m.py`
+  then `python3 build_report.py` in that folder).
+- 2-week ledger: `research/top4_trailing/live_2wk/LEDGER.md`.
+- Git branch: `pullback_research` (renamed from `claude/blissful-euler-i26lau`).
 
 ## Reproduce
 
