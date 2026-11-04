@@ -17,7 +17,10 @@ or push to git and let the user copy it.
 - `research/dip_rebound/`: dip-buying studies (tests 1-4), price data fetcher
 - `research/momentum_regime/`: portfolio snapshot, momentum test (test 5)
 - `research/putwrite/`: put-write layer test (test 6)
-- `research/report/`: `build_report.py` -> offline `trading-research.html`
+- `research/report/`: `build_report.py` -> offline `trading-research.html`;
+  `compare.py` -> like-for-like ranking; `dashboard/` = online artifact page source
+- `research/SUMMARY.md`: findings, ranking, portfolio snapshot, open items
+- `research/evening_prompt_review.md`: review of the evening scoring prompt
 
 Price data (`research/dip_rebound/data/`) is not committed; rebuild with
 `python3 research/dip_rebound/fetch_data.py`, then `holdout.py` and

@@ -1,0 +1,896 @@
+<meta name="dash-one-writer">
+<style>
+  .dr { display: flex; flex-direction: column; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); color: var(--color-fg); max-width: 72rem; margin-inline: auto; }
+  .dr p { margin: 0; }
+  .dr-head { display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
+  .dr-head h1 { margin: 0; font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); text-wrap: balance; }
+  .dr-lede { max-width: 44rem; font-size: var(--cds-font-size-body); line-height: 1.6; }
+  .dr .dr-lede b, .dr .dr-text b, .dr .dr-note b, .dr .dr-check b, .dr .dr-step b { font-weight: var(--cds-font-weight-medium); font-variant-numeric: tabular-nums; }
+  .dr-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: var(--cds-gap-md); }
+  .dr-step { all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; gap: var(--cds-gap-xs); padding: var(--cds-pad-lg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); min-width: 0; font-family: var(--font-anthropic-sans); color: var(--color-fg); }
+  .dr-step:hover { border-color: var(--cds-chart-axis); }
+  .dr-step:focus-visible { outline: 2px solid var(--cds-chart-axis); outline-offset: 2px; }
+  .dr-step-num { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .dr-step-q { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); line-height: 1.3; }
+  .dr-step-a { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.5; font-variant-numeric: tabular-nums; }
+  .dr-pill { align-self: flex-start; display: inline-flex; align-items: center; gap: var(--cds-gap-xs); font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); padding: 2px var(--cds-pad-sm); border-radius: 999px; border: 1px solid currentColor; }
+  .dr-pill.is-bad { color: var(--color-bad); }
+  .dr-pill.is-warn { color: var(--color-warn); }
+  .dr-gloss { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: var(--cds-gap-sm) var(--cds-gap-lg); margin: 0; }
+  .dr-gloss div { min-width: 0; }
+  .dr-gloss dt { font-weight: var(--cds-font-weight-medium); font-size: var(--cds-font-size-body); }
+  .dr-gloss dd { margin: 2px 0 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.5; }
+  .dr-chapter { display: flex; flex-direction: column; gap: var(--cds-gap-md); scroll-margin-top: var(--cds-gap-lg); }
+  .dr-chapter-head { display: flex; flex-direction: column; gap: var(--cds-gap-xs); padding-top: var(--cds-pad-lg); border-top: 1px solid var(--color-border-line); }
+  .dr-kicker { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); letter-spacing: 0.02em; }
+  .dr-chapter h2 { margin: 0; font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); text-wrap: balance; }
+  .dr-qa { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: var(--cds-gap-md) var(--cds-gap-lg); }
+  .dr-qa > div { display: flex; flex-direction: column; gap: var(--cds-gap-xs); min-width: 0; }
+  .dr-qa h4 { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); letter-spacing: 0.02em; }
+  .dr-text { font-size: var(--cds-font-size-body); line-height: 1.6; max-width: 40rem; }
+  .dr-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: var(--cds-gap-md); }
+  .dr-tile { display: flex; flex-direction: column; gap: var(--cds-gap-xs); padding: var(--cds-pad-lg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); min-width: 0; }
+  .dr-tile-label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .dr-tile-value { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; line-height: 1.15; }
+  .dr-tile-value.is-bad { color: var(--color-bad); }
+  .dr-tile-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; line-height: 1.5; }
+  .dr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); gap: var(--cds-gap-md); }
+  .dr-card { display: flex; flex-direction: column; gap: var(--cds-gap-sm); padding: var(--cds-pad-lg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); min-width: 0; }
+  .dr-card h3 { margin: 0; font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); text-wrap: balance; }
+  .dr-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.5; max-width: 60rem; }
+  .dr-verdict { display: flex; flex-direction: column; gap: var(--cds-gap-xs); padding: var(--cds-pad-md) var(--cds-pad-lg); border-radius: var(--cds-radius); border: 1px solid var(--color-border-line); background: var(--color-panel); }
+  .dr-verdict p { font-size: var(--cds-font-size-body); line-height: 1.6; max-width: 52rem; }
+  .dr-controls { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm) var(--cds-gap-lg); align-items: center; }
+  .dr-ctl { display: flex; flex-wrap: wrap; align-items: center; gap: var(--cds-gap-xs); min-width: 0; }
+  .dr-ctl-label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-right: var(--cds-gap-xs); }
+  .dr-seg { font: inherit; font-size: var(--cds-font-size-caption); color: var(--color-fg); background: transparent; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-xs) var(--cds-pad-sm); cursor: pointer; }
+  .dr-seg:hover { border-color: var(--cds-chart-axis); }
+  .dr-seg[aria-pressed="true"] { background: var(--color-fg); color: var(--color-bg); border-color: var(--color-fg); }
+  .dr-seg:focus-visible { outline: 2px solid var(--cds-chart-axis); outline-offset: 2px; }
+  .dr-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs) var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .dr-legend span { display: inline-flex; align-items: center; gap: var(--cds-gap-xs); }
+  .dr-sw { width: 0.625rem; height: 0.625rem; border-radius: 2px; display: inline-block; background: var(--cds-chart-muted); flex: none; }
+  .dr-sw.is-dot { border-radius: 50%; }
+  .dr-sw.is-ring { border-radius: 50%; background: transparent; border: 2px solid var(--cds-chart-muted); }
+  .dr-chart { position: relative; width: 100%; min-width: 0; }
+  .dr-chart svg { display: block; overflow: visible; }
+  .dr-chart text { fill: var(--color-fg-muted); font-size: var(--cds-font-size-caption); font-family: var(--font-anthropic-sans); }
+  .dr-chart .dr-strong { fill: var(--color-fg); }
+  .dr-chart .domain { stroke: var(--cds-chart-axis); }
+  .dr-chart .tick line { stroke: var(--cds-chart-grid); }
+  .dr-h-bars { min-height: 260px; }
+  .dr-h-curve { min-height: 320px; }
+  .dr-h-hold { min-height: 300px; }
+  .dr-h-sweep { min-height: 320px; }
+  .dr-h-pull { min-height: 280px; }
+  .dr-h-scatter { min-height: 360px; }
+  .dr-tip { position: absolute; pointer-events: none; z-index: 2; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); color: var(--color-fg); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .dr-tip .dr-tip-head { color: var(--cds-text-secondary); margin-bottom: 2px; }
+  .dr-tip .dr-tip-row { display: flex; align-items: center; gap: var(--cds-gap-xs); }
+  .dr-table-wrap { overflow: auto; max-height: 24rem; min-width: 0; }
+  .dr-table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .dr-table th { position: sticky; top: 0; background: var(--color-panel); text-align: right; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+  .dr-table td { text-align: right; padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+  .dr-table th.is-text, .dr-table td.is-text { text-align: left; white-space: normal; min-width: 14rem; }
+  .dr-table tr.is-pick td { background: color-mix(in srgb, var(--color-warn) 12%, transparent); }
+  .dr-table td.is-bad { color: var(--color-bad); }
+  .dr-checks { display: flex; flex-direction: column; gap: var(--cds-gap-sm); margin: 0; padding: 0; list-style: none; }
+  .dr-check { display: grid; grid-template-columns: 1.5rem 1fr; gap: var(--cds-gap-sm); align-items: start; font-size: var(--cds-font-size-body); line-height: 1.5; }
+  .dr-mark { font-weight: var(--cds-font-weight-medium); text-align: center; }
+  .dr-mark.is-ok { color: var(--color-ok); }
+  .dr-mark.is-bad { color: var(--color-bad); }
+  .dr-trio { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: var(--cds-gap-sm); }
+  .dr-trio > div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .dr-trio .dr-tile-value { font-size: var(--cds-font-size-heading); font-family: var(--font-anthropic-serif); }
+  .dr-list { margin: 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: var(--cds-gap-xs); font-size: var(--cds-font-size-body); line-height: 1.6; max-width: 52rem; }
+  [data-dash-source-state=empty] { color: transparent; }
+  [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+  .dr-fail { display: flex; align-items: center; justify-content: center; gap: var(--cds-gap-xs); min-height: inherit; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+  .dr-fail::before { content: ""; width: 0.375rem; height: 0.375rem; border-radius: 50%; background: var(--color-bad); }
+  @media (prefers-reduced-motion: no-preference) {
+    .dr-chart svg.is-new { animation: dr-in var(--cds-dur-slow) var(--cds-ease-out); }
+    @keyframes dr-in { from { opacity: 0; } to { opacity: 1; } }
+  }
+</style>
+
+<div class="dr">
+  <header class="dr-head" id="top">
+    <h1>Dip-rebound research</h1>
+    <p class="dr-lede">Can you make money buying large US stocks right after they drop? I tested it four ways on 22 years of daily prices. The answer is no, not after trading costs. Each step below explains what was tested, how, and what came out, in plain words. Click a step to jump to it.</p>
+  </header>
+
+  <section class="dr-steps" aria-label="The four tests">
+    <button class="dr-step" type="button" data-go="test-1">
+      <span class="dr-step-num">Test 1</span>
+      <span class="dr-step-q">Buy every stock that drops 2% in a day</span>
+      <span class="dr-pill is-bad">No edge</span>
+      <span class="dr-step-a">Beat other stocks bought the same morning by just <b data-draw="s1-edge" data-source="headline" data-field="edge" data-where="hold=3">—</b> per trade.</span>
+    </button>
+    <button class="dr-step" type="button" data-go="test-2">
+      <span class="dr-step-num">Test 2</span>
+      <span class="dr-step-q">Check the best-looking rule on new stocks</span>
+      <span class="dr-pill is-bad">Failed</span>
+      <span class="dr-step-a">t-stat of <b data-draw="s2-t" data-source="holdout" data-field="t_stat" data-where="id=H1&amp;universe=New stocks">—</b> on stocks it had never seen; it needed 2.</span>
+    </button>
+    <button class="dr-step" type="button" data-go="test-3">
+      <span class="dr-step-num">Test 3</span>
+      <span class="dr-step-q">Try every drop size and definition</span>
+      <span class="dr-pill is-warn">Real, but tiny</span>
+      <span class="dr-step-a"><b data-draw="s3-robust" data-source="sweep_summary" data-field="robust" data-row="0">—</b> of <b data-draw="s3-total" data-source="sweep_summary" data-field="combinations" data-row="0">—</b> combinations held up. Only weekly pullbacks showed a small, real bounce.</span>
+    </button>
+    <button class="dr-step" type="button" data-go="test-4">
+      <span class="dr-step-num">Test 4</span>
+      <span class="dr-step-q">Trade that pullback once a week to cut costs</span>
+      <span class="dr-pill is-bad">Failed</span>
+      <span class="dr-step-a"><b data-draw="s4-pass" data-source="weekly_summary" data-field="passes" data-row="0">—</b> of <b data-draw="s4-total" data-source="weekly_summary" data-field="variants" data-row="0">—</b> versions beat simply holding the S&amp;P 500.</span>
+    </button>
+  </section>
+
+  <section class="dr-card" id="words" aria-labelledby="words-title">
+    <h3 id="words-title">Words used on this page</h3>
+    <dl class="dr-gloss">
+      <div><dt>Edge</dt><dd>How much better a signal did than other stocks bought the same morning and sold the same day. It strips out the whole market going up or down, so what is left is what the signal itself added.</dd></div>
+      <div><dt>t-stat</dt><dd>How sure we can be that an edge isn't luck. Around 2 or more is the usual bar. Below 1 means it is indistinguishable from chance.</dd></div>
+      <div><dt>In-sample and out-of-sample</dt><dd>Rules were picked using 2005–2015 data only, then checked on 2016–2026. A real pattern works in both; a lucky one fades.</dd></div>
+      <div><dt>New stocks (holdout)</dt><dd>835 US stocks over $2B that are not in the S&amp;P 500 or 400. None of them were used to find any rule, so they are a fresh test.</dd></div>
+      <div><dt>bps (basis points)</dt><dd>Hundredths of a percent. 5 bps per side means losing 0.05% when you buy and again when you sell, from the bid-ask spread and slippage.</dd></div>
+      <div><dt>CAGR, Sharpe, max fall</dt><dd>Average yearly return; return per unit of risk (higher is better, SPY is about 0.6); and the worst drop from a peak.</dd></div>
+    </dl>
+  </section>
+
+  <!-- ===================================================== Test 1 -->
+  <section class="dr-chapter" id="test-1">
+    <div class="dr-chapter-head">
+      <span class="dr-kicker">Test 1 of 4</span>
+      <h2>Buy every stock that drops 2% in a day</h2>
+    </div>
+    <div class="dr-qa">
+      <div><h4>The idea</h4><p class="dr-text">Your evening prompt looks at big stocks that fell more than 2% on heavy volume and asks whether they bounce. Before adding any AI research, does the drop by itself predict a bounce?</p></div>
+      <div><h4>How I tested it</h4><p class="dr-text">Every S&amp;P 500 and 400 stock from 2005 to October 2026. Signal: down 2% or more, at least 1 million shares traded, price over $20. Buy at the next morning's open, sell 1 to 5 days later.</p></div>
+      <div><h4>What I found</h4><p class="dr-text">The average 3-day gain of <b data-draw="t1-raw-text" data-source="headline" data-field="dip_raw" data-where="hold=3">—</b> looks good, but it is mostly the whole market bouncing. Against other stocks bought the same mornings, the drop added <b data-draw="t1-edge-text" data-source="headline" data-field="edge" data-where="hold=3">—</b>.</p></div>
+    </div>
+
+    <div class="dr-tiles" aria-label="Test 1 results">
+      <div class="dr-tile">
+        <span class="dr-tile-label">Drops tested</span>
+        <span class="dr-tile-value dash-skeleton" data-draw="t1-signals" data-source="headline" data-field="signals" data-where="hold=3">—</span>
+        <span class="dr-tile-note">Jan 2005 to Oct 2026</span>
+      </div>
+      <div class="dr-tile">
+        <span class="dr-tile-label">Average 3-day gain after a drop</span>
+        <span class="dr-tile-value dash-skeleton" data-draw="t1-raw" data-source="headline" data-field="dip_raw" data-where="hold=3">—</span>
+        <span class="dr-tile-note">vs <b data-draw="t1-anyday" data-source="headline" data-field="anyday_raw" data-where="hold=3">—</b> for the same stocks on any day</span>
+      </div>
+      <div class="dr-tile">
+        <span class="dr-tile-label">Edge vs same-morning stocks</span>
+        <span class="dr-tile-value dash-skeleton" data-draw="t1-edge" data-source="headline" data-field="edge" data-where="hold=3">—</span>
+        <span class="dr-tile-note">t-stat <b data-draw="t1-edge-t" data-source="headline" data-field="t_stat" data-where="hold=3">—</b>, which is indistinguishable from luck</span>
+      </div>
+      <div class="dr-tile">
+        <span class="dr-tile-label">Yearly return after costs</span>
+        <span class="dr-tile-value dash-skeleton" data-draw="t1-cagr" data-source="portfolio" data-field="cagr" data-where="strategy=All dips, 3d hold, 5 bps/side">—</span>
+        <span class="dr-tile-note">holding the S&amp;P 500 (SPY): <b data-draw="t1-spy" data-source="portfolio" data-field="cagr" data-where="strategy=SPY buy %26 hold">—</b></span>
+      </div>
+    </div>
+
+    <div class="dr-grid">
+      <div class="dr-card">
+        <h3>Where the gain comes from</h3>
+        <p class="dr-note">Average return after buying at the next open, before costs. The edge bar is what is left after removing what all stocks did over the same days.</p>
+        <div class="dr-legend">
+          <span><i class="dr-sw" data-sw="0"></i>After a drop</span>
+          <span><i class="dr-sw" data-sw="muted"></i>Same stocks, any day</span>
+          <span><i class="dr-sw" data-sw="1"></i>Edge</span>
+        </div>
+        <div class="dr-chart dr-h-bars dash-skeleton" data-draw="bars" data-source="headline"></div>
+      </div>
+      <div class="dr-card">
+        <h3>Growth of $1, after costs</h3>
+        <p class="dr-note">Log scale, 5 bps per side. Buying every drop barely grew in 22 years while simply holding SPY multiplied about tenfold.</p>
+        <div class="dr-chart dr-h-curve dash-skeleton" data-draw="curve" data-source="curves"></div>
+      </div>
+    </div>
+
+    <div class="dr-card">
+      <h3>Searching for a better rule backfired</h3>
+      <p class="dr-note">I then scored 14 extra conditions and every pair of them on 2005–2015 only. The top rule (highlighted) looked strong there and then disappeared on 2016–2026. This is what overfitting looks like: with enough tries, something always looks good by chance.</p>
+      <div class="dr-table-wrap">
+        <table class="dr-table" data-source="rules" data-row-key="rule">
+          <thead>
+            <tr>
+              <th data-field="rank">Rank</th>
+              <th class="is-text" data-field="rule">Rule (added to the 2% drop)</th>
+              <th data-field="edge_is">Edge 2005–15</th>
+              <th data-field="t_is">t-stat</th>
+              <th data-field="edge_oos">Edge 2016–26</th>
+              <th data-field="t_oos">t-stat</th>
+            </tr>
+          </thead>
+          <tbody data-draw="rules-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="dr-verdict">
+      <span class="dr-pill is-bad">Verdict: no edge</span>
+      <p>A one-day 2% drop does not predict a bounce beyond what the market does anyway. Costs then turn the small raw gain into a loss compared with holding the index.</p>
+    </div>
+  </section>
+
+  <!-- ===================================================== Test 2 -->
+  <section class="dr-chapter" id="test-2">
+    <div class="dr-chapter-head">
+      <span class="dr-kicker">Test 2 of 4</span>
+      <h2>Check the best-looking rule on stocks it has never seen</h2>
+    </div>
+    <div class="dr-qa">
+      <div><h4>The idea</h4><p class="dr-text">Two conditions stayed positive in both periods of test 1: the stock was already down 5% or more over the prior week, and the S&amp;P 500 itself fell 1% or more that day. Together they describe an oversold stock during a broad selloff.</p></div>
+      <div><h4>How I tested it</h4><p class="dr-text">I wrote the rule and three pass marks down and saved them to the repository before downloading any new data. Then I ran it on 835 stocks that were never used to find it.</p></div>
+      <div><h4>What I found</h4><p class="dr-text">It averaged <b data-draw="t2-raw" data-source="holdout" data-field="raw3" data-where="id=H1&amp;universe=New stocks">—</b> over 3 days with <b data-draw="t2-win" data-source="holdout" data-field="win_rate" data-where="id=H1&amp;universe=New stocks">—</b> winners, which looks great. But other stocks bought on those same selloff mornings did about as well.</p></div>
+    </div>
+
+    <div class="dr-grid">
+      <div class="dr-card">
+        <h3>3-day edge of each rule</h3>
+        <p class="dr-note">Bars right of zero beat same-morning stocks. On the new stocks every rule sits close to zero. Hover a bar for its t-stat.</p>
+        <div class="dr-legend">
+          <span><i class="dr-sw" data-sw="0"></i>New stocks (the fresh test)</span>
+          <span><i class="dr-sw" data-sw="muted"></i>S&amp;P 500/400 (where the idea came from)</span>
+        </div>
+        <div class="dr-chart dr-h-hold dash-skeleton" data-draw="holdout" data-source="holdout"></div>
+      </div>
+      <div class="dr-card">
+        <h3>The three pass marks, set in advance</h3>
+        <p class="dr-note">All three had to pass on the new stocks.</p>
+        <ul class="dr-checks">
+          <li class="dr-check">
+            <span class="dr-mark" data-draw="c1" data-source="holdout">—</span>
+            <span>Edge above zero with a t-stat of 2 or more. Result: <b data-draw="c1-v" data-source="holdout" data-field="t_stat" data-where="id=H1&amp;universe=New stocks">—</b>.</span>
+          </li>
+          <li class="dr-check">
+            <span class="dr-mark" data-draw="c2" data-source="holdout">—</span>
+            <span>Positive in both 2005–2015 and 2016–2026. Result: <b data-draw="c2-a" data-source="holdout" data-field="edge_2005_15" data-where="id=H1&amp;universe=New stocks">—</b> and <b data-draw="c2-b" data-source="holdout" data-field="edge_2016_26" data-where="id=H1&amp;universe=New stocks">—</b>.</span>
+          </li>
+          <li class="dr-check">
+            <span class="dr-mark" data-draw="c3" data-source="holdout">—</span>
+            <span>Makes money after costs. Result: <b data-draw="c3-v" data-source="holdout" data-field="net_cagr" data-where="id=H1&amp;universe=New stocks">—</b> a year, far below SPY's <b data-draw="c3-spy" data-source="portfolio" data-field="cagr" data-where="strategy=SPY buy %26 hold">—</b>.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dr-verdict">
+      <span class="dr-pill is-bad">Verdict: failed</span>
+      <p>The lead was a product of searching many splits on one set of stocks. Its two parts looked real on the S&amp;P stocks and showed nothing on fresh ones.</p>
+    </div>
+  </section>
+
+  <!-- ===================================================== Test 3 -->
+  <section class="dr-chapter" id="test-3">
+    <div class="dr-chapter-head">
+      <span class="dr-kicker">Test 3 of 4</span>
+      <h2>Try every drop size and definition</h2>
+    </div>
+    <div class="dr-qa">
+      <div><h4>The idea</h4><p class="dr-text">Maybe 2% was simply the wrong number. A 2% drop is routine for a chip stock and rare for a utility, and a slide over several days might matter more than one bad day.</p></div>
+      <div><h4>How I tested it</h4><p class="dr-text">Five ways to measure a drop, 34 cutoffs, holds of 1 to 10 days and three volume filters, on three samples. To count as robust, a setting had to point the same way in all three, be clearly non-random in two, and beat trading costs in all three.</p></div>
+      <div><h4>What I found</h4><p class="dr-text">One-day drops show nothing at any size. Drops over 3 to 5 days do bounce a little, consistently, in all three samples. That is the known short-term reversal effect. It is just smaller than the cost of trading it.</p></div>
+    </div>
+
+    <div class="dr-tiles" aria-label="Test 3 results">
+      <div class="dr-tile">
+        <span class="dr-tile-label">Settings tested</span>
+        <span class="dr-tile-value dash-skeleton" data-draw="t3-total" data-source="sweep_summary" data-field="combinations" data-row="0">—</span>
+        <span class="dr-tile-note">each on three samples</span>
+      </div>
+      <div class="dr-tile">
+        <span class="dr-tile-label">Robust in all three samples</span>
+        <span class="dr-tile-value dash-skeleton" data-draw="t3-robust" data-source="sweep_summary" data-field="robust" data-row="0">—</span>
+        <span class="dr-tile-note">same direction, non-random, bigger than costs</span>
+      </div>
+      <div class="dr-tile">
+        <span class="dr-tile-label">Best pattern: down 2%+ over 5 days, hold 5 days</span>
+        <div class="dr-trio">
+          <div><span class="dr-tile-value dash-skeleton" data-draw="t3-a" data-source="sweep" data-field="edge_sp_2005_15" data-where="combo=multi5|0.02|5|1M%2B shares">—</span><span class="dr-tile-note">S&amp;P 2005–15</span></div>
+          <div><span class="dr-tile-value dash-skeleton" data-draw="t3-b" data-source="sweep" data-field="edge_sp_2016_26" data-where="combo=multi5|0.02|5|1M%2B shares">—</span><span class="dr-tile-note">S&amp;P 2016–26</span></div>
+          <div><span class="dr-tile-value dash-skeleton" data-draw="t3-c" data-source="sweep" data-field="edge_new" data-where="combo=multi5|0.02|5|1M%2B shares">—</span><span class="dr-tile-note">New stocks</span></div>
+        </div>
+        <span class="dr-tile-note">edge per trade; a round trip at 5 bps per side costs 0.10%</span>
+      </div>
+    </div>
+
+    <div class="dr-card">
+      <h3>Explore the drop sizes</h3>
+      <p class="dr-note">Pick how a drop is measured and how long to hold. Each line is one sample; points right of center are bigger drops. A real effect would keep all three lines above zero together. Filled dots have a t-stat of 2 or more. Try "5-day drop" with a 5-day hold to see the one pattern that holds up.</p>
+      <div class="dr-controls">
+        <div class="dr-ctl" role="group" aria-label="How a drop is measured">
+          <span class="dr-ctl-label">Drop measured as</span>
+          <button class="dr-seg" type="button" data-measure="One-day drop" aria-pressed="true">One-day drop</button>
+          <button class="dr-seg" type="button" data-measure="Drop vs normal daily move" aria-pressed="false">Vs normal daily move</button>
+          <button class="dr-seg" type="button" data-measure="3-day drop" aria-pressed="false">3-day drop</button>
+          <button class="dr-seg" type="button" data-measure="5-day drop" aria-pressed="false">5-day drop</button>
+          <button class="dr-seg" type="button" data-measure="Drop vs sector ETF" aria-pressed="false">Vs its sector</button>
+        </div>
+        <div class="dr-ctl" role="group" aria-label="Holding period">
+          <span class="dr-ctl-label">Hold for</span>
+          <button class="dr-seg" type="button" data-hold="1" aria-pressed="false">1 day</button>
+          <button class="dr-seg" type="button" data-hold="2" aria-pressed="false">2</button>
+          <button class="dr-seg" type="button" data-hold="3" aria-pressed="true">3</button>
+          <button class="dr-seg" type="button" data-hold="5" aria-pressed="false">5</button>
+          <button class="dr-seg" type="button" data-hold="10" aria-pressed="false">10</button>
+        </div>
+        <div class="dr-ctl" role="group" aria-label="Volume filter">
+          <span class="dr-ctl-label">Volume</span>
+          <button class="dr-seg" type="button" data-volume="1M+ shares" aria-pressed="true">1M+ shares</button>
+          <button class="dr-seg" type="button" data-volume="1M+ and 1.5x normal" aria-pressed="false">and 1.5x normal</button>
+          <button class="dr-seg" type="button" data-volume="1M+ and 3x normal" aria-pressed="false">and 3x normal</button>
+        </div>
+      </div>
+      <div class="dr-legend">
+        <span><i class="dr-sw is-dot" data-sw="1"></i>S&amp;P 2005–15</span>
+        <span><i class="dr-sw is-dot" data-sw="0"></i>S&amp;P 2016–26</span>
+        <span><i class="dr-sw is-dot" data-sw="2"></i>New stocks</span>
+        <span><i class="dr-sw is-ring"></i>t-stat under 2</span>
+      </div>
+      <div class="dr-chart dr-h-sweep dash-skeleton" data-draw="sweep" data-source="sweep"></div>
+    </div>
+
+    <div class="dr-card">
+      <h3>Does the weekly pullback make money in an account?</h3>
+      <p class="dr-note">Buy every stock down 2%+ over 5 days, hold 5 days, every day. "Same schedule, all stocks" buys everything on the same timetable, so it pays the same costs; the gap between the two is the pullback effect. Switch the cost to see what trading does to it. Commission-free market orders usually cost 2 to 5 bps per side.</p>
+      <div class="dr-controls">
+        <div class="dr-ctl" role="group" aria-label="Trading cost">
+          <span class="dr-ctl-label">Cost per side</span>
+          <button class="dr-seg" type="button" data-cost="0" aria-pressed="false">None</button>
+          <button class="dr-seg" type="button" data-cost="2" aria-pressed="false">2 bps</button>
+          <button class="dr-seg" type="button" data-cost="5" aria-pressed="true">5 bps</button>
+        </div>
+      </div>
+      <div class="dr-legend">
+        <span><i class="dr-sw" data-sw="0"></i>Pullback strategy</span>
+        <span><i class="dr-sw" data-sw="1"></i>Same schedule, all stocks</span>
+        <span><i class="dr-sw" data-sw="muted"></i>SPY buy &amp; hold</span>
+      </div>
+      <div class="dr-chart dr-h-pull dash-skeleton" data-draw="pullback" data-source="pullback"></div>
+    </div>
+
+    <div class="dr-verdict">
+      <span class="dr-pill is-warn">Verdict: real, but too small</span>
+      <p>No drop size works for one-day drops. Multi-day pullbacks carry a small, genuine bounce, but trading it every day costs about as much as it earns.</p>
+    </div>
+  </section>
+
+  <!-- ===================================================== Test 4 -->
+  <section class="dr-chapter" id="test-4">
+    <div class="dr-chapter-head">
+      <span class="dr-kicker">Test 4 of 4</span>
+      <h2>Trade the pullback once a week to cut costs</h2>
+    </div>
+    <div class="dr-qa">
+      <div><h4>The idea</h4><p class="dr-text">If costs are the problem, trade less. Rebalance once a week, hold only the 10, 20 or 50 deepest pullbacks, and keep names that still qualify instead of selling and rebuying them.</p></div>
+      <div><h4>How I tested it</h4><p class="dr-text">36 versions, saved to the repository before running. To pass, a version had to beat SPY on both yearly return and Sharpe, at 5 bps per side, in all three samples.</p></div>
+      <div><h4>What I found</h4><p class="dr-text">The holdings still change almost completely every week, so the portfolios traded <b data-draw="t4-tmin" data-source="weekly_summary" data-field="turnover_min" data-row="0">—</b> to <b data-draw="t4-tmax" data-source="weekly_summary" data-field="turnover_max" data-row="0">—</b> times their value each year. That eats the edge.</p></div>
+    </div>
+
+    <div class="dr-card">
+      <h3>Every weekly version against SPY</h3>
+      <p class="dr-note">Each dot is one version at 5 bps per side. The shaded corner is where a version beats SPY on both return and Sharpe. Switch samples: a version has to land in the corner in all three to pass. Hover a dot for its settings.</p>
+      <div class="dr-controls">
+        <div class="dr-ctl" role="group" aria-label="Sample">
+          <span class="dr-ctl-label">Sample</span>
+          <button class="dr-seg" type="button" data-sample="sp_2005_15" aria-pressed="false">S&amp;P 2005–15</button>
+          <button class="dr-seg" type="button" data-sample="sp_2016_26" aria-pressed="true">S&amp;P 2016–26</button>
+          <button class="dr-seg" type="button" data-sample="new" aria-pressed="false">New stocks</button>
+        </div>
+      </div>
+      <p class="dr-note">
+        <span data-sample-note="sp_2005_15" hidden><b data-draw="w-a" data-source="weekly_by_sample" data-field="beats" data-where="sample=sp_2005_15">—</b> versions land in the corner for this sample.</span>
+        <span data-sample-note="sp_2016_26"><b data-draw="w-b" data-source="weekly_by_sample" data-field="beats" data-where="sample=sp_2016_26">—</b> versions land in the corner for this sample.</span>
+        <span data-sample-note="new" hidden><b data-draw="w-c" data-source="weekly_by_sample" data-field="beats" data-where="sample=new">—</b> versions land in the corner for this sample.</span>
+        In all three samples: <b data-draw="w-all" data-source="weekly_summary" data-field="passes" data-row="0">—</b>.
+      </p>
+      <div class="dr-legend">
+        <span><i class="dr-sw is-dot" data-sw="0"></i>Beats SPY on both here</span>
+        <span><i class="dr-sw is-dot" data-sw="muted"></i>Does not</span>
+        <span><i class="dr-sw is-ring" data-sw-ring="1"></i>Buy all stocks weekly (benchmark)</span>
+      </div>
+      <div class="dr-chart dr-h-scatter dash-skeleton" data-draw="scatter" data-source="weekly weekly_spy"></div>
+    </div>
+
+    <div class="dr-verdict">
+      <span class="dr-pill is-bad">Verdict: failed</span>
+      <p>No weekly version beats holding SPY in more than one sample. As decided before running, the pullback idea is dropped as not tradable at retail costs.</p>
+    </div>
+  </section>
+
+  <!-- ===================================================== Wrap-up -->
+  <section class="dr-chapter" id="takeaways">
+    <div class="dr-chapter-head">
+      <span class="dr-kicker">Summary</span>
+      <h2>What this means</h2>
+    </div>
+    <div class="dr-grid">
+      <div class="dr-card">
+        <h3>Lessons</h3>
+        <ul class="dr-list">
+          <li>Raw returns mislead. Measure a signal against other stocks bought the same day, or market bounces look like skill.</li>
+          <li>Search enough rules and one will look great by chance. Only a test on data the rule has never seen tells you if it is real.</li>
+          <li>Trading costs decide short-term strategies. A real edge of 0.1% per trade disappears at 5 bps per side.</li>
+          <li>For the evening prompt, the price drop itself gives the AI nothing to build on. Any edge has to come from its news research.</li>
+        </ul>
+      </div>
+      <div class="dr-card">
+        <h3>What to try next</h3>
+        <ul class="dr-list">
+          <li>Measure the AI scores: log each night's scores and check whether high-scored stocks beat low-scored ones the next day, with the same edge measure.</li>
+          <li>Test slower strategies, such as monthly momentum or a 200-day trend filter. They trade about 12 times a year, so costs barely matter.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="dr-card">
+      <h3>How the tests were run</h3>
+      <ul class="dr-list">
+        <li>Daily prices from Yahoo Finance, adjusted for splits and dividends. S&amp;P stocks count only from the date they joined an index, where known.</li>
+        <li>Every trade buys at the next morning's open, the earliest an evening workflow can act.</li>
+        <li>Tests 2 and 4 had their rules and pass marks committed to the repository before the data was run.</li>
+        <li>Stocks that went bankrupt or were bought out are missing from the data. That flatters every result, so real numbers would likely be a bit worse.</li>
+        <li>Code and full results: research/dip_rebound in the starter-web repository.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<script>
+  window.DR = (() => {
+    const num = (v) => (v === '' || v == null ? NaN : Number(v));
+    const status = (id) => dash.data(id).status;
+    const rows = (id) => (status(id) === 'ok' ? dash.data(id).data : null);
+    const pct2 = d3.format('+.2%'), pct1 = d3.format('+.1%');
+    const f = {
+      pct2: (v) => (isFinite(v) ? pct2(v) : '—'),
+      pct1: (v) => (isFinite(v) ? pct1(v) : '—'),
+      share: (v) => (isFinite(v) ? d3.format('.1%')(v) : '—'),
+      t: (v) => (isFinite(v) ? d3.format('.2f')(v) : '—'),
+      int: (v) => (isFinite(v) ? d3.format(',')(v) : '—'),
+      x: (v) => (isFinite(v) ? d3.format('.0f')(v) : '—'),
+      money: (v) => (isFinite(v) ? '$' + d3.format('.2f')(v) : '—'),
+    };
+    const text = (name, id, pick, fmt, badIf) => dash.draw(name, (el) => {
+      const r = rows(id);
+      const row = r && r.find(pick);
+      el.classList.remove('dash-skeleton');
+      if (!row) { el.textContent = '—'; if (status(id) === 'loading') el.classList.add('dash-skeleton'); return; }
+      el.textContent = fmt(row);
+      if (badIf) el.classList.toggle('is-bad', !!badIf(row));
+    });
+    const frame = (el, ids) => {
+      const st = [].concat(ids).map(status);
+      const loading = st.includes('loading');
+      el.classList.toggle('dash-skeleton', loading);
+      if (st.some((s) => s !== 'ok')) {
+        el.replaceChildren();
+        if (!loading && st.some((s) => s === 'error' || s === 'missing')) {
+          const d = document.createElement('div'); d.className = 'dr-fail'; d.textContent = 'Failed to load'; el.append(d);
+        }
+        return null;
+      }
+      return [].concat(ids).map((id) => dash.data(id).data);
+    };
+    const tooltip = (el) => {
+      const tip = document.createElement('div');
+      tip.className = 'dr-tip'; tip.hidden = true; el.append(tip);
+      return {
+        show(head, lines, x, y) {
+          const h = document.createElement('div'); h.className = 'dr-tip-head'; h.textContent = head;
+          const ls = lines.map(([color, label, value]) => {
+            const r = document.createElement('div'); r.className = 'dr-tip-row';
+            if (color) { const s = document.createElement('i'); s.className = 'dr-sw'; s.style.background = color; r.append(s); }
+            const t = document.createElement('span'); t.textContent = value ? `${label}: ${value}` : label; r.append(t);
+            return r;
+          });
+          tip.replaceChildren(h, ...ls); tip.hidden = false;
+          const w = el.clientWidth, tw = tip.offsetWidth, th = tip.offsetHeight;
+          let left = x + 12; if (left + tw > w) left = Math.max(0, x - tw - 12);
+          tip.style.left = left + 'px'; tip.style.top = Math.max(0, y - th - 8) + 'px';
+        },
+        hide() { tip.hidden = true; },
+      };
+    };
+    const axisClean = (g) => g.attr('font-size', null).attr('font-family', null);
+    const textWidth = (svg, strings, cls) => {
+      const t = svg.append('text').attr('class', cls || null);
+      let w = 0;
+      for (const s of strings) { t.text(s); w = Math.max(w, t.node().getComputedTextLength()); }
+      t.remove();
+      return w;
+    };
+    const muted = () => getComputedStyle(document.documentElement).getPropertyValue('--cds-chart-muted').trim() || '#999';
+    const svgFor = (el, W, H) => d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('class', 'is-new');
+    const state = { measure: 'One-day drop', hold: 3, volume: '1M+ shares', cost: 5, sample: 'sp_2016_26' };
+    const isTrue = (v) => String(v).toLowerCase() === 'true';
+    return { num, status, rows, f, text, frame, tooltip, axisClean, textWidth, muted, svgFor, state, isTrue };
+  })();
+
+  // Computed figures, so readers can see how each count is made.
+  dash.calc('sweep_summary', {
+    inputs: ['sweep'], title: 'Drop-size test totals',
+    description: 'Counts the settings tested and how many passed the robust test in all three samples.',
+    fn: (sweep) => [{ combinations: sweep.length, robust: sweep.filter((r) => String(r.robust).toLowerCase() === 'true').length }],
+  });
+  dash.calc('weekly_summary', {
+    inputs: ['weekly'], title: 'Weekly test totals',
+    description: 'Counts the weekly versions, how many passed in all three samples, and the range of yearly turnover.',
+    fn: (weekly) => {
+      const v = weekly.filter((r) => r.kind === 'variant');
+      const t = v.map((r) => Number(r.turnover));
+      return [{ variants: v.length, passes: v.filter((r) => String(r.passes).toLowerCase() === 'true').length,
+        turnover_min: Math.min(...t), turnover_max: Math.max(...t) }];
+    },
+  });
+  dash.calc('weekly_by_sample', {
+    inputs: ['weekly', 'weekly_spy'], title: 'Versions beating SPY per sample',
+    description: 'For each sample, how many weekly versions beat SPY on both yearly return and Sharpe at 5 bps per side.',
+    fn: (weekly, weekly_spy) => weekly_spy.map((s) => ({
+      sample: s.key,
+      beats: weekly.filter((r) => r.kind === 'variant' && Number(r['cagr_' + s.key]) > Number(s.cagr) && Number(r['sharpe_' + s.key]) > Number(s.sharpe)).length,
+    })),
+  });
+
+  // Legend swatches take the series colors.
+  dash.onData(() => {
+    document.querySelectorAll('[data-sw]').forEach((s) => {
+      const k = s.getAttribute('data-sw');
+      s.style.background = k === 'muted' ? 'var(--cds-chart-muted)' : dash.colors[Number(k)];
+    });
+    document.querySelectorAll('[data-sw-ring]').forEach((s) => { s.style.borderColor = dash.colors[Number(s.getAttribute('data-sw-ring'))]; });
+  });
+
+  // Step cards jump to their chapter.
+  const go = (el) => { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); dash.setLink(el.id); };
+  document.querySelectorAll('[data-go]').forEach((b) => b.addEventListener('click', () => {
+    const el = document.getElementById(b.getAttribute('data-go'));
+    if (el) go(el);
+  }));
+  const named = location.hash && document.getElementById(location.hash.slice(1));
+  if (named) setTimeout(() => go(named), 400);
+
+  // Segmented controls: set state, mark the pressed button, redraw.
+  const wire = (attr, key, draws, parse) => {
+    const btns = document.querySelectorAll(`[${attr}]`);
+    btns.forEach((b) => b.addEventListener('click', () => {
+      window.DR.state[key] = parse ? parse(b.getAttribute(attr)) : b.getAttribute(attr);
+      btns.forEach((o) => o.setAttribute('aria-pressed', String(o === b)));
+      if (key === 'sample') {
+        document.querySelectorAll('[data-sample-note]').forEach((n) => { n.hidden = n.getAttribute('data-sample-note') !== window.DR.state.sample; });
+      }
+      draws.forEach((d) => dash.draw(d));
+    }));
+  };
+  wire('data-measure', 'measure', ['sweep']);
+  wire('data-hold', 'hold', ['sweep'], Number);
+  wire('data-volume', 'volume', ['sweep']);
+  wire('data-cost', 'cost', ['pullback'], Number);
+  wire('data-sample', 'sample', ['scatter']);
+</script>
+
+<script>
+  const { num, f, text, isTrue } = window.DR;
+  const h3 = (r) => num(r.hold) === 3;
+  const rank1 = (r) => num(r.rank) === 1;
+  const h1new = (r) => r.id === 'H1' && r.universe === 'New stocks';
+  const best = (r) => r.combo === 'multi5|0.02|5|1M+ shares';
+  const spyRow = (r) => r.strategy === 'SPY buy & hold';
+  const one = () => true;
+  text('s1-edge', 'headline', h3, (r) => f.pct2(num(r.edge)));
+  text('s2-t', 'holdout', h1new, (r) => f.t(num(r.t_stat)));
+  text('s3-robust', 'sweep_summary', one, (r) => f.int(num(r.robust)));
+  text('s3-total', 'sweep_summary', one, (r) => f.int(num(r.combinations)));
+  text('s4-pass', 'weekly_summary', one, (r) => f.int(num(r.passes)));
+  text('s4-total', 'weekly_summary', one, (r) => f.int(num(r.variants)));
+  text('t1-raw-text', 'headline', h3, (r) => f.pct2(num(r.dip_raw)));
+  text('t1-edge-text', 'headline', h3, (r) => f.pct2(num(r.edge)));
+  text('t1-signals', 'headline', h3, (r) => f.int(num(r.signals)));
+  text('t1-raw', 'headline', h3, (r) => f.pct2(num(r.dip_raw)));
+  text('t1-anyday', 'headline', h3, (r) => f.pct2(num(r.anyday_raw)));
+  text('t1-edge', 'headline', h3, (r) => f.pct2(num(r.edge)));
+  text('t1-edge-t', 'headline', h3, (r) => f.t(num(r.t_stat)));
+  text('t1-cagr', 'portfolio', (r) => r.strategy === 'All dips, 3d hold, 5 bps/side', (r) => f.pct1(num(r.cagr)));
+  text('t1-spy', 'portfolio', spyRow, (r) => f.pct1(num(r.cagr)));
+  text('t2-raw', 'holdout', h1new, (r) => f.pct2(num(r.raw3)));
+  text('t2-win', 'holdout', h1new, (r) => f.share(num(r.win_rate)));
+  text('c1-v', 'holdout', h1new, (r) => f.t(num(r.t_stat)));
+  text('c2-a', 'holdout', h1new, (r) => f.pct2(num(r.edge_2005_15)));
+  text('c2-b', 'holdout', h1new, (r) => f.pct2(num(r.edge_2016_26)));
+  text('c3-v', 'holdout', h1new, (r) => f.pct1(num(r.net_cagr)));
+  text('c3-spy', 'portfolio', spyRow, (r) => f.pct1(num(r.cagr)));
+  text('t3-total', 'sweep_summary', one, (r) => f.int(num(r.combinations)));
+  text('t3-robust', 'sweep_summary', one, (r) => f.int(num(r.robust)));
+  text('t3-a', 'sweep', best, (r) => f.pct2(num(r.edge_sp_2005_15)));
+  text('t3-b', 'sweep', best, (r) => f.pct2(num(r.edge_sp_2016_26)));
+  text('t3-c', 'sweep', best, (r) => f.pct2(num(r.edge_new)));
+  text('t4-tmin', 'weekly_summary', one, (r) => f.x(num(r.turnover_min)));
+  text('t4-tmax', 'weekly_summary', one, (r) => f.x(num(r.turnover_max)));
+  text('w-a', 'weekly_by_sample', (r) => r.sample === 'sp_2005_15', (r) => f.int(num(r.beats)));
+  text('w-b', 'weekly_by_sample', (r) => r.sample === 'sp_2016_26', (r) => f.int(num(r.beats)));
+  text('w-c', 'weekly_by_sample', (r) => r.sample === 'new', (r) => f.int(num(r.beats)));
+  text('w-all', 'weekly_summary', one, (r) => f.int(num(r.passes)));
+
+  // Pass/fail marks for the three pre-registered criteria.
+  const mark = (name, test) => dash.draw(name, (el) => {
+    const r = window.DR.rows('holdout');
+    const row = r && r.find(h1new);
+    el.classList.remove('is-ok', 'is-bad');
+    if (!row) { el.textContent = '—'; return; }
+    const ok = test(row);
+    el.textContent = ok ? '✓' : '✗';
+    el.classList.add(ok ? 'is-ok' : 'is-bad');
+    el.setAttribute('aria-label', ok ? 'Passed' : 'Failed');
+  });
+  mark('c1', (r) => num(r.edge) > 0 && num(r.t_stat) >= 2);
+  mark('c2', (r) => num(r.edge_2005_15) > 0 && num(r.edge_2016_26) > 0);
+  mark('c3', (r) => num(r.net_cagr) > 0);
+</script>
+
+<script>
+  // Test 1: grouped bars by holding period.
+  dash.draw('bars', (el) => {
+    const { num, frame, tooltip, axisClean, textWidth, muted, f, svgFor } = window.DR;
+    const got = frame(el, 'headline');
+    if (!got) return;
+    el.replaceChildren();
+    const series = [
+      { key: 'dip_raw', label: 'After a drop', color: dash.colors[0] },
+      { key: 'anyday_raw', label: 'Same stocks, any day', color: muted() },
+      { key: 'edge', label: 'Edge', color: dash.colors[1] },
+    ];
+    const rows = got[0].map((r) => ({ hold: num(r.hold), ...Object.fromEntries(series.map((s) => [s.key, num(r[s.key])])) }));
+    const W = el.clientWidth || 600, H = 260;
+    const svg = svgFor(el, W, H);
+    const vals = rows.flatMap((r) => series.map((s) => r[s.key]));
+    const y = d3.scaleLinear([Math.min(0, d3.min(vals)), d3.max(vals)], [H - 28, 8]).nice();
+    const ml = textWidth(svg, y.ticks(5).map((t) => d3.format('.1%')(t))) + 10;
+    const x = d3.scaleBand(rows.map((r) => r.hold), [ml, W - 4]).padding(0.25);
+    const xi = d3.scaleBand(series.map((s) => s.key), [0, x.bandwidth()]).padding(0.12);
+    svg.append('g').attr('transform', `translate(${ml},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(d3.format('.1%')).tickSize(-(W - ml - 4))).call(axisClean).call((g) => g.select('.domain').remove());
+    svg.append('g').attr('transform', `translate(0,${H - 28})`).call(d3.axisBottom(x).tickFormat((d) => `Hold ${d} day${d > 1 ? 's' : ''}`).tickSize(0).tickPadding(10)).call(axisClean).call((g) => g.select('.domain').remove());
+    svg.append('line').attr('x1', ml).attr('x2', W - 4).attr('y1', y(0)).attr('y2', y(0)).style('stroke', 'var(--cds-chart-axis)');
+    const tip = tooltip(el);
+    const g = svg.append('g').selectAll('g').data(rows).join('g').attr('transform', (r) => `translate(${x(r.hold)},0)`);
+    g.selectAll('rect').data((r) => series.map((s) => ({ s, v: r[s.key] }))).join('rect')
+      .attr('x', (d) => xi(d.s.key)).attr('width', Math.min(xi.bandwidth(), 32))
+      .attr('y', (d) => Math.min(y(d.v), y(0))).attr('height', (d) => Math.max(1, Math.abs(y(d.v) - y(0))))
+      .attr('rx', 2).style('fill', (d) => d.s.color);
+    g.append('rect').attr('width', x.bandwidth()).attr('y', 0).attr('height', H - 28).style('fill', 'transparent')
+      .on('pointermove', (ev, r) => { const [px, py] = d3.pointer(ev, el); tip.show(`Hold ${r.hold} day${r.hold > 1 ? 's' : ''}`, series.map((s) => [s.color, s.label, f.pct2(r[s.key])]), px, py); })
+      .on('pointerleave', () => tip.hide());
+  });
+
+  // Test 1: growth of $1, log scale, labelled at the end.
+  dash.draw('curve', (el) => {
+    const { num, frame, tooltip, axisClean, textWidth, muted, f, svgFor } = window.DR;
+    const got = frame(el, 'curves');
+    if (!got) return;
+    el.replaceChildren();
+    const short = {
+      'SPY buy & hold': 'SPY',
+      'All dips, 3d hold, 5 bps/side': 'Every 2% drop',
+      'Best rule, 5d hold, 5 bps/side': 'Best test-1 rule',
+      'Best rule, 5d hold, hedged, 5 bps/side': 'Best rule, hedged',
+    };
+    const parse = d3.utcParse('%Y-%m-%d');
+    const groups = d3.groups(got[0], (r) => r.strategy).map(([name, rs], i) => ({
+      name, label: short[name] || name,
+      color: name.startsWith('SPY') ? muted() : dash.colors[i % dash.colors.length],
+      pts: rs.map((r) => ({ d: parse(r.date), v: num(r.value) })).filter((p) => p.d && p.v > 0),
+    }));
+    const W = el.clientWidth || 600, H = 320;
+    const svg = svgFor(el, W, H);
+    const all = groups.flatMap((g) => g.pts);
+    const y = d3.scaleLog([d3.min(all, (p) => p.v) * 0.95, d3.max(all, (p) => p.v) * 1.05], [H - 24, 8]);
+    const tickVals = [0.25, 0.5, 1, 2, 4, 8, 16, 32].filter((t) => t >= y.domain()[0] && t <= y.domain()[1]);
+    const fmtY = (t) => '$' + d3.format('~g')(t);
+    const ml = textWidth(svg, tickVals.map(fmtY)) + 8;
+    const ends = groups.map((g) => ({ g, last: g.pts[g.pts.length - 1] }));
+    const labelTxt = ends.map((e) => `${e.g.label} ${f.money(e.last.v)}`);
+    const mr = Math.min(textWidth(svg, labelTxt) + 12, W * 0.42);
+    const x = d3.scaleUtc(d3.extent(all, (p) => p.d), [ml, W - mr]);
+    svg.append('g').attr('transform', `translate(${ml},0)`).call(d3.axisLeft(y).tickValues(tickVals).tickFormat(fmtY).tickSize(-(W - ml - mr))).call(axisClean).call((g) => g.select('.domain').remove());
+    svg.append('g').attr('transform', `translate(0,${H - 24})`).call(d3.axisBottom(x).ticks(W < 500 ? 4 : 7).tickSizeOuter(0)).call(axisClean);
+    svg.append('line').attr('x1', ml).attr('x2', W - mr).attr('y1', y(1)).attr('y2', y(1)).style('stroke', 'var(--cds-chart-reference)').attr('stroke-dasharray', '3 3');
+    const line = d3.line().x((p) => x(p.d)).y((p) => y(p.v));
+    for (const g of groups) svg.append('path').attr('d', line(g.pts)).style('fill', 'none').style('stroke', g.color).attr('stroke-width', 2).attr('stroke-linejoin', 'round').attr('stroke-linecap', 'round');
+    const lab = ends.map((e, i) => ({ ...e, text: labelTxt[i], y: y(e.last.v) })).sort((a, b) => a.y - b.y);
+    for (let i = 1; i < lab.length; i++) if (lab[i].y - lab[i - 1].y < 14) lab[i].y = lab[i - 1].y + 14;
+    const over = lab.length ? lab[lab.length - 1].y - (H - 30) : 0;
+    if (over > 0) lab.forEach((l) => { l.y -= over; });
+    for (const l of lab) {
+      svg.append('circle').attr('cx', x(l.last.d)).attr('cy', y(l.last.v)).attr('r', 3).style('fill', l.g.color);
+      svg.append('text').attr('class', 'dr-strong').attr('x', W - mr + 8).attr('y', l.y).attr('dy', '0.32em').text(l.text);
+    }
+    const tip = tooltip(el);
+    const rule = svg.append('line').attr('y1', 8).attr('y2', H - 24).style('stroke', 'var(--cds-chart-axis)').attr('opacity', 0);
+    const bis = d3.bisector((p) => p.d).center;
+    svg.append('rect').attr('x', ml).attr('width', W - ml - mr).attr('y', 0).attr('height', H - 24).style('fill', 'transparent')
+      .on('pointermove', (ev) => {
+        const [mx] = d3.pointer(ev);
+        const d = x.invert(mx);
+        const lines = groups.map((g) => { const p = g.pts[bis(g.pts, d)]; return [g.color, g.label, f.money(p.v)]; });
+        const p0 = groups[0].pts[bis(groups[0].pts, d)];
+        rule.attr('x1', x(p0.d)).attr('x2', x(p0.d)).attr('opacity', 1);
+        const [px, py] = d3.pointer(ev, el);
+        tip.show(d3.utcFormat('%b %-d, %Y')(p0.d), lines, px, py);
+      })
+      .on('pointerleave', () => { tip.hide(); rule.attr('opacity', 0); });
+  });
+
+  // Test 1: rules table.
+  dash.draw('rules-body', (tb) => {
+    const { num, rows, f } = window.DR;
+    const data = rows('rules');
+    tb.replaceChildren();
+    if (!data) return;
+    for (const r of data) {
+      const tr = document.createElement('tr');
+      if (num(r.rank) === 1) tr.className = 'is-pick';
+      const cells = [[String(num(r.rank)), ''], [r.rule, 'is-text'], [f.pct2(num(r.edge_is)), ''], [f.t(num(r.t_is)), ''],
+        [f.pct2(num(r.edge_oos)), num(r.edge_oos) < 0 ? 'is-bad' : ''], [f.t(num(r.t_oos)), '']];
+      for (const [v, cls] of cells) { const td = document.createElement('td'); td.textContent = v; if (cls) td.className = cls; tr.append(td); }
+      tb.append(tr);
+    }
+  });
+</script>
+
+<script>
+  // Test 2: edge per rule, new stocks vs S&P.
+  dash.draw('holdout', (el) => {
+    const { num, frame, tooltip, axisClean, textWidth, muted, f, svgFor } = window.DR;
+    const got = frame(el, 'holdout');
+    if (!got) return;
+    el.replaceChildren();
+    const order = ['H1', 'H2', 'H3', 'H0'];
+    const unis = [{ key: 'New stocks', color: dash.colors[0] }, { key: 'S&P 500/400', color: muted() }];
+    const data = got[0].map((r) => ({ id: r.id, rule: r.rule, uni: r.universe, edge: num(r.edge), t: num(r.t_stat), n: num(r.signals) }));
+    const rules = order.map((id) => ({ id, rule: (data.find((d) => d.id === id) || {}).rule || id })).filter((r) => data.some((d) => d.id === r.id));
+    const W = el.clientWidth || 600;
+    const narrow = W < 560;
+    const barH = 14, gap = 4, block = (narrow ? 18 : 0) + 2 * barH + gap + 18;
+    const H = rules.length * block + 26;
+    const svg = svgFor(el, W, H);
+    const labelW = narrow ? 0 : Math.min(textWidth(svg, rules.map((r) => r.rule)) + 16, W * 0.42);
+    const ext = d3.max(data, (d) => Math.abs(d.edge)) || 0.001;
+    const x = d3.scaleLinear([-ext, ext], [labelW + 4, W - 8]).nice();
+    svg.append('g').attr('transform', `translate(0,${H - 22})`).call(d3.axisBottom(x).ticks(narrow ? 4 : 6).tickFormat(d3.format('+.2%')).tickSize(-(H - 22))).call(axisClean).call((g) => g.select('.domain').remove());
+    svg.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', 0).attr('y2', H - 22).style('stroke', 'var(--cds-chart-reference)').attr('stroke-width', 1.5);
+    const tip = tooltip(el);
+    rules.forEach((r, i) => {
+      const top = i * block + 6;
+      const labY = narrow ? top + 8 : top + barH + gap / 2;
+      svg.append('text').attr('class', 'dr-strong').attr('x', 0).attr('y', labY).attr('dy', '0.32em').text(r.rule);
+      unis.forEach((u, j) => {
+        const d = data.find((q) => q.id === r.id && q.uni === u.key);
+        if (!d) return;
+        const yb = top + (narrow ? 18 : 0) + j * (barH + gap);
+        svg.append('rect').attr('x', Math.min(x(0), x(d.edge))).attr('width', Math.max(1, Math.abs(x(d.edge) - x(0))))
+          .attr('y', yb).attr('height', barH).attr('rx', 2).style('fill', u.color)
+          .on('pointermove', (ev) => { const [px, py] = d3.pointer(ev, el); tip.show(r.rule, [[u.color, u.key, `${f.pct2(d.edge)} (t ${f.t(d.t)})`], [null, `${f.int(d.n)} signals`]], px, py); })
+          .on('pointerleave', () => tip.hide());
+      });
+    });
+  });
+</script>
+
+<script>
+  // Test 3: drop-size explorer.
+  dash.draw('sweep', (el) => {
+    const { num, frame, tooltip, axisClean, textWidth, f, svgFor, state } = window.DR;
+    const got = frame(el, 'sweep');
+    if (!got) return;
+    el.replaceChildren();
+    const sub = got[0].filter((r) => r.measure === state.measure && num(r.hold) === state.hold && r.volume === state.volume)
+      .map((r) => ({ cut: num(r.cutoff), label: r.cutoff_label,
+        s: [{ e: num(r.edge_sp_2005_15), t: num(r.t_sp_2005_15) }, { e: num(r.edge_sp_2016_26), t: num(r.t_sp_2016_26) }, { e: num(r.edge_new), t: num(r.t_new) }] }))
+      .sort((a, b) => a.cut - b.cut);
+    const series = [{ name: 'S&P 2005–15', color: dash.colors[1] }, { name: 'S&P 2016–26', color: dash.colors[0] }, { name: 'New stocks', color: dash.colors[2] }];
+    const W = el.clientWidth || 600, H = 320;
+    const svg = svgFor(el, W, H);
+    const vals = sub.flatMap((d) => d.s.map((q) => q.e)).filter(isFinite);
+    const lo = Math.min(-0.001, d3.min(vals) ?? 0), hi = Math.max(0.001, d3.max(vals) ?? 0);
+    const y = d3.scaleLinear([lo, hi], [H - 40, 10]).nice();
+    const ml = textWidth(svg, y.ticks(5).map((t) => d3.format('+.2%')(t))) + 10;
+    const x = d3.scalePoint(sub.map((d) => d.label), [ml + 16, W - 16]).padding(0.3);
+    svg.append('g').attr('transform', `translate(${ml},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(d3.format('+.2%')).tickSize(-(W - ml))).call(axisClean).call((g) => g.select('.domain').remove());
+    svg.append('g').attr('transform', `translate(0,${H - 40})`).call(d3.axisBottom(x).tickSize(0).tickPadding(10)).call(axisClean).call((g) => g.select('.domain').remove());
+    svg.append('text').attr('x', W - 4).attr('y', H - 6).attr('text-anchor', 'end').text('Bigger drops →');
+    svg.append('line').attr('x1', ml).attr('x2', W).attr('y1', y(0)).attr('y2', y(0)).style('stroke', 'var(--cds-chart-reference)').attr('stroke-width', 1.5);
+    series.forEach((s, i) => {
+      const pts = sub.filter((d) => isFinite(d.s[i].e));
+      svg.append('path').attr('d', d3.line().x((d) => x(d.label)).y((d) => y(d.s[i].e))(pts))
+        .style('fill', 'none').style('stroke', s.color).attr('stroke-width', 2).attr('stroke-linejoin', 'round').attr('stroke-linecap', 'round');
+      svg.append('g').selectAll('circle').data(pts).join('circle')
+        .attr('cx', (d) => x(d.label)).attr('cy', (d) => y(d.s[i].e)).attr('r', 4.5).attr('stroke-width', 2)
+        .style('stroke', s.color).style('fill', (d) => (Math.abs(d.s[i].t) >= 2 ? s.color : 'var(--color-panel)'));
+    });
+    const tip = tooltip(el);
+    const step = x.step();
+    svg.append('g').selectAll('rect').data(sub).join('rect')
+      .attr('x', (d) => x(d.label) - step / 2).attr('width', step).attr('y', 0).attr('height', H - 40).style('fill', 'transparent')
+      .on('pointermove', (ev, d) => {
+        const [px, py] = d3.pointer(ev, el);
+        tip.show(`${state.measure} ${d.label}+, hold ${state.hold}d`, series.map((s, i) => [s.color, s.name, `${f.pct2(d.s[i].e)} (t ${f.t(d.s[i].t)})`]), px, py);
+      })
+      .on('pointerleave', () => tip.hide());
+  });
+
+  // Test 3: account check at the chosen cost.
+  dash.draw('pullback', (el) => {
+    const { num, frame, tooltip, axisClean, textWidth, muted, f, svgFor, state } = window.DR;
+    const got = frame(el, 'pullback');
+    if (!got) return;
+    el.replaceChildren();
+    const strat = [{ key: 'Pullback strategy', color: dash.colors[0] }, { key: 'Same schedule, all stocks', color: dash.colors[1] }, { key: 'SPY buy & hold', color: muted() }];
+    const unis = ['S&P 500/400', 'New stocks'];
+    const rows = got[0].filter((r) => num(r.cost_bps) === state.cost).map((r) => ({ uni: r.universe, s: r.strategy, cagr: num(r.cagr), sharpe: num(r.sharpe), dd: num(r.max_dd) }));
+    const W = el.clientWidth || 600, H = 280;
+    const svg = svgFor(el, W, H);
+    const vals = rows.map((r) => r.cagr);
+    const y = d3.scaleLinear([Math.min(0, d3.min(vals)), Math.max(0.01, d3.max(vals))], [H - 30, 18]).nice();
+    const ml = textWidth(svg, y.ticks(5).map((t) => d3.format('.0%')(t))) + 10;
+    const x = d3.scaleBand(unis, [ml, W - 4]).padding(0.2);
+    const xi = d3.scaleBand(strat.map((s) => s.key), [0, x.bandwidth()]).padding(0.15);
+    svg.append('g').attr('transform', `translate(${ml},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(d3.format('.0%')).tickSize(-(W - ml - 4))).call(axisClean).call((g) => g.select('.domain').remove());
+    svg.append('g').attr('transform', `translate(0,${H - 30})`).call(d3.axisBottom(x).tickSize(0).tickPadding(10)).call(axisClean).call((g) => g.select('.domain').remove());
+    svg.append('line').attr('x1', ml).attr('x2', W - 4).attr('y1', y(0)).attr('y2', y(0)).style('stroke', 'var(--cds-chart-axis)');
+    const tip = tooltip(el);
+    for (const u of unis) {
+      for (const s of strat) {
+        const r = rows.find((q) => q.uni === u && q.s === s.key);
+        if (!r) continue;
+        const bw = Math.min(xi.bandwidth(), 48), bx = x(u) + xi(s.key) + (xi.bandwidth() - bw) / 2;
+        svg.append('rect').attr('x', bx).attr('width', bw).attr('y', Math.min(y(r.cagr), y(0))).attr('height', Math.max(1, Math.abs(y(r.cagr) - y(0)))).attr('rx', 2).style('fill', s.color)
+          .on('pointermove', (ev) => { const [px, py] = d3.pointer(ev, el); tip.show(`${u}, ${state.cost} bps per side`, [[s.color, s.key, `${f.pct1(r.cagr)} a year`], [null, 'Sharpe', f.t(r.sharpe)], [null, 'Worst fall', d3.format('.0%')(r.dd)]], px, py); })
+          .on('pointerleave', () => tip.hide());
+        svg.append('text').attr('class', 'dr-strong').attr('x', bx + bw / 2).attr('y', r.cagr >= 0 ? y(r.cagr) - 5 : y(r.cagr) + 13).attr('text-anchor', 'middle').text(f.pct1(r.cagr));
+      }
+    }
+  });
+</script>
+
+<script>
+  // Test 4: every weekly version vs SPY, for one sample.
+  dash.draw('scatter', (el) => {
+    const { num, frame, tooltip, axisClean, textWidth, muted, f, svgFor, state } = window.DR;
+    const got = frame(el, ['weekly', 'weekly_spy']);
+    if (!got) return;
+    el.replaceChildren();
+    const k = state.sample;
+    const spy = got[1].find((r) => r.key === k);
+    if (!spy) return;
+    const sx = num(spy.sharpe), sy = num(spy.cagr);
+    const pts = got[0].map((r) => ({ name: r.variant, bench: r.kind === 'benchmark', cagr: num(r['cagr_' + k]), sharpe: num(r['sharpe_' + k]), turn: num(r.turnover) }))
+      .filter((p) => isFinite(p.cagr) && isFinite(p.sharpe));
+    const W = el.clientWidth || 600, H = 360;
+    const svg = svgFor(el, W, H);
+    const xs = pts.map((p) => p.sharpe).concat(sx), ys = pts.map((p) => p.cagr).concat(sy);
+    const y = d3.scaleLinear([Math.min(0, d3.min(ys)), d3.max(ys) * 1.08], [H - 36, 10]).nice();
+    const ml = textWidth(svg, y.ticks(5).map((t) => d3.format('.0%')(t))) + 10;
+    const x = d3.scaleLinear([Math.min(0, d3.min(xs)), d3.max(xs) * 1.08], [ml, W - 8]).nice();
+    svg.append('rect').attr('x', x(sx)).attr('y', y.range()[1]).attr('width', Math.max(0, x.range()[1] - x(sx))).attr('height', Math.max(0, y(sy) - y.range()[1]))
+      .style('fill', 'color-mix(in srgb, var(--color-ok) 10%, transparent)');
+    svg.append('g').attr('transform', `translate(${ml},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(d3.format('.0%')).tickSize(-(W - ml - 8))).call(axisClean).call((g) => g.select('.domain').remove());
+    svg.append('g').attr('transform', `translate(0,${H - 36})`).call(d3.axisBottom(x).ticks(6).tickFormat(d3.format('.1f')).tickSizeOuter(0)).call(axisClean);
+    svg.append('text').attr('x', W - 8).attr('y', H - 4).attr('text-anchor', 'end').text('Sharpe ratio (risk-adjusted) →');
+    svg.append('text').attr('x', ml + 4).attr('y', 14).text('↑ Yearly return');
+    svg.append('line').attr('x1', x(sx)).attr('x2', x(sx)).attr('y1', y.range()[1]).attr('y2', H - 36).style('stroke', 'var(--cds-chart-reference)').attr('stroke-dasharray', '4 3');
+    svg.append('line').attr('x1', ml).attr('x2', W - 8).attr('y1', y(sy)).attr('y2', y(sy)).style('stroke', 'var(--cds-chart-reference)').attr('stroke-dasharray', '4 3');
+    svg.append('text').attr('class', 'dr-strong').attr('x', x(sx) + 6).attr('y', y(sy) - 6).text(`SPY ${f.pct1(sy)}, Sharpe ${f.t(sx)}`);
+    svg.append('text').attr('x', x.range()[1] - 4).attr('y', y.range()[1] + 14).attr('text-anchor', 'end').text('Beats SPY on both');
+    const tip = tooltip(el);
+    svg.append('g').selectAll('circle').data(pts).join('circle')
+      .attr('cx', (p) => x(p.sharpe)).attr('cy', (p) => y(p.cagr)).attr('r', (p) => (p.bench ? 6 : 5))
+      .attr('stroke-width', 2)
+      .style('fill', (p) => (p.bench ? 'var(--color-panel)' : (p.cagr > sy && p.sharpe > sx ? dash.colors[0] : muted())))
+      .style('stroke', (p) => (p.bench ? dash.colors[1] : 'var(--color-panel)'))
+      .on('pointermove', (ev, p) => { const [px, py] = d3.pointer(ev, el); tip.show(p.name, [[null, 'Yearly return', f.pct1(p.cagr)], [null, 'Sharpe', f.t(p.sharpe)], [null, 'Turnover', `${f.x(p.turn)}x a year`]], px, py); })
+      .on('pointerleave', () => tip.hide());
+  });
+</script>
