@@ -17,6 +17,7 @@ or push to git and let the user copy it.
 - `research/dip_rebound/`: dip-buying studies (tests 1-4), price data fetcher
 - `research/momentum_regime/`: portfolio snapshot, momentum test (test 5)
 - `research/putwrite/`: put-write layer test (test 6)
+- `research/pullback_v6/`: user's pullback framework, ignore list + signals (test 7)
 - `research/report/`: `build_report.py` -> offline `trading-research.html`;
   `compare.py` -> like-for-like ranking; `dashboard/` = online artifact page source
 - `research/SUMMARY.md`: findings, ranking, portfolio snapshot, open items
