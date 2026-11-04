@@ -4,7 +4,8 @@ explanation, bought at the next open, exited only by a trailing stop.
 Illustration over ~63 trading days, not a pre-registered test.
 "Explained" (skipped): earnings the evening before or on the drop day
 (Yahoo earnings dates), or a gap down of 8%+ at that morning's open.
-Variant "earnings ahead": also skip a stock that reports within the next 10
+Selection modes: 'top10' (first 10 losers, then remove explained) or
+'after' (top 4 after removing explained). Variant "earnings ahead": also skip a stock that reports within the next 10
 trading days (checkable before buying). Analyst actions and other news were
 not checked.
 
@@ -40,11 +41,12 @@ dates = C.index
 last = dates[-1]
 drop_days = list(dates[-N_DROP_DAYS - 1:-1])
 
-top10 = {}
+losers = {}
 for d in drop_days:
     r = R.loc[d].drop("SPY", errors="ignore")
     ok = ((RAW.loc[d] >= 20) & (V.loc[d] >= 1e6) & (r <= -0.02)).reindex(r.index).fillna(False)
-    top10[d] = r[ok].sort_values().head(10)
+    losers[d] = r[ok].sort_values()          # every loser down 2%+, biggest first
+top10 = {d: s.head(10) for d, s in losers.items()}
 
 ecache = HERE / "earnings_dates.json"
 earn = json.loads(ecache.read_text()) if ecache.exists() else {}
@@ -58,10 +60,21 @@ ecache.write_text(json.dumps(earn, indent=1))
 E = {t: [pd.Timestamp(x) for x in v] if v else None for t, v in earn.items()}
 
 
+def earnings_of(t):
+    if t not in E:
+        try:
+            e = yf.Ticker(t).get_earnings_dates(limit=16)
+            earn[t] = sorted({str(pd.Timestamp(x).tz_localize(None).date()) for x in e.index}) if e is not None else None
+        except Exception:
+            earn[t] = None
+        E[t] = [pd.Timestamp(x) for x in earn[t]] if earn[t] else None
+    return E[t]
+
+
 def reasons(t, d, ahead: bool):
     i = dates.get_loc(d)
     prev_day, why = dates[i - 1], []
-    ed = E.get(t)
+    ed = earnings_of(t)
     if ed is None:
         why.append("earnings date unknown")
     else:
@@ -77,11 +90,16 @@ def reasons(t, d, ahead: bool):
     return why
 
 
-def picks(ahead: bool):
+def picks(ahead: bool, mode: str):
+    """mode 'top10': look only at the 10 biggest losers, then drop explained ones.
+    mode 'after': go down the whole loser list, skipping explained ones, until 4 are picked."""
     out, cand_rows = {}, []
     for d in drop_days:
         keep = []
-        for rank, (t, r) in enumerate(top10[d].items(), 1):
+        pool = top10[d] if mode == "top10" else losers[d]
+        for rank, (t, r) in enumerate(pool.items(), 1):
+            if mode == "after" and len(keep) == 4:
+                break
             why = reasons(t, d, ahead)
             chosen = not why and len(keep) < 4
             if chosen:
@@ -163,19 +181,24 @@ def max_dd(series):
 
 data = {"window": {"first_drop_day": str(drop_days[0].date()), "last_drop_day": str(drop_days[-1].date()), "marked_at": str(last.date()),
                    "drop_days": len(drop_days)}, "variants": {}, "notes": {"missing_tickers": sorted(set(pd.read_csv(HERE.parent.parent / 'dip_rebound/data/universe.csv').query("index=='SP500'").ticker) - set(C.columns))}}
-for ahead in (False, True):
-    sel, cand = picks(ahead)
-    for tname, trail in TRAILS.items():
-        key = f"{tname} | {'skip earnings ahead' if ahead else 'all unexplained'}"
-        tr = run(sel, trail)
-        dl = daily(tr)
-        s = summary(tr)
-        s["max_dd_usd"] = max_dd([x["pnl"] for x in dl])
-        s["peak_open"] = max(x["open"] for x in dl)
-        data["variants"][key] = {"summary": s, "trades": tr, "daily": dl}
-        pd.DataFrame([{k: v for k, v in t.items() if k != "path"} for t in tr]).to_csv(HERE / f"trades_{tname.replace('%','pct')}_{'ahead' if ahead else 'all'}.csv", index=False, float_format="%.4f")
-    data["candidates_ahead" if ahead else "candidates"] = cand
-pd.DataFrame(data["candidates"]).to_csv(HERE / "candidates.csv", index=False, float_format="%.4f")
+data["candidates"] = {}
+for mode in ("top10", "after"):
+    for ahead in (False, True):
+        sel, cand = picks(ahead, mode)
+        filt = "skip earnings ahead" if ahead else "all unexplained"
+        data["candidates"][f"{filt} | {mode}"] = cand
+        pd.DataFrame(cand).to_csv(HERE / f"candidates_{mode}_{'ahead' if ahead else 'all'}.csv", index=False, float_format="%.4f")
+        for tname, trail in TRAILS.items():
+            key = f"{tname} | {filt} | {mode}"
+            tr = run(sel, trail)
+            dl = daily(tr)
+            s = summary(tr)
+            s["max_dd_usd"] = max_dd([x["pnl"] for x in dl])
+            s["peak_open"] = max(x["open"] for x in dl)
+            s["realized"] = dl[-1]["realized"]
+            data["variants"][key] = {"summary": s, "trades": tr, "daily": dl}
+            pd.DataFrame([{k: v for k, v in t.items() if k != "path"} for t in tr]).to_csv(HERE / f"trades_{tname.replace('%','pct')}_{'ahead' if ahead else 'all'}_{mode}.csv", index=False, float_format="%.4f")
+ecache.write_text(json.dumps(earn, indent=1))
 spy = C["SPY"]
 first_buy = dates[dates.get_loc(drop_days[0]) + 1]
 data["spy"] = [{"date": str(d.date()), "ret": float(spy.at[d] / O.at[first_buy, "SPY"] - 1)} for d in dates[dates >= first_buy]]
@@ -186,3 +209,5 @@ for k, v in data["variants"].items():
           f"avg win {s['avg_win']*100:+.1f}% loss {s['avg_loss']*100:+.1f}% maxDD ${s['max_dd_usd']:6.0f} peak open {s['peak_open']} E-in-hold {s['earnings_in_hold']}")
 print("SPY over window:", f"{data['spy'][-1]['ret']*100:+.1f}%", "| missing:", data["notes"]["missing_tickers"])
 print("unknown earnings:", [t for t, v in earn.items() if v is None])
+app = [t for t in data["variants"]["8% | all unexplained | after"]["trades"] if t["ticker"] == "APP"]
+print("APP (8%, after):", [(t["buy_day"], t["buy"], t["exit"], t["sell_day"], round(t["ret"] * 100, 1)) for t in app])

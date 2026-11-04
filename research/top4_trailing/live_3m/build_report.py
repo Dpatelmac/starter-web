@@ -55,8 +55,8 @@ ul{margin:0;padding-left:1.1rem}li{margin:2px 0}
 JS = r"""
 const D=JSON.parse(document.getElementById('data').textContent);
 const NS='http://www.w3.org/2000/svg',W=760;
-const st={trail:'8%',filt:'all unexplained',day:null,sort:{k:'buy_day',dir:-1},q:'',show:'all',sel:null};
-const key=()=>`${st.trail} | ${st.filt}`, V=()=>D.variants[key()];
+const st={trail:'8%',filt:'all unexplained',mode:'after',day:null,sort:{k:'buy_day',dir:-1},q:'',show:'all',sel:null};
+const key=()=>`${st.trail} | ${st.filt} | ${st.mode}`, V=()=>D.variants[key()], CANDS=()=>D.candidates[`${st.filt} | ${st.mode}`];
 const P=(v,d=1,s=true)=>v==null||!isFinite(v)?'–':((s&&v>0?'+':'')+(v*100).toFixed(d)+'%').replace('-','−');
 const USD=v=>(v<0?'−$':'$')+Math.abs(Math.round(v)).toLocaleString('en-US');
 const cls=v=>v>0?'pos':v<0?'neg':'';
@@ -95,12 +95,12 @@ function monthly(){const tr=V().trades,m={};for(const t of tr){const k=t.buy_day
  const tb=document.getElementById('t-month');tb.innerHTML='';for(const k of Object.keys(m).sort()){const r=m[k],tr_=h('tr');
   tr_.append(h('td',new Date(k+'-15T12:00').toLocaleString('en-US',{month:'long',year:'numeric'}),'t'),h('td',r.n),h('td',P(r.w/r.n,0,false)),h('td',USD(r.p),cls(r.p)),h('td',P(r.p/r.n/1000,2),cls(r.p)));tb.append(tr_)}}
 
-function dayList(){const dl=V().daily.map(d=>d.date),cs=[...new Set((st.filt==='all unexplained'?D.candidates:D.candidates_ahead).map(c=>c.drop_day))];
+function dayList(){const dl=V().daily.map(d=>d.date),cs=[...new Set(CANDS().map(c=>c.drop_day))];
  const all=[...new Set([...dl,...cs])].sort();const sel=document.getElementById('day');const cur=st.day||all[all.length-1];sel.innerHTML='';
  for(const d of all){const o=h('option',new Date(d+'T12:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}));o.value=d;sel.append(o)}
  sel.value=all.includes(cur)?cur:all[all.length-1];st.day=sel.value;return all}
 function dayView(){const all=dayList();const d=st.day,tr=V().trades;
- const cand=(st.filt==='all unexplained'?D.candidates:D.candidates_ahead).filter(c=>c.drop_day===d);
+ const cand=CANDS().filter(c=>c.drop_day===d);
  const buys=tr.filter(t=>t.buy_day===d),sells=tr.filter(t=>t.exit!=='open'&&t.sell_day===d),open=tr.filter(t=>t.buy_day<=d&&(t.exit==='open'||t.sell_day>d));
  const c1=document.getElementById('d-cand');c1.innerHTML='';if(!cand.length)c1.append(h('p','No drop day (or no stock fell 2%+ in the top 10).','muted small'));
  else{const t=h('table');t.innerHTML='<thead><tr><th class="t">#</th><th class="t">Stock</th><th>Fell</th><th class="t">Decision</th></tr></thead>';const b=h('tbody');
@@ -135,7 +135,7 @@ function pick(t){st.sel=t;table();const H=230,s=svg('c-trade',H),L=50,R=W-10,T=1
 
 function render(){tiles();pnlChart();monthly();dayView();table();const tr=V().trades;pick(st.sel&&tr.find(t=>t.ticker===st.sel.ticker&&t.buy_day===st.sel.buy_day)||tr.slice().sort((a,b)=>b.ret-a.ret)[0])}
 function seg(attr,k){const bs=document.querySelectorAll(`[${attr}]`);bs.forEach(b=>b.addEventListener('click',()=>{bs.forEach(o=>o.setAttribute('aria-pressed',String(o===b)));st[k]=b.getAttribute(attr);render()}))}
-seg('data-trail','trail');seg('data-filt','filt');seg('data-show','show');
+seg('data-trail','trail');seg('data-filt','filt');seg('data-mode','mode');seg('data-show','show');
 document.getElementById('day').addEventListener('change',e=>{st.day=e.target.value;dayView()});
 document.getElementById('prev').addEventListener('click',()=>{const a=dayList(),i=a.indexOf(st.day);if(i>0){st.day=a[i-1];dayView()}});
 document.getElementById('next').addEventListener('click',()=>{const a=dayList(),i=a.indexOf(st.day);if(i<a.length-1){st.day=a[i+1];dayView()}});
@@ -151,10 +151,11 @@ body = f"""
 <div class="wrap">
 <header>
   <h1>Top-4 unexplained losers: 3-month ledger</h1>
-  <p class="lede">Each trading day from {short(w['first_drop_day'])} to {short(w['last_drop_day'])} ({w['drop_days']} days): take the 10 biggest S&amp;P 500 losers (down 2%+, price $20+, 1M+ shares), skip the ones with an obvious reason (earnings that day or the evening before, or an 8%+ gap down at the open), buy the 4 biggest remaining losers at the next morning's open, $1,000 each, and sell only when the trailing stop is hit. Open positions are valued at the close of {short(w['marked_at'])}.</p>
+  <p class="lede">Each trading day from {short(w['first_drop_day'])} to {short(w['last_drop_day'])} ({w['drop_days']} days): rank the S&amp;P 500 losers (down 2%+, price $20+, 1M+ shares), skip the ones with an obvious reason (earnings that day or the evening before, or an 8%+ gap down at the open), and buy the 4 biggest remaining losers at the next morning's open, $1,000 each, and sell only when the trailing stop is hit. Open positions are valued at the close of {short(w['marked_at'])}.</p>
 </header>
 
 <div class="bar" role="toolbar" aria-label="Settings">
+  <div class="ctl" role="group" aria-label="Selection"><span>Pick</span><button class="seg" type="button" data-mode="after" aria-pressed="true">Top 4 after removing explained</button><button class="seg" type="button" data-mode="top10" aria-pressed="false">First 10, then remove</button></div>
   <div class="ctl" role="group" aria-label="Trailing stop"><span>Trailing stop</span><button class="seg" type="button" data-trail="8%" aria-pressed="true">8%</button><button class="seg" type="button" data-trail="3%" aria-pressed="false">3%</button></div>
   <div class="ctl" role="group" aria-label="Earnings rule"><span>Earnings</span><button class="seg" type="button" data-filt="all unexplained" aria-pressed="true">Skip only same-day earnings</button><button class="seg" type="button" data-filt="skip earnings ahead" aria-pressed="false">Also skip if reporting in next 10 days</button></div>
 </div>
@@ -170,9 +171,9 @@ body = f"""
 </section>
 
 <section aria-labelledby="s-day"><h2 id="s-day">Day by day</h2>
-  <div class="daynav"><button class="seg" type="button" id="prev" aria-label="Previous day">◀</button><select id="day" aria-label="Choose a day"></select><button class="seg" type="button" id="next" aria-label="Next day">▶</button><span class="small muted">The list on the left is that day's top-10 losers (bought the next morning).</span></div>
+  <div class="daynav"><button class="seg" type="button" id="prev" aria-label="Previous day">◀</button><select id="day" aria-label="Choose a day"></select><button class="seg" type="button" id="next" aria-label="Next day">▶</button><span class="small muted">The list on the left is that day's losers in order, with why each was bought or skipped (buys happen the next morning).</span></div>
   <div class="cols3">
-    <div class="card"><h3>Top-10 losers that day</h3><div class="tw" id="d-cand"></div></div>
+    <div class="card"><h3>Losers checked that day</h3><div class="tw" id="d-cand"></div></div>
     <div class="card"><h3>Bought at the open</h3><div id="d-buy"></div><h3 style="margin-top:8px">Sold</h3><div id="d-sell"></div></div>
     <div class="card"><h3>Open at the close</h3><div id="d-open" class="small tw"></div></div>
   </div>
@@ -189,11 +190,25 @@ body = f"""
   <div class="card"><h3 id="trade-title"></h3><div class="legend"><span><i style="background:var(--c0)"></i>Close vs entry price</span><span><i style="background:var(--bad)"></i>Trailing stop level</span></div><div class="chart" id="c-trade"></div></div>
 </section>
 
+<section aria-labelledby="s-cons"><h2 id="s-cons">Things to consider before trading this</h2>
+  <div class="card small"><ul>
+    <li><b>Most of the profit is not locked in.</b> With the 8% stop, closed trades are negative and the total depends on positions still open; a market drop would take much of it back.</li>
+    <li><b>Earnings during the hold are a coin flip.</b> APP gained after its Nov 4 report, but fell 19.7% after its Aug 5 report. Use the earnings switch to see results without them.</li>
+    <li><b>After-hours moves aren't included.</b> Everything is valued at regular-session prices; earnings reactions often happen after the close.</li>
+    <li><b>Capital.</b> With no position limit, up to 60 trades were open at once (about $60,000 at $1,000 each). A cap of 20-30 positions would change which trades get taken.</li>
+    <li><b>Concentration.</b> Picks often cluster in one sector on the same day (chips in late October); a limit of one or two per sector per day would spread the risk.</li>
+    <li><b>Repeat buys.</b> The same stock can be bought again soon after being stopped out (APP three times); a cool-off period is worth testing.</li>
+    <li><b>Short history.</b> Three months, one market regime, rules not pre-registered. The 20-year test of a similar setup (test 8) found the 8% stop roughly tracks the market and random picks do about as well.</li>
+    <li><b>Taxes.</b> Nearly all gains would be short-term.</li>
+  </ul></div>
+</section>
+
 <section aria-labelledby="s-how"><h2 id="s-how">How it was calculated</h2>
   <div class="card small"><ul>
     <li>Prices: Yahoo Finance daily bars, split/dividend adjusted for returns; buy and sell prices shown as traded. Earnings dates: Yahoo Finance. {('Missing data: ' + ', '.join(data['notes']['missing_tickers']) + '.') if data['notes']['missing_tickers'] else ''}</li>
     <li>Trailing stop: highest close since entry (or the entry price) × (1 − stop). If a day opens below the stop, the sale is at the open; otherwise, if the day's low touches it, at the stop price. The high-water mark updates at each close, so intraday highs don't raise the stop.</li>
     <li>Costs: 0.05% per side, plus 0.10% extra slippage on stop sales. $1,000 per trade; no limit on open positions.</li>
+    <li>\"Top 4 after removing explained\" walks down the full list of losers until 4 unexplained ones are found; \"First 10, then remove\" only looks at the 10 biggest losers, so heavy news days can leave fewer than 4 buys.</li>
     <li>"Skip if reporting in next 10 days" uses earnings dates known before buying. "E" tags use the actual report dates during each hold.</li>
     <li>Built by <code>research/top4_trailing/live_3m/ledger3m.py</code> and <code>build_report.py</code>. Research only, not financial advice.</li>
   </ul></div>
