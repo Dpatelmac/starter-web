@@ -1,0 +1,101 @@
+drop_day,ticker,drop,reason_excluded,picked
+2026-10-21,T,-0.0645,earnings,
+2026-10-21,DXCM,-0.0639,,True
+2026-10-21,NFLX,-0.0531,earnings,
+2026-10-21,CMG,-0.0516,,True
+2026-10-21,EXPE,-0.0503,,True
+2026-10-21,SBAC,-0.0418,,True
+2026-10-21,DASH,-0.0377,,
+2026-10-21,LULU,-0.0341,,
+2026-10-21,BKNG,-0.0338,,
+2026-10-21,AMT,-0.0323,,
+2026-10-22,MRNA,-0.1757,,True
+2026-10-22,COHR,-0.1251,,True
+2026-10-22,LRCX,-0.1176,earnings; gapped -10.1% at open,
+2026-10-22,LITE,-0.1154,,True
+2026-10-22,FLEX,-0.1108,,True
+2026-10-22,CIEN,-0.1071,,
+2026-10-22,GEV,-0.1064,,
+2026-10-22,TER,-0.1063,,
+2026-10-22,VST,-0.0981,,
+2026-10-22,KLAC,-0.0955,,
+2026-10-23,BE,-0.1124,earnings,
+2026-10-23,FIX,-0.0926,earnings,
+2026-10-23,GL,-0.0809,,True
+2026-10-23,T,-0.0796,,True
+2026-10-23,TMUS,-0.0771,,True
+2026-10-23,CBRE,-0.0605,earnings,
+2026-10-23,DECK,-0.0491,earnings,
+2026-10-23,MGM,-0.0488,,True
+2026-10-23,LULU,-0.0485,,
+2026-10-23,DG,-0.0462,,
+2026-10-26,FICO,-0.1315,gapped -8.1% at open,
+2026-10-26,DASH,-0.0610,,True
+2026-10-26,CHTR,-0.0592,,True
+2026-10-26,RDDT,-0.0402,,True
+2026-10-26,PYPL,-0.0356,,True
+2026-10-26,VZ,-0.0349,earnings,
+2026-10-26,OMC,-0.0345,,
+2026-10-26,DG,-0.0322,,
+2026-10-26,MRK,-0.0321,,
+2026-10-26,FISV,-0.0307,,
+2026-10-27,XYL,-0.1421,earnings,
+2026-10-27,BA,-0.1069,earnings,
+2026-10-27,VLO,-0.0924,,True
+2026-10-27,MPC,-0.0736,,True
+2026-10-27,PSX,-0.0703,,True
+2026-10-27,ARE,-0.0585,earnings,
+2026-10-27,WELL,-0.0577,earnings,
+2026-10-27,PAYX,-0.0557,,True
+2026-10-27,HUBB,-0.0547,earnings,
+2026-10-27,CSGP,-0.0501,earnings,
+2026-10-28,FFIV,-0.2043,earnings; gapped -8.3% at open,
+2026-10-28,CSGP,-0.1396,earnings,
+2026-10-28,CHRW,-0.1114,earnings,
+2026-10-28,LII,-0.1059,earnings,
+2026-10-28,BKR,-0.0736,earnings,
+2026-10-28,ODFL,-0.0733,earnings,
+2026-10-28,FTNT,-0.0590,earnings,
+2026-10-28,BSX,-0.0584,earnings,
+2026-10-28,GRMN,-0.0582,earnings,
+2026-10-28,SW,-0.0520,earnings,
+2026-10-29,NOW,-0.2695,earnings; gapped -19.5% at open,
+2026-10-29,FTNT,-0.2009,earnings; gapped -26.5% at open,
+2026-10-29,MRVL,-0.1324,gapped -11.4% at open,
+2026-10-29,GOOGL,-0.1264,earnings; gapped -11.7% at open,
+2026-10-29,GOOG,-0.1229,earnings; gapped -11.8% at open,
+2026-10-29,HONA,-0.0960,earnings,
+2026-10-29,CAT,-0.0925,earnings; gapped -10.8% at open,
+2026-10-29,BAX,-0.0770,earnings,
+2026-10-29,CTSH,-0.0579,earnings,
+2026-10-29,TER,-0.0543,,True
+2026-10-30,RDDT,-0.2922,earnings; gapped -22.6% at open,
+2026-10-30,INTC,-0.2858,earnings; gapped -25.8% at open,
+2026-10-30,ILMN,-0.1864,earnings; gapped -11.8% at open,
+2026-10-30,TWLO,-0.1524,earnings; gapped -22.9% at open,
+2026-10-30,SNDK,-0.1347,earnings; gapped -8.6% at open,
+2026-10-30,DDOG,-0.1150,,True
+2026-10-30,COHR,-0.1134,gapped -8.5% at open,
+2026-10-30,QCOM,-0.1112,,True
+2026-10-30,AMD,-0.1088,gapped -10.2% at open,
+2026-10-30,DELL,-0.1077,gapped -11.9% at open,
+2026-11-02,LITE,-0.1859,earnings,
+2026-11-02,MRVL,-0.1272,,True
+2026-11-02,CIEN,-0.1134,,True
+2026-11-02,P,-0.1040,,True
+2026-11-02,INTC,-0.0880,,True
+2026-11-02,ORCL,-0.0876,,
+2026-11-02,DDOG,-0.0815,,
+2026-11-02,STX,-0.0788,,
+2026-11-02,SMCI,-0.0762,,
+2026-11-02,APA,-0.0757,,
+2026-11-03,IT,-0.1319,earnings; gapped -11.6% at open,
+2026-11-03,SYY,-0.0933,earnings,
+2026-11-03,ZBRA,-0.0876,earnings; gapped -13.7% at open,
+2026-11-03,BALL,-0.0714,earnings,
+2026-11-03,ADM,-0.0682,earnings,
+2026-11-03,LDOS,-0.0655,earnings,
+2026-11-03,APTV,-0.0653,earnings,
+2026-11-03,KDP,-0.0565,earnings,
+2026-11-03,LEN,-0.0542,,True
+2026-11-03,DHI,-0.0503,,True
