@@ -49,6 +49,7 @@ acquired stocks flatter the stock-picking strategies.
 | 4 | Weekly top-N pullback portfolio, 36 versions | `dip_rebound/weekly.py` | yes | Failed: 0 of 36; 50-97x yearly turnover |
 | 5 | Regime-gated, risk-budgeted 12-1 momentum | `momentum_regime/momentum.py` | yes | Failed: lower Sharpe than SPY in 2 of 3 samples |
 | 6 | Cash-secured put-write layer on idle cash (^PUT) | `putwrite/putwrite.py` | yes | Failed after 2007 (after costs and tax); account too small for one SPY put |
+| 8 | Top 4 of the 10 biggest S&P 500 decliners, trailing-stop exits (3%; 5/8%/ATR reported) | `top4_trailing/top4.py` | yes | Failed: 3% stop makes -0.9% to 3.4% a year (low drawdown only from low exposure); wider stops track the market, ranking barely beats random |
 | 7 | User's pullback framework v6: ignore list + bounce signals + final flush | `pullback_v6/v6.py` | yes | Failed: no rule passes; only the final-flush signal is positive in all samples, weak since 2016 |
 
 Details, tables and caveats are in each folder's `README.md` and

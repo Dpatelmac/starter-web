@@ -18,6 +18,7 @@ or push to git and let the user copy it.
 - `research/momentum_regime/`: portfolio snapshot, momentum test (test 5)
 - `research/putwrite/`: put-write layer test (test 6)
 - `research/pullback_v6/`: user's pullback framework, ignore list + signals (test 7)
+- `research/top4_trailing/`: top 4 of 10 biggest decliners, trailing-stop exits (test 8)
 - `research/report/`: `build_report.py` -> offline `trading-research.html`;
   `compare.py` -> like-for-like ranking; `dashboard/` = online artifact page source
 - `research/SUMMARY.md`: findings, ranking, portfolio snapshot, open items
