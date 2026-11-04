@@ -113,6 +113,17 @@ window: -0.3%. APP was caught by the new selection (bought 2026-11-02 at
 $234.52, +15.8% at the 11-04 close; +24% after hours on its earnings report,
 not counted). Missing price data: NTAP.
 
+**1 year** (drop days 2025-11-03 to 2026-11-03, 32 versions;
+`top4_trailing/live_1y/report.html`, `versions.csv`): wider stops win every
+time (12% > 8% > 5%; no 3% version made money). Best runnable version: 12%
+stop, top 4 after removing explained, skip upcoming earnings, risk controls
+(max 24 positions, max 2 buys per sector per day, 10-day cool-off):
+**+$7,821 on $24,000 (+32.6%)** vs SPY +$3,513 (+14.6%) on the same capital;
+worst drawdown -$2,411 (-10.0%) vs SPY -8.9%; both halves positive; 10 of 13
+months up; 43% winners, average win +19% vs loss -8%. Caveats: best of 32 on
+one rising year, 90% of profit from 10 of 221 trades, tech-heavy. Without
+controls totals reach +$26,513 but need up to $155,000 and drawdowns ~-$9,800.
+
 ## Open items
 
 1. Check why the SIGNUM bot has been inactive since 2026-10-14.
@@ -123,8 +134,9 @@ not counted). Missing price data: NTAP.
    history before 2005 plus QQQ, small caps and international indexes.
 5. Measure the evening prompt's value: log nightly composite scores and
    compare next-day returns of high vs low scores with the same edge measure.
-6. Before trading the top-4 ledger rule: pre-register and backtest "top 4
-   after removing explained" with an 8% stop over 20 years, and test a
+6. Before trading the top-4 ledger rule: pre-register and backtest the best
+   one-year version (12% stop, top 4 after removing explained, skip upcoming
+   earnings, risk controls) over 20 years, and test a
    position cap (20-24 for a ~$24k account), a per-sector limit, a cool-off
    after a stop-out, and skipping stocks that report during the hold.
 7. Build the nightly paper log: top losers + AI ranking of the top 4, with
@@ -147,6 +159,8 @@ not counted). Missing price data: NTAP.
   `research/top4_trailing/live_3m/report.html` (rebuild: `python3 ledger3m.py`
   then `python3 build_report.py` in that folder).
 - 2-week ledger: `research/top4_trailing/live_2wk/LEDGER.md`.
+- 1-year test report (offline, interactive, 32 versions):
+  `research/top4_trailing/live_1y/report.html`.
 - Git branch: `pullback_research` (renamed from `claude/blissful-euler-i26lau`).
 
 ## Reproduce

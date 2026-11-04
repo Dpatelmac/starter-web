@@ -1,0 +1,1003 @@
+drop_day,buy_day,ticker,sector,drop,buy,sell_day,sell,exit,days,ret,pnl,earnings_in_hold
+2025-11-03,2025-11-04,MRNA,Health Care,-0.0828,24.73,2025-11-20,23.5,stop: hit intraday,13,-0.05125,-51.25,True
+2025-11-03,2025-11-04,DASH,Consumer Discretionary,-0.0484,238.41,2025-11-06,211.14,stop: hit intraday,3,-0.11616,-116.16,True
+2025-11-03,2025-11-04,IP,Materials,-0.0443,36.58,2026-01-29,38.42,stop: hit intraday,59,0.06119,61.19,True
+2025-11-03,2025-11-04,ARE,Real Estate,-0.0435,55.04,2025-11-20,48.94,stop: hit intraday,13,-0.11266,-112.66,False
+2025-11-04,2025-11-05,BE,Industrials,-0.0936,133.85,2025-11-07,124.44,stop: hit intraday,3,-0.07216,-72.16,False
+2025-11-04,2025-11-05,CCL,Consumer Discretionary,-0.0906,26.53,2026-01-20,27.94,stop: opened below,51,0.05104,51.04,True
+2025-11-04,2025-11-05,RDDT,Communication Services,-0.084,187.78,2025-11-18,183.22,stop: hit intraday,10,-0.02621,-26.21,False
+2025-11-04,2025-11-05,ALB,Materials,-0.0837,90.39,2025-11-21,110.6,stop: hit intraday,13,0.22112,221.12,True
+2025-11-05,2025-11-06,DXCM,Health Care,-0.0311,58.97,2026-02-12,65.12,stop: hit intraday,67,0.10208,102.08,True
+2025-11-05,2025-11-06,VRSK,Industrials,-0.027,212.74,2026-02-03,197.89,stop: hit intraday,60,-0.06976,-69.76,False
+2025-11-05,2025-11-06,VMC,Materials,-0.0245,284.18,2026-03-05,290.73,stop: hit intraday,81,0.02273,22.73,True
+2025-11-05,2025-11-06,LMT,Industrials,-0.0244,473.11,2026-03-30,595.5,stop: hit intraday,98,0.27238,272.38,True
+2025-11-06,2025-11-07,AXON,Industrials,-0.0819,587.0,2025-11-18,530.21,stop: hit intraday,8,-0.09855,-98.55,False
+2025-11-06,2025-11-07,COIN,Financials,-0.0754,290.2,2025-11-14,269.52,stop: opened below,6,-0.07312,-73.12,False
+2025-11-06,2025-11-07,AMD,Information Technology,-0.0727,230.94,2025-11-18,227.82,stop: hit intraday,8,-0.01547,-15.47,False
+2025-11-06,2025-11-07,PLTR,Information Technology,-0.0684,173.15,2025-11-14,166.98,stop: opened below,6,-0.03759,-37.59,False
+2025-11-07,2025-11-10,DXCM,Health Care,-0.0521,55.16,2026-02-12,65.12,stop: hit intraday,65,0.17821,178.21,True
+2025-11-07,2025-11-10,GILD,Health Care,-0.037,119.4,2026-03-27,136.33,stop: hit intraday,95,0.15355,153.55,True
+2025-11-07,2025-11-10,TSLA,Consumer Discretionary,-0.0368,439.6,2025-11-14,386.3,stop: opened below,5,-0.123,-123.0,False
+2025-11-07,2025-11-10,P,Information Technology,-0.0324,92.93,2025-11-14,81.78,stop: hit intraday,5,-0.12176,-121.76,False
+2025-11-10,2025-11-11,CNC,Health Care,-0.0881,34.74,2026-01-27,41.6,stop: hit intraday,52,0.195,195.0,False
+2025-11-10,2025-11-11,HUM,Health Care,-0.054,239.98,2026-01-27,219.98,stop: opened below,52,-0.08204,-82.04,False
+2025-11-10,2025-11-11,BALL,Materials,-0.0525,46.56,2026-03-19,59.45,stop: hit intraday,88,0.28331,283.31,True
+2025-11-10,2025-11-11,ELV,Health Care,-0.0441,306.76,2026-01-27,336.1,stop: hit intraday,52,0.09908,99.08,False
+2025-11-11,2025-11-12,BE,Industrials,-0.0873,130.34,2025-11-13,114.7,stop: hit intraday,2,-0.12176,-121.76,False
+2025-11-11,2025-11-12,APP,Communication Services,-0.0866,602.0,2025-11-14,529.76,stop: hit intraday,3,-0.12176,-121.76,False
+2025-11-11,2025-11-12,P,Information Technology,-0.054,88.28,2025-11-20,77.96,stop: hit intraday,7,-0.11868,-118.68,False
+2025-11-11,2025-11-12,COHR,Information Technology,-0.0522,161.0,2025-11-13,141.68,stop: hit intraday,2,-0.12176,-121.76,False
+2025-11-12,2025-11-13,Q,Information Technology,-0.0473,91.5,2025-11-17,80.52,stop: hit intraday,3,-0.12176,-121.76,False
+2025-11-12,2025-11-13,SLB,Energy,-0.0409,36.22,2026-03-09,45.63,stop: hit intraday,78,0.27463,274.63,True
+2025-11-12,2025-11-13,HAL,Energy,-0.0403,26.93,2026-04-17,35.57,stop: hit intraday,106,0.33298,332.98,True
+2025-11-12,2025-11-13,ORCL,Information Technology,-0.0388,224.99,2025-11-21,198.47,stop: hit intraday,7,-0.11965,-119.65,False
+2025-11-13,2025-11-14,BE,Industrials,-0.1828,95.88,2025-11-20,98.46,stop: hit intraday,5,0.02489,24.89,False
+2025-11-13,2025-11-14,SNDK,Information Technology,-0.1396,236.0,2025-11-18,233.97,stop: hit intraday,3,-0.01056,-10.56,False
+2025-11-13,2025-11-14,COHR,Information Technology,-0.1066,134.37,2025-12-16,174.68,stop: hit intraday,22,0.29739,297.39,False
+2025-11-13,2025-11-14,LITE,Information Technology,-0.1062,215.52,2025-11-20,236.65,stop: hit intraday,5,0.09585,95.85,False
+2025-11-14,2025-11-17,BMY,Health Care,-0.0407,46.52,2026-06-02,54.33,stop: hit intraday,135,0.19138,191.38,True
+2025-11-14,2025-11-17,PYPL,Financials,-0.0386,62.81,2026-01-20,55.35,stop: hit intraday,43,-0.11847,-118.47,False
+2025-11-14,2025-11-17,ECHO,Communication Services,-0.0369,67.5,2026-01-29,115.36,stop: hit intraday,50,0.70561,705.61,False
+2025-11-14,2025-11-17,NFLX,Communication Services,-0.0364,110.75,2025-12-05,98.78,stop: opened below,14,-0.10986,-109.86,False
+2025-11-17,2025-11-18,DELL,Information Technology,-0.0843,120.5,2025-12-18,123.75,stop: hit intraday,22,0.02495,24.95,True
+2025-11-17,2025-11-18,EXPE,Consumer Discretionary,-0.0775,242.02,2026-01-21,265.15,stop: hit intraday,43,0.09522,95.22,False
+2025-11-17,2025-11-18,GNRC,Industrials,-0.0708,139.11,2025-12-17,147.53,stop: hit intraday,21,0.05842,58.42,False
+2025-11-17,2025-11-18,COIN,Financials,-0.0706,261.75,2025-12-17,244.08,stop: hit intraday,21,-0.06938,-69.38,False
+2025-11-18,2025-11-19,SNDK,Information Technology,-0.0788,251.11,2025-11-20,220.98,stop: hit intraday,2,-0.12176,-121.76,False
+2025-11-18,2025-11-19,WDC,Information Technology,-0.059,152.86,2025-11-21,135.49,stop: hit intraday,3,-0.11538,-115.38,False
+2025-11-18,2025-11-19,MRVL,Information Technology,-0.0572,79.09,2025-12-09,88.18,stop: hit intraday,14,0.11265,112.65,True
+2025-11-18,2025-11-19,MU,Information Technology,-0.0556,226.91,2025-11-20,199.68,stop: hit intraday,2,-0.12176,-121.76,False
+2025-11-19,2025-11-20,ES,Utilities,-0.1245,65.36,2026-03-20,66.36,stop: hit intraday,82,0.03552,35.52,True
+2025-11-19,2025-11-20,DASH,Consumer Discretionary,-0.046,203.25,2026-01-16,206.7,stop: hit intraday,39,0.01496,14.96,False
+2025-11-19,2025-11-20,APTV,Consumer Discretionary,-0.045,73.05,2026-01-16,78.03,stop: hit intraday,39,0.06603,66.03,False
+2025-11-19,2025-11-20,AJG,Financials,-0.0384,245.74,2026-02-09,233.06,stop: hit intraday,54,-0.05098,-50.98,True
+2025-11-20,2025-11-21,SNDK,Information Technology,-0.2033,205.37,2025-12-02,199.72,stop: hit intraday,7,-0.02943,-29.43,False
+2025-11-20,2025-11-21,BE,Industrials,-0.1428,94.02,2025-11-21,82.74,stop: hit intraday,1,-0.12176,-121.76,False
+2025-11-20,2025-11-21,LITE,Information Technology,-0.1327,249.5,2025-12-12,327.44,stop: hit intraday,15,0.30976,309.76,False
+2025-11-20,2025-11-21,MU,Information Technology,-0.1087,204.53,2025-12-16,232.06,stop: hit intraday,17,0.13236,132.36,False
+2025-11-21,2025-11-24,ORCL,Information Technology,-0.0566,196.86,2025-12-11,190.62,stop: opened below,13,-0.03363,-33.63,True
+2025-11-21,2025-11-24,BE,Industrials,-0.0363,90.13,2025-12-10,104.88,stop: hit intraday,12,0.16131,161.31,False
+2025-11-21,2025-11-24,VST,Utilities,-0.0299,169.57,2026-01-07,157.18,stop: hit intraday,30,-0.07364,-73.64,False
+2025-11-21,2025-11-24,LHX,Industrials,-0.0227,276.0,2026-04-22,331.91,stop: hit intraday,102,0.20434,204.34,True
+2025-11-24,2025-11-25,CCL,Consumer Discretionary,-0.0678,24.69,2026-01-20,27.94,stop: opened below,37,0.12937,129.37,True
+2025-11-24,2025-11-25,CPRT,Industrials,-0.0447,39.17,2026-02-12,36.56,stop: hit intraday,54,-0.06862,-68.62,False
+2025-11-24,2025-11-25,LYV,Communication Services,-0.0384,127.98,2026-03-27,145.93,stop: hit intraday,84,0.13798,137.98,True
+2025-11-24,2025-11-25,TGT,Consumer Staples,-0.0352,84.99,2026-10-26,149.5,stop: hit intraday,230,0.8039,803.9,True
+2025-11-25,2025-11-26,AMD,Information Technology,-0.0415,210.05,2026-02-04,215.0,stop: opened below,47,0.02152,21.52,True
+2025-11-25,2025-11-26,SNDK,Information Technology,-0.0285,226.0,2025-12-02,198.88,stop: hit intraday,4,-0.12176,-121.76,False
+2025-11-25,2025-11-26,LITE,Information Technology,-0.027,289.76,2025-12-12,327.44,stop: hit intraday,12,0.12778,127.78,False
+2025-11-25,2025-11-26,OMC,Communication Services,-0.0265,72.6,2026-02-03,71.78,stop: opened below,46,-0.00351,-3.51,False
+2025-11-26,2025-11-28,RDDT,Communication Services,-0.05,209.15,2026-01-15,227.86,stop: hit intraday,33,0.08727,87.27,False
+2025-11-26,2025-11-28,INTU,Information Technology,-0.0292,629.13,2026-01-14,590.99,stop: opened below,32,-0.06077,-60.77,False
+2025-11-26,2025-11-28,NOW,Information Technology,-0.0274,161.6,2025-12-15,152.68,stop: hit intraday,12,-0.0571,-57.1,False
+2025-11-26,2025-11-28,VLTO,Industrials,-0.0259,101.68,2026-02-04,90.8,stop: hit intraday,46,-0.10766,-107.66,True
+2025-11-28,2025-12-01,LLY,Health Care,-0.0261,1074.38,2026-03-05,973.49,stop: hit intraday,65,-0.0942,-94.2,True
+2025-11-28,2025-12-01,BBY,Consumer Discretionary,-0.021,78.0,2025-12-29,67.75,stop: hit intraday,20,-0.12176,-121.76,False
+2025-12-01,2025-12-02,BE,Industrials,-0.0944,101.64,2025-12-10,104.88,stop: hit intraday,7,0.0298,29.8,False
+2025-12-01,2025-12-02,MRNA,Health Care,-0.0701,24.22,2025-12-29,30.71,stop: hit intraday,19,0.26551,265.51,False
+2025-12-01,2025-12-02,WRB,Financials,-0.0606,72.54,2026-03-25,64.45,stop: hit intraday,78,-0.09798,-97.98,True
+2025-12-01,2025-12-02,SNDK,Information Technology,-0.0587,211.75,2025-12-12,212.62,stop: hit intraday,9,0.00209,2.09,False
+2025-12-02,2025-12-03,XYZ,Financials,-0.0659,61.04,2026-01-20,62.89,stop: hit intraday,32,0.02831,28.31,False
+2025-12-02,2025-12-03,PKG,Materials,-0.0526,193.26,2026-03-09,216.75,stop: hit intraday,65,0.12618,126.18,True
+2025-12-02,2025-12-03,LITE,Information Technology,-0.0476,306.97,2025-12-12,327.44,stop: hit intraday,8,0.06455,64.55,False
+2025-12-02,2025-12-03,IP,Materials,-0.0342,38.2,2026-01-29,38.42,stop: hit intraday,39,0.00377,3.77,True
+2025-12-03,2025-12-04,ARE,Real Estate,-0.1005,48.01,2026-02-12,52.53,stop: hit intraday,48,0.10803,108.03,True
+2025-12-03,2025-12-04,SNDK,Information Technology,-0.0534,192.32,2025-12-12,212.62,stop: hit intraday,7,0.1033,103.3,False
+2025-12-03,2025-12-04,NFLX,Communication Services,-0.0493,103.57,2026-01-02,91.14,stop: hit intraday,20,-0.12176,-121.76,False
+2025-12-03,2025-12-04,CIEN,Information Technology,-0.0452,190.56,2025-12-16,213.29,stop: hit intraday,9,0.11702,117.02,True
+2025-12-04,2025-12-05,INTC,Information Technology,-0.0745,41.16,2025-12-17,36.44,stop: hit intraday,9,-0.11642,-116.42,False
+2025-12-04,2025-12-05,LYB,Materials,-0.0624,43.9,2026-04-08,72.49,stop: hit intraday,84,0.66806,668.06,True
+2025-12-04,2025-12-05,ALB,Materials,-0.0581,123.81,2026-01-30,167.41,stop: opened below,38,0.35352,353.52,False
+2025-12-04,2025-12-05,LEN,Consumer Discretionary,-0.0479,127.07,2025-12-17,111.82,stop: hit intraday,9,-0.12176,-121.76,True
+2025-12-05,2025-12-08,WRB,Financials,-0.0586,67.23,2026-03-25,64.45,stop: hit intraday,74,-0.02673,-26.73,True
+2025-12-05,2025-12-08,VST,Utilities,-0.0505,167.82,2026-01-08,153.43,stop: hit intraday,22,-0.08628,-86.28,False
+2025-12-05,2025-12-08,NRG,Utilities,-0.0376,164.19,2025-12-17,150.16,stop: hit intraday,8,-0.08726,-87.26,False
+2025-12-05,2025-12-08,HOOD,Financials,-0.0374,134.1,2025-12-12,120.06,stop: hit intraday,5,-0.1065,-106.5,False
+2025-12-08,2025-12-09,APD,Materials,-0.0945,236.51,2026-09-29,276.49,stop: hit intraday,202,0.18992,189.92,True
+2025-12-08,2025-12-09,BE,Industrials,-0.062,110.39,2025-12-11,97.14,stop: hit intraday,3,-0.12176,-121.76,False
+2025-12-08,2025-12-09,DG,Consumer Staples,-0.0612,124.97,2026-03-12,131.55,stop: opened below,64,0.05503,55.03,True
+2025-12-08,2025-12-09,INCY,Health Care,-0.0568,96.52,2026-02-11,97.3,stop: hit intraday,44,0.00608,6.08,True
+2025-12-09,2025-12-10,FERG,Industrials,-0.0805,226.02,2026-03-06,234.4,stop: hit intraday,59,0.04304,43.04,True
+2025-12-09,2025-12-10,JPM,Financials,-0.0466,300.5,2026-02-24,294.46,stop: hit intraday,51,-0.01766,-17.66,True
+2025-12-09,2025-12-10,ROL,Industrials,-0.0418,58.02,2026-02-12,55.65,stop: opened below,44,-0.04277,-42.77,True
+2025-12-09,2025-12-10,ORLY,Consumer Discretionary,-0.0393,94.41,2026-03-17,89.21,stop: hit intraday,66,-0.05701,-57.01,True
+2025-12-10,2025-12-11,BE,Industrials,-0.0745,100.0,2025-12-12,95.91,stop: hit intraday,2,-0.04281,-42.81,False
+2025-12-10,2025-12-11,UBER,Industrials,-0.0551,84.06,2026-02-04,75.62,stop: opened below,37,-0.10209,-102.09,True
+2025-12-10,2025-12-11,DASH,Consumer Discretionary,-0.0421,219.5,2026-01-16,206.7,stop: hit intraday,25,-0.06018,-60.18,False
+2025-12-10,2025-12-11,NFLX,Communication Services,-0.0414,93.9,2026-01-21,82.52,stop: opened below,27,-0.12295,-122.95,True
+2025-12-11,2025-12-12,HOOD,Financials,-0.0905,125.34,2026-01-15,110.3,stop: hit intraday,23,-0.12176,-121.76,False
+2025-12-11,2025-12-12,MRVL,Information Technology,-0.0329,87.63,2026-01-14,79.35,stop: hit intraday,22,-0.0957,-95.7,False
+2025-12-11,2025-12-12,IFF,Materials,-0.0327,63.48,2026-03-06,73.04,stop: hit intraday,57,0.15536,155.36,True
+2025-12-11,2025-12-12,WELL,Real Estate,-0.0319,186.13,2026-10-07,220.99,stop: hit intraday,205,0.19767,197.67,True
+2025-12-12,2025-12-15,SNDK,Information Technology,-0.1466,214.45,2026-01-08,311.13,stop: hit intraday,17,0.44797,447.97,False
+2025-12-12,2025-12-15,BE,Industrials,-0.1285,96.48,2025-12-16,84.9,stop: hit intraday,2,-0.12176,-121.76,False
+2025-12-12,2025-12-15,LITE,Information Technology,-0.1283,341.48,2026-01-05,348.41,stop: hit intraday,14,0.01827,18.27,False
+2025-12-12,2025-12-15,COHR,Information Technology,-0.1016,183.83,2026-01-09,169.0,stop: opened below,18,-0.08251,-82.51,False
+2025-12-15,2025-12-16,NOW,Information Technology,-0.1154,154.89,2026-01-13,137.88,stop: hit intraday,19,-0.11163,-111.63,False
+2025-12-15,2025-12-16,CSGP,Real Estate,-0.0657,64.0,2026-01-09,59.72,stop: hit intraday,17,-0.06879,-68.79,False
+2025-12-15,2025-12-16,COIN,Financials,-0.0637,253.56,2026-01-21,225.16,stop: hit intraday,24,-0.11379,-113.79,False
+2025-12-15,2025-12-16,BE,Industrials,-0.0569,88.15,2025-12-17,77.57,stop: hit intraday,2,-0.12176,-121.76,False
+2025-12-16,2025-12-17,PSX,Energy,-0.0688,132.03,2026-04-08,165.69,stop: hit intraday,76,0.2627,262.7,True
+2025-12-16,2025-12-17,HUM,Health Care,-0.0603,257.47,2026-01-27,219.98,stop: opened below,27,-0.1444,-144.4,False
+2025-12-16,2025-12-17,MOS,Materials,-0.0563,23.56,2026-02-25,27.4,stop: hit intraday,47,0.1608,160.8,True
+2025-12-16,2025-12-17,LITE,Information Technology,-0.0554,337.91,2026-01-05,348.41,stop: hit intraday,12,0.02901,29.01,False
+2025-12-17,2025-12-18,BE,Industrials,-0.1214,82.91,2026-02-04,148.62,stop: hit intraday,32,0.789,789.0,False
+2025-12-17,2025-12-18,GEV,Industrials,-0.105,649.3,2026-03-30,812.85,stop: hit intraday,69,0.25106,251.06,True
+2025-12-17,2025-12-18,VST,Utilities,-0.0777,165.66,2026-01-20,158.56,stop: hit intraday,21,-0.04345,-43.45,False
+2025-12-17,2025-12-18,GNRC,Industrials,-0.0678,148.84,2026-03-06,208.19,stop: hit intraday,53,0.39596,395.96,True
+2025-12-18,2025-12-19,GNRC,Industrials,-0.0541,142.0,2026-03-06,208.19,stop: hit intraday,52,0.4632,463.2,True
+2025-12-18,2025-12-19,FANG,Energy,-0.0459,146.92,2026-04-08,177.17,stop: opened below,74,0.21068,210.68,True
+2025-12-18,2025-12-19,HPQ,Information Technology,-0.0401,23.39,2026-01-15,20.58,stop: hit intraday,18,-0.12176,-121.76,False
+2025-12-18,2025-12-19,DELL,Information Technology,-0.0387,123.96,2026-01-20,113.24,stop: hit intraday,20,-0.08435,-84.35,False
+2025-12-19,2025-12-22,CVNA,Consumer Discretionary,-0.0333,90.57,2026-01-02,79.71,stop: hit intraday,8,-0.12176,-121.76,False
+2025-12-19,2025-12-22,LOW,Consumer Discretionary,-0.0293,240.58,2026-03-03,252.9,stop: hit intraday,48,0.05383,53.83,True
+2025-12-19,2025-12-22,HD,Consumer Discretionary,-0.0281,345.31,2026-03-12,341.84,stop: hit intraday,55,-0.00543,-5.43,True
+2025-12-19,2025-12-22,DHI,Consumer Discretionary,-0.0279,146.43,2026-03-06,147.65,stop: hit intraday,51,0.00916,9.16,True
+2025-12-22,2025-12-23,STX,Information Technology,-0.0456,278.58,2026-01-08,290.77,stop: hit intraday,11,0.0444,44.4,False
+2025-12-22,2025-12-23,DLTR,Consumer Staples,-0.0418,122.49,2026-01-27,124.26,stop: hit intraday,23,0.01246,12.46,False
+2025-12-22,2025-12-23,D,Utilities,-0.0372,56.99,2026-09-22,62.46,stop: hit intraday,187,0.12773,127.73,True
+2025-12-22,2025-12-23,CVNA,Consumer Discretionary,-0.0369,86.64,2026-01-28,84.21,stop: hit intraday,24,-0.03004,-30.04,False
+2025-12-23,2025-12-24,MRNA,Health Care,-0.0748,32.16,2026-01-27,45.65,stop: hit intraday,22,0.41649,416.49,False
+2025-12-23,2025-12-24,FSLR,Information Technology,-0.0534,270.03,2026-01-07,241.42,stop: hit intraday,9,-0.10774,-107.74,False
+2025-12-23,2025-12-24,BF-B,Consumer Staples,-0.052,26.64,2026-03-04,26.99,stop: hit intraday,47,0.0111,11.1,True
+2025-12-23,2025-12-24,NCLH,Consumer Discretionary,-0.0478,23.2,2026-01-20,21.06,stop: opened below,17,-0.09406,-94.06,False
+2025-12-24,2025-12-26,DDOG,Information Technology,-0.0226,138.0,2026-01-12,124.47,stop: hit intraday,11,-0.09983,-99.83,False
+2025-12-26,2025-12-29,MRNA,Health Care,-0.0473,31.0,2026-01-27,45.65,stop: hit intraday,20,0.4695,469.5,False
+2025-12-26,2025-12-29,PLTR,Information Technology,-0.0281,186.85,2026-01-21,164.43,stop: hit intraday,16,-0.12176,-121.76,False
+2025-12-26,2025-12-29,BF-B,Consumer Staples,-0.026,26.15,2026-03-04,26.99,stop: hit intraday,45,0.03004,30.04,True
+2025-12-26,2025-12-29,TSLA,Consumer Discretionary,-0.021,469.0,2026-02-04,412.72,stop: hit intraday,26,-0.12176,-121.76,True
+2025-12-29,2025-12-30,NEM,Materials,-0.0564,102.21,2026-01-30,116.12,stop: hit intraday,22,0.13378,133.78,False
+2025-12-29,2025-12-30,LITE,Information Technology,-0.0465,373.97,2026-01-06,339.78,stop: hit intraday,5,-0.09325,-93.25,False
+2025-12-29,2025-12-30,ALB,Materials,-0.0362,145.06,2026-01-30,167.41,stop: opened below,22,0.15177,151.77,False
+2025-12-29,2025-12-30,TSLA,Consumer Discretionary,-0.0327,461.09,2026-02-04,405.76,stop: hit intraday,25,-0.12176,-121.76,True
+2025-12-30,2025-12-31,ARES,Financials,-0.0344,163.2,2026-01-26,154.59,stop: opened below,17,-0.05465,-54.65,False
+2025-12-30,2025-12-31,MRNA,Health Care,-0.0238,30.26,2026-01-27,45.65,stop: hit intraday,18,0.50543,505.43,False
+2025-12-30,2025-12-31,WDC,Information Technology,-0.0201,176.77,2026-01-08,193.05,stop: hit intraday,6,0.08994,89.94,False
+2025-12-31,2026-01-02,MRNA,Health Care,-0.0303,29.83,2026-01-27,45.65,stop: hit intraday,17,0.52713,527.13,False
+2025-12-31,2026-01-02,APP,Communication Services,-0.0287,683.37,2026-01-06,601.37,stop: hit intraday,3,-0.12176,-121.76,False
+2025-12-31,2026-01-02,Q,Information Technology,-0.0281,81.69,2026-03-06,111.55,stop: hit intraday,44,0.36366,363.66,True
+2025-12-31,2026-01-02,HPQ,Information Technology,-0.0271,22.54,2026-01-20,19.84,stop: hit intraday,12,-0.12176,-121.76,False
+2026-01-02,2026-01-05,APP,Communication Services,-0.0824,617.7,2026-01-16,588.39,stop: hit intraday,10,-0.04935,-49.35,False
+2026-01-02,2026-01-05,PLTR,Information Technology,-0.0556,174.88,2026-01-28,159.88,stop: hit intraday,17,-0.08761,-87.61,False
+2026-01-02,2026-01-05,CVNA,Consumer Discretionary,-0.0516,80.52,2026-01-28,84.21,stop: hit intraday,17,0.0437,43.7,False
+2026-01-02,2026-01-05,INTU,Information Technology,-0.0498,629.46,2026-01-14,573.36,stop: hit intraday,8,-0.08926,-89.26,False
+2026-01-05,2026-01-06,LITE,Information Technology,-0.0753,355.67,2026-01-08,349.73,stop: hit intraday,3,-0.01868,-18.68,False
+2026-01-05,2026-01-06,JBL,Information Technology,-0.0705,221.0,2026-03-03,244.26,stop: hit intraday,39,0.10339,103.39,False
+2026-01-05,2026-01-06,CIEN,Information Technology,-0.0616,230.2,2026-01-08,228.16,stop: hit intraday,3,-0.01085,-10.85,False
+2026-01-05,2026-01-06,COHR,Information Technology,-0.041,182.32,2026-01-09,169.0,stop: opened below,4,-0.07491,-74.91,False
+2026-01-06,2026-01-07,AIG,Financials,-0.0748,77.43,2026-11-04,81.71,open,209,0.07456,74.56,True
+2026-01-06,2026-01-07,JCI,Industrials,-0.0624,115.0,2026-03-30,127.61,stop: hit intraday,57,0.11086,110.86,True
+2026-01-06,2026-01-07,CVX,Energy,-0.0446,157.44,2026-04-14,185.81,stop: hit intraday,67,0.18937,189.37,True
+2026-01-06,2026-01-07,TSLA,Consumer Discretionary,-0.0414,435.9,2026-02-05,395.44,stop: hit intraday,21,-0.09464,-94.64,True
+2026-01-07,2026-01-08,FSLR,Information Technology,-0.1029,239.66,2026-01-29,219.48,stop: hit intraday,15,-0.08603,-86.03,False
+2026-01-07,2026-01-08,SWKS,Information Technology,-0.0973,58.91,2026-03-06,55.37,stop: hit intraday,40,-0.05065,-50.65,True
+2026-01-07,2026-01-08,WDC,Information Technology,-0.0889,200.51,2026-01-30,246.14,stop: hit intraday,16,0.2251,225.1,True
+2026-01-07,2026-01-08,VST,Utilities,-0.0881,155.25,2026-01-20,158.56,stop: hit intraday,8,0.01927,19.27,False
+2026-01-08,2026-01-09,CIEN,Information Technology,-0.1314,219.28,2026-02-05,242.64,stop: opened below,19,0.10432,104.32,False
+2026-01-08,2026-01-09,LITE,Information Technology,-0.1136,334.3,2026-01-16,317.97,stop: hit intraday,6,-0.05075,-50.75,False
+2026-01-08,2026-01-09,COHR,Information Technology,-0.0964,169.0,2026-02-05,179.11,stop: opened below,19,0.0577,57.7,True
+2026-01-08,2026-01-09,STX,Information Technology,-0.0772,284.67,2026-02-11,392.98,stop: hit intraday,23,0.37772,377.72,True
+2026-01-09,2026-01-12,LVS,Consumer Discretionary,-0.0477,58.7,2026-01-29,53.91,stop: hit intraday,13,-0.08346,-83.46,True
+2026-01-09,2026-01-12,CSGP,Real Estate,-0.0468,58.49,2026-02-03,58.31,stop: hit intraday,16,-0.00509,-5.09,False
+2026-01-09,2026-01-12,TWLO,Information Technology,-0.0439,129.0,2026-01-20,116.17,stop: hit intraday,6,-0.10127,-101.27,False
+2026-01-09,2026-01-12,DDOG,Information Technology,-0.0397,126.2,2026-02-03,123.69,stop: hit intraday,16,-0.02183,-21.83,False
+2026-01-12,2026-01-13,COF,Financials,-0.0642,234.6,2026-02-12,210.44,stop: hit intraday,22,-0.10476,-104.76,True
+2026-01-12,2026-01-13,ON,Information Technology,-0.0549,58.8,2026-03-03,63.54,stop: hit intraday,34,0.07853,78.53,True
+2026-01-12,2026-01-13,BBY,Consumer Discretionary,-0.0487,67.97,2026-02-23,61.96,stop: hit intraday,28,-0.09023,-90.23,False
+2026-01-12,2026-01-13,QCOM,Information Technology,-0.0479,166.98,2026-02-03,146.94,stop: hit intraday,15,-0.12176,-121.76,False
+2026-01-13,2026-01-14,CRM,Information Technology,-0.0707,239.18,2026-01-29,210.82,stop: hit intraday,11,-0.12033,-120.33,False
+2026-01-13,2026-01-14,SOLV,Health Care,-0.0661,79.43,2026-02-23,71.71,stop: hit intraday,27,-0.09898,-98.98,False
+2026-01-13,2026-01-14,ADBE,Information Technology,-0.0541,308.57,2026-02-03,271.54,stop: hit intraday,14,-0.12176,-121.76,False
+2026-01-13,2026-01-14,PGR,Financials,-0.0528,204.25,2026-07-15,206.34,stop: hit intraday,125,0.00919,9.19,True
+2026-01-14,2026-01-15,LITE,Information Technology,-0.0822,334.86,2026-03-03,689.26,stop: hit intraday,32,1.05421,1054.21,True
+2026-01-14,2026-01-15,APP,Communication Services,-0.0761,626.41,2026-01-20,540.96,stop: opened below,3,-0.13813,-138.13,False
+2026-01-14,2026-01-15,P,Information Technology,-0.0642,72.81,2026-02-04,65.38,stop: hit intraday,14,-0.10391,-103.91,False
+2026-01-14,2026-01-15,INTU,Information Technology,-0.0639,565.78,2026-01-29,497.89,stop: hit intraday,10,-0.12176,-121.76,False
+2026-01-15,2026-01-16,RDDT,Communication Services,-0.0936,228.5,2026-01-27,203.14,stop: opened below,7,-0.11276,-112.76,False
+2026-01-15,2026-01-16,HOOD,Financials,-0.0779,111.05,2026-02-02,95.88,stop: opened below,11,-0.13833,-138.33,False
+2026-01-15,2026-01-16,COIN,Financials,-0.0648,239.49,2026-01-26,212.18,stop: opened below,6,-0.11581,-115.81,False
+2026-01-15,2026-01-16,ECHO,Communication Services,-0.0575,125.62,2026-01-29,113.14,stop: hit intraday,9,-0.10113,-101.13,False
+2026-01-16,2026-01-20,CEG,Utilities,-0.0982,301.48,2026-02-03,265.3,stop: hit intraday,11,-0.12176,-121.76,False
+2026-01-16,2026-01-20,VST,Utilities,-0.0754,161.27,2026-02-04,145.76,stop: hit intraday,12,-0.09796,-97.96,False
+2026-01-16,2026-01-20,AMCR,Materials,-0.0729,42.07,2026-03-05,43.93,stop: hit intraday,32,0.05589,55.89,True
+2026-01-16,2026-01-20,WST,Health Care,-0.0702,255.0,2026-01-30,224.34,stop: hit intraday,9,-0.12121,-121.21,False
+2026-01-20,2026-01-21,NTAP,Information Technology,-0.0937,95.35,2026-06-11,159.35,stop: hit intraday,99,0.67642,676.42,True
+2026-01-20,2026-01-21,NCLH,Consumer Discretionary,-0.0745,20.41,2026-03-02,22.02,stop: hit intraday,28,0.07661,76.61,True
+2026-01-20,2026-01-21,DELL,Information Technology,-0.0745,112.33,2026-03-31,161.93,stop: hit intraday,49,0.43866,438.66,True
+2026-01-20,2026-01-21,LULU,Consumer Discretionary,-0.0649,188.91,2026-01-29,171.3,stop: hit intraday,7,-0.09503,-95.03,False
+2026-01-21,2026-01-22,RDDT,Communication Services,-0.0676,214.0,2026-01-28,192.61,stop: hit intraday,5,-0.10173,-101.73,False
+2026-01-21,2026-01-22,APP,Communication Services,-0.0583,538.93,2026-01-30,500.93,stop: hit intraday,7,-0.07237,-72.37,False
+2026-01-21,2026-01-22,KHC,Consumer Staples,-0.0572,22.29,2026-03-20,21.63,stop: hit intraday,41,-0.01538,-15.38,True
+2026-01-21,2026-01-22,CIEN,Information Technology,-0.0386,236.62,2026-02-05,242.64,stop: opened below,11,0.02339,23.39,False
+2026-01-22,2026-01-23,DLTR,Consumer Staples,-0.0463,127.53,2026-03-03,117.59,stop: opened below,27,-0.07979,-79.79,False
+2026-01-22,2026-01-23,Q,Information Technology,-0.0384,97.5,2026-03-06,111.55,stop: hit intraday,30,0.14254,142.54,True
+2026-01-22,2026-01-23,FITB,Financials,-0.0373,50.63,2026-03-02,48.47,stop: hit intraday,26,-0.04457,-44.57,False
+2026-01-22,2026-01-23,APTV,Consumer Discretionary,-0.0341,77.17,2026-02-27,74.98,stop: hit intraday,25,-0.03037,-30.37,True
+2026-01-23,2026-01-26,MRNA,Health Care,-0.0609,49.47,2026-01-30,43.54,stop: hit intraday,5,-0.12176,-121.76,False
+2026-01-23,2026-01-26,SNDK,Information Technology,-0.0588,476.48,2026-02-04,612.05,stop: hit intraday,8,0.28194,281.94,True
+2026-01-23,2026-01-26,WST,Health Care,-0.0449,238.48,2026-11-04,408.78,open,197,0.71637,716.37,True
+2026-01-23,2026-01-26,LITE,Information Technology,-0.0432,337.75,2026-03-03,689.26,stop: hit intraday,26,1.03666,1036.66,True
+2026-01-26,2026-01-27,INTC,Information Technology,-0.0572,43.97,2026-02-19,44.52,stop: hit intraday,17,0.01047,10.47,False
+2026-01-26,2026-01-27,ECHO,Communication Services,-0.0536,120.79,2026-01-29,113.14,stop: hit intraday,3,-0.06519,-65.19,False
+2026-01-26,2026-01-27,DRI,Consumer Discretionary,-0.0472,195.55,2026-03-27,192.42,stop: hit intraday,43,-0.01797,-17.97,True
+2026-01-26,2026-01-27,ARES,Financials,-0.0398,149.05,2026-02-03,133.49,stop: hit intraday,6,-0.1062,-106.2,False
+2026-01-27,2026-01-28,ELV,Health Care,-0.1433,315.46,2026-03-02,306.4,stop: hit intraday,23,-0.03067,-30.67,True
+2026-01-27,2026-01-28,CNC,Health Care,-0.1026,41.19,2026-02-06,37.24,stop: opened below,8,-0.0977,-97.7,True
+2026-01-27,2026-01-28,RDDT,Communication Services,-0.0811,195.0,2026-02-03,171.6,stop: hit intraday,5,-0.12176,-121.76,False
+2026-01-27,2026-01-28,CHTR,Communication Services,-0.0557,183.18,2026-03-10,218.41,stop: hit intraday,29,0.18993,189.93,True
+2026-01-28,2026-01-29,CVNA,Consumer Discretionary,-0.1417,86.25,2026-02-04,75.9,stop: hit intraday,5,-0.12176,-121.76,False
+2026-01-28,2026-01-29,AXON,Industrials,-0.0989,555.01,2026-01-30,488.41,stop: hit intraday,2,-0.12176,-121.76,False
+2026-01-28,2026-01-29,HUM,Health Care,-0.0669,195.97,2026-02-11,170.96,stop: opened below,10,-0.12937,-129.37,True
+2026-01-28,2026-01-29,ARE,Real Estate,-0.0607,55.01,2026-03-03,50.04,stop: hit intraday,23,-0.09222,-92.22,False
+2026-01-29,2026-01-30,ECHO,Communication Services,-0.1175,116.08,2026-03-20,104.44,stop: hit intraday,35,-0.10209,-102.09,True
+2026-01-29,2026-01-30,FSLR,Information Technology,-0.1018,221.0,2026-02-25,197.54,stop: opened below,18,-0.10794,-107.94,True
+2026-01-29,2026-01-30,TWLO,Information Technology,-0.0894,121.17,2026-02-03,106.63,stop: hit intraday,3,-0.12176,-121.76,False
+2026-01-29,2026-01-30,DDOG,Information Technology,-0.0881,127.99,2026-02-04,113.8,stop: hit intraday,4,-0.11263,-112.63,False
+2026-01-30,2026-02-02,APP,Communication Services,-0.1689,502.55,2026-02-04,402.0,stop: opened below,3,-0.20168,-201.68,False
+2026-01-30,2026-02-02,NEM,Materials,-0.1149,111.06,2026-03-05,114.17,stop: hit intraday,23,0.02801,28.01,True
+2026-01-30,2026-02-02,STX,Information Technology,-0.0871,402.5,2026-02-11,391.12,stop: hit intraday,8,-0.03023,-30.23,False
+2026-01-30,2026-02-02,TTWO,Communication Services,-0.0793,225.51,2026-02-04,198.45,stop: hit intraday,3,-0.12176,-121.76,True
+2026-02-02,2026-02-03,HOOD,Financials,-0.0962,90.1,2026-02-04,79.29,stop: hit intraday,2,-0.12176,-121.76,False
+2026-02-02,2026-02-03,EQT,Energy,-0.0516,54.58,2026-04-02,59.78,stop: hit intraday,42,0.09614,96.14,True
+2026-02-02,2026-02-03,AXON,Industrials,-0.0488,471.75,2026-02-05,415.14,stop: hit intraday,3,-0.12176,-121.76,False
+2026-02-02,2026-02-03,EXE,Energy,-0.0487,106.78,2026-04-08,99.75,stop: opened below,45,-0.06261,-62.61,True
+2026-02-03,2026-02-04,CSGP,Real Estate,-0.1545,52.14,2026-02-12,46.06,stop: hit intraday,7,-0.11839,-118.39,False
+2026-02-03,2026-02-04,EXPE,Consumer Discretionary,-0.1526,233.01,2026-02-13,212.0,stop: opened below,8,-0.09199,-91.99,True
+2026-02-03,2026-02-04,EFX,Industrials,-0.1211,173.5,2026-03-12,183.39,stop: hit intraday,26,0.05774,57.74,True
+2026-02-03,2026-02-04,IQV,Health Care,-0.1188,201.25,2026-02-05,178.24,stop: hit intraday,2,-0.11613,-116.13,True
+2026-02-04,2026-02-05,SNDK,Information Technology,-0.1595,563.75,2026-03-03,581.64,stop: opened below,18,0.02967,29.67,False
+2026-02-04,2026-02-05,BE,Industrials,-0.1275,141.98,2026-02-12,136.88,stop: hit intraday,6,-0.03788,-37.88,True
+2026-02-04,2026-02-05,PLTR,Information Technology,-0.1162,136.82,2026-03-30,141.54,stop: hit intraday,37,0.03242,32.42,False
+2026-02-04,2026-02-05,APH,Information Technology,-0.116,64.75,2026-03-03,65.0,stop: opened below,18,0.00185,1.85,False
+2026-02-05,2026-02-06,COIN,Financials,-0.1334,154.56,2026-02-12,147.18,stop: hit intraday,5,-0.04965,-49.65,True
+2026-02-05,2026-02-06,HOOD,Financials,-0.0985,77.86,2026-02-11,76.17,stop: hit intraday,4,-0.02363,-23.63,True
+2026-02-05,2026-02-06,CRWD,Information Technology,-0.092,96.24,2026-02-23,94.52,stop: hit intraday,11,-0.01978,-19.78,False
+2026-02-05,2026-02-06,CRL,Health Care,-0.0889,184.89,2026-02-11,166.5,stop: hit intraday,4,-0.10124,-101.24,False
+2026-02-06,2026-02-09,FSLR,Information Technology,-0.0667,221.3,2026-02-25,197.54,stop: opened below,12,-0.10915,-109.15,True
+2026-02-06,2026-02-09,BR,Industrials,-0.0601,181.35,2026-03-23,172.31,stop: hit intraday,30,-0.04655,-46.55,False
+2026-02-06,2026-02-09,DVA,Health Care,-0.0562,140.0,2026-08-05,205.25,stop: opened below,123,0.46314,463.14,True
+2026-02-06,2026-02-09,ALL,Financials,-0.0355,207.0,2026-09-22,240.7,stop: opened below,156,0.17737,177.37,True
+2026-02-09,2026-02-10,WTW,Financials,-0.121,289.89,2026-04-30,259.59,stop: opened below,56,-0.10334,-103.34,True
+2026-02-09,2026-02-10,AJG,Financials,-0.0985,220.5,2026-05-06,201.48,stop: hit intraday,60,-0.08532,-85.32,True
+2026-02-09,2026-02-10,AON,Financials,-0.0927,312.99,2026-08-31,334.75,stop: hit intraday,140,0.07263,72.63,True
+2026-02-09,2026-02-10,MRSH,Financials,-0.0751,173.12,2026-05-07,162.85,stop: opened below,61,-0.05637,-56.37,True
+2026-02-10,2026-02-11,RJF,Financials,-0.0875,162.78,2026-03-17,143.25,stop: hit intraday,24,-0.12176,-121.76,False
+2026-02-10,2026-02-11,WDC,Information Technology,-0.0819,275.08,2026-03-03,254.57,stop: opened below,14,-0.07641,-76.41,False
+2026-02-10,2026-02-11,MSCI,Financials,-0.0782,517.8,2026-06-25,566.57,stop: hit intraday,93,0.10026,100.26,True
+2026-02-10,2026-02-11,SCHW,Financials,-0.0742,100.91,2026-04-23,88.5,stop: hit intraday,50,-0.12176,-121.76,True
+2026-02-11,2026-02-12,CBRE,Real Estate,-0.1224,151.94,2026-02-12,133.71,stop: hit intraday,1,-0.12176,-121.76,True
+2026-02-11,2026-02-12,LDOS,Industrials,-0.1115,175.22,2026-03-24,158.58,stop: hit intraday,28,-0.09454,-94.54,True
+2026-02-11,2026-02-12,CRL,Health Care,-0.0842,157.49,2026-03-12,159.56,stop: hit intraday,20,0.01113,11.13,True
+2026-02-11,2026-02-12,ICE,Financials,-0.0778,151.64,2026-05-29,147.66,stop: hit intraday,74,-0.02509,-25.09,True
+2026-02-12,2026-02-13,CHRW,Industrials,-0.1454,171.89,2026-03-13,169.54,stop: hit intraday,20,-0.01227,-12.27,False
+2026-02-12,2026-02-13,EXPD,Industrials,-0.1318,140.52,2026-02-24,137.54,stop: hit intraday,7,-0.02314,-23.14,True
+2026-02-12,2026-02-13,BE,Industrials,-0.1061,136.21,2026-02-27,153.8,stop: hit intraday,10,0.12686,126.86,False
+2026-02-12,2026-02-13,DELL,Information Technology,-0.0913,115.47,2026-03-31,161.93,stop: hit intraday,32,0.39954,399.54,True
+2026-02-13,2026-02-17,STZ,Consumer Staples,-0.0804,150.16,2026-05-11,145.24,stop: hit intraday,59,-0.02824,-28.24,True
+2026-02-13,2026-02-17,NCLH,Consumer Discretionary,-0.0757,23.12,2026-03-02,22.02,stop: hit intraday,10,-0.04959,-49.59,True
+2026-02-13,2026-02-17,APD,Materials,-0.0403,281.75,2026-09-29,276.49,stop: hit intraday,156,-0.00838,-8.38,True
+2026-02-13,2026-02-17,RCL,Consumer Discretionary,-0.0396,324.0,2026-03-05,285.12,stop: hit intraday,13,-0.12176,-121.76,False
+2026-02-17,2026-02-18,FDS,Financials,-0.0764,191.41,2026-03-24,198.77,stop: hit intraday,25,0.0417,41.7,False
+2026-02-17,2026-02-18,GIS,Consumer Staples,-0.0699,44.34,2026-03-12,39.97,stop: hit intraday,17,-0.10037,-100.37,False
+2026-02-17,2026-02-18,EXPE,Consumer Discretionary,-0.0576,199.01,2026-03-27,221.36,stop: hit intraday,28,0.11247,112.47,False
+2026-02-17,2026-02-18,SNDK,Information Technology,-0.0574,582.49,2026-03-03,581.64,stop: opened below,10,-0.00346,-3.46,False
+2026-02-18,2026-02-19,CCI,Real Estate,-0.0482,87.55,2026-03-24,79.22,stop: hit intraday,24,-0.08565,-85.65,False
+2026-02-18,2026-02-19,AMT,Real Estate,-0.0335,186.58,2026-03-25,168.84,stop: hit intraday,25,-0.09691,-96.91,True
+2026-02-18,2026-02-19,WELL,Real Estate,-0.032,209.38,2026-10-07,220.99,stop: hit intraday,160,0.06468,64.68,True
+2026-02-18,2026-02-19,NXPI,Information Technology,-0.0317,235.27,2026-03-06,202.56,stop: opened below,12,-0.14075,-140.75,False
+2026-02-19,2026-02-20,UAL,Industrials,-0.0588,109.54,2026-03-02,100.0,stop: opened below,7,-0.08892,-88.92,False
+2026-02-19,2026-02-20,BX,Financials,-0.0537,121.48,2026-03-03,106.9,stop: hit intraday,8,-0.12176,-121.76,False
+2026-02-19,2026-02-20,APO,Financials,-0.0521,116.9,2026-02-27,105.35,stop: hit intraday,6,-0.10057,-100.57,False
+2026-02-19,2026-02-20,DAL,Industrials,-0.0516,67.31,2026-03-02,62.05,stop: hit intraday,7,-0.07751,-77.51,False
+2026-02-20,2026-02-23,CRWD,Information Technology,-0.0795,96.24,2026-03-25,97.25,stop: hit intraday,23,0.00844,8.44,True
+2026-02-20,2026-02-23,BE,Industrials,-0.072,147.7,2026-02-27,153.8,stop: hit intraday,5,0.0392,39.2,False
+2026-02-20,2026-02-23,ORCL,Information Technology,-0.054,145.69,2026-03-26,143.55,stop: hit intraday,24,-0.01669,-16.69,True
+2026-02-20,2026-02-23,ARES,Financials,-0.0515,120.52,2026-03-03,106.06,stop: hit intraday,7,-0.12176,-121.76,False
+2026-02-23,2026-02-24,IBM,Information Technology,-0.1315,227.8,2026-04-23,227.79,stop: hit intraday,42,-0.00205,-2.05,True
+2026-02-23,2026-02-24,DDOG,Information Technology,-0.1128,101.44,2026-03-27,115.51,stop: hit intraday,24,0.13641,136.41,False
+2026-02-23,2026-02-24,CRWD,Information Technology,-0.0985,87.28,2026-03-25,97.25,stop: hit intraday,22,0.11203,112.03,True
+2026-02-23,2026-02-24,ZBRA,Information Technology,-0.0943,234.99,2026-03-09,210.33,stop: hit intraday,10,-0.10673,-106.73,False
+2026-02-24,2026-02-25,SNDK,Information Technology,-0.042,644.3,2026-03-03,573.67,stop: hit intraday,5,-0.1114,-111.4,False
+2026-02-24,2026-02-25,CVS,Health Care,-0.0366,75.3,2026-03-19,71.86,stop: hit intraday,17,-0.04758,-47.58,False
+2026-02-24,2026-02-25,HUM,Health Care,-0.036,177.8,2026-03-12,167.68,stop: hit intraday,12,-0.05883,-58.83,False
+2026-02-24,2026-02-25,WDC,Information Technology,-0.0351,280.5,2026-03-03,254.57,stop: opened below,5,-0.09426,-94.26,False
+2026-02-25,2026-02-26,BF-B,Consumer Staples,-0.0763,28.12,2026-03-04,25.4,stop: hit intraday,5,-0.09865,-98.65,True
+2026-02-25,2026-02-26,LEN,Consumer Discretionary,-0.0487,111.59,2026-03-06,100.64,stop: hit intraday,7,-0.09996,-99.96,False
+2026-02-25,2026-02-26,SWK,Industrials,-0.0447,86.75,2026-03-05,77.13,stop: hit intraday,6,-0.11265,-112.65,False
+2026-02-25,2026-02-26,PHM,Consumer Discretionary,-0.0446,135.65,2026-03-12,120.74,stop: hit intraday,11,-0.11172,-111.72,False
+2026-02-26,2026-02-27,COHR,Information Technology,-0.0663,247.02,2026-03-04,263.04,stop: hit intraday,4,0.06273,62.73,False
+2026-02-26,2026-02-27,LITE,Information Technology,-0.0641,679.95,2026-03-03,689.26,stop: hit intraday,3,0.01167,11.67,False
+2026-02-26,2026-02-27,GLW,Information Technology,-0.0631,148.99,2026-03-05,136.16,stop: opened below,5,-0.08794,-87.94,False
+2026-02-26,2026-02-27,ALB,Materials,-0.0559,183.54,2026-03-03,161.52,stop: hit intraday,3,-0.12176,-121.76,False
+2026-02-27,2026-03-02,UAL,Industrials,-0.087,100.0,2026-03-06,90.82,stop: hit intraday,5,-0.09357,-93.57,False
+2026-02-27,2026-03-02,APO,Financials,-0.0857,102.5,2026-06-24,122.24,stop: hit intraday,80,0.19523,195.23,True
+2026-02-27,2026-03-02,AXP,Financials,-0.0788,303.2,2026-09-16,318.18,stop: hit intraday,138,0.0535,53.5,True
+2026-02-27,2026-03-02,BE,Industrials,-0.0765,153.41,2026-03-06,146.08,stop: hit intraday,5,-0.04968,-49.68,False
+2026-03-02,2026-03-03,EL,Consumer Staples,-0.0848,97.16,2026-03-12,87.3,stop: hit intraday,8,-0.10323,-103.23,False
+2026-03-02,2026-03-03,ELV,Health Care,-0.081,290.0,2026-07-16,375.58,stop: hit intraday,94,0.30576,305.76,True
+2026-03-02,2026-03-03,TEL,Information Technology,-0.0789,205.22,2026-04-22,216.78,stop: opened below,36,0.05422,54.22,True
+2026-03-02,2026-03-03,APH,Information Technology,-0.0746,65.0,2026-03-30,60.07,stop: hit intraday,20,-0.07582,-75.82,False
+2026-03-03,2026-03-04,LITE,Information Technology,-0.1134,726.0,2026-03-05,638.88,stop: hit intraday,2,-0.12176,-121.76,False
+2026-03-03,2026-03-04,SNDK,Information Technology,-0.0867,586.84,2026-03-06,527.17,stop: hit intraday,3,-0.10347,-103.47,False
+2026-03-03,2026-03-04,MU,Information Technology,-0.0799,393.64,2026-03-23,406.32,stop: hit intraday,14,0.03015,30.15,True
+2026-03-03,2026-03-04,BE,Industrials,-0.0782,155.7,2026-03-06,145.01,stop: hit intraday,3,-0.07054,-70.54,False
+2026-03-04,2026-03-05,RCL,Consumer Discretionary,-0.0468,285.22,2026-04-28,255.68,stop: hit intraday,38,-0.10058,-100.58,False
+2026-03-04,2026-03-05,ROK,Industrials,-0.038,378.44,2026-08-04,435.67,stop: hit intraday,105,0.15247,152.47,True
+2026-03-04,2026-03-05,ROL,Industrials,-0.0361,57.64,2026-05-27,51.11,stop: hit intraday,58,-0.11201,-112.01,True
+2026-03-04,2026-03-05,DRI,Consumer Discretionary,-0.0341,201.06,2026-09-25,200.36,stop: hit intraday,142,0.01028,10.28,True
+2026-03-05,2026-03-06,COHR,Information Technology,-0.0764,239.45,2026-03-20,242.5,stop: hit intraday,11,0.01072,10.72,False
+2026-03-05,2026-03-06,GLW,Information Technology,-0.0697,129.44,2026-03-30,128.79,stop: hit intraday,17,-0.00703,-7.03,False
+2026-03-05,2026-03-06,LUV,Industrials,-0.0689,43.0,2026-03-27,37.7,stop: hit intraday,16,-0.12115,-121.15,False
+2026-03-05,2026-03-06,MRNA,Health Care,-0.0687,52.22,2026-03-30,49.25,stop: hit intraday,17,-0.0586,-58.6,False
+2026-03-06,2026-03-09,BE,Industrials,-0.155,134.55,2026-03-23,146.69,stop: hit intraday,11,0.08803,88.03,False
+2026-03-06,2026-03-09,LITE,Information Technology,-0.1419,578.0,2026-03-17,591.36,stop: hit intraday,7,0.02107,21.07,False
+2026-03-06,2026-03-09,TER,Information Technology,-0.1065,265.4,2026-03-30,284.56,stop: hit intraday,16,0.07004,70.04,False
+2026-03-06,2026-03-09,GLW,Information Technology,-0.085,121.0,2026-03-30,128.79,stop: hit intraday,16,0.06224,62.24,False
+2026-03-09,2026-03-10,AJG,Financials,-0.0454,216.99,2026-05-06,197.52,stop: hit intraday,41,-0.09153,-91.53,True
+2026-03-09,2026-03-10,CF,Materials,-0.0409,110.2,2026-03-23,115.22,stop: opened below,10,0.04346,43.46,False
+2026-03-09,2026-03-10,CHTR,Communication Services,-0.0406,222.23,2026-04-24,215.33,stop: hit intraday,33,-0.033,-33.0,True
+2026-03-09,2026-03-10,BR,Industrials,-0.04,190.87,2026-03-24,167.05,stop: hit intraday,11,-0.12176,-121.76,False
+2026-03-10,2026-03-11,CNC,Health Care,-0.1597,36.31,2026-03-25,31.95,stop: hit intraday,11,-0.12176,-121.76,False
+2026-03-10,2026-03-11,APP,Communication Services,-0.077,482.96,2026-03-19,425.0,stop: hit intraday,7,-0.12176,-121.76,False
+2026-03-10,2026-03-11,WST,Health Care,-0.0574,236.16,2026-11-04,408.78,open,166,0.73165,731.65,True
+2026-03-10,2026-03-11,URI,Industrials,-0.0547,776.13,2026-07-21,1002.77,stop: hit intraday,91,0.29209,292.09,True
+2026-03-11,2026-03-12,IFF,Materials,-0.0567,68.56,2026-05-15,72.98,stop: hit intraday,46,0.06859,68.59,True
+2026-03-11,2026-03-12,MKC,Consumer Staples,-0.0546,59.44,2026-03-24,52.31,stop: hit intraday,9,-0.12176,-121.76,False
+2026-03-11,2026-03-12,CEG,Utilities,-0.0517,297.0,2026-03-20,279.15,stop: hit intraday,7,-0.06197,-61.97,False
+2026-03-11,2026-03-12,ARES,Financials,-0.048,100.45,2026-06-23,118.78,stop: hit intraday,71,0.20826,208.26,True
+2026-03-12,2026-03-13,CRL,Health Care,-0.0962,155.62,2026-04-29,163.28,stop: hit intraday,33,0.04709,47.09,False
+2026-03-12,2026-03-13,LITE,Information Technology,-0.0832,634.81,2026-03-26,705.75,stop: hit intraday,10,0.10953,109.53,False
+2026-03-12,2026-03-13,Q,Information Technology,-0.0794,108.9,2026-05-18,148.16,stop: hit intraday,46,0.35777,357.77,True
+2026-03-12,2026-03-13,EL,Consumer Staples,-0.0792,84.92,2026-03-23,78.24,stop: hit intraday,7,-0.08049,-80.49,False
+2026-03-13,2026-03-16,PODD,Health Care,-0.0688,222.8,2026-04-02,202.83,stop: hit intraday,14,-0.09145,-91.45,False
+2026-03-13,2026-03-16,MOS,Materials,-0.0654,28.62,2026-03-20,25.37,stop: hit intraday,5,-0.11532,-115.32,False
+2026-03-13,2026-03-16,FCX,Materials,-0.0478,57.21,2026-03-19,51.12,stop: hit intraday,4,-0.10825,-108.25,False
+2026-03-13,2026-03-16,CF,Materials,-0.0473,123.93,2026-04-08,114.12,stop: opened below,17,-0.081,-81.0,False
+2026-03-16,2026-03-17,MOS,Materials,-0.056,27.73,2026-03-20,25.37,stop: hit intraday,4,-0.08692,-86.92,False
+2026-03-16,2026-03-17,CF,Materials,-0.0559,123.58,2026-04-08,114.12,stop: opened below,16,-0.0784,-78.4,False
+2026-03-16,2026-03-17,CRWD,Information Technology,-0.0406,106.02,2026-03-25,95.88,stop: hit intraday,7,-0.09749,-97.49,False
+2026-03-16,2026-03-17,TECH,Health Care,-0.0401,49.62,2026-04-23,53.31,stop: hit intraday,27,0.07223,72.23,False
+2026-03-17,2026-03-18,LLY,Health Care,-0.0594,925.0,2026-09-08,1126.7,stop: hit intraday,120,0.21946,219.46,True
+2026-03-17,2026-03-18,CPAY,Financials,-0.0396,295.55,2026-11-04,418.6,open,161,0.41493,414.93,True
+2026-03-17,2026-03-18,INTC,Information Technology,-0.0372,44.2,2026-03-30,41.52,stop: hit intraday,9,-0.06255,-62.55,False
+2026-03-17,2026-03-18,COR,Health Care,-0.0323,332.45,2026-05-06,268.02,stop: opened below,35,-0.19542,-195.42,True
+2026-03-18,2026-03-19,CVNA,Consumer Discretionary,-0.0749,56.98,2026-05-12,73.36,stop: hit intraday,38,0.28476,284.76,True
+2026-03-18,2026-03-19,OTIS,Industrials,-0.0667,78.53,2026-05-15,71.64,stop: hit intraday,41,-0.08407,-84.07,True
+2026-03-18,2026-03-19,CHTR,Communication Services,-0.0608,209.17,2026-04-24,215.33,stop: hit intraday,26,0.02738,27.38,True
+2026-03-18,2026-03-19,APH,Information Technology,-0.0541,62.92,2026-05-07,67.24,stop: hit intraday,35,0.06866,68.66,True
+2026-03-19,2026-03-20,MOS,Materials,-0.0569,25.83,2026-04-27,23.43,stop: hit intraday,26,-0.0949,-94.9,False
+2026-03-19,2026-03-20,IP,Materials,-0.0529,34.07,2026-04-24,32.67,stop: hit intraday,25,-0.04288,-42.88,False
+2026-03-19,2026-03-20,ES,Utilities,-0.0429,68.9,2026-09-23,65.57,stop: hit intraday,129,-0.02763,-27.63,True
+2026-03-19,2026-03-20,SW,Materials,-0.0428,37.23,2026-04-30,37.58,stop: hit intraday,29,0.00728,7.28,True
+2026-03-20,2026-03-23,VST,Utilities,-0.1264,151.45,2026-05-11,146.59,stop: hit intraday,35,-0.03402,-34.02,True
+2026-03-20,2026-03-23,CEG,Utilities,-0.109,290.53,2026-04-02,266.92,stop: hit intraday,9,-0.0831,-83.1,False
+2026-03-20,2026-03-23,MOS,Materials,-0.0996,23.43,2026-04-27,23.43,stop: hit intraday,25,-0.00219,-2.19,False
+2026-03-20,2026-03-23,BE,Industrials,-0.0994,155.99,2026-03-24,137.27,stop: hit intraday,2,-0.12176,-121.76,False
+2026-03-23,2026-03-24,EL,Consumer Staples,-0.0772,77.24,2026-03-27,67.97,stop: hit intraday,4,-0.12176,-121.76,False
+2026-03-23,2026-03-24,BE,Industrials,-0.0586,140.51,2026-03-26,132.19,stop: hit intraday,3,-0.0611,-61.1,False
+2026-03-23,2026-03-24,CNC,Health Care,-0.0462,32.84,2026-07-28,59.51,stop: opened below,87,0.8085,808.5,True
+2026-03-23,2026-03-24,MU,Information Technology,-0.0439,401.28,2026-03-26,353.13,stop: hit intraday,3,-0.12176,-121.76,False
+2026-03-24,2026-03-25,AXON,Industrials,-0.0999,463.28,2026-04-02,407.69,stop: hit intraday,7,-0.12176,-121.76,False
+2026-03-24,2026-03-25,EL,Consumer Staples,-0.0985,72.78,2026-05-19,76.27,stop: hit intraday,39,0.04585,45.85,True
+2026-03-24,2026-03-25,COIN,Financials,-0.0976,184.58,2026-03-27,162.43,stop: hit intraday,3,-0.12176,-121.76,False
+2026-03-24,2026-03-25,IT,Information Technology,-0.0689,153.6,2026-06-09,157.63,stop: opened below,53,0.02419,24.19,True
+2026-03-25,2026-03-26,VRSK,Industrials,-0.0497,185.4,2026-04-10,166.98,stop: hit intraday,11,-0.10115,-101.15,False
+2026-03-25,2026-03-26,PODD,Health Care,-0.0421,216.0,2026-04-21,191.94,stop: hit intraday,18,-0.11318,-113.18,False
+2026-03-25,2026-03-26,SNDK,Information Technology,-0.035,654.0,2026-03-30,575.52,stop: hit intraday,3,-0.12176,-121.76,False
+2026-03-25,2026-03-26,MU,Information Technology,-0.034,370.02,2026-03-30,325.48,stop: hit intraday,3,-0.12176,-121.76,False
+2026-03-26,2026-03-27,LITE,Information Technology,-0.1137,706.41,2026-04-28,789.62,stop: hit intraday,22,0.11556,115.56,False
+2026-03-26,2026-03-27,CIEN,Information Technology,-0.1136,394.82,2026-05-18,520.58,stop: hit intraday,36,0.31589,315.89,False
+2026-03-26,2026-03-27,BE,Industrials,-0.1112,132.99,2026-03-30,117.25,stop: hit intraday,2,-0.12011,-120.11,False
+2026-03-26,2026-03-27,SNDK,Information Technology,-0.1102,599.75,2026-05-12,1374.86,stop: hit intraday,32,1.2878,1287.8,True
+2026-03-27,2026-03-30,DDOG,Information Technology,-0.079,115.96,2026-04-10,105.92,stop: hit intraday,9,-0.08844,-88.44,False
+2026-03-27,2026-03-30,MRNA,Health Care,-0.0749,49.67,2026-04-27,48.93,stop: hit intraday,20,-0.01701,-17.01,False
+2026-03-27,2026-03-30,COIN,Financials,-0.0706,164.53,2026-04-29,186.23,stop: hit intraday,22,0.12965,129.65,False
+2026-03-27,2026-03-30,ABNB,Consumer Discretionary,-0.0625,123.9,2026-09-10,167.64,stop: hit intraday,114,0.35032,350.32,True
+2026-03-30,2026-03-31,BE,Industrials,-0.103,123.44,2026-05-07,259.82,stop: hit intraday,27,1.10062,1100.62,True
+2026-03-30,2026-03-31,MU,Information Technology,-0.0988,321.67,2026-05-18,707.19,stop: hit intraday,34,1.19411,1194.11,False
+2026-03-30,2026-03-31,COHR,Information Technology,-0.0979,224.08,2026-04-28,304.5,stop: opened below,20,0.35617,356.17,False
+2026-03-30,2026-03-31,CIEN,Information Technology,-0.0912,373.77,2026-05-18,520.58,stop: hit intraday,34,0.39,390.0,False
+2026-03-31,2026-04-01,CEG,Utilities,-0.0648,282.44,2026-05-13,284.05,stop: hit intraday,30,0.00368,3.68,True
+2026-03-31,2026-04-01,CF,Materials,-0.0564,127.45,2026-04-08,114.12,stop: opened below,5,-0.10638,-106.38,False
+2026-03-31,2026-04-01,EOG,Energy,-0.0355,140.92,2026-04-17,125.94,stop: hit intraday,12,-0.10113,-101.13,False
+2026-03-31,2026-04-01,APA,Energy,-0.0297,41.35,2026-04-08,36.98,stop: opened below,5,-0.10747,-107.47,False
+2026-04-01,2026-04-02,ARE,Real Estate,-0.0674,42.75,2026-04-28,43.1,stop: hit intraday,18,0.00623,6.23,True
+2026-04-01,2026-04-02,XOM,Energy,-0.0523,164.49,2026-04-17,144.75,stop: hit intraday,11,-0.12176,-121.76,False
+2026-04-01,2026-04-02,PM,Consumer Staples,-0.0484,157.35,2026-11-04,211.28,open,150,0.36412,364.12,True
+2026-04-01,2026-04-02,LYB,Materials,-0.0478,80.2,2026-04-08,70.63,stop: hit intraday,4,-0.1211,-121.1,False
+2026-04-02,2026-04-06,TSLA,Consumer Discretionary,-0.0542,362.59,2026-06-05,391.84,stop: hit intraday,44,0.0785,78.5,True
+2026-04-02,2026-04-06,GE,Industrials,-0.0394,280.55,2026-04-22,279.84,stop: hit intraday,13,-0.00452,-4.52,True
+2026-04-02,2026-04-06,SWK,Industrials,-0.0355,68.0,2026-09-10,90.32,stop: opened below,110,0.35141,351.41,True
+2026-04-02,2026-04-06,CCL,Consumer Discretionary,-0.0354,25.7,2026-04-29,25.71,stop: hit intraday,18,-0.00147,-1.47,False
+2026-04-06,2026-04-07,LITE,Information Technology,-0.066,778.82,2026-04-28,789.62,stop: hit intraday,16,0.01185,11.85,False
+2026-04-06,2026-04-07,IVZ,Financials,-0.0522,22.49,2026-06-24,25.7,stop: hit intraday,55,0.14918,149.18,True
+2026-04-06,2026-04-07,SMCI,Information Technology,-0.0504,22.0,2026-04-29,25.68,stop: hit intraday,17,0.16487,164.87,False
+2026-04-06,2026-04-07,TKO,Communication Services,-0.0331,195.53,2026-07-06,189.97,stop: hit intraday,62,-0.02657,-26.57,True
+2026-04-07,2026-04-08,AXON,Industrials,-0.0973,400.95,2026-04-09,352.84,stop: hit intraday,2,-0.12176,-121.76,False
+2026-04-07,2026-04-08,IT,Information Technology,-0.0458,152.01,2026-06-09,157.63,stop: opened below,44,0.0349,34.9,True
+2026-04-07,2026-04-08,DLTR,Consumer Staples,-0.042,106.99,2026-04-29,94.38,stop: hit intraday,16,-0.11962,-119.62,False
+2026-04-07,2026-04-08,CSGP,Real Estate,-0.0413,40.73,2026-04-10,35.84,stop: hit intraday,3,-0.12176,-121.76,False
+2026-04-08,2026-04-09,WDAY,Information Technology,-0.0654,115.59,2026-04-23,113.66,stop: hit intraday,11,-0.01866,-18.66,False
+2026-04-08,2026-04-09,PLTR,Information Technology,-0.062,139.4,2026-05-06,133.71,stop: opened below,20,-0.0427,-42.7,True
+2026-04-08,2026-04-09,MPC,Energy,-0.0548,231.25,2026-10-29,426.73,stop: hit intraday,142,0.85372,853.72,True
+2026-04-08,2026-04-09,INTU,Information Technology,-0.0505,380.2,2026-05-21,312.29,stop: opened below,31,-0.18026,-180.26,True
+2026-04-09,2026-04-10,TPL,Energy,-0.1568,387.26,2026-05-08,390.43,stop: hit intraday,21,0.00617,6.17,True
+2026-04-09,2026-04-10,AXON,Industrials,-0.1027,356.28,2026-05-13,375.66,stop: hit intraday,24,0.0523,52.3,True
+2026-04-09,2026-04-10,NOW,Information Technology,-0.0786,88.91,2026-04-23,87.25,stop: opened below,10,-0.02063,-20.63,True
+2026-04-09,2026-04-10,CRWD,Information Technology,-0.0746,99.03,2026-06-04,168.52,stop: opened below,39,0.69836,698.36,True
+2026-04-10,2026-04-13,AKAM,Information Technology,-0.1666,91.85,2026-05-19,141.8,stop: hit intraday,27,0.54077,540.77,True
+2026-04-10,2026-04-13,FICO,Information Technology,-0.1399,927.41,2026-04-22,944.7,stop: hit intraday,8,0.0166,16.6,False
+2026-04-10,2026-04-13,NOW,Information Technology,-0.0758,84.77,2026-04-23,87.25,stop: opened below,9,0.0272,27.2,True
+2026-04-10,2026-04-13,PANW,Information Technology,-0.0674,155.58,2026-06-08,264.42,stop: hit intraday,40,0.69619,696.19,True
+2026-04-13,2026-04-14,EIX,Utilities,-0.044,72.06,2026-08-04,70.73,stop: hit intraday,78,-0.00873,-8.73,True
+2026-04-13,2026-04-14,NEM,Materials,-0.0364,118.4,2026-05-19,106.22,stop: hit intraday,26,-0.1047,-104.7,True
+2026-04-13,2026-04-14,TGT,Consumer Staples,-0.0329,117.8,2026-10-26,149.5,stop: hit intraday,136,0.28837,288.37,True
+2026-04-13,2026-04-14,CIEN,Information Technology,-0.0325,486.75,2026-05-18,520.58,stop: hit intraday,25,0.06737,67.37,False
+2026-04-14,2026-04-15,AKAM,Information Technology,-0.0643,89.8,2026-05-19,141.8,stop: hit intraday,25,0.57594,575.94,True
+2026-04-14,2026-04-15,APA,Energy,-0.0623,36.72,2026-05-07,36.5,stop: opened below,17,-0.00134,-1.34,True
+2026-04-14,2026-04-15,CHTR,Communication Services,-0.0474,216.04,2026-04-24,215.33,stop: hit intraday,8,-0.00529,-5.29,True
+2026-04-14,2026-04-15,OXY,Energy,-0.0462,55.45,2026-05-07,53.47,stop: hit intraday,17,-0.03766,-37.66,True
+2026-04-15,2026-04-16,CARR,Industrials,-0.0945,58.75,2026-07-08,66.88,stop: hit intraday,57,0.14015,140.15,True
+2026-04-15,2026-04-16,LII,Industrials,-0.0694,485.71,2026-05-21,476.41,stop: hit intraday,26,-0.02112,-21.12,True
+2026-04-15,2026-04-16,SWK,Industrials,-0.0694,67.55,2026-09-10,90.32,stop: opened below,102,0.36041,360.41,True
+2026-04-15,2026-04-16,LYV,Communication Services,-0.0629,156.1,2026-10-01,165.84,stop: hit intraday,117,0.0603,60.3,True
+2026-04-16,2026-04-17,RCL,Consumer Discretionary,-0.058,282.99,2026-04-29,251.22,stop: hit intraday,9,-0.11403,-114.03,False
+2026-04-16,2026-04-17,CCL,Consumer Discretionary,-0.0524,29.06,2026-04-29,25.71,stop: hit intraday,9,-0.11692,-116.92,False
+2026-04-16,2026-04-17,NCLH,Consumer Discretionary,-0.0516,21.4,2026-04-22,18.83,stop: hit intraday,4,-0.12176,-121.76,False
+2026-04-16,2026-04-17,GE,Industrials,-0.0498,310.13,2026-04-22,272.91,stop: hit intraday,4,-0.12176,-121.76,True
+2026-04-17,2026-04-20,LYB,Materials,-0.1198,67.0,2026-05-27,67.76,stop: opened below,27,0.00932,9.32,True
+2026-04-17,2026-04-20,ALB,Materials,-0.0829,196.0,2026-05-15,184.79,stop: hit intraday,20,-0.05907,-59.07,True
+2026-04-17,2026-04-20,VLO,Energy,-0.0748,224.52,2026-10-27,404.61,stop: hit intraday,133,0.81402,814.02,True
+2026-04-17,2026-04-20,MPC,Energy,-0.0555,214.11,2026-10-29,426.73,stop: hit intraday,135,1.00211,1002.11,True
+2026-04-20,2026-04-21,NRG,Utilities,-0.0629,156.75,2026-05-08,140.5,stop: hit intraday,14,-0.10271,-102.71,True
+2026-04-20,2026-04-21,BSX,Health Care,-0.0504,60.74,2026-04-29,57.71,stop: opened below,7,-0.05178,-51.78,True
+2026-04-20,2026-04-21,INTC,Information Technology,-0.0409,67.14,2026-05-14,113.91,stop: hit intraday,18,0.69317,693.17,True
+2026-04-20,2026-04-21,NCLH,Consumer Discretionary,-0.0348,20.03,2026-04-29,17.55,stop: opened below,7,-0.12557,-125.57,False
+2026-04-21,2026-04-22,ECHO,Communication Services,-0.0833,126.77,2026-05-22,124.78,stop: hit intraday,23,-0.01763,-17.63,True
+2026-04-21,2026-04-22,COIN,Financials,-0.0741,204.18,2026-04-29,181.49,stop: hit intraday,6,-0.1129,-112.9,False
+2026-04-21,2026-04-22,LITE,Information Technology,-0.065,849.85,2026-05-07,875.21,stop: hit intraday,12,0.02779,27.79,True
+2026-04-21,2026-04-22,PRU,Financials,-0.0599,93.17,2026-11-04,126.63,open,137,0.39216,392.16,True
+2026-04-22,2026-04-23,FICO,Information Technology,-0.0642,952.0,2026-06-05,1140.8,stop: hit intraday,31,0.19592,195.92,True
+2026-04-22,2026-04-23,BKNG,Consumer Discretionary,-0.06,178.91,2026-05-11,158.62,stop: hit intraday,13,-0.11518,-115.18,True
+2026-04-22,2026-04-23,IP,Materials,-0.0595,33.45,2026-04-30,29.94,stop: hit intraday,6,-0.10679,-106.79,True
+2026-04-22,2026-04-23,BBY,Consumer Discretionary,-0.046,63.25,2026-05-13,55.66,stop: hit intraday,15,-0.12176,-121.76,False
+2026-04-23,2026-04-24,LULU,Consumer Discretionary,-0.1333,141.88,2026-05-04,129.31,stop: hit intraday,7,-0.09044,-90.44,False
+2026-04-23,2026-04-24,TECH,Health Care,-0.1089,52.53,2026-05-06,49.88,stop: hit intraday,9,-0.05238,-52.38,True
+2026-04-23,2026-04-24,CRL,Health Care,-0.0923,169.1,2026-05-13,163.14,stop: hit intraday,14,-0.03716,-37.16,True
+2026-04-23,2026-04-24,CRM,Information Technology,-0.0869,175.62,2026-05-14,164.55,stop: hit intraday,15,-0.0649,-64.9,False
+2026-04-24,2026-04-27,BSX,Health Care,-0.0551,61.21,2026-05-08,53.86,stop: hit intraday,10,-0.12176,-121.76,False
+2026-04-24,2026-04-27,EBAY,Consumer Discretionary,-0.0528,98.29,2026-08-12,104.4,stop: hit intraday,75,0.06293,62.93,True
+2026-04-24,2026-04-27,DE,Industrials,-0.0495,566.63,2026-05-21,520.64,stop: hit intraday,19,-0.083,-83.0,True
+2026-04-24,2026-04-27,MRNA,Health Care,-0.0401,50.63,2026-05-01,44.55,stop: hit intraday,5,-0.12176,-121.76,True
+2026-04-27,2026-04-28,DLTR,Consumer Staples,-0.0554,99.19,2026-05-13,87.29,stop: hit intraday,12,-0.12176,-121.76,False
+2026-04-27,2026-04-28,GLW,Information Technology,-0.0448,151.09,2026-05-18,183.29,stop: hit intraday,15,0.21067,210.67,True
+2026-04-27,2026-04-28,COHR,Information Technology,-0.0433,304.5,2026-05-18,356.35,stop: hit intraday,15,0.16793,167.93,True
+2026-04-27,2026-04-28,SMCI,Information Technology,-0.0423,27.0,2026-05-15,31.13,stop: hit intraday,14,0.1505,150.5,True
+2026-04-28,2026-04-29,LITE,Information Technology,-0.0795,821.11,2026-05-07,875.21,stop: hit intraday,7,0.06376,63.76,True
+2026-04-28,2026-04-29,RDDT,Communication Services,-0.0766,146.0,2026-05-12,151.03,stop: hit intraday,10,0.03241,32.41,True
+2026-04-28,2026-04-29,CIEN,Information Technology,-0.0645,480.14,2026-05-18,520.58,stop: hit intraday,14,0.08206,82.06,False
+2026-04-28,2026-04-29,SNDK,Information Technology,-0.0634,1070.6,2026-05-12,1374.86,stop: hit intraday,10,0.28163,281.63,True
+2026-04-29,2026-04-30,PODD,Health Care,-0.125,164.0,2026-05-06,154.04,stop: hit intraday,5,-0.06264,-62.64,True
+2026-04-29,2026-04-30,BF-B,Consumer Staples,-0.1031,24.94,2026-09-16,25.76,stop: hit intraday,96,0.04858,48.58,True
+2026-04-29,2026-04-30,CHTR,Communication Services,-0.0835,158.75,2026-05-11,151.13,stop: hit intraday,8,-0.0499,-49.9,False
+2026-04-29,2026-04-30,COIN,Financials,-0.0637,181.6,2026-05-18,190.25,stop: opened below,13,0.04554,45.54,True
+2026-04-30,2026-05-01,NVDA,Information Technology,-0.0463,201.28,2026-06-05,207.21,stop: hit intraday,25,0.0286,28.6,True
+2026-04-30,2026-05-01,INCY,Health Care,-0.0386,95.26,2026-10-05,114.34,stop: hit intraday,108,0.19788,197.88,True
+2026-04-30,2026-05-01,AON,Financials,-0.0336,326.52,2026-08-31,334.75,stop: hit intraday,84,0.02548,25.48,True
+2026-04-30,2026-05-01,BKNG,Consumer Discretionary,-0.0323,169.03,2026-05-20,150.73,stop: hit intraday,14,-0.11007,-110.07,False
+2026-05-01,2026-05-04,BRO,Financials,-0.0419,57.42,2026-09-11,65.73,stop: hit intraday,91,0.1485,148.5,True
+2026-05-01,2026-05-04,GLW,Information Technology,-0.0364,163.16,2026-05-18,183.29,stop: hit intraday,11,0.12111,121.11,False
+2026-05-01,2026-05-04,TSCO,Consumer Discretionary,-0.0362,33.6,2026-05-13,29.57,stop: hit intraday,8,-0.12176,-121.76,False
+2026-05-01,2026-05-04,APH,Information Technology,-0.0337,71.72,2026-05-11,63.12,stop: hit intraday,6,-0.12176,-121.76,False
+2026-05-04,2026-05-05,UPS,Industrials,-0.1047,96.59,2026-07-28,103.59,stop: hit intraday,58,0.08841,88.41,True
+2026-05-04,2026-05-05,FDX,Industrials,-0.0911,287.67,2026-09-21,297.46,stop: hit intraday,96,0.0399,39.9,True
+2026-05-04,2026-05-05,CHRW,Industrials,-0.0906,163.23,2026-05-14,150.82,stop: hit intraday,8,-0.07786,-77.86,False
+2026-05-04,2026-05-05,ODFL,Industrials,-0.0662,193.7,2026-06-17,218.88,stop: hit intraday,31,0.12918,129.18,False
+2026-05-05,2026-05-06,CHTR,Communication Services,-0.043,158.6,2026-05-15,141.01,stop: hit intraday,8,-0.11268,-112.68,False
+2026-05-05,2026-05-06,DASH,Consumer Discretionary,-0.0373,168.25,2026-05-13,150.79,stop: hit intraday,6,-0.10558,-105.58,True
+2026-05-05,2026-05-06,EBAY,Consumer Discretionary,-0.0372,106.88,2026-08-12,104.4,stop: hit intraday,68,-0.0225,-22.5,True
+2026-05-05,2026-05-06,NFLX,Communication Services,-0.0344,87.15,2026-06-16,78.89,stop: hit intraday,29,-0.09657,-96.57,False
+2026-05-06,2026-05-07,MCK,Health Care,-0.0716,739.9,2026-11-04,1069.44,open,126,0.44707,447.07,True
+2026-05-06,2026-05-07,VLO,Energy,-0.0661,232.0,2026-10-27,404.61,stop: hit intraday,120,0.75553,755.53,True
+2026-05-06,2026-05-07,DOW,Materials,-0.0564,37.55,2026-05-27,34.6,stop: opened below,14,-0.0804,-80.4,False
+2026-05-06,2026-05-07,LYB,Materials,-0.055,71.44,2026-06-05,65.37,stop: hit intraday,21,-0.07726,-77.26,False
+2026-05-07,2026-05-08,BE,Industrials,-0.094,271.22,2026-05-18,267.0,stop: hit intraday,7,-0.01752,-17.52,False
+2026-05-07,2026-05-08,TER,Information Technology,-0.0742,367.0,2026-05-18,322.96,stop: hit intraday,7,-0.12176,-121.76,False
+2026-05-07,2026-05-08,MRVL,Information Technology,-0.0705,164.69,2026-06-05,278.46,stop: hit intraday,20,0.68742,687.42,True
+2026-05-07,2026-05-08,CIEN,Information Technology,-0.0659,549.0,2026-05-18,520.58,stop: hit intraday,7,-0.05366,-53.66,False
+2026-05-08,2026-05-11,CSGP,Real Estate,-0.0632,32.45,2026-06-18,30.12,stop: hit intraday,28,-0.07358,-73.58,False
+2026-05-08,2026-05-11,APH,Information Technology,-0.0629,63.99,2026-07-08,77.4,stop: opened below,40,0.20906,209.06,False
+2026-05-08,2026-05-11,APP,Communication Services,-0.0608,456.07,2026-06-09,540.06,stop: hit intraday,21,0.18178,181.78,False
+2026-05-08,2026-05-11,AXON,Industrials,-0.0547,394.2,2026-06-09,451.62,stop: hit intraday,21,0.14336,143.36,False
+2026-05-11,2026-05-12,DG,Consumer Staples,-0.0764,104.84,2026-11-04,141.64,open,123,0.36329,363.29,True
+2026-05-11,2026-05-12,ZTS,Health Care,-0.0744,77.65,2026-06-30,72.34,stop: hit intraday,34,-0.0703,-70.3,False
+2026-05-11,2026-05-12,ISRG,Health Care,-0.0667,425.0,2026-07-14,395.15,stop: hit intraday,43,-0.0721,-72.1,False
+2026-05-11,2026-05-12,TGT,Consumer Staples,-0.0544,121.0,2026-10-26,149.5,stop: hit intraday,116,0.2543,254.3,True
+2026-05-12,2026-05-13,QCOM,Information Technology,-0.1146,216.63,2026-06-05,220.08,stop: hit intraday,17,0.01766,17.66,False
+2026-05-12,2026-05-13,INTC,Information Technology,-0.0682,124.1,2026-05-15,109.21,stop: hit intraday,3,-0.12176,-121.76,False
+2026-05-12,2026-05-13,SNDK,Information Technology,-0.0617,1512.48,2026-05-15,1321.0,stop: opened below,3,-0.12835,-128.35,False
+2026-05-12,2026-05-13,LITE,Information Technology,-0.0577,1051.58,2026-05-15,925.39,stop: hit intraday,3,-0.12176,-121.76,False
+2026-05-13,2026-05-14,APP,Communication Services,-0.0757,452.56,2026-06-09,540.06,stop: hit intraday,18,0.19095,190.95,False
+2026-05-13,2026-05-14,FDS,Financials,-0.0651,203.03,2026-06-10,238.35,stop: hit intraday,19,0.17732,177.32,False
+2026-05-13,2026-05-14,CEG,Utilities,-0.0637,274.7,2026-06-01,265.38,stop: hit intraday,12,-0.03436,-34.36,False
+2026-05-13,2026-05-14,J,Industrials,-0.0603,108.52,2026-11-04,160.11,open,121,0.4822,482.2,True
+2026-05-14,2026-05-15,BIIB,Health Care,-0.0643,191.83,2026-07-14,190.63,stop: hit intraday,40,-0.00822,-8.22,False
+2026-05-14,2026-05-15,QCOM,Information Technology,-0.0614,201.65,2026-06-05,220.08,stop: hit intraday,15,0.09326,93.26,False
+2026-05-14,2026-05-15,CBRE,Real Estate,-0.0583,130.74,2026-09-23,136.46,stop: hit intraday,90,0.04168,41.68,True
+2026-05-14,2026-05-15,JKHY,Financials,-0.0523,136.96,2026-06-18,123.38,stop: hit intraday,24,-0.09694,-96.94,False
+2026-05-15,2026-05-18,BE,Industrials,-0.0905,275.66,2026-05-19,242.58,stop: hit intraday,2,-0.12176,-121.76,False
+2026-05-15,2026-05-18,GLW,Information Technology,-0.0791,193.24,2026-05-19,170.05,stop: hit intraday,2,-0.12176,-121.76,False
+2026-05-15,2026-05-18,COIN,Financials,-0.0782,190.25,2026-05-28,170.33,stop: hit intraday,8,-0.10648,-106.48,False
+2026-05-15,2026-05-18,MU,Information Technology,-0.0662,750.46,2026-05-19,660.4,stop: hit intraday,2,-0.12176,-121.76,False
+2026-05-18,2026-05-19,LITE,Information Technology,-0.0883,873.17,2026-05-29,848.76,stop: hit intraday,8,-0.0299,-29.9,False
+2026-05-18,2026-05-19,VRT,Industrials,-0.0841,329.68,2026-06-09,294.35,stop: hit intraday,15,-0.10895,-108.95,False
+2026-05-18,2026-05-19,GLW,Information Technology,-0.0691,173.83,2026-06-05,176.67,stop: hit intraday,13,0.01585,15.85,False
+2026-05-18,2026-05-19,STX,Information Technology,-0.0687,719.51,2026-06-09,827.81,stop: hit intraday,15,0.14822,148.22,False
+2026-05-19,2026-05-20,AKAM,Information Technology,-0.0625,140.0,2026-06-09,141.12,stop: hit intraday,14,0.00596,5.96,False
+2026-05-19,2026-05-20,FSLR,Information Technology,-0.0511,226.09,2026-06-05,280.06,stop: hit intraday,12,0.23623,236.23,False
+2026-05-19,2026-05-20,VRT,Industrials,-0.0503,325.0,2026-06-09,294.35,stop: hit intraday,14,-0.09611,-96.11,False
+2026-05-19,2026-05-20,MRNA,Health Care,-0.0497,46.04,2026-07-10,71.98,stop: hit intraday,35,0.56038,560.38,False
+2026-05-20,2026-05-21,RDDT,Communication Services,-0.0527,144.31,2026-06-12,161.84,stop: hit intraday,16,0.11924,119.24,False
+2026-05-20,2026-05-21,CME,Financials,-0.0405,293.98,2026-06-01,258.7,stop: hit intraday,7,-0.12176,-121.76,False
+2026-05-20,2026-05-21,DOW,Materials,-0.039,36.58,2026-06-18,31.87,stop: hit intraday,20,-0.12176,-121.76,False
+2026-05-20,2026-05-21,APA,Energy,-0.0389,40.29,2026-06-15,34.73,stop: opened below,17,-0.13972,-139.72,False
+2026-05-21,2026-05-22,ECHO,Communication Services,-0.0942,130.31,2026-06-05,115.34,stop: hit intraday,10,-0.11664,-116.64,False
+2026-05-21,2026-05-22,CMI,Industrials,-0.0464,647.91,2026-07-16,640.28,stop: hit intraday,37,-0.01375,-13.75,False
+2026-05-21,2026-05-22,VLO,Energy,-0.0455,241.8,2026-10-27,404.61,stop: hit intraday,109,0.67642,676.42,True
+2026-05-21,2026-05-22,VEEV,Health Care,-0.0406,159.28,2026-06-09,165.51,stop: opened below,12,0.03704,37.04,True
+2026-05-22,2026-05-26,RDDT,Communication Services,-0.0558,143.49,2026-06-12,161.84,stop: hit intraday,14,0.1256,125.6,False
+2026-05-22,2026-05-26,COIN,Financials,-0.0443,186.07,2026-06-03,166.35,stop: hit intraday,7,-0.10779,-107.79,False
+2026-05-22,2026-05-26,SNDK,Information Technology,-0.0412,1535.21,2026-06-05,1611.72,stop: hit intraday,9,0.04774,47.74,False
+2026-05-22,2026-05-26,ECHO,Communication Services,-0.033,129.46,2026-06-05,115.34,stop: hit intraday,9,-0.11084,-110.84,False
+2026-05-26,2026-05-27,TSCO,Consumer Discretionary,-0.0576,29.76,2026-09-24,31.84,stop: hit intraday,84,0.07508,75.08,True
+2026-05-26,2026-05-27,INTU,Information Technology,-0.0487,301.59,2026-06-03,311.31,stop: hit intraday,6,0.03016,30.16,False
+2026-05-26,2026-05-27,DVN,Energy,-0.044,44.48,2026-07-01,40.72,stop: hit intraday,25,-0.0799,-79.9,False
+2026-05-26,2026-05-27,CSGP,Real Estate,-0.0421,32.59,2026-06-18,30.12,stop: hit intraday,17,-0.07756,-77.56,False
+2026-05-27,2026-05-28,BSX,Health Care,-0.1246,50.14,2026-06-22,44.12,stop: hit intraday,17,-0.12176,-121.76,False
+2026-05-27,2026-05-28,QCOM,Information Technology,-0.062,236.0,2026-06-05,220.08,stop: hit intraday,7,-0.06586,-65.86,False
+2026-05-27,2026-05-28,SWKS,Information Technology,-0.0568,78.65,2026-06-09,71.64,stop: hit intraday,9,-0.09094,-90.94,False
+2026-05-27,2026-05-28,BKR,Energy,-0.0529,63.86,2026-06-18,58.18,stop: hit intraday,16,-0.09082,-90.82,False
+2026-05-28,2026-05-29,TSN,Consumer Staples,-0.0609,61.8,2026-09-03,52.16,stop: opened below,68,-0.14264,-142.64,True
+2026-05-28,2026-05-29,NSC,Industrials,-0.0547,306.0,2026-09-21,310.62,stop: hit intraday,79,0.01709,17.09,True
+2026-05-28,2026-05-29,LITE,Information Technology,-0.0462,860.68,2026-06-04,900.1,stop: opened below,5,0.04371,43.71,False
+2026-05-28,2026-05-29,UNP,Industrials,-0.0443,264.29,2026-09-21,272.08,stop: hit intraday,79,0.0322,32.2,True
+2026-05-29,2026-06-01,CLX,Consumer Staples,-0.0642,89.0,2026-09-01,94.95,stop: hit intraday,65,0.07718,77.18,True
+2026-05-29,2026-06-01,RMD,Health Care,-0.0632,188.36,2026-07-13,193.38,stop: hit intraday,29,0.0246,24.6,False
+2026-05-29,2026-06-01,INTC,Information Technology,-0.0514,109.43,2026-06-05,99.18,stop: hit intraday,5,-0.09544,-95.44,False
+2026-05-29,2026-06-01,SWKS,Information Technology,-0.0437,77.8,2026-06-09,70.98,stop: hit intraday,7,-0.08947,-89.47,False
+2026-06-01,2026-06-02,CBOE,Financials,-0.0976,297.68,2026-06-16,264.95,stop: hit intraday,11,-0.11173,-111.73,False
+2026-06-01,2026-06-02,QCOM,Information Technology,-0.0878,232.0,2026-06-05,219.2,stop: hit intraday,4,-0.05358,-53.58,False
+2026-06-01,2026-06-02,CEG,Utilities,-0.0766,266.99,2026-07-01,242.47,stop: hit intraday,21,-0.09367,-93.67,False
+2026-06-01,2026-06-02,FDXF,Industrials,-0.0676,150.01,2026-06-16,162.1,stop: opened below,11,0.07843,78.43,False
+2026-06-02,2026-06-03,INTU,Information Technology,-0.0894,319.52,2026-06-11,279.86,stop: opened below,7,-0.12587,-125.87,False
+2026-06-02,2026-06-03,CBOE,Financials,-0.0844,273.0,2026-06-16,264.95,stop: hit intraday,10,-0.03143,-31.43,False
+2026-06-02,2026-06-03,CVNA,Consumer Discretionary,-0.0761,64.44,2026-07-23,61.77,stop: opened below,35,-0.04335,-43.35,False
+2026-06-02,2026-06-03,HPQ,Information Technology,-0.0699,26.61,2026-06-18,23.0,stop: opened below,12,-0.12689,-126.89,False
+2026-06-03,2026-06-04,LITE,Information Technology,-0.0886,900.1,2026-06-09,831.67,stop: hit intraday,4,-0.07787,-77.87,False
+2026-06-03,2026-06-04,GPN,Financials,-0.0835,69.25,2026-09-23,83.21,stop: hit intraday,77,0.20726,207.26,True
+2026-06-03,2026-06-04,CHTR,Communication Services,-0.0803,131.56,2026-06-18,128.32,stop: hit intraday,11,-0.02657,-26.57,False
+2026-06-03,2026-06-04,NOW,Information Technology,-0.0764,121.94,2026-06-09,107.31,stop: hit intraday,4,-0.12176,-121.76,False
+2026-06-04,2026-06-05,MU,Information Technology,-0.0774,944.4,2026-06-23,1066.01,stop: hit intraday,12,0.12652,126.52,False
+2026-06-04,2026-06-05,APTV,Consumer Discretionary,-0.0508,72.01,2026-06-17,63.37,stop: hit intraday,9,-0.12176,-121.76,False
+2026-06-04,2026-06-05,ANET,Information Technology,-0.0479,159.46,2026-07-16,164.52,stop: hit intraday,28,0.0297,29.7,False
+2026-06-04,2026-06-05,SNDK,Information Technology,-0.0392,1678.88,2026-06-23,2000.88,stop: hit intraday,12,0.18941,189.41,False
+2026-06-05,2026-06-08,MRVL,Information Technology,-0.1674,288.69,2026-06-09,254.19,stop: hit intraday,2,-0.12127,-121.27,False
+2026-06-05,2026-06-08,MU,Information Technology,-0.1325,938.27,2026-06-23,1066.01,stop: hit intraday,11,0.13388,133.88,False
+2026-06-05,2026-06-08,TER,Information Technology,-0.1203,377.84,2026-06-29,415.32,stop: hit intraday,15,0.09701,97.01,False
+2026-06-05,2026-06-08,FSLR,Information Technology,-0.1141,286.69,2026-06-09,252.29,stop: hit intraday,2,-0.12176,-121.76,False
+2026-06-08,2026-06-09,TWLO,Information Technology,-0.0595,210.0,2026-06-18,184.8,stop: hit intraday,8,-0.12176,-121.76,False
+2026-06-08,2026-06-09,AKAM,Information Technology,-0.0499,142.0,2026-06-18,124.96,stop: hit intraday,8,-0.12176,-121.76,False
+2026-06-08,2026-06-09,HSY,Consumer Staples,-0.047,176.51,2026-09-18,167.15,stop: hit intraday,71,-0.04751,-47.51,True
+2026-06-08,2026-06-09,CIEN,Information Technology,-0.0441,465.91,2026-07-02,431.69,stop: hit intraday,17,-0.07529,-75.29,False
+2026-06-09,2026-06-10,COHR,Information Technology,-0.1144,353.49,2026-06-24,374.42,stop: hit intraday,10,0.0571,57.1,False
+2026-06-09,2026-06-10,LITE,Information Technology,-0.0822,833.7,2026-06-18,842.37,stop: hit intraday,7,0.00839,8.39,False
+2026-06-09,2026-06-10,SMCI,Information Technology,-0.0762,35.6,2026-06-10,31.33,stop: hit intraday,1,-0.12176,-121.76,False
+2026-06-09,2026-06-10,MRVL,Information Technology,-0.0761,263.5,2026-06-24,273.31,stop: hit intraday,10,0.03516,35.16,False
+2026-06-10,2026-06-11,BE,Industrials,-0.0978,239.71,2026-06-23,304.35,stop: hit intraday,8,0.26714,267.14,False
+2026-06-10,2026-06-11,GNRC,Industrials,-0.0838,246.28,2026-07-02,260.08,stop: hit intraday,15,0.0539,53.9,False
+2026-06-10,2026-06-11,NRG,Utilities,-0.0716,120.97,2026-07-16,131.44,stop: hit intraday,24,0.08435,84.35,False
+2026-06-10,2026-06-11,FDXF,Industrials,-0.0696,177.0,2026-06-17,158.4,stop: hit intraday,5,-0.10687,-106.87,False
+2026-06-11,2026-06-12,PTC,Information Technology,-0.1236,118.28,2026-07-22,112.08,stop: hit intraday,27,-0.05434,-54.34,False
+2026-06-11,2026-06-12,ADSK,Information Technology,-0.071,206.6,2026-09-03,238.11,stop: hit intraday,58,0.15021,150.21,True
+2026-06-11,2026-06-12,GDDY,Information Technology,-0.0637,74.59,2026-07-31,76.83,stop: opened below,34,0.02797,27.97,True
+2026-06-11,2026-06-12,WDAY,Information Technology,-0.0505,129.63,2026-06-22,115.05,stop: opened below,6,-0.11425,-114.25,False
+2026-06-12,2026-06-15,ECHO,Communication Services,-0.1097,117.33,2026-06-18,106.45,stop: hit intraday,4,-0.09451,-94.51,False
+2026-06-12,2026-06-15,RDDT,Communication Services,-0.0644,168.81,2026-06-24,160.05,stop: hit intraday,7,-0.05376,-53.76,False
+2026-06-12,2026-06-15,CVNA,Consumer Discretionary,-0.0549,66.96,2026-07-23,61.77,stop: opened below,27,-0.07935,-79.35,False
+2026-06-12,2026-06-15,TKO,Communication Services,-0.0484,203.13,2026-07-06,189.97,stop: hit intraday,14,-0.06663,-66.63,False
+2026-06-15,2026-06-16,TFC,Financials,-0.0616,48.95,2026-09-24,46.73,stop: hit intraday,70,-0.03786,-37.86,True
+2026-06-15,2026-06-16,APA,Energy,-0.0608,33.85,2026-09-29,41.38,stop: opened below,73,0.2286,228.6,True
+2026-06-15,2026-06-16,INCY,Health Care,-0.0604,102.75,2026-10-05,114.34,stop: hit intraday,77,0.11056,110.56,True
+2026-06-15,2026-06-16,LDOS,Industrials,-0.0586,114.02,2026-06-25,100.34,stop: hit intraday,7,-0.12176,-121.76,False
+2026-06-16,2026-06-17,MRVL,Information Technology,-0.0978,292.89,2026-06-24,273.31,stop: hit intraday,5,-0.06872,-68.72,False
+2026-06-16,2026-06-17,CBOE,Financials,-0.0945,265.0,2026-06-29,233.2,stop: hit intraday,8,-0.12176,-121.76,False
+2026-06-16,2026-06-17,MPWR,Information Technology,-0.0929,1545.56,2026-06-25,1376.06,stop: hit intraday,6,-0.11145,-111.45,False
+2026-06-16,2026-06-17,LITE,Information Technology,-0.0855,879.08,2026-06-26,786.66,stop: hit intraday,7,-0.10692,-106.92,False
+2026-06-17,2026-06-18,CVNA,Consumer Discretionary,-0.1025,64.4,2026-07-23,61.77,stop: opened below,24,-0.04276,-42.76,False
+2026-06-17,2026-06-18,ECHO,Communication Services,-0.0766,109.78,2026-06-25,96.61,stop: hit intraday,5,-0.12176,-121.76,False
+2026-06-17,2026-06-18,EFX,Industrials,-0.0735,154.24,2026-07-21,158.47,stop: hit intraday,22,0.02537,25.37,True
+2026-06-17,2026-06-18,APP,Communication Services,-0.0693,481.31,2026-06-25,423.55,stop: hit intraday,5,-0.12176,-121.76,False
+2026-06-18,2026-06-22,CTSH,Information Technology,-0.1049,43.01,2026-06-30,37.85,stop: hit intraday,7,-0.12176,-121.76,False
+2026-06-18,2026-06-22,STLD,Materials,-0.0749,250.36,2026-07-01,220.38,stop: hit intraday,8,-0.11951,-119.51,False
+2026-06-18,2026-06-22,OMC,Communication Services,-0.065,70.3,2026-09-09,78.27,stop: hit intraday,56,0.11111,111.11,True
+2026-06-18,2026-06-22,LHX,Industrials,-0.0586,292.0,2026-07-30,268.58,stop: hit intraday,28,-0.08206,-82.06,True
+2026-06-22,2026-06-23,MRNA,Health Care,-0.0722,59.05,2026-07-10,71.98,stop: hit intraday,13,0.2166,216.6,False
+2026-06-22,2026-06-23,PLTR,Information Technology,-0.0698,120.15,2026-07-28,118.67,stop: hit intraday,25,-0.01431,-14.31,False
+2026-06-22,2026-06-23,VRSN,Information Technology,-0.064,250.0,2026-11-04,318.03,open,95,0.27458,274.58,True
+2026-06-22,2026-06-23,CMG,Consumer Discretionary,-0.06,30.89,2026-07-21,32.23,stop: hit intraday,20,0.04144,41.44,False
+2026-06-23,2026-06-24,VRT,Industrials,-0.1107,323.73,2026-07-07,294.64,stop: hit intraday,9,-0.09167,-91.67,False
+2026-06-23,2026-06-24,ON,Information Technology,-0.1101,117.14,2026-06-26,98.29,stop: opened below,3,-0.1626,-162.6,False
+2026-06-23,2026-06-24,MCHP,Information Technology,-0.092,92.86,2026-07-07,82.83,stop: hit intraday,9,-0.10984,-109.84,False
+2026-06-23,2026-06-24,KLAC,Information Technology,-0.0917,242.11,2026-07-01,265.5,stop: hit intraday,6,0.09444,94.44,False
+2026-06-24,2026-06-25,APO,Financials,-0.0613,123.86,2026-09-16,125.82,stop: hit intraday,58,0.01807,18.07,True
+2026-06-24,2026-06-25,BX,Financials,-0.059,112.95,2026-09-09,131.4,stop: hit intraday,53,0.17288,172.88,True
+2026-06-24,2026-06-25,HOOD,Financials,-0.0587,98.79,2026-07-17,100.37,stop: opened below,16,0.01396,13.96,False
+2026-06-24,2026-06-25,ARES,Financials,-0.0572,113.72,2026-09-10,131.52,stop: hit intraday,54,0.15418,154.18,True
+2026-06-25,2026-06-26,AAPL,Information Technology,-0.0612,275.0,2026-11-04,349.51,open,92,0.27077,270.77,True
+2026-06-25,2026-06-26,TJX,Consumer Discretionary,-0.0604,156.03,2026-08-19,142.16,stop: hit intraday,38,-0.08782,-87.82,True
+2026-06-25,2026-06-26,ROST,Consumer Discretionary,-0.0589,214.88,2026-09-01,224.6,stop: hit intraday,47,0.04316,43.16,True
+2026-06-25,2026-06-26,DELL,Information Technology,-0.0567,396.25,2026-07-15,402.64,stop: hit intraday,13,0.01408,14.08,False
+2026-06-26,2026-06-29,BE,Industrials,-0.1849,272.45,2026-07-02,266.38,stop: hit intraday,4,-0.02425,-24.25,False
+2026-06-26,2026-06-29,WDC,Information Technology,-0.1317,600.56,2026-07-02,573.65,stop: hit intraday,4,-0.04671,-46.71,False
+2026-06-26,2026-06-29,STX,Information Technology,-0.1224,915.99,2026-07-02,852.31,stop: hit intraday,4,-0.07138,-71.38,False
+2026-06-26,2026-06-29,SNDK,Information Technology,-0.1046,2090.71,2026-07-02,2000.88,stop: hit intraday,4,-0.04488,-44.88,False
+2026-06-29,2026-06-30,SMCI,Information Technology,-0.081,28.42,2026-07-07,25.81,stop: hit intraday,5,-0.09364,-93.64,False
+2026-06-29,2026-06-30,CPRT,Industrials,-0.0802,28.19,2026-09-11,30.21,stop: hit intraday,52,0.06953,69.53,True
+2026-06-29,2026-06-30,HON,Industrials,-0.0646,231.35,2026-08-20,218.28,stop: hit intraday,37,-0.05555,-55.55,True
+2026-06-29,2026-06-30,MLM,Materials,-0.0565,587.52,2026-07-31,532.66,stop: hit intraday,23,-0.09518,-95.18,True
+2026-06-30,2026-07-01,DLR,Real Estate,-0.0577,178.66,2026-09-30,174.93,stop: hit intraday,64,-0.01612,-16.12,True
+2026-06-30,2026-07-01,HRL,Consumer Staples,-0.0566,24.98,2026-08-27,22.92,stop: hit intraday,41,-0.07316,-73.16,True
+2026-06-30,2026-07-01,ZBH,Health Care,-0.0564,86.7,2026-09-24,89.21,stop: hit intraday,60,0.02694,26.94,True
+2026-06-30,2026-07-01,MOS,Materials,-0.0557,21.1,2026-09-21,23.15,stop: hit intraday,57,0.10425,104.25,True
+2026-07-01,2026-07-02,GLW,Information Technology,-0.1362,223.89,2026-07-02,197.02,stop: hit intraday,1,-0.12176,-121.76,False
+2026-07-01,2026-07-02,KLAC,Information Technology,-0.1177,266.0,2026-07-02,234.08,stop: hit intraday,1,-0.12176,-121.76,False
+2026-07-01,2026-07-02,TER,Information Technology,-0.1168,427.41,2026-07-02,376.12,stop: hit intraday,1,-0.12176,-121.76,False
+2026-07-01,2026-07-02,MU,Information Technology,-0.1057,1041.5,2026-07-07,916.38,stop: hit intraday,3,-0.12176,-121.76,False
+2026-07-02,2026-07-06,SNDK,Information Technology,-0.1413,1828.68,2026-07-07,1609.24,stop: hit intraday,2,-0.12176,-121.76,False
+2026-07-02,2026-07-06,TER,Information Technology,-0.1363,386.58,2026-07-07,340.19,stop: hit intraday,2,-0.12176,-121.76,False
+2026-07-02,2026-07-06,KLAC,Information Technology,-0.1151,246.32,2026-07-07,216.76,stop: hit intraday,2,-0.12176,-121.76,False
+2026-07-02,2026-07-06,FLEX,Information Technology,-0.1086,138.52,2026-07-16,123.15,stop: hit intraday,9,-0.11276,-112.76,False
+2026-07-06,2026-07-07,ORLY,Consumer Discretionary,-0.0666,85.62,2026-11-04,92.34,open,86,0.07741,77.41,True
+2026-07-06,2026-07-07,ARE,Real Estate,-0.0515,50.04,2026-08-10,47.52,stop: hit intraday,25,-0.05226,-52.26,True
+2026-07-06,2026-07-07,STZ,Consumer Staples,-0.0494,132.79,2026-09-08,122.48,stop: hit intraday,45,-0.07224,-72.24,False
+2026-07-06,2026-07-07,TSCO,Consumer Discretionary,-0.0485,30.98,2026-09-24,31.84,stop: hit intraday,57,0.03274,32.74,True
+2026-07-07,2026-07-08,INTC,Information Technology,-0.0966,108.3,2026-07-16,99.04,stop: hit intraday,7,-0.08738,-87.38,False
+2026-07-07,2026-07-08,TER,Information Technology,-0.0959,342.99,2026-07-16,319.22,stop: hit intraday,7,-0.07116,-71.16,False
+2026-07-07,2026-07-08,BE,Industrials,-0.0864,262.6,2026-07-10,231.08,stop: hit intraday,3,-0.12176,-121.76,False
+2026-07-07,2026-07-08,GNRC,Industrials,-0.0854,231.99,2026-07-17,208.22,stop: hit intraday,8,-0.10427,-104.27,False
+2026-07-08,2026-07-09,SYF,Financials,-0.0961,68.87,2026-09-23,71.28,stop: hit intraday,54,0.03738,37.38,True
+2026-07-08,2026-07-09,MRNA,Health Care,-0.0748,73.8,2026-07-10,67.37,stop: hit intraday,2,-0.08891,-88.91,False
+2026-07-08,2026-07-09,SW,Materials,-0.0649,42.9,2026-09-08,44.3,stop: hit intraday,43,0.03997,39.97,True
+2026-07-08,2026-07-09,AXON,Industrials,-0.0635,582.1,2026-07-17,512.25,stop: hit intraday,7,-0.12176,-121.76,False
+2026-07-09,2026-07-10,APA,Energy,-0.0505,33.35,2026-09-29,41.38,stop: opened below,57,0.24701,247.01,True
+2026-07-09,2026-07-10,COST,Consumer Staples,-0.0421,913.74,2026-11-04,1046.47,open,83,0.14763,147.63,True
+2026-07-09,2026-07-10,CINF,Financials,-0.0338,176.78,2026-09-25,161.2,stop: hit intraday,55,-0.08475,-84.75,True
+2026-07-09,2026-07-10,MCK,Health Care,-0.0316,793.22,2026-11-04,1069.44,open,83,0.34831,348.31,True
+2026-07-10,2026-07-13,MRNA,Health Care,-0.1083,66.33,2026-07-20,60.09,stop: hit intraday,6,-0.09594,-95.94,False
+2026-07-10,2026-07-13,CRWD,Information Technology,-0.0566,186.86,2026-07-22,185.44,stop: hit intraday,8,-0.00957,-9.57,False
+2026-07-10,2026-07-13,BE,Industrials,-0.0483,231.38,2026-07-16,214.19,stop: hit intraday,4,-0.07614,-76.14,False
+2026-07-10,2026-07-13,DDOG,Information Technology,-0.0426,256.71,2026-07-28,238.24,stop: hit intraday,12,-0.07379,-73.79,False
+2026-07-13,2026-07-14,APP,Communication Services,-0.1265,433.5,2026-07-23,398.4,stop: hit intraday,8,-0.0828,-82.8,False
+2026-07-13,2026-07-14,SNDK,Information Technology,-0.1263,1807.0,2026-07-15,1590.16,stop: hit intraday,2,-0.12176,-121.76,False
+2026-07-13,2026-07-14,MRVL,Information Technology,-0.0775,231.57,2026-07-15,203.78,stop: hit intraday,2,-0.12176,-121.76,False
+2026-07-13,2026-07-14,ORCL,Information Technology,-0.0647,132.0,2026-07-24,116.59,stop: hit intraday,9,-0.1185,-118.5,False
+2026-07-14,2026-07-15,BIIB,Health Care,-0.0817,191.21,2026-11-04,254.46,open,80,0.32946,329.46,True
+2026-07-14,2026-07-15,ISRG,Health Care,-0.0678,378.55,2026-07-17,354.05,stop: hit intraday,3,-0.06659,-66.59,True
+2026-07-14,2026-07-15,SYK,Health Care,-0.0615,313.0,2026-09-03,309.98,stop: hit intraday,37,-0.01163,-11.63,True
+2026-07-14,2026-07-15,IT,Information Technology,-0.059,135.1,2026-09-08,178.45,stop: hit intraday,39,0.31821,318.21,True
+2026-07-15,2026-07-16,DELL,Information Technology,-0.098,404.49,2026-07-28,388.78,stop: hit intraday,9,-0.03917,-39.17,False
+2026-07-15,2026-07-16,WDC,Information Technology,-0.0878,486.68,2026-07-27,491.3,stop: hit intraday,8,0.00748,7.48,False
+2026-07-15,2026-07-16,P,Information Technology,-0.0815,69.25,2026-08-24,103.98,stop: hit intraday,28,0.49853,498.53,False
+2026-07-15,2026-07-16,SNDK,Information Technology,-0.0812,1527.49,2026-07-17,1344.19,stop: hit intraday,2,-0.12176,-121.76,False
+2026-07-16,2026-07-17,BE,Industrials,-0.1364,200.98,2026-07-24,199.11,stop: hit intraday,6,-0.01129,-11.29,False
+2026-07-16,2026-07-17,SNDK,Information Technology,-0.1263,1365.2,2026-07-24,1417.09,stop: hit intraday,6,0.03593,35.93,False
+2026-07-16,2026-07-17,STX,Information Technology,-0.1,720.94,2026-07-27,803.76,stop: hit intraday,7,0.11264,112.64,False
+2026-07-16,2026-07-17,GLW,Information Technology,-0.0919,150.83,2026-07-27,142.92,stop: hit intraday,7,-0.05433,-54.33,False
+2026-07-17,2026-07-20,SNPS,Information Technology,-0.0785,382.0,2026-09-04,409.1,stop: hit intraday,35,0.06881,68.81,True
+2026-07-17,2026-07-20,HOOD,Financials,-0.0572,102.49,2026-07-24,93.6,stop: hit intraday,5,-0.0886,-88.6,False
+2026-07-17,2026-07-20,AMAT,Information Technology,-0.0557,545.63,2026-07-27,496.8,stop: hit intraday,6,-0.09131,-91.31,False
+2026-07-17,2026-07-20,PNR,Industrials,-0.0493,62.81,2026-08-27,61.51,stop: hit intraday,29,-0.01835,-18.35,True
+2026-07-20,2026-07-21,BE,Industrials,-0.0833,211.07,2026-07-24,199.11,stop: hit intraday,4,-0.05856,-58.56,False
+2026-07-20,2026-07-21,CVNA,Consumer Discretionary,-0.0475,63.77,2026-07-30,58.36,stop: hit intraday,8,-0.08664,-86.64,True
+2026-07-20,2026-07-21,HONA,Industrials,-0.0433,202.86,2026-08-06,155.0,stop: opened below,13,-0.23745,-237.45,True
+2026-07-20,2026-07-21,ORCL,Information Technology,-0.0398,122.81,2026-08-19,137.47,stop: hit intraday,22,0.11716,117.16,False
+2026-07-21,2026-07-22,TWLO,Information Technology,-0.0439,194.74,2026-08-19,225.24,stop: hit intraday,21,0.15429,154.29,True
+2026-07-21,2026-07-22,VEEV,Health Care,-0.0414,189.83,2026-11-04,310.63,open,75,0.63472,634.72,True
+2026-07-21,2026-07-22,VRSN,Information Technology,-0.0413,269.05,2026-11-04,318.03,open,75,0.18433,184.33,True
+2026-07-21,2026-07-22,WDAY,Information Technology,-0.0411,142.18,2026-09-28,182.09,stop: hit intraday,48,0.27814,278.14,True
+2026-07-22,2026-07-23,RDDT,Communication Services,-0.0832,174.42,2026-07-31,147.7,stop: opened below,7,-0.15489,-154.89,True
+2026-07-22,2026-07-23,TWLO,Information Technology,-0.0654,184.7,2026-08-19,225.24,stop: hit intraday,20,0.21703,217.03,True
+2026-07-22,2026-07-23,PTC,Information Technology,-0.0634,114.38,2026-09-08,139.84,stop: opened below,33,0.22015,220.15,True
+2026-07-22,2026-07-23,WDAY,Information Technology,-0.062,135.86,2026-09-28,182.09,stop: hit intraday,47,0.33759,337.59,True
+2026-07-23,2026-07-24,HONA,Industrials,-0.0573,198.29,2026-08-06,155.0,stop: opened below,10,-0.21988,-219.88,True
+2026-07-23,2026-07-24,AKAM,Information Technology,-0.0558,117.53,2026-08-10,107.37,stop: opened below,12,-0.08827,-88.27,True
+2026-07-23,2026-07-24,ORCL,Information Technology,-0.0461,122.47,2026-08-19,137.47,stop: hit intraday,19,0.12026,120.26,False
+2026-07-23,2026-07-24,AMZN,Consumer Discretionary,-0.0457,234.38,2026-09-10,249.94,stop: hit intraday,34,0.06425,64.25,True
+2026-07-24,2026-07-27,BE,Industrials,-0.1491,190.51,2026-07-28,167.65,stop: hit intraday,2,-0.12176,-121.76,True
+2026-07-24,2026-07-27,SNDK,Information Technology,-0.1079,1462.99,2026-07-27,1287.43,stop: hit intraday,1,-0.12176,-121.76,False
+2026-07-24,2026-07-27,COHR,Information Technology,-0.0984,282.12,2026-07-28,248.27,stop: hit intraday,2,-0.12176,-121.76,False
+2026-07-24,2026-07-27,CHRW,Industrials,-0.0925,185.56,2026-07-30,161.89,stop: opened below,4,-0.1293,-129.3,True
+2026-07-27,2026-07-28,SNDK,Information Technology,-0.1102,1173.6,2026-07-29,1032.77,stop: hit intraday,2,-0.12176,-121.76,False
+2026-07-27,2026-07-28,LITE,Information Technology,-0.0669,677.55,2026-07-29,596.24,stop: hit intraday,2,-0.12176,-121.76,False
+2026-07-27,2026-07-28,CHRW,Industrials,-0.0646,171.71,2026-07-30,152.9,stop: hit intraday,3,-0.11133,-111.33,True
+2026-07-27,2026-07-28,AMD,Information Technology,-0.0517,467.0,2026-08-24,456.35,stop: hit intraday,20,-0.02476,-24.76,True
+2026-07-28,2026-07-29,COHR,Information Technology,-0.1031,243.93,2026-08-10,333.63,stop: hit intraday,9,0.36501,365.01,False
+2026-07-28,2026-07-29,MU,Information Technology,-0.0885,833.0,2026-08-24,890.34,stop: hit intraday,19,0.0667,66.7,False
+2026-07-28,2026-07-29,LITE,Information Technology,-0.0843,655.21,2026-08-19,852.63,stop: hit intraday,16,0.29871,298.71,True
+2026-07-28,2026-07-29,DELL,Information Technology,-0.0815,388.5,2026-08-19,435.17,stop: hit intraday,16,0.11789,117.89,False
+2026-07-29,2026-07-30,MU,Information Technology,-0.0994,793.14,2026-08-24,890.34,stop: hit intraday,18,0.12031,120.31,False
+2026-07-29,2026-07-30,SMCI,Information Technology,-0.0967,26.84,2026-08-24,35.06,stop: hit intraday,18,0.30362,303.62,True
+2026-07-29,2026-07-30,COHR,Information Technology,-0.0875,243.4,2026-08-10,333.63,stop: hit intraday,8,0.36798,367.98,False
+2026-07-29,2026-07-30,AMAT,Information Technology,-0.084,482.48,2026-08-24,481.86,stop: hit intraday,18,-0.00222,-2.22,True
+2026-07-30,2026-07-31,IT,Information Technology,-0.0768,148.59,2026-09-08,178.45,stop: hit intraday,27,0.19853,198.53,True
+2026-07-30,2026-07-31,FDS,Financials,-0.0674,261.21,2026-09-10,275.92,stop: hit intraday,29,0.05819,58.19,False
+2026-07-30,2026-07-31,ADBE,Information Technology,-0.059,244.73,2026-09-08,257.66,stop: hit intraday,27,0.05071,50.71,False
+2026-07-30,2026-07-31,WDAY,Information Technology,-0.0589,155.48,2026-09-28,182.09,stop: hit intraday,41,0.1688,168.8,True
+2026-07-31,2026-08-03,NXPI,Information Technology,-0.0653,222.25,2026-11-04,265.01,open,67,0.19656,196.56,True
+2026-07-31,2026-08-03,MU,Information Technology,-0.059,786.36,2026-08-24,890.34,stop: hit intraday,16,0.12997,129.97,False
+2026-07-31,2026-08-03,SNDK,Information Technology,-0.0509,1159.84,2026-08-06,1173.26,stop: opened below,4,0.00955,9.55,True
+2026-07-31,2026-08-03,TSN,Consumer Staples,-0.0444,55.89,2026-09-03,51.97,stop: hit intraday,24,-0.0633,-63.3,True
+2026-08-03,2026-08-04,EBAY,Consumer Discretionary,-0.0603,106.2,2026-11-04,125.15,open,66,0.18084,180.84,True
+2026-08-03,2026-08-04,MPWR,Information Technology,-0.0573,1402.1,2026-08-31,1254.01,stop: hit intraday,20,-0.10741,-107.41,False
+2026-08-03,2026-08-04,CF,Materials,-0.055,117.0,2026-09-21,122.56,stop: hit intraday,34,0.05079,50.79,True
+2026-08-03,2026-08-04,MCK,Health Care,-0.0339,815.99,2026-11-04,1069.44,open,66,0.31069,310.69,True
+2026-08-04,2026-08-05,CMG,Consumer Discretionary,-0.0972,34.65,2026-09-16,33.9,stop: hit intraday,30,-0.02367,-23.67,False
+2026-08-04,2026-08-05,VST,Utilities,-0.0815,143.9,2026-10-15,146.71,stop: hit intraday,51,0.01922,19.22,True
+2026-08-04,2026-08-05,PLD,Real Estate,-0.0354,139.8,2026-10-16,125.16,stop: hit intraday,52,-0.09939,-99.39,True
+2026-08-04,2026-08-05,HUM,Health Care,-0.033,362.8,2026-11-04,417.42,open,65,0.15184,151.84,False
+2026-08-05,2026-08-06,SBAC,Real Estate,-0.0506,181.63,2026-09-24,168.54,stop: hit intraday,35,-0.06755,-67.55,False
+2026-08-05,2026-08-06,DXCM,Health Care,-0.0492,82.91,2026-10-21,81.26,stop: hit intraday,54,-0.02187,-21.87,False
+2026-08-05,2026-08-06,CCI,Real Estate,-0.0492,75.03,2026-09-25,67.01,stop: hit intraday,36,-0.09566,-95.66,False
+2026-08-05,2026-08-06,ON,Information Technology,-0.0479,75.87,2026-08-24,73.37,stop: hit intraday,13,-0.03483,-34.83,False
+2026-08-06,2026-08-07,DELL,Information Technology,-0.0541,444.95,2026-08-19,435.17,stop: hit intraday,9,-0.02394,-23.94,False
+2026-08-06,2026-08-07,BBY,Consumer Discretionary,-0.053,79.63,2026-08-27,78.5,stop: hit intraday,15,-0.0161,-16.1,True
+2026-08-06,2026-08-07,CHRW,Industrials,-0.0452,146.09,2026-10-05,138.79,stop: hit intraday,41,-0.04775,-47.75,False
+2026-08-06,2026-08-07,MRNA,Health Care,-0.0426,54.79,2026-08-20,150.14,stop: opened below,10,1.7348,1734.8,False
+2026-08-07,2026-08-10,STX,Information Technology,-0.0471,802.95,2026-08-19,875.42,stop: hit intraday,8,0.08807,88.07,False
+2026-08-07,2026-08-10,CDW,Information Technology,-0.0434,135.0,2026-09-25,135.45,stop: hit intraday,34,0.00611,6.11,False
+2026-08-07,2026-08-10,BE,Industrials,-0.042,221.0,2026-08-18,208.7,stop: hit intraday,7,-0.05754,-57.54,False
+2026-08-07,2026-08-10,NWSA,Communication Services,-0.0388,28.33,2026-11-04,30.56,open,62,0.08126,81.26,True
+2026-08-10,2026-08-11,COHR,Information Technology,-0.1424,323.86,2026-08-18,312.96,stop: hit intraday,6,-0.03558,-35.58,True
+2026-08-10,2026-08-11,LITE,Information Technology,-0.0861,815.67,2026-08-19,852.63,stop: hit intraday,7,0.04323,43.23,True
+2026-08-10,2026-08-11,CIEN,Information Technology,-0.0599,388.84,2026-08-20,391.76,stop: hit intraday,8,0.00549,5.49,False
+2026-08-10,2026-08-11,VRSK,Industrials,-0.0555,178.05,2026-09-23,170.57,stop: hit intraday,31,-0.04136,-41.36,False
+2026-08-11,2026-08-12,APP,Communication Services,-0.0599,319.25,2026-09-30,294.13,stop: hit intraday,35,-0.08052,-80.52,False
+2026-08-11,2026-08-12,VTR,Real Estate,-0.0543,86.94,2026-10-05,82.08,stop: hit intraday,38,-0.05216,-52.16,False
+2026-08-11,2026-08-12,DDOG,Information Technology,-0.0537,240.19,2026-08-25,224.8,stop: hit intraday,10,-0.06593,-65.93,False
+2026-08-11,2026-08-12,HON,Industrials,-0.0527,231.0,2026-09-02,206.48,stop: hit intraday,16,-0.10526,-105.26,False
+2026-08-12,2026-08-13,COR,Health Care,-0.059,312.1,2026-09-30,296.75,stop: hit intraday,34,-0.04923,-49.23,False
+2026-08-12,2026-08-13,FSLR,Information Technology,-0.0587,223.51,2026-09-01,198.49,stop: hit intraday,14,-0.1137,-113.7,False
+2026-08-12,2026-08-13,AXON,Industrials,-0.0574,597.14,2026-08-31,568.23,stop: hit intraday,13,-0.05031,-50.31,False
+2026-08-12,2026-08-13,CHTR,Communication Services,-0.0474,150.97,2026-09-09,139.89,stop: hit intraday,19,-0.07522,-75.22,False
+2026-08-13,2026-08-14,LITE,Information Technology,-0.0558,892.68,2026-08-19,852.63,stop: hit intraday,4,-0.04678,-46.78,False
+2026-08-13,2026-08-14,GLW,Information Technology,-0.0532,161.0,2026-08-19,152.42,stop: hit intraday,4,-0.05515,-55.15,False
+2026-08-13,2026-08-14,MOS,Materials,-0.0363,21.74,2026-09-21,23.15,stop: hit intraday,26,0.07174,71.74,False
+2026-08-13,2026-08-14,FCX,Materials,-0.0345,66.72,2026-09-10,70.25,stop: opened below,19,0.0508,50.8,False
+2026-08-14,2026-08-17,AVGO,Information Technology,-0.0594,397.26,2026-09-03,349.59,stop: hit intraday,14,-0.12176,-121.76,True
+2026-08-14,2026-08-17,GDDY,Information Technology,-0.0556,94.05,2026-09-29,92.2,stop: hit intraday,31,-0.02166,-21.66,False
+2026-08-14,2026-08-17,TWLO,Information Technology,-0.045,237.73,2026-10-15,264.2,stop: opened below,43,0.10912,109.12,False
+2026-08-14,2026-08-17,HOOD,Financials,-0.0383,94.97,2026-09-15,109.75,stop: hit intraday,21,0.15336,153.36,False
+2026-08-17,2026-08-18,RDDT,Communication Services,-0.0763,166.1,2026-08-20,146.17,stop: hit intraday,3,-0.12176,-121.76,False
+2026-08-17,2026-08-18,CVNA,Consumer Discretionary,-0.0728,67.62,2026-09-15,66.68,stop: hit intraday,20,-0.01591,-15.91,False
+2026-08-17,2026-08-18,CHTR,Communication Services,-0.0659,147.15,2026-09-09,139.89,stop: hit intraday,16,-0.05121,-51.21,False
+2026-08-17,2026-08-18,STZ,Consumer Staples,-0.0619,131.59,2026-09-08,121.09,stop: hit intraday,15,-0.08165,-81.65,False
+2026-08-18,2026-08-19,COHR,Information Technology,-0.1275,309.11,2026-08-24,272.02,stop: hit intraday,4,-0.12176,-121.76,False
+2026-08-18,2026-08-19,BE,Industrials,-0.0997,212.55,2026-08-24,187.04,stop: hit intraday,4,-0.12176,-121.76,False
+2026-08-18,2026-08-19,LITE,Information Technology,-0.0987,892.2,2026-08-24,785.14,stop: hit intraday,4,-0.12176,-121.76,False
+2026-08-18,2026-08-19,STX,Information Technology,-0.0916,911.4,2026-08-24,802.03,stop: hit intraday,4,-0.12176,-121.76,False
+2026-08-19,2026-08-20,STX,Information Technology,-0.0787,833.68,2026-09-14,778.12,stop: opened below,17,-0.06851,-68.51,False
+2026-08-19,2026-08-20,STLD,Materials,-0.0753,226.87,2026-11-04,240.12,open,54,0.05988,59.88,True
+2026-08-19,2026-08-20,WDC,Information Technology,-0.0687,463.39,2026-09-14,417.32,stop: opened below,17,-0.10093,-100.93,False
+2026-08-19,2026-08-20,DELL,Information Technology,-0.0664,439.24,2026-10-14,517.79,stop: hit intraday,39,0.17648,176.48,True
+2026-08-20,2026-08-21,ISRG,Health Care,-0.0584,375.13,2026-11-04,482.1,open,53,0.28387,283.87,True
+2026-08-20,2026-08-21,CRWD,Information Technology,-0.056,190.94,2026-09-02,203.28,stop: hit intraday,9,0.0625,62.5,True
+2026-08-20,2026-08-21,STLD,Materials,-0.052,225.25,2026-11-04,240.12,open,53,0.0675,67.5,True
+2026-08-20,2026-08-21,BSX,Health Care,-0.0508,49.22,2026-09-10,44.13,stop: opened below,14,-0.10521,-105.21,False
+2026-08-21,2026-08-24,MRVL,Information Technology,-0.0557,229.22,2026-08-28,215.7,stop: hit intraday,5,-0.06088,-60.88,True
+2026-08-21,2026-08-24,SRE,Utilities,-0.0514,83.08,2026-11-04,82.9,open,52,0.00521,5.21,False
+2026-08-21,2026-08-24,EIX,Utilities,-0.0411,71.74,2026-08-31,55.71,stop: opened below,6,-0.225,-225.0,False
+2026-08-21,2026-08-24,AEP,Utilities,-0.0379,121.11,2026-11-04,129.24,open,52,0.06606,66.06,True
+2026-08-24,2026-08-25,P,Information Technology,-0.0747,102.7,2026-08-27,95.83,stop: hit intraday,3,-0.06874,-68.74,True
+2026-08-24,2026-08-25,STX,Information Technology,-0.0651,814.5,2026-09-14,778.12,stop: opened below,14,-0.04658,-46.58,False
+2026-08-24,2026-08-25,SNDK,Information Technology,-0.0645,1533.69,2026-09-14,1521.53,stop: opened below,14,-0.00991,-9.91,False
+2026-08-24,2026-08-25,CIEN,Information Technology,-0.0602,386.33,2026-09-02,355.55,stop: hit intraday,7,-0.08152,-81.52,False
+2026-08-25,2026-08-26,ALB,Materials,-0.0589,132.57,2026-09-11,120.81,stop: hit intraday,12,-0.08744,-87.44,False
+2026-08-25,2026-08-26,DOW,Materials,-0.0407,30.01,2026-09-29,27.5,stop: opened below,24,-0.07486,-74.86,False
+2026-08-25,2026-08-26,LYB,Materials,-0.0406,61.91,2026-09-25,58.58,stop: hit intraday,22,-0.05565,-55.65,False
+2026-08-25,2026-08-26,TGT,Consumer Staples,-0.0378,163.68,2026-10-28,146.02,stop: hit intraday,45,-0.10969,-109.69,False
+2026-08-26,2026-08-27,MRNA,Health Care,-0.0577,144.18,2026-09-09,135.76,stop: hit intraday,9,-0.0603,-60.3,False
+2026-08-26,2026-08-27,RDDT,Communication Services,-0.0436,155.76,2026-09-29,142.89,stop: hit intraday,23,-0.08443,-84.43,False
+2026-08-26,2026-08-27,GDDY,Information Technology,-0.0426,96.31,2026-09-29,92.2,stop: hit intraday,23,-0.04461,-44.61,False
+2026-08-26,2026-08-27,LLY,Health Care,-0.0359,1182.25,2026-11-04,1417.99,open,49,0.1982,198.2,True
+2026-08-27,2026-08-28,TPR,Consumer Discretionary,-0.0538,124.51,2026-09-22,110.01,stop: hit intraday,17,-0.11485,-114.85,False
+2026-08-27,2026-08-28,MRNA,Health Care,-0.046,137.19,2026-09-09,135.76,stop: hit intraday,8,-0.01242,-12.42,False
+2026-08-27,2026-08-28,GNRC,Industrials,-0.0452,198.65,2026-09-14,174.81,stop: hit intraday,11,-0.12176,-121.76,False
+2026-08-27,2026-08-28,LVS,Consumer Discretionary,-0.043,45.0,2026-09-21,39.64,stop: hit intraday,16,-0.12098,-120.98,False
+2026-08-28,2026-08-31,GNRC,Industrials,-0.0684,184.09,2026-10-14,197.95,stop: hit intraday,32,0.07312,73.12,False
+2026-08-28,2026-08-31,LITE,Information Technology,-0.0639,894.58,2026-09-14,860.88,stop: opened below,10,-0.0396,-39.6,False
+2026-08-28,2026-08-31,COIN,Financials,-0.0633,178.51,2026-09-15,169.58,stop: hit intraday,11,-0.05195,-51.95,False
+2026-08-28,2026-08-31,P,Information Technology,-0.0588,94.57,2026-10-15,134.74,stop: opened below,33,0.42186,421.86,False
+2026-08-31,2026-09-01,AON,Financials,-0.0953,321.42,2026-09-21,291.17,stop: hit intraday,14,-0.09591,-95.91,False
+2026-08-31,2026-09-01,HWM,Industrials,-0.0751,249.46,2026-09-09,229.23,stop: hit intraday,6,-0.08293,-82.93,False
+2026-08-31,2026-09-01,TTWO,Communication Services,-0.0667,217.01,2026-10-28,196.16,stop: hit intraday,41,-0.09788,-97.88,False
+2026-08-31,2026-09-01,AXON,Industrials,-0.0569,557.49,2026-09-09,490.59,stop: hit intraday,6,-0.12176,-121.76,False
+2026-09-01,2026-09-02,AXON,Industrials,-0.0852,516.65,2026-09-11,473.57,stop: hit intraday,7,-0.08521,-85.21,False
+2026-09-01,2026-09-02,CDNS,Information Technology,-0.076,312.62,2026-09-15,275.11,stop: hit intraday,9,-0.12176,-121.76,False
+2026-09-01,2026-09-02,IBKR,Financials,-0.0701,90.0,2026-10-15,82.02,stop: hit intraday,31,-0.09044,-90.44,True
+2026-09-01,2026-09-02,CRWD,Information Technology,-0.069,214.22,2026-10-15,243.11,stop: opened below,31,0.13259,132.59,False
+2026-09-02,2026-09-03,DDOG,Information Technology,-0.0653,220.0,2026-10-15,258.07,stop: hit intraday,30,0.1707,170.7,False
+2026-09-02,2026-09-03,EIX,Utilities,-0.0614,55.42,2026-09-28,52.21,stop: hit intraday,17,-0.0598,-59.8,False
+2026-09-02,2026-09-03,PLTR,Information Technology,-0.0581,172.5,2026-10-30,183.96,stop: hit intraday,41,0.06433,64.33,False
+2026-09-02,2026-09-03,CRWD,Information Technology,-0.0542,208.35,2026-10-15,243.11,stop: opened below,30,0.16447,164.47,False
+2026-09-03,2026-09-04,TSN,Consumer Staples,-0.0726,51.1,2026-11-04,60.03,open,43,0.17358,173.58,False
+2026-09-03,2026-09-04,CHTR,Communication Services,-0.0477,150.7,2026-09-09,133.75,stop: hit intraday,3,-0.11424,-114.24,False
+2026-09-03,2026-09-04,ALB,Materials,-0.0406,126.9,2026-09-15,113.64,stop: hit intraday,7,-0.10328,-103.28,False
+2026-09-03,2026-09-04,GIS,Consumer Staples,-0.0325,39.0,2026-09-25,34.32,stop: hit intraday,15,-0.12176,-121.76,True
+2026-09-04,2026-09-08,ADSK,Information Technology,-0.0826,214.63,2026-09-29,201.46,stop: hit intraday,16,-0.06325,-63.25,False
+2026-09-04,2026-09-08,ADBE,Information Technology,-0.0673,262.81,2026-09-28,229.72,stop: opened below,15,-0.12766,-127.66,True
+2026-09-04,2026-09-08,PTC,Information Technology,-0.0604,139.84,2026-11-04,195.18,open,42,0.39434,394.34,True
+2026-09-04,2026-09-08,TSLA,Consumer Discretionary,-0.0592,357.1,2026-11-04,385.19,open,42,0.07758,77.58,True
+2026-09-08,2026-09-09,HWM,Industrials,-0.107,232.71,2026-10-21,204.78,stop: hit intraday,31,-0.12176,-121.76,False
+2026-09-08,2026-09-09,AMGN,Health Care,-0.1008,393.07,2026-11-04,478.48,open,41,0.21607,216.07,True
+2026-09-08,2026-09-09,SYK,Health Care,-0.0881,271.84,2026-11-04,339.65,open,41,0.25215,252.15,True
+2026-09-08,2026-09-09,GDDY,Information Technology,-0.0832,92.66,2026-09-29,92.2,stop: hit intraday,15,-0.00698,-6.98,False
+2026-09-09,2026-09-10,VRT,Industrials,-0.0961,259.1,2026-09-14,227.95,stop: hit intraday,3,-0.12176,-121.76,False
+2026-09-09,2026-09-10,CHTR,Communication Services,-0.0813,133.98,2026-09-18,128.28,stop: hit intraday,7,-0.04448,-44.48,False
+2026-09-09,2026-09-10,CMCSA,Communication Services,-0.0661,24.6,2026-09-23,22.18,stop: hit intraday,10,-0.10034,-100.34,False
+2026-09-09,2026-09-10,IP,Materials,-0.0507,34.74,2026-10-05,31.42,stop: hit intraday,18,-0.09724,-97.24,False
+2026-09-10,2026-09-11,BKR,Energy,-0.0666,59.99,2026-10-22,52.79,stop: hit intraday,30,-0.12176,-121.76,False
+2026-09-10,2026-09-11,FCX,Materials,-0.0659,71.46,2026-10-22,65.29,stop: hit intraday,30,-0.08624,-86.24,False
+2026-09-10,2026-09-11,HPE,Information Technology,-0.0625,56.37,2026-10-14,64.64,stop: hit intraday,24,0.1474,147.4,False
+2026-09-10,2026-09-11,FDS,Financials,-0.0582,264.9,2026-11-04,342.19,open,39,0.29048,290.48,True
+2026-09-11,2026-09-14,STX,Information Technology,-0.0373,778.12,2026-10-02,822.56,stop: opened below,15,0.05584,55.84,False
+2026-09-11,2026-09-14,SNDK,Information Technology,-0.035,1521.53,2026-09-28,1660.6,stop: hit intraday,11,0.08922,89.22,False
+2026-09-11,2026-09-14,ALB,Materials,-0.0343,116.06,2026-10-01,102.78,stop: hit intraday,14,-0.11616,-116.16,False
+2026-09-11,2026-09-14,WDC,Information Technology,-0.0298,417.32,2026-10-02,416.85,stop: hit intraday,15,-0.00313,-3.13,False
+2026-09-14,2026-09-15,COHR,Information Technology,-0.1273,271.15,2026-09-28,282.94,stop: hit intraday,10,0.04139,41.39,False
+2026-09-14,2026-09-15,SWKS,Information Technology,-0.1029,80.54,2026-10-06,80.48,stop: hit intraday,16,-0.00279,-2.79,False
+2026-09-14,2026-09-15,LITE,Information Technology,-0.0992,842.71,2026-10-12,997.39,stop: hit intraday,20,0.18119,181.19,False
+2026-09-14,2026-09-15,GEV,Industrials,-0.0862,889.5,2026-10-15,905.0,stop: opened below,23,0.01539,15.39,False
+2026-09-15,2026-09-16,COIN,Financials,-0.101,172.5,2026-10-08,175.03,stop: opened below,17,0.01264,12.64,False
+2026-09-15,2026-09-16,AXON,Industrials,-0.0981,441.33,2026-10-01,412.21,stop: hit intraday,12,-0.06785,-67.85,False
+2026-09-15,2026-09-16,JKHY,Financials,-0.0637,155.28,2026-11-04,179.16,open,36,0.15263,152.63,True
+2026-09-15,2026-09-16,CMG,Consumer Discretionary,-0.0594,35.24,2026-10-05,31.01,stop: hit intraday,14,-0.12176,-121.76,False
+2026-09-16,2026-09-17,ON,Information Technology,-0.0902,68.13,2026-10-09,75.95,stop: hit intraday,17,0.11259,112.59,False
+2026-09-16,2026-09-17,FANG,Energy,-0.0803,191.08,2026-11-04,186.63,stop: hit intraday,35,-0.02524,-25.24,True
+2026-09-16,2026-09-17,OXY,Energy,-0.0655,58.67,2026-11-04,57.33,open,35,-0.02382,-23.82,False
+2026-09-16,2026-09-17,COP,Energy,-0.0615,131.3,2026-11-04,135.55,stop: hit intraday,35,0.03028,30.28,False
+2026-09-17,2026-09-18,TMUS,Communication Services,-0.0557,164.76,2026-10-09,150.75,stop: hit intraday,16,-0.08684,-86.84,False
+2026-09-17,2026-09-18,DVA,Health Care,-0.0556,183.96,2026-11-04,192.66,open,34,0.04625,46.25,True
+2026-09-17,2026-09-18,CPRT,Industrials,-0.0376,29.64,2026-10-14,26.08,stop: hit intraday,19,-0.12176,-121.76,False
+2026-09-17,2026-09-18,CSGP,Real Estate,-0.0349,29.3,2026-10-28,30.0,stop: opened below,29,0.02184,21.84,True
+2026-09-18,2026-09-21,NUE,Materials,-0.0632,248.39,2026-11-04,267.91,open,33,0.08007,80.07,True
+2026-09-18,2026-09-21,QCOM,Information Technology,-0.0582,180.61,2026-10-07,177.73,stop: hit intraday,13,-0.01789,-17.89,False
+2026-09-18,2026-09-21,ARE,Real Estate,-0.054,53.39,2026-10-01,46.68,stop: hit intraday,9,-0.11419,-114.19,False
+2026-09-18,2026-09-21,BE,Industrials,-0.0539,270.0,2026-10-12,260.29,stop: hit intraday,16,-0.0379,-37.9,False
+2026-09-21,2026-09-22,MPC,Energy,-0.053,391.68,2026-10-29,426.73,stop: hit intraday,28,0.08731,87.31,False
+2026-09-21,2026-09-22,VLO,Energy,-0.0484,384.9,2026-10-27,404.61,stop: hit intraday,26,0.0491,49.1,True
+2026-09-21,2026-09-22,UPS,Industrials,-0.0435,95.86,2026-11-04,114.31,open,32,0.19128,191.28,True
+2026-09-21,2026-09-22,HPQ,Information Technology,-0.0422,33.23,2026-10-12,29.24,stop: hit intraday,15,-0.12176,-121.76,False
+2026-09-22,2026-09-23,GEN,Information Technology,-0.0638,27.31,2026-09-24,24.03,stop: hit intraday,2,-0.12176,-121.76,False
+2026-09-22,2026-09-23,GDDY,Information Technology,-0.0623,98.16,2026-10-29,100.01,stop: opened below,27,0.01681,16.81,True
+2026-09-22,2026-09-23,RCL,Consumer Discretionary,-0.0614,236.14,2026-11-04,333.15,open,31,0.40941,409.41,True
+2026-09-22,2026-09-23,SCHW,Financials,-0.0611,100.0,2026-10-30,88.0,stop: hit intraday,28,-0.12176,-121.76,True
+2026-09-23,2026-09-24,EXPE,Consumer Discretionary,-0.0772,260.55,2026-11-04,315.88,open,30,0.21115,211.15,True
+2026-09-23,2026-09-24,ABNB,Consumer Discretionary,-0.0756,150.7,2026-11-04,176.37,open,30,0.16917,169.17,False
+2026-09-23,2026-09-24,BKNG,Consumer Discretionary,-0.0507,157.05,2026-11-04,170.97,open,30,0.08755,87.55,True
+2026-09-23,2026-09-24,MCD,Consumer Discretionary,-0.0481,239.7,2026-11-04,280.22,open,30,0.16788,167.88,True
+2026-09-24,2026-09-25,GEN,Information Technology,-0.1205,22.91,2026-11-04,30.89,open,29,0.34697,346.97,True
+2026-09-24,2026-09-25,FSLR,Information Technology,-0.1032,174.09,2026-11-04,194.51,open,29,0.11618,116.18,True
+2026-09-24,2026-09-25,AKAM,Information Technology,-0.0678,125.23,2026-09-28,110.2,stop: hit intraday,2,-0.12176,-121.76,False
+2026-09-24,2026-09-25,ROL,Industrials,-0.0643,30.01,2026-11-04,38.38,open,29,0.27763,277.63,True
+2026-09-25,2026-09-28,TWLO,Information Technology,-0.0796,267.85,2026-10-15,264.2,stop: opened below,14,-0.0156,-15.6,False
+2026-09-25,2026-09-28,GEN,Information Technology,-0.0629,21.49,2026-11-04,30.89,open,28,0.43598,435.98,True
+2026-09-25,2026-09-28,CHTR,Communication Services,-0.0395,112.75,2026-11-04,120.25,open,28,0.06545,65.45,False
+2026-09-25,2026-09-28,PANW,Information Technology,-0.0389,370.61,2026-10-15,367.05,stop: opened below,14,-0.01159,-11.59,False
+2026-09-28,2026-09-29,BE,Industrials,-0.0895,272.82,2026-10-12,260.29,stop: hit intraday,10,-0.04785,-47.85,False
+2026-09-28,2026-09-29,DASH,Consumer Discretionary,-0.0774,180.23,2026-10-26,172.92,stop: hit intraday,20,-0.04248,-42.48,False
+2026-09-28,2026-09-29,QCOM,Information Technology,-0.0717,189.48,2026-10-30,166.74,stop: hit intraday,24,-0.12176,-121.76,False
+2026-09-28,2026-09-29,CVNA,Consumer Discretionary,-0.0706,62.53,2026-10-26,56.21,stop: hit intraday,20,-0.1028,-102.8,False
+2026-09-29,2026-09-30,LULU,Consumer Discretionary,-0.0369,96.89,2026-11-04,112.06,open,26,0.15541,155.41,False
+2026-09-29,2026-09-30,STLD,Materials,-0.0369,221.87,2026-11-04,240.12,open,26,0.08117,81.17,True
+2026-09-29,2026-09-30,EFX,Industrials,-0.034,141.0,2026-11-04,192.21,open,26,0.36183,361.83,True
+2026-09-29,2026-09-30,NUE,Materials,-0.0337,237.52,2026-11-04,267.91,open,26,0.12682,126.82,True
+2026-09-30,2026-10-01,APP,Communication Services,-0.0498,291.0,2026-10-26,256.08,stop: hit intraday,18,-0.12176,-121.76,False
+2026-09-30,2026-10-01,GIS,Consumer Staples,-0.0491,32.17,2026-11-04,35.85,open,25,0.13444,134.44,False
+2026-09-30,2026-10-01,BE,Industrials,-0.049,284.62,2026-10-12,260.29,stop: hit intraday,8,-0.08732,-87.32,False
+2026-09-30,2026-10-01,GM,Consumer Discretionary,-0.0431,76.5,2026-11-04,92.43,open,25,0.20703,207.03,True
+2026-10-01,2026-10-02,DHR,Health Care,-0.0442,213.4,2026-11-04,234.93,open,24,0.09979,99.79,True
+2026-10-01,2026-10-02,INCY,Health Care,-0.0347,116.76,2026-11-04,122.85,open,24,0.05111,51.11,True
+2026-10-01,2026-10-02,DIS,Communication Services,-0.034,101.5,2026-11-04,118.95,open,24,0.17075,170.75,False
+2026-10-01,2026-10-02,AMGN,Health Care,-0.0338,410.16,2026-11-04,478.48,open,24,0.1654,165.4,True
+2026-10-02,2026-10-05,APP,Communication Services,-0.0465,270.61,2026-10-30,242.08,stop: opened below,20,-0.10723,-107.23,False
+2026-10-02,2026-10-05,CTSH,Information Technology,-0.0389,58.19,2026-10-29,62.35,stop: opened below,19,0.06935,69.35,True
+2026-10-02,2026-10-05,SNDK,Information Technology,-0.0379,1725.0,2026-10-12,1518.0,stop: hit intraday,6,-0.12176,-121.76,False
+2026-10-02,2026-10-05,COIN,Financials,-0.0332,186.91,2026-10-23,165.63,stop: hit intraday,15,-0.1156,-115.6,False
+2026-10-05,2026-10-06,LEN,Consumer Discretionary,-0.0673,74.95,2026-11-04,92.19,open,22,0.23678,236.78,False
+2026-10-05,2026-10-06,CMG,Consumer Discretionary,-0.0467,30.76,2026-10-21,28.76,stop: hit intraday,12,-0.06694,-66.94,False
+2026-10-05,2026-10-06,BMY,Health Care,-0.0383,58.94,2026-11-04,64.19,open,22,0.08799,87.99,True
+2026-10-05,2026-10-06,MRK,Health Care,-0.033,140.13,2026-11-04,150.36,open,22,0.07193,71.93,True
+2026-10-06,2026-10-07,STX,Information Technology,-0.0918,784.25,2026-10-13,693.93,stop: opened below,5,-0.11694,-116.94,False
+2026-10-06,2026-10-07,MRNA,Health Care,-0.0775,183.65,2026-10-22,216.31,stop: hit intraday,12,0.17553,175.53,False
+2026-10-06,2026-10-07,WDC,Information Technology,-0.0693,401.08,2026-10-15,342.68,stop: opened below,7,-0.14731,-147.31,False
+2026-10-06,2026-10-07,ILMN,Health Care,-0.0686,271.21,2026-10-30,255.25,stop: hit intraday,18,-0.06072,-60.72,True
+2026-10-07,2026-10-08,CAT,Industrials,-0.0575,808.7,2026-10-15,711.66,stop: hit intraday,6,-0.12176,-121.76,False
+2026-10-07,2026-10-08,CRWD,Information Technology,-0.0481,264.62,2026-10-15,242.04,stop: hit intraday,6,-0.08719,-87.19,False
+2026-10-07,2026-10-08,ALLE,Industrials,-0.047,146.71,2026-11-04,192.69,open,20,0.31209,312.09,True
+2026-10-07,2026-10-08,ON,Information Technology,-0.044,80.47,2026-10-30,70.81,stop: hit intraday,17,-0.12176,-121.76,False
+2026-10-08,2026-10-09,COHR,Information Technology,-0.0963,318.5,2026-10-13,277.9,stop: opened below,3,-0.12922,-129.22,False
+2026-10-08,2026-10-09,GLW,Information Technology,-0.0638,156.47,2026-10-15,135.0,stop: opened below,5,-0.13894,-138.94,False
+2026-10-08,2026-10-09,VST,Utilities,-0.0635,157.25,2026-10-22,142.88,stop: hit intraday,10,-0.09322,-93.22,False
+2026-10-08,2026-10-09,BE,Industrials,-0.0634,275.85,2026-10-14,246.84,stop: hit intraday,4,-0.10695,-106.95,False
+2026-10-09,2026-10-12,VZ,Communication Services,-0.0875,41.87,2026-11-04,46.17,open,18,0.1016,101.6,True
+2026-10-09,2026-10-12,HPQ,Information Technology,-0.0691,30.21,2026-10-30,27.3,stop: opened below,15,-0.09813,-98.13,False
+2026-10-09,2026-10-12,CHTR,Communication Services,-0.0574,104.0,2026-11-04,120.25,open,18,0.15509,155.09,False
+2026-10-09,2026-10-12,FICO,Information Technology,-0.0563,674.0,2026-10-26,724.48,stop: hit intraday,11,0.07274,72.74,False
+2026-10-12,2026-10-13,CIEN,Information Technology,-0.0995,393.33,2026-10-15,342.5,stop: opened below,3,-0.13097,-130.97,False
+2026-10-12,2026-10-13,LITE,Information Technology,-0.0978,971.78,2026-10-15,845.0,stop: opened below,3,-0.1322,-132.2,False
+2026-10-12,2026-10-13,COHR,Information Technology,-0.0787,277.9,2026-10-15,249.84,stop: opened below,3,-0.10277,-102.77,False
+2026-10-12,2026-10-13,CVNA,Consumer Discretionary,-0.0662,59.21,2026-11-04,77.56,open,17,0.3086,308.6,True
+2026-10-13,2026-10-14,AMAT,Information Technology,-0.0669,454.14,2026-10-20,399.64,stop: hit intraday,5,-0.12176,-121.76,False
+2026-10-13,2026-10-14,FLEX,Information Technology,-0.0542,108.26,2026-10-15,95.27,stop: hit intraday,2,-0.12176,-121.76,False
+2026-10-13,2026-10-14,KKR,Financials,-0.0475,86.0,2026-11-04,101.34,open,16,0.17719,177.19,False
+2026-10-13,2026-10-14,VRTX,Health Care,-0.043,490.45,2026-11-04,549.04,open,16,0.11834,118.34,True
+2026-10-14,2026-10-15,DELL,Information Technology,-0.1127,471.21,2026-10-30,419.03,stop: opened below,12,-0.11128,-111.28,False
+2026-10-14,2026-10-15,CIEN,Information Technology,-0.1019,342.5,2026-10-23,317.98,stop: hit intraday,7,-0.07345,-73.45,False
+2026-10-14,2026-10-15,P,Information Technology,-0.0986,134.74,2026-11-02,122.08,stop: hit intraday,13,-0.09572,-95.72,False
+2026-10-14,2026-10-15,FLEX,Information Technology,-0.095,96.1,2026-10-20,86.33,stop: opened below,4,-0.10346,-103.46,False
+2026-10-15,2026-10-16,HPE,Information Technology,-0.071,57.65,2026-10-30,53.54,stop: hit intraday,11,-0.07324,-73.24,False
+2026-10-15,2026-10-16,DELL,Information Technology,-0.068,473.37,2026-10-30,419.03,stop: opened below,11,-0.11534,-115.34,False
+2026-10-15,2026-10-16,P,Information Technology,-0.0572,132.0,2026-11-02,122.08,stop: hit intraday,12,-0.07698,-76.98,False
+2026-10-15,2026-10-16,ANET,Information Technology,-0.0504,184.04,2026-11-02,164.56,stop: hit intraday,12,-0.10761,-107.61,False
+2026-10-16,2026-10-19,TWLO,Information Technology,-0.1062,249.03,2026-10-29,234.68,stop: hit intraday,9,-0.05951,-59.51,True
+2026-10-16,2026-10-19,SMCI,Information Technology,-0.0986,33.0,2026-10-30,31.51,stop: hit intraday,10,-0.04698,-46.98,False
+2026-10-16,2026-10-19,FLEX,Information Technology,-0.0816,92.62,2026-10-22,81.51,stop: hit intraday,4,-0.12176,-121.76,False
+2026-10-16,2026-10-19,MRNA,Health Care,-0.0782,217.27,2026-10-22,216.31,stop: hit intraday,4,-0.0064,-6.4,False
+2026-10-19,2026-10-20,NRG,Utilities,-0.0421,99.28,2026-11-04,87.39,stop: hit intraday,12,-0.11716,-117.16,False
+2026-10-19,2026-10-20,ES,Utilities,-0.0355,64.87,2026-11-04,70.46,open,12,0.08509,85.09,True
+2026-10-19,2026-10-20,HONA,Industrials,-0.0333,162.75,2026-10-29,155.79,stop: hit intraday,8,-0.0447,-44.7,True
+2026-10-19,2026-10-20,FLEX,Information Technology,-0.0323,86.33,2026-10-22,76.99,stop: hit intraday,3,-0.10996,-109.96,False
+2026-10-20,2026-10-21,DVA,Health Care,-0.0623,171.78,2026-11-04,192.66,open,11,0.12043,120.43,True
+2026-10-20,2026-10-21,HWM,Industrials,-0.0382,212.21,2026-10-23,186.74,stop: hit intraday,3,-0.12176,-121.76,False
+2026-10-20,2026-10-21,PWR,Industrials,-0.0362,604.6,2026-10-23,532.05,stop: hit intraday,3,-0.12176,-121.76,False
+2026-10-20,2026-10-21,LRCX,Information Technology,-0.0321,270.9,2026-10-22,234.5,stop: opened below,2,-0.1361,-136.1,True
+2026-10-21,2026-10-22,DXCM,Health Care,-0.0639,79.9,2026-11-04,88.48,open,10,0.10628,106.28,True
+2026-10-21,2026-10-22,CMG,Consumer Discretionary,-0.0516,28.09,2026-11-04,35.2,open,10,0.25186,251.86,True
+2026-10-21,2026-10-22,EXPE,Consumer Discretionary,-0.0503,281.79,2026-11-04,315.88,open,10,0.11986,119.86,True
+2026-10-21,2026-10-22,SBAC,Real Estate,-0.0418,172.74,2026-11-04,195.48,open,10,0.13051,130.51,True
+2026-10-22,2026-10-23,MRNA,Health Care,-0.1757,196.69,2026-11-04,258.38,open,9,0.31233,312.33,False
+2026-10-22,2026-10-23,COHR,Information Technology,-0.1251,207.85,2026-10-30,210.84,stop: hit intraday,6,0.01235,12.35,False
+2026-10-22,2026-10-23,LITE,Information Technology,-0.1154,760.0,2026-10-30,809.19,stop: hit intraday,6,0.06259,62.59,False
+2026-10-22,2026-10-23,FLEX,Information Technology,-0.1108,76.22,2026-11-04,81.9,stop: hit intraday,9,0.07239,72.39,True
+2026-10-23,2026-10-26,GL,Financials,-0.0809,155.62,2026-11-04,161.72,open,8,0.03816,38.16,False
+2026-10-23,2026-10-26,T,Communication Services,-0.0796,20.7,2026-11-04,21.83,open,8,0.05354,53.54,False
+2026-10-23,2026-10-26,TMUS,Communication Services,-0.0771,145.81,2026-11-04,159.17,open,8,0.09054,90.54,True
+2026-10-23,2026-10-26,MGM,Consumer Discretionary,-0.0488,28.3,2026-11-04,32.82,open,8,0.15856,158.56,True
+2026-10-26,2026-10-27,DASH,Consumer Discretionary,-0.061,168.77,2026-11-04,198.59,open,7,0.17551,175.51,True
+2026-10-26,2026-10-27,CHTR,Communication Services,-0.0592,102.01,2026-11-04,120.25,open,7,0.17763,177.63,False
+2026-10-26,2026-10-27,RDDT,Communication Services,-0.0402,138.39,2026-10-30,100.25,stop: opened below,4,-0.27705,-277.05,True
+2026-10-26,2026-10-27,PYPL,Financials,-0.0356,55.41,2026-11-04,60.2,open,7,0.08536,85.36,True
+2026-10-27,2026-10-28,VLO,Energy,-0.0924,390.33,2026-11-04,351.7,stop: hit intraday,6,-0.10077,-100.77,False
+2026-10-27,2026-10-28,MPC,Energy,-0.0736,438.97,2026-11-04,391.36,stop: hit intraday,6,-0.11024,-110.24,True
+2026-10-27,2026-10-28,PSX,Energy,-0.0703,270.53,2026-11-04,259.63,open,6,-0.04125,-41.25,True
+2026-10-27,2026-10-28,PAYX,Industrials,-0.0557,108.2,2026-11-04,118.71,open,6,0.09604,96.04,False
+2026-10-28,2026-10-29,ON,Information Technology,-0.0386,74.68,2026-11-04,71.24,open,5,-0.04702,-47.02,True
+2026-10-28,2026-10-29,JBHT,Industrials,-0.0375,226.06,2026-11-04,227.06,open,5,0.00342,3.42,False
+2026-10-28,2026-10-29,HPQ,Information Technology,-0.0337,32.65,2026-10-30,27.3,stop: opened below,2,-0.16553,-165.53,False
+2026-10-28,2026-10-29,MKC,Consumer Staples,-0.0299,46.42,2026-11-04,50.48,open,5,0.08638,86.38,False
+2026-10-29,2026-10-30,TER,Information Technology,-0.0543,277.54,2026-11-04,250.99,open,4,-0.09657,-96.57,False
+2026-10-29,2026-10-30,MU,Information Technology,-0.0498,884.0,2026-11-04,795.23,open,4,-0.10132,-101.32,False
+2026-10-29,2026-10-30,CRM,Information Technology,-0.0463,231.34,2026-11-04,227.11,open,4,-0.01927,-19.27,False
+2026-10-29,2026-10-30,DDOG,Information Technology,-0.0451,253.62,2026-11-02,223.18,stop: hit intraday,2,-0.12176,-121.76,False
+2026-10-30,2026-11-02,DDOG,Information Technology,-0.115,235.51,2026-11-04,199.74,stop: opened below,3,-0.15358,-153.58,True
+2026-10-30,2026-11-02,QCOM,Information Technology,-0.1112,166.44,2026-11-04,173.19,open,3,0.03952,39.52,True
+2026-10-30,2026-11-02,APP,Communication Services,-0.1036,234.52,2026-11-04,271.75,open,3,0.15757,157.57,True
+2026-10-30,2026-11-02,MRVL,Information Technology,-0.1005,191.56,2026-11-02,168.57,stop: hit intraday,1,-0.12176,-121.76,False
+2026-11-02,2026-11-03,MRVL,Information Technology,-0.1272,174.28,2026-11-04,159.8,open,2,-0.084,-84.0,False
+2026-11-02,2026-11-03,CIEN,Information Technology,-0.1134,293.2,2026-11-04,272.24,open,2,-0.07242,-72.42,False
+2026-11-02,2026-11-03,P,Information Technology,-0.104,117.33,2026-11-04,111.77,open,2,-0.04834,-48.34,False
+2026-11-02,2026-11-03,INTC,Information Technology,-0.088,61.33,2026-11-04,58.27,open,2,-0.05084,-50.84,False
+2026-11-03,2026-11-04,LEN,Consumer Discretionary,-0.0542,90.2,2026-11-04,92.19,open,1,0.02104,21.04,False
+2026-11-03,2026-11-04,DHI,Consumer Discretionary,-0.0503,152.44,2026-11-04,156.99,open,1,0.02882,28.82,False
+2026-11-03,2026-11-04,EXPE,Consumer Discretionary,-0.0442,295.26,2026-11-04,315.88,open,1,0.06877,68.77,True
+2026-11-03,2026-11-04,AMCR,Materials,-0.042,48.21,2026-11-04,48.5,open,1,0.00501,5.01,True
